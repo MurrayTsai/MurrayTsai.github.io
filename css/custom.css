@@ -28,3 +28,67 @@
   background: transparent !important;
 }
 
+
+
+/* =========================
+   Butterfly 双模式透明背景
+   白天模式 + 黑夜模式
+   ========================= */
+
+
+/* ---------- 白天模式 ---------- */
+
+/* 文章页背景 */
+.layout_post > #post {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 所有页面背景 */
+#aside-content .card-widget,
+#aside_content .card-widget,
+#recent-posts > .recent-post-item,
+.layout_page > div:first-child:not(.recent-posts),
+.layout_post > #page,
+.layout_post > #post,
+.read-mode .layout_post > #post {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 侧边栏卡片背景 */
+:root {
+  --card-bg: rgba(255, 255, 255, 0.7);
+}
+
+/* 页脚透明 */
+#footer {
+  background: rgba(255, 255, 255, 0) !important;
+}
+
+
+/* ---------- 黑夜模式 ---------- */
+
+/* 黑夜模式文章页背景 */
+[data-theme="dark"] .layout_post > #post {
+  background: rgba(24, 24, 24, 0.72) !important;
+}
+
+/* 黑夜模式所有页面背景 */
+[data-theme="dark"] #aside-content .card-widget,
+[data-theme="dark"] #aside_content .card-widget,
+[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] .layout_page > div:first-child:not(.recent-posts),
+[data-theme="dark"] .layout_post > #page,
+[data-theme="dark"] .layout_post > #post,
+[data-theme="dark"] .read-mode .layout_post > #post {
+  background: rgba(24, 24, 24, 0.72) !important;
+}
+
+/* 黑夜模式侧边栏卡片背景 */
+[data-theme="dark"] {
+  --card-bg: rgba(24, 24, 24, 0.72);
+}
+
+/* 黑夜模式页脚透明 */
+[data-theme="dark"] #footer {
+  background: rgba(0, 0, 0, 0) !important;
+}

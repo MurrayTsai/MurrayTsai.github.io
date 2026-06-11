@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS简介</title>
+    <url>/2022/12/12/CSS%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><h2 id="CSS概念"><a href="#CSS概念" class="headerlink" title="CSS概念"></a>CSS概念</h2><p>CSS（Cascading Style Sheets）是层叠样式表，简称样式表。</p>
+<p>CSS 文件后缀为 <code>.css</code>。</p>
+<p>CSS 用于 HTML 文档中元素样式的定义。</p>
+<hr>
+<h2 id="为什么需要CSS"><a href="#为什么需要CSS" class="headerlink" title="为什么需要CSS"></a>为什么需要CSS</h2><p>使用 CSS 的目的就是让网页具有美观、一致的页面效果。</p>
+<hr>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>CSS 规则由两个主要部分构成：选择器，以及一条或多条声明。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">color 和 font-size 为属性。</span><br><span class="line">blue 和 12px 为值。</span><br></pre></td></tr></table></figure>
+
+<p>选择器通常是你需要改变样式的 HTML 元素。</p>
+<p>每条声明由一个属性和一个值组成。</p>
+<p>属性（property）是你希望设置的样式属性（style attribute）。每一个属性有一个值。属性和值之间用冒号分开。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h1><h2 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h2><p>要使用内联样式，需要在相关的标签内使用 <code>style</code> 属性。<code>style</code> 属性可以包含任何 CSS 属性。</p>
+<p>内联样式缺乏整体性和规划性，不利于维护，维护成本较高。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;background: orange; font-size: 24px;&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="内部样式"><a href="#内部样式" class="headerlink" title="内部样式"></a>内部样式</h2><p>当单个文档需要特殊样式时，就应该使用内部样式表。你可以使用 <code>&lt;style&gt;</code> 标签，在文档头部定义内部样式表。</p>
+<p>内部样式的 CSS 代码在单个页面内具有统一性和规划性，便于维护。但是在多个页面之间容易混乱。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="外部样式（推荐）"><a href="#外部样式（推荐）" class="headerlink" title="外部样式（推荐）"></a>外部样式（推荐）</h2><p>当样式需要应用于很多页面时，外部样式表是理想的选择。</p>
+<p>在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。</p>
+<p>每个页面可以使用 <code>&lt;link&gt;</code> 标签链接到样式表。<code>&lt;link&gt;</code> 标签一般放在文档的头部。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;xxx.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>Web前端-HTML5章节-HTML5简介与基础框架</title>
     <url>/2022/12/02/HTML5%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="HTML5简介与基础框架"><a href="#HTML5简介与基础框架" class="headerlink" title="HTML5简介与基础框架"></a>HTML5简介与基础框架</h1><h3 id="HTML5介绍"><a href="#HTML5介绍" class="headerlink" title="HTML5介绍"></a>HTML5介绍</h3><p>HTML5 是用来描述网页的一种语言，被称为超文本标记语言。用 HTML5 编写的文件，后缀以 <code>.html</code> 结尾。</p>
@@ -69,95 +106,52 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS简介</title>
-    <url>/2022/12/12/CSS%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><h2 id="CSS概念"><a href="#CSS概念" class="headerlink" title="CSS概念"></a>CSS概念</h2><p>CSS（Cascading Style Sheets）是层叠样式表，简称样式表。</p>
-<p>CSS 文件后缀为 <code>.css</code>。</p>
-<p>CSS 用于 HTML 文档中元素样式的定义。</p>
-<hr>
-<h2 id="为什么需要CSS"><a href="#为什么需要CSS" class="headerlink" title="为什么需要CSS"></a>为什么需要CSS</h2><p>使用 CSS 的目的就是让网页具有美观、一致的页面效果。</p>
-<hr>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>CSS 规则由两个主要部分构成：选择器，以及一条或多条声明。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Web前端-HTML5章节-Form表单</title>
+    <url>/2022/12/07/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-Form%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<h1 id="Form表单"><a href="#Form表单" class="headerlink" title="Form表单"></a>Form表单</h1><hr>
+<p>表单在 Web 网页中用来给用户填写信息，从而采集用户信息，使网页具有交互功能。</p>
+<p>所有用户输入内容的地方都可以用表单来写，比如登录注册、搜索框等。</p>
+<p>表单是由容器和控件组成的。一个表单一般应该包含用户填写信息的输入框、提交按钮等。这些输入框和按钮叫做控件。表单就是容器，它能够容纳各种各样的控件。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;url&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get|post&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myform&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>其中：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">color 和 font-size 为属性。</span><br><span class="line">blue 和 12px 为值。</span><br></pre></td></tr></table></figure>
-
-<p>选择器通常是你需要改变样式的 HTML 元素。</p>
-<p>每条声明由一个属性和一个值组成。</p>
-<p>属性（property）是你希望设置的样式属性（style attribute）。每一个属性有一个值。属性和值之间用冒号分开。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h1><h2 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h2><p>要使用内联样式，需要在相关的标签内使用 <code>style</code> 属性。<code>style</code> 属性可以包含任何 CSS 属性。</p>
-<p>内联样式缺乏整体性和规划性，不利于维护，维护成本较高。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;background: orange; font-size: 24px;&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="内部样式"><a href="#内部样式" class="headerlink" title="内部样式"></a>内部样式</h2><p>当单个文档需要特殊样式时，就应该使用内部样式表。你可以使用 <code>&lt;style&gt;</code> 标签，在文档头部定义内部样式表。</p>
-<p>内部样式的 CSS 代码在单个页面内具有统一性和规划性，便于维护。但是在多个页面之间容易混乱。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="外部样式（推荐）"><a href="#外部样式（推荐）" class="headerlink" title="外部样式（推荐）"></a>外部样式（推荐）</h2><p>当样式需要应用于很多页面时，外部样式表是理想的选择。</p>
-<p>在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。</p>
-<p>每个页面可以使用 <code>&lt;link&gt;</code> 标签链接到样式表。<code>&lt;link&gt;</code> 标签一般放在文档的头部。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;xxx.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Web前端-HTML5章节-列表标签</title>
-    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<h1 id="列表标签之有序列表"><a href="#列表标签之有序列表" class="headerlink" title="列表标签之有序列表"></a>列表标签之有序列表</h1><hr>
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>有序列表是一列项目，列表项目使用数字进行标记。</p>
-<p>有序列表始于 <code>&lt;ol&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code> 标签。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="type属性"><a href="#type属性" class="headerlink" title="type属性"></a>type属性</h2><p><code>&lt;ol&gt;</code> 的属性 <code>type</code> 拥有以下选项：</p>
+<p>属性说明：</p>
 <ol>
-<li><code>1</code>：表示列表项目用数字标号，例如 <code>1, 2, 3...</code></li>
-<li><code>a</code>：表示列表项目用小写字母标号，例如 <code>a, b, c...</code></li>
-<li><code>A</code>：表示列表项目用大写字母标号，例如 <code>A, B, C...</code></li>
-<li><code>i</code>：表示列表项目用小写罗马数字标号，例如 <code>i, ii, iii...</code></li>
-<li><code>I</code>：表示列表项目用大写罗马数字标号，例如 <code>I, II, III...</code></li>
+<li><code>action</code>：服务器地址。</li>
+<li><code>name</code>：表单名称。</li>
+<li><code>method</code>：表单提交方式。</li>
 </ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;A&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="有序列表嵌套"><a href="#有序列表嵌套" class="headerlink" title="有序列表嵌套"></a>有序列表嵌套</h2><p>列表是可以进行嵌套的。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    蔬菜</span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>白菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>黄瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="列表标签之无序列表"><a href="#列表标签之无序列表" class="headerlink" title="列表标签之无序列表"></a>列表标签之无序列表</h1><hr>
-<h2 id="无序列表实现"><a href="#无序列表实现" class="headerlink" title="无序列表实现"></a>无序列表实现</h2><p>无序列表是一个项目列表，此列项目使用粗体圆点，也就是典型的小黑圆圈进行标记。</p>
-<p>无序列表始于 <code>&lt;ul&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code> 标签。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="type属性-1"><a href="#type属性-1" class="headerlink" title="type属性"></a>type属性</h2><p><code>&lt;ul&gt;</code> 的属性 <code>type</code> 拥有以下选项：</p>
+<p><code>method</code> 中 <code>GET</code> 和 <code>POST</code> 的区别：</p>
 <ol>
-<li><code>disc</code>：默认实心圆。</li>
-<li><code>circle</code>：空心圆。</li>
-<li><code>square</code>：小方块。</li>
-<li><code>none</code>：不显示。</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;disc&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="无序列表嵌套"><a href="#无序列表嵌套" class="headerlink" title="无序列表嵌套"></a>无序列表嵌套</h2><p>列表是可以进行嵌套的。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;square&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    水果</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>常见应用场景：</p>
-<ol>
-<li>无序的列表效果</li>
-<li>导航效果</li>
+<li>数据提交方式不同。<code>GET</code> 提交的数据可以在 URL 中看到，<code>POST</code> 看不到。</li>
+<li><code>GET</code> 一般用于提交少量数据，<code>POST</code> 一般用于提交大量数据。</li>
 </ol>
 <hr>
-<h2 id="导航效果"><a href="#导航效果" class="headerlink" title="导航效果"></a>导航效果</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;disc&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h2><p>一个完整的表单包含三个基本组成部分：</p>
+<ol>
+<li>表单标签</li>
+<li>表单域，也就是输入框</li>
+<li>表单按钮</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>快捷键：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">快速生成 ul + li 的布局：ul&gt;li*3</span><br><span class="line">数字可以根据需要来调整。</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="表单元素-1"><a href="#表单元素-1" class="headerlink" title="表单元素"></a>表单元素</h1><hr>
+<h2 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h2><p>文本域通过 <code>&lt;input type=&quot;text&quot;&gt;</code> 设定。</p>
+<p>当用户要在表单中键入字母、数字等内容时，就会用到文本域。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  First name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  Last name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="密码框"><a href="#密码框" class="headerlink" title="密码框"></a>密码框</h2><p>密码字段通过 <code>&lt;input type=&quot;password&quot;&gt;</code> 来定义。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  Password: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>密码字段字符不会明文显示，而是以星号或圆点代替。</p>
+<hr>
+<h2 id="提交按钮"><a href="#提交按钮" class="headerlink" title="提交按钮"></a>提交按钮</h2><p>当用户单击确认按钮时，表单的内容会被传送到另一个文件。</p>
+<p>表单的 <code>action</code> 属性定义了目的文件的文件名。由 <code>action</code> 属性定义的这个文件，通常会对接收到的输入数据进行相关处理。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;input&quot;</span> <span class="attr">action</span>=<span class="string">&quot;url&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">  Username: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Web前端</category>
@@ -226,6 +220,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Web前端-HTML5章节-列表标签</title>
+    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<h1 id="列表标签之有序列表"><a href="#列表标签之有序列表" class="headerlink" title="列表标签之有序列表"></a>列表标签之有序列表</h1><hr>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>有序列表是一列项目，列表项目使用数字进行标记。</p>
+<p>有序列表始于 <code>&lt;ol&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code> 标签。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="type属性"><a href="#type属性" class="headerlink" title="type属性"></a>type属性</h2><p><code>&lt;ol&gt;</code> 的属性 <code>type</code> 拥有以下选项：</p>
+<ol>
+<li><code>1</code>：表示列表项目用数字标号，例如 <code>1, 2, 3...</code></li>
+<li><code>a</code>：表示列表项目用小写字母标号，例如 <code>a, b, c...</code></li>
+<li><code>A</code>：表示列表项目用大写字母标号，例如 <code>A, B, C...</code></li>
+<li><code>i</code>：表示列表项目用小写罗马数字标号，例如 <code>i, ii, iii...</code></li>
+<li><code>I</code>：表示列表项目用大写罗马数字标号，例如 <code>I, II, III...</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;A&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="有序列表嵌套"><a href="#有序列表嵌套" class="headerlink" title="有序列表嵌套"></a>有序列表嵌套</h2><p>列表是可以进行嵌套的。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    蔬菜</span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>白菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>黄瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="列表标签之无序列表"><a href="#列表标签之无序列表" class="headerlink" title="列表标签之无序列表"></a>列表标签之无序列表</h1><hr>
+<h2 id="无序列表实现"><a href="#无序列表实现" class="headerlink" title="无序列表实现"></a>无序列表实现</h2><p>无序列表是一个项目列表，此列项目使用粗体圆点，也就是典型的小黑圆圈进行标记。</p>
+<p>无序列表始于 <code>&lt;ul&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code> 标签。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="type属性-1"><a href="#type属性-1" class="headerlink" title="type属性"></a>type属性</h2><p><code>&lt;ul&gt;</code> 的属性 <code>type</code> 拥有以下选项：</p>
+<ol>
+<li><code>disc</code>：默认实心圆。</li>
+<li><code>circle</code>：空心圆。</li>
+<li><code>square</code>：小方块。</li>
+<li><code>none</code>：不显示。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;disc&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="无序列表嵌套"><a href="#无序列表嵌套" class="headerlink" title="无序列表嵌套"></a>无序列表嵌套</h2><p>列表是可以进行嵌套的。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;square&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    水果</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>常见应用场景：</p>
+<ol>
+<li>无序的列表效果</li>
+<li>导航效果</li>
+</ol>
+<hr>
+<h2 id="导航效果"><a href="#导航效果" class="headerlink" title="导航效果"></a>导航效果</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;disc&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>快捷键：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">快速生成 ul + li 的布局：ul&gt;li*3</span><br><span class="line">数字可以根据需要来调整。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Web前端-HTML5章节-标签之图片</title>
     <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<h1 id="网站中最多的元素"><a href="#网站中最多的元素" class="headerlink" title="网站中最多的元素"></a>网站中最多的元素</h1><p>网站中最多的元素一定是图片。</p>
@@ -276,52 +333,26 @@
       </tags>
   </entry>
   <entry>
-    <title>Web前端-HTML5章节-Form表单</title>
-    <url>/2022/12/07/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-Form%E8%A1%A8%E5%8D%95/</url>
-    <content><![CDATA[<h1 id="Form表单"><a href="#Form表单" class="headerlink" title="Form表单"></a>Form表单</h1><hr>
-<p>表单在 Web 网页中用来给用户填写信息，从而采集用户信息，使网页具有交互功能。</p>
-<p>所有用户输入内容的地方都可以用表单来写，比如登录注册、搜索框等。</p>
-<p>表单是由容器和控件组成的。一个表单一般应该包含用户填写信息的输入框、提交按钮等。这些输入框和按钮叫做控件。表单就是容器，它能够容纳各种各样的控件。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;url&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get|post&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myform&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>Web前端-HTML5章节-标签之标题</title>
+    <url>/2022/12/04/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E6%A0%87%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="标题的介绍与应用"><a href="#标题的介绍与应用" class="headerlink" title="标题的介绍与应用"></a>标题的介绍与应用</h2><p>标题（Heading）是通过 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 标签进行定义的。</p>
+<p><code>&lt;h1&gt;</code> 定义最大的标题，<code>&lt;h6&gt;</code> 定义最小的标题。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>属性说明：</p>
-<ol>
-<li><code>action</code>：服务器地址。</li>
-<li><code>name</code>：表单名称。</li>
-<li><code>method</code>：表单提交方式。</li>
-</ol>
-<p><code>method</code> 中 <code>GET</code> 和 <code>POST</code> 的区别：</p>
-<ol>
-<li>数据提交方式不同。<code>GET</code> 提交的数据可以在 URL 中看到，<code>POST</code> 看不到。</li>
-<li><code>GET</code> 一般用于提交少量数据，<code>POST</code> 一般用于提交大量数据。</li>
-</ol>
-<hr>
-<h2 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h2><p>一个完整的表单包含三个基本组成部分：</p>
-<ol>
-<li>表单标签</li>
-<li>表单域，也就是输入框</li>
-<li>表单按钮</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>生成 <code>h1</code> 到 <code>h6</code> 的快捷键：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">h$*6</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="表单元素-1"><a href="#表单元素-1" class="headerlink" title="表单元素"></a>表单元素</h1><hr>
-<h2 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h2><p>文本域通过 <code>&lt;input type=&quot;text&quot;&gt;</code> 设定。</p>
-<p>当用户要在表单中键入字母、数字等内容时，就会用到文本域。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  First name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  Last name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="正确使用标题"><a href="#正确使用标题" class="headerlink" title="正确使用标题"></a>正确使用标题</h2><p>请确保将 HTML 标题标签只用于标题。</p>
+<p>不要仅仅是为了生成粗体或大号文本而使用标题。</p>
+<p>正确使用标题有益于 SEO。</p>
+<p>应该将 <code>&lt;h1&gt;</code> 用作主标题，也就是最重要的标题。其后是 <code>&lt;h2&gt;</code>，再其次是 <code>&lt;h3&gt;</code>，以此类推。</p>
 <hr>
-<h2 id="密码框"><a href="#密码框" class="headerlink" title="密码框"></a>密码框</h2><p>密码字段通过 <code>&lt;input type=&quot;password&quot;&gt;</code> 来定义。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  Password: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="标题标签位置摆放"><a href="#标题标签位置摆放" class="headerlink" title="标题标签位置摆放"></a>标题标签位置摆放</h2><p>可以在标签中添加属性：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">align=&quot;left|center|right&quot;</span><br></pre></td></tr></table></figure>
 
-<p>密码字段字符不会明文显示，而是以星号或圆点代替。</p>
-<hr>
-<h2 id="提交按钮"><a href="#提交按钮" class="headerlink" title="提交按钮"></a>提交按钮</h2><p>当用户单击确认按钮时，表单的内容会被传送到另一个文件。</p>
-<p>表单的 <code>action</code> 属性定义了目的文件的文件名。由 <code>action</code> 属性定义的这个文件，通常会对接收到的输入数据进行相关处理。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;input&quot;</span> <span class="attr">action</span>=<span class="string">&quot;url&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">  Username: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>默认是居左。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span> <span class="attr">align</span>=<span class="string">&quot;right&quot;</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Web前端</category>
@@ -353,37 +384,6 @@
 <li><code>size</code>：设置水平线高度。</li>
 <li><code>align</code>：设置水平线的对齐方式，默认居中，可取值 <code>left</code> 或 <code>right</code>。</li>
 </ol>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web前端-HTML5章节-标签之标题</title>
-    <url>/2022/12/04/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E6%A0%87%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="标题的介绍与应用"><a href="#标题的介绍与应用" class="headerlink" title="标题的介绍与应用"></a>标题的介绍与应用</h2><p>标题（Heading）是通过 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 标签进行定义的。</p>
-<p><code>&lt;h1&gt;</code> 定义最大的标题，<code>&lt;h6&gt;</code> 定义最小的标题。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>生成 <code>h1</code> 到 <code>h6</code> 的快捷键：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">h$*6</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="正确使用标题"><a href="#正确使用标题" class="headerlink" title="正确使用标题"></a>正确使用标题</h2><p>请确保将 HTML 标题标签只用于标题。</p>
-<p>不要仅仅是为了生成粗体或大号文本而使用标题。</p>
-<p>正确使用标题有益于 SEO。</p>
-<p>应该将 <code>&lt;h1&gt;</code> 用作主标题，也就是最重要的标题。其后是 <code>&lt;h2&gt;</code>，再其次是 <code>&lt;h3&gt;</code>，以此类推。</p>
-<hr>
-<h2 id="标题标签位置摆放"><a href="#标题标签位置摆放" class="headerlink" title="标题标签位置摆放"></a>标题标签位置摆放</h2><p>可以在标签中添加属性：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">align=&quot;left|center|right&quot;</span><br></pre></td></tr></table></figure>
-
-<p>默认是居左。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span> <span class="attr">align</span>=<span class="string">&quot;right&quot;</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Web前端</category>
@@ -446,6 +446,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2026/06/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Web前端-HTML5章节-标签之超文本链接</title>
     <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h1 id="标签之超文本链接"><a href="#标签之超文本链接" class="headerlink" title="标签之超文本链接"></a>标签之超文本链接</h1><hr>
@@ -474,65 +492,6 @@
         <tag>学习</tag>
         <tag>web前端</tag>
         <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2026/06/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo引入Aplayer</title>
-    <url>/2022/12/03/hexo%E5%BC%95%E5%85%A5Aplayer/</url>
-    <content><![CDATA[<h1 id="引入Aplayer"><a href="#引入Aplayer" class="headerlink" title="引入Aplayer"></a>引入Aplayer</h1><p>1、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令安装 <code>hexo-tag-aplayer</code> 插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer --save</span><br></pre></td></tr></table></figure>
-
-<p>2、在站点配置文件 <code>[Blogroot]/_config.yml</code> 中新增配置项，建议直接加在最底下：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># APlayer</span></span><br><span class="line"><span class="comment"># https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>3、修改主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 中关于 APlayer 的配置内容：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Inject the css and script (aplayer/meting)</span></span><br><span class="line"><span class="attr">aplayerInject:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>4、在主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 的 <code>inject</code> 配置项中添加 APlayer 的容器。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;div</span> <span class="string">class=&quot;aplayer</span> <span class="literal">no</span><span class="string">-destroy&quot;</span> <span class="string">data-id=&quot;歌单id&quot;</span> <span class="string">data-server=&quot;netease&quot;</span> <span class="string">data-type=&quot;playlist&quot;</span> <span class="string">data-fixed=&quot;true&quot;</span> <span class="string">data-mini=&quot;true&quot;</span> <span class="string">data-listFolded=&quot;false&quot;</span> <span class="string">data-order=&quot;random&quot;</span> <span class="string">data-preload=&quot;none&quot;</span> <span class="string">data-autoplay=&quot;false&quot;</span> <span class="string">muted&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>关于播放器代码设置注释：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// aplayer 设置，info: &#123;</span></span><br><span class="line"><span class="comment">//   fixed: false,       // 不开启吸底模式</span></span><br><span class="line"><span class="comment">//   listFolded: true,   // 折叠歌曲列表</span></span><br><span class="line"><span class="comment">//   autoplay: true,     // 开启自动播放</span></span><br><span class="line"><span class="comment">//   preload: &quot;auto&quot;,    // 自动预加载歌曲</span></span><br><span class="line"><span class="comment">//   loop: &quot;all&quot;,        // 播放循环模式：all 全部循环，one 单曲循环，none 只播放一次</span></span><br><span class="line"><span class="comment">//   order: &quot;list&quot;,      // 播放模式：list 列表播放，random 随机播放</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>5、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-<p>6、关于更换歌单：</p>
-<ul>
-<li><code>data-id</code>：歌单的 ID</li>
-<li><code>data-server</code>：歌单的服务商</li>
-<li><code>data-type</code>：歌单的类型</li>
-</ul>
-<hr>
-<h1 id="HTML背景音乐跳转页面不停止"><a href="#HTML背景音乐跳转页面不停止" class="headerlink" title="HTML背景音乐跳转页面不停止"></a>HTML背景音乐跳转页面不停止</h1><p>1、在主题配置文件下引入以下代码：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pjax：防止跳转页面音乐暂停 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>2、在主题配置文件中开启 <code>pjax</code>。以 Butterfly 为例，其他主题同理。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Pjax</span></span><br><span class="line"><span class="comment"># It may contain bugs and unstable, give feedback when you find the bugs.</span></span><br><span class="line"><span class="comment"># https://github.com/MoOx/pjax</span></span><br><span class="line"><span class="attr">pjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>3、正常三连操作即可：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -619,6 +578,47 @@
 
 <p>就代表成功啦。</p>
 <p>在编辑时进行上传，也可能会出现此类报错情况。</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo引入Aplayer</title>
+    <url>/2022/12/03/hexo%E5%BC%95%E5%85%A5Aplayer/</url>
+    <content><![CDATA[<h1 id="引入Aplayer"><a href="#引入Aplayer" class="headerlink" title="引入Aplayer"></a>引入Aplayer</h1><p>1、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令安装 <code>hexo-tag-aplayer</code> 插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer --save</span><br></pre></td></tr></table></figure>
+
+<p>2、在站点配置文件 <code>[Blogroot]/_config.yml</code> 中新增配置项，建议直接加在最底下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># APlayer</span></span><br><span class="line"><span class="comment"># https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>3、修改主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 中关于 APlayer 的配置内容：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Inject the css and script (aplayer/meting)</span></span><br><span class="line"><span class="attr">aplayerInject:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>4、在主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 的 <code>inject</code> 配置项中添加 APlayer 的容器。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;div</span> <span class="string">class=&quot;aplayer</span> <span class="literal">no</span><span class="string">-destroy&quot;</span> <span class="string">data-id=&quot;歌单id&quot;</span> <span class="string">data-server=&quot;netease&quot;</span> <span class="string">data-type=&quot;playlist&quot;</span> <span class="string">data-fixed=&quot;true&quot;</span> <span class="string">data-mini=&quot;true&quot;</span> <span class="string">data-listFolded=&quot;false&quot;</span> <span class="string">data-order=&quot;random&quot;</span> <span class="string">data-preload=&quot;none&quot;</span> <span class="string">data-autoplay=&quot;false&quot;</span> <span class="string">muted&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>关于播放器代码设置注释：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// aplayer 设置，info: &#123;</span></span><br><span class="line"><span class="comment">//   fixed: false,       // 不开启吸底模式</span></span><br><span class="line"><span class="comment">//   listFolded: true,   // 折叠歌曲列表</span></span><br><span class="line"><span class="comment">//   autoplay: true,     // 开启自动播放</span></span><br><span class="line"><span class="comment">//   preload: &quot;auto&quot;,    // 自动预加载歌曲</span></span><br><span class="line"><span class="comment">//   loop: &quot;all&quot;,        // 播放循环模式：all 全部循环，one 单曲循环，none 只播放一次</span></span><br><span class="line"><span class="comment">//   order: &quot;list&quot;,      // 播放模式：list 列表播放，random 随机播放</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>5、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>6、关于更换歌单：</p>
+<ul>
+<li><code>data-id</code>：歌单的 ID</li>
+<li><code>data-server</code>：歌单的服务商</li>
+<li><code>data-type</code>：歌单的类型</li>
+</ul>
+<hr>
+<h1 id="HTML背景音乐跳转页面不停止"><a href="#HTML背景音乐跳转页面不停止" class="headerlink" title="HTML背景音乐跳转页面不停止"></a>HTML背景音乐跳转页面不停止</h1><p>1、在主题配置文件下引入以下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pjax：防止跳转页面音乐暂停 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、在主题配置文件中开启 <code>pjax</code>。以 Butterfly 为例，其他主题同理。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Pjax</span></span><br><span class="line"><span class="comment"># It may contain bugs and unstable, give feedback when you find the bugs.</span></span><br><span class="line"><span class="comment"># https://github.com/MoOx/pjax</span></span><br><span class="line"><span class="attr">pjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>3、正常三连操作即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>hexo</tag>
