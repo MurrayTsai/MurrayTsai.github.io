@@ -1,0 +1,30 @@
+/* 首页一图流背景 */
+#web_bg {
+  background: url('/images/home-bg.jpg') center center / cover no-repeat fixed !important;
+}
+
+/* 首页顶部透明，露出背景图 */
+#page-header {
+  background: transparent !important;
+}
+
+/* 首页顶部遮罩，数字越小越亮 */
+#page-header::before {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 黑夜模式下不要把背景压太暗 */
+[data-theme="dark"] #web_bg {
+  filter: brightness(1.45) saturate(1.08) !important;
+}
+
+/* 黑夜模式顶部遮罩调浅 */
+[data-theme="dark"] #page-header::before {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 页脚透明 */
+#footer {
+  background: transparent !important;
+}
+
