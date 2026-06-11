@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>资源分享 | 菜某のBlog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=".resource-page{max-width:980px;margin:0 auto} .resource-notice{margin-bottom:1.2rem;padding:1rem 1.2rem;border-radius:14px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);line-height:1.8}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="资源分享">
+<meta property="og:url" content="https://murraytsai.github.io/resources/index.html">
+<meta property="og:site_name" content="菜某のBlog">
+<meta property="og:description" content=".resource-page{max-width:980px;margin:0 auto} .resource-notice{margin-bottom:1.2rem;padding:1rem 1.2rem;border-radius:14px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);line-height:1.8}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/ea.jpg">
+<meta property="article:published_time" content="2026-06-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-11T19:45:03.306Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/ea.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/resources/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '资源分享',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css"><script>
+  (function () {
+    try {
+      var theme = localStorage.getItem('theme');
+      if (!theme) {
+        localStorage.setItem('theme', JSON.stringify({
+          value: 'dark',
+          expiry: Date.now() + 3650 * 24 * 60 * 60 * 1000
+        }));
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+<meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/resource-bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">菜某のBlog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">资源分享</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+.resource-page{max-width:980px;margin:0 auto}
+.resource-notice{margin-bottom:1.2rem;padding:1rem 1.2rem;border-radius:14px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);line-height:1.8}
+[data-theme="dark"] .resource-notice{background:rgba(0,0,0,.22)}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:1.2rem}
+.resource-card{padding:1.2rem;border-radius:18px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(0,0,0,.08);transition:.25s}
+.resource-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.14)}
+[data-theme="dark"] .resource-card{background:rgba(0,0,0,.24)}
+.resource-card h2{margin-top:0;margin-bottom:.6rem;font-size:1.25rem}
+.resource-desc{min-height:3.2rem;line-height:1.7}
+.resource-meta{margin:.8rem 0;font-size:.95rem;line-height:1.8}
+.resource-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem}
+.resource-btn{display:inline-block;padding:.45rem .8rem;border-radius:999px;background:var(--btn-bg);color:var(--btn-color)!important;text-decoration:none!important;font-size:.92rem}
+.resource-btn:hover{background:var(--btn-hover-color)}
+.extract-code{padding:.1rem .4rem;border-radius:6px;background:rgba(125,125,125,.18);font-family:Consolas,Monaco,monospace}
+</style>
+
+<div class="resource-page">
+
+<div class="resource-notice">
+
+<p>这里是我的资源分享页。<br>我会把学习资料、工具链接、素材和博客搭建相关内容整理在这里。<br>如果链接失效，可以通过博客留言或其他联系方式提醒我。<br>更多软件请访问：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/fMclL7tT4scn6G6evEIiLQ">https://mp.weixin.qq.com/s/fMclL7tT4scn6G6evEIiLQ</a></p>
+</div>
+
+<h2 id="设计与图像工具"><a href="#设计与图像工具" class="headerlink" title="设计与图像工具"></a>设计与图像工具</h2><div class="resource-grid">
+
+<div class="resource-card">
+
+<h2>Photoshop 资源</h2>
+
+<div class="resource-desc">
+用于图像处理、海报设计、封面制作和博客配图处理。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>设计工具 / 图像处理<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener">官方页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1na6T3f5yKUYcz7Be_CNX4g?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<h2>Lightroom Classic 资源</h2>
+
+<div class="resource-desc">
+用于照片管理、调色、批量修图和摄影后期处理。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>摄影后期 / 调色工具<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="https://www.adobe.com/products/photoshop-lightroom-classic.html" target="_blank" rel="noopener">官方页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1waxPgbqByvjf6MC88w-wJA?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<h2>Premiere Pro 资源</h2>
+
+<div class="resource-desc">
+用于视频剪辑、短视频制作、课程剪辑和博客视频素材处理。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>视频剪辑 / 创作工具<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener">官方页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1L10etLEGjlEu8KLg81J7tA?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<h2>DaVinci Resolve 资源</h2>
+
+<div class="resource-desc">
+用于视频剪辑、调色、音频处理和影视后期制作。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>视频剪辑 / 调色工具<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener">官方页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1ZrvaPgYRFon0UT5HSZ8mBQ?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+</div>
+
+<h2 id="工程与制图工具"><a href="#工程与制图工具" class="headerlink" title="工程与制图工具"></a>工程与制图工具</h2><div class="resource-grid">
+
+<div class="resource-card">
+
+<h2>CAD 资源</h2>
+
+<div class="resource-desc">
+用于工程制图、建筑图纸、平面绘图和相关课程学习。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>工程制图 / CAD 工具<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="https://www.autodesk.com/products/autocad/overview" target="_blank" rel="noopener">官方页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1pkClSUwe-avT1onpA4y6MQ?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<h2>南方 CASS 资源</h2>
+
+<div class="resource-desc">
+用于测绘、地形图处理、工程测量和相关专业学习。
+</div>
+
+<div class="resource-meta">
+<strong>资源类型：</strong>测绘工具 / 工程软件<br>
+<strong>下载方式：</strong>百度网盘<br>
+<strong>提取码：</strong><span class="extract-code">1234</span>
+</div>
+
+<div class="resource-btns">
+<a class="resource-btn" href="#" target="_blank" rel="noopener">官方或授权页面</a>
+<a class="resource-btn" href="https://pan.baidu.com/s/1_56c9r7iPOsHt9nrT-1i9g?pwd=1234" target="_blank" rel="noopener">百度网盘</a>
+</div>
+
+</div>
+
+</div>
+
+</div></div></main><footer id="footer" style="background-image: url(/images/resource-bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>
