@@ -1,43 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSS简介</title>
-    <url>/2022/12/12/CSS%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><h2 id="CSS概念"><a href="#CSS概念" class="headerlink" title="CSS概念"></a>CSS概念</h2><p>CSS（Cascading Style Sheets）是层叠样式表，简称样式表。</p>
-<p>CSS 文件后缀为 <code>.css</code>。</p>
-<p>CSS 用于 HTML 文档中元素样式的定义。</p>
-<hr>
-<h2 id="为什么需要CSS"><a href="#为什么需要CSS" class="headerlink" title="为什么需要CSS"></a>为什么需要CSS</h2><p>使用 CSS 的目的就是让网页具有美观、一致的页面效果。</p>
-<hr>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>CSS 规则由两个主要部分构成：选择器，以及一条或多条声明。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">color 和 font-size 为属性。</span><br><span class="line">blue 和 12px 为值。</span><br></pre></td></tr></table></figure>
-
-<p>选择器通常是你需要改变样式的 HTML 元素。</p>
-<p>每条声明由一个属性和一个值组成。</p>
-<p>属性（property）是你希望设置的样式属性（style attribute）。每一个属性有一个值。属性和值之间用冒号分开。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h1><h2 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h2><p>要使用内联样式，需要在相关的标签内使用 <code>style</code> 属性。<code>style</code> 属性可以包含任何 CSS 属性。</p>
-<p>内联样式缺乏整体性和规划性，不利于维护，维护成本较高。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;background: orange; font-size: 24px;&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="内部样式"><a href="#内部样式" class="headerlink" title="内部样式"></a>内部样式</h2><p>当单个文档需要特殊样式时，就应该使用内部样式表。你可以使用 <code>&lt;style&gt;</code> 标签，在文档头部定义内部样式表。</p>
-<p>内部样式的 CSS 代码在单个页面内具有统一性和规划性，便于维护。但是在多个页面之间容易混乱。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="外部样式（推荐）"><a href="#外部样式（推荐）" class="headerlink" title="外部样式（推荐）"></a>外部样式（推荐）</h2><p>当样式需要应用于很多页面时，外部样式表是理想的选择。</p>
-<p>在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。</p>
-<p>每个页面可以使用 <code>&lt;link&gt;</code> 标签链接到样式表。<code>&lt;link&gt;</code> 标签一般放在文档的头部。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;xxx.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Web前端-HTML5章节-HTML5简介与基础框架</title>
     <url>/2022/12/02/HTML5%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="HTML5简介与基础框架"><a href="#HTML5简介与基础框架" class="headerlink" title="HTML5简介与基础框架"></a>HTML5简介与基础框架</h1><h3 id="HTML5介绍"><a href="#HTML5介绍" class="headerlink" title="HTML5介绍"></a>HTML5介绍</h3><p>HTML5 是用来描述网页的一种语言，被称为超文本标记语言。用 HTML5 编写的文件，后缀以 <code>.html</code> 结尾。</p>
@@ -104,6 +67,43 @@
         <tag>web前端</tag>
         <tag>HTML5</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CSS简介</title>
+    <url>/2022/12/12/CSS%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><h2 id="CSS概念"><a href="#CSS概念" class="headerlink" title="CSS概念"></a>CSS概念</h2><p>CSS（Cascading Style Sheets）是层叠样式表，简称样式表。</p>
+<p>CSS 文件后缀为 <code>.css</code>。</p>
+<p>CSS 用于 HTML 文档中元素样式的定义。</p>
+<hr>
+<h2 id="为什么需要CSS"><a href="#为什么需要CSS" class="headerlink" title="为什么需要CSS"></a>为什么需要CSS</h2><p>使用 CSS 的目的就是让网页具有美观、一致的页面效果。</p>
+<hr>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>CSS 规则由两个主要部分构成：选择器，以及一条或多条声明。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">color 和 font-size 为属性。</span><br><span class="line">blue 和 12px 为值。</span><br></pre></td></tr></table></figure>
+
+<p>选择器通常是你需要改变样式的 HTML 元素。</p>
+<p>每条声明由一个属性和一个值组成。</p>
+<p>属性（property）是你希望设置的样式属性（style attribute）。每一个属性有一个值。属性和值之间用冒号分开。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h1><h2 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h2><p>要使用内联样式，需要在相关的标签内使用 <code>style</code> 属性。<code>style</code> 属性可以包含任何 CSS 属性。</p>
+<p>内联样式缺乏整体性和规划性，不利于维护，维护成本较高。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;background: orange; font-size: 24px;&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="内部样式"><a href="#内部样式" class="headerlink" title="内部样式"></a>内部样式</h2><p>当单个文档需要特殊样式时，就应该使用内部样式表。你可以使用 <code>&lt;style&gt;</code> 标签，在文档头部定义内部样式表。</p>
+<p>内部样式的 CSS 代码在单个页面内具有统一性和规划性，便于维护。但是在多个页面之间容易混乱。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="外部样式（推荐）"><a href="#外部样式（推荐）" class="headerlink" title="外部样式（推荐）"></a>外部样式（推荐）</h2><p>当样式需要应用于很多页面时，外部样式表是理想的选择。</p>
+<p>在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。</p>
+<p>每个页面可以使用 <code>&lt;link&gt;</code> 标签链接到样式表。<code>&lt;link&gt;</code> 标签一般放在文档的头部。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;xxx.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Web前端-HTML5章节-列表标签</title>
@@ -219,63 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Web前端-HTML5章节-块元素与行内元素（内联元素）</title>
-    <url>/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="块元素与行内元素（内联元素）"><a href="#块元素与行内元素（内联元素）" class="headerlink" title="块元素与行内元素（内联元素）"></a>块元素与行内元素（内联元素）</h1><p>HTML5 出现之前，经常把元素按照块级元素和内联元素来区分。</p>
-<p>在 HTML5 中，元素不再按照这种方式来区分，而是按照内容模型来区分，分为：</p>
-<ol>
-<li>元数据型：metadata content</li>
-<li>区块型：sectioning content</li>
-<li>标题型：heading content</li>
-<li>文档流型：flow content</li>
-<li>语句型：phrasing content</li>
-<li>内嵌型：embedded content</li>
-<li>交互型：interactive content</li>
-</ol>
-<p>有些元素不属于任何一个类别，被称为穿透的。有些元素可能属于不止一个类别，被称为混合型。</p>
-<p>虽然 HTML5 的元素分类更细致了，但对初学者并不友好。所以我们仍然按照块元素和内联元素去区分。这对页面布局起到了至关重要的作用。</p>
-<hr>
-<h2 id="内联元素和块级元素的区别"><a href="#内联元素和块级元素的区别" class="headerlink" title="内联元素和块级元素的区别"></a>内联元素和块级元素的区别</h2><table>
-<thead>
-<tr>
-<th>块级元素</th>
-<th>内联元素</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块元素会在页面中独占一行，自上向下排列。</td>
-<td>行内元素不会独占页面中的一行，只占自身的大小。</td>
-</tr>
-<tr>
-<td>可以设置 <code>width</code>、<code>height</code> 属性。</td>
-<td>行内元素设置 <code>width</code>、<code>height</code> 属性无效。</td>
-</tr>
-<tr>
-<td>一般块级元素可以包含行内元素和其他块级元素。</td>
-<td>一般内联元素可以包含内联元素，但不包含块级元素。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="常见块级元素"><a href="#常见块级元素" class="headerlink" title="常见块级元素"></a>常见块级元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">div、form、h1-h6、hr、p、table、ul 等</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="常见内联元素"><a href="#常见内联元素" class="headerlink" title="常见内联元素"></a>常见内联元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">a、b、em、i、span、strong 等</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h2><p>行内块级元素的特点是：不换行，但是能识别宽高。</p>
-<p>常见行内块级元素有：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">button、img、input 等</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Web前端-HTML5章节-Form表单</title>
     <url>/2022/12/07/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-Form%E8%A1%A8%E5%8D%95/</url>
     <content><![CDATA[<h1 id="Form表单"><a href="#Form表单" class="headerlink" title="Form表单"></a>Form表单</h1><hr>
@@ -333,26 +276,52 @@
       </tags>
   </entry>
   <entry>
-    <title>Web前端-HTML5章节-标签之段落，换行，水平线</title>
-    <url>/2022/12/04/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E6%AE%B5%E8%90%BD%EF%BC%8C%E6%8D%A2%E8%A1%8C%EF%BC%8C%E6%B0%B4%E5%B9%B3%E7%BA%BF/</url>
-    <content><![CDATA[<h1 id="标签之段落"><a href="#标签之段落" class="headerlink" title="标签之段落"></a>标签之段落</h1><p>段落是通过 <code>&lt;p&gt;</code> 来定义的。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h1><p>如果您希望在不产生一个新段落的情况下进行换行，也就是新行，请使用 <code>&lt;br&gt;</code>。</p>
-<p><code>&lt;br/&gt;</code> 元素是一个空的 HTML 元素。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这个<span class="tag">&lt;<span class="name">br</span>&gt;</span>段落<span class="tag">&lt;<span class="name">br</span>&gt;</span>演示了分行的效果<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span> <span class="attr">color</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;&quot;</span> <span class="attr">size</span>=<span class="string">&quot;&quot;</span> <span class="attr">align</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>属性：</p>
+    <title>Web前端-HTML5章节-块元素与行内元素（内联元素）</title>
+    <url>/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="块元素与行内元素（内联元素）"><a href="#块元素与行内元素（内联元素）" class="headerlink" title="块元素与行内元素（内联元素）"></a>块元素与行内元素（内联元素）</h1><p>HTML5 出现之前，经常把元素按照块级元素和内联元素来区分。</p>
+<p>在 HTML5 中，元素不再按照这种方式来区分，而是按照内容模型来区分，分为：</p>
 <ol>
-<li><code>color</code>：设置水平线的颜色。</li>
-<li><code>width</code>：设置水平线的长度。</li>
-<li><code>size</code>：设置水平线高度。</li>
-<li><code>align</code>：设置水平线的对齐方式，默认居中，可取值 <code>left</code> 或 <code>right</code>。</li>
+<li>元数据型：metadata content</li>
+<li>区块型：sectioning content</li>
+<li>标题型：heading content</li>
+<li>文档流型：flow content</li>
+<li>语句型：phrasing content</li>
+<li>内嵌型：embedded content</li>
+<li>交互型：interactive content</li>
 </ol>
+<p>有些元素不属于任何一个类别，被称为穿透的。有些元素可能属于不止一个类别，被称为混合型。</p>
+<p>虽然 HTML5 的元素分类更细致了，但对初学者并不友好。所以我们仍然按照块元素和内联元素去区分。这对页面布局起到了至关重要的作用。</p>
+<hr>
+<h2 id="内联元素和块级元素的区别"><a href="#内联元素和块级元素的区别" class="headerlink" title="内联元素和块级元素的区别"></a>内联元素和块级元素的区别</h2><table>
+<thead>
+<tr>
+<th>块级元素</th>
+<th>内联元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块元素会在页面中独占一行，自上向下排列。</td>
+<td>行内元素不会独占页面中的一行，只占自身的大小。</td>
+</tr>
+<tr>
+<td>可以设置 <code>width</code>、<code>height</code> 属性。</td>
+<td>行内元素设置 <code>width</code>、<code>height</code> 属性无效。</td>
+</tr>
+<tr>
+<td>一般块级元素可以包含行内元素和其他块级元素。</td>
+<td>一般内联元素可以包含内联元素，但不包含块级元素。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="常见块级元素"><a href="#常见块级元素" class="headerlink" title="常见块级元素"></a>常见块级元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">div、form、h1-h6、hr、p、table、ul 等</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="常见内联元素"><a href="#常见内联元素" class="headerlink" title="常见内联元素"></a>常见内联元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">a、b、em、i、span、strong 等</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h2><p>行内块级元素的特点是：不换行，但是能识别宽高。</p>
+<p>常见行内块级元素有：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">button、img、input 等</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Web前端</category>
@@ -395,44 +364,34 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo引入Aplayer</title>
-    <url>/2022/12/03/hexo%E5%BC%95%E5%85%A5Aplayer/</url>
-    <content><![CDATA[<h1 id="引入Aplayer"><a href="#引入Aplayer" class="headerlink" title="引入Aplayer"></a>引入Aplayer</h1><p>1、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令安装 <code>hexo-tag-aplayer</code> 插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer --save</span><br></pre></td></tr></table></figure>
+    <title>Web前端-HTML5章节-标签之段落，换行，水平线</title>
+    <url>/2022/12/04/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E6%AE%B5%E8%90%BD%EF%BC%8C%E6%8D%A2%E8%A1%8C%EF%BC%8C%E6%B0%B4%E5%B9%B3%E7%BA%BF/</url>
+    <content><![CDATA[<h1 id="标签之段落"><a href="#标签之段落" class="headerlink" title="标签之段落"></a>标签之段落</h1><p>段落是通过 <code>&lt;p&gt;</code> 来定义的。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>2、在站点配置文件 <code>[Blogroot]/_config.yml</code> 中新增配置项，建议直接加在最底下：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># APlayer</span></span><br><span class="line"><span class="comment"># https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>3、修改主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 中关于 APlayer 的配置内容：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Inject the css and script (aplayer/meting)</span></span><br><span class="line"><span class="attr">aplayerInject:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>4、在主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 的 <code>inject</code> 配置项中添加 APlayer 的容器。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;div</span> <span class="string">class=&quot;aplayer</span> <span class="literal">no</span><span class="string">-destroy&quot;</span> <span class="string">data-id=&quot;歌单id&quot;</span> <span class="string">data-server=&quot;netease&quot;</span> <span class="string">data-type=&quot;playlist&quot;</span> <span class="string">data-fixed=&quot;true&quot;</span> <span class="string">data-mini=&quot;true&quot;</span> <span class="string">data-listFolded=&quot;false&quot;</span> <span class="string">data-order=&quot;random&quot;</span> <span class="string">data-preload=&quot;none&quot;</span> <span class="string">data-autoplay=&quot;false&quot;</span> <span class="string">muted&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>关于播放器代码设置注释：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// aplayer 设置，info: &#123;</span></span><br><span class="line"><span class="comment">//   fixed: false,       // 不开启吸底模式</span></span><br><span class="line"><span class="comment">//   listFolded: true,   // 折叠歌曲列表</span></span><br><span class="line"><span class="comment">//   autoplay: true,     // 开启自动播放</span></span><br><span class="line"><span class="comment">//   preload: &quot;auto&quot;,    // 自动预加载歌曲</span></span><br><span class="line"><span class="comment">//   loop: &quot;all&quot;,        // 播放循环模式：all 全部循环，one 单曲循环，none 只播放一次</span></span><br><span class="line"><span class="comment">//   order: &quot;list&quot;,      // 播放模式：list 列表播放，random 随机播放</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>5、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-<p>6、关于更换歌单：</p>
-<ul>
-<li><code>data-id</code>：歌单的 ID</li>
-<li><code>data-server</code>：歌单的服务商</li>
-<li><code>data-type</code>：歌单的类型</li>
-</ul>
 <hr>
-<h1 id="HTML背景音乐跳转页面不停止"><a href="#HTML背景音乐跳转页面不停止" class="headerlink" title="HTML背景音乐跳转页面不停止"></a>HTML背景音乐跳转页面不停止</h1><p>1、在主题配置文件下引入以下代码：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pjax：防止跳转页面音乐暂停 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h1><p>如果您希望在不产生一个新段落的情况下进行换行，也就是新行，请使用 <code>&lt;br&gt;</code>。</p>
+<p><code>&lt;br/&gt;</code> 元素是一个空的 HTML 元素。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这个<span class="tag">&lt;<span class="name">br</span>&gt;</span>段落<span class="tag">&lt;<span class="name">br</span>&gt;</span>演示了分行的效果<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>2、在主题配置文件中开启 <code>pjax</code>。以 Butterfly 为例，其他主题同理。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Pjax</span></span><br><span class="line"><span class="comment"># It may contain bugs and unstable, give feedback when you find the bugs.</span></span><br><span class="line"><span class="comment"># https://github.com/MoOx/pjax</span></span><br><span class="line"><span class="attr">pjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span> <span class="attr">color</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;&quot;</span> <span class="attr">size</span>=<span class="string">&quot;&quot;</span> <span class="attr">align</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>3、正常三连操作即可：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>属性：</p>
+<ol>
+<li><code>color</code>：设置水平线的颜色。</li>
+<li><code>width</code>：设置水平线的长度。</li>
+<li><code>size</code>：设置水平线高度。</li>
+<li><code>align</code>：设置水平线的对齐方式，默认居中，可取值 <code>left</code> 或 <code>right</code>。</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
       </tags>
   </entry>
   <entry>
@@ -487,37 +446,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Web前端-HTML5章节-标签之超文本链接</title>
-    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/</url>
-    <content><![CDATA[<h1 id="标签之超文本链接"><a href="#标签之超文本链接" class="headerlink" title="标签之超文本链接"></a>标签之超文本链接</h1><hr>
-<h2 id="超链接描述"><a href="#超链接描述" class="headerlink" title="超链接描述"></a>超链接描述</h2><p>HTML 使用标签 <code>&lt;a&gt;</code> 来设置超文本链接。</p>
-<p>超链接可以是一个字、一个词，或者一组词，也可以是一幅图像。用户可以点击这些内容，跳转到新的文档，或者跳转到当前文档中的某个部分。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;url&quot;</span>&gt;</span>链接文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="超链接属性"><a href="#超链接属性" class="headerlink" title="超链接属性"></a>超链接属性</h2><p>在标签 <code>&lt;a&gt;</code> 中，可以使用 <code>href</code> 属性来描述链接的地址。</p>
-<p>默认情况下，链接会以下面的形式出现在浏览器中：</p>
-<ol>
-<li>一个未访问过的链接显示为蓝色字体，并带有下划线。</li>
-<li>访问过的链接显示为紫色，并带有下划线。</li>
-<li>点击链接时，链接显示为红色，并带有下划线。</li>
-</ol>
-<p>特别提示：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">后期我们会通过 CSS 样式修改掉这些效果。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="超链接表现"><a href="#超链接表现" class="headerlink" title="超链接表现"></a>超链接表现</h2><p>当我们把鼠标指针移动到网页中的某个链接上时，箭头会变为一只小手。</p>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2026/06/11/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -534,6 +462,47 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>hexo引入Aplayer</title>
+    <url>/2022/12/03/hexo%E5%BC%95%E5%85%A5Aplayer/</url>
+    <content><![CDATA[<h1 id="引入Aplayer"><a href="#引入Aplayer" class="headerlink" title="引入Aplayer"></a>引入Aplayer</h1><p>1、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令安装 <code>hexo-tag-aplayer</code> 插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer --save</span><br></pre></td></tr></table></figure>
+
+<p>2、在站点配置文件 <code>[Blogroot]/_config.yml</code> 中新增配置项，建议直接加在最底下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># APlayer</span></span><br><span class="line"><span class="comment"># https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>3、修改主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 中关于 APlayer 的配置内容：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Inject the css and script (aplayer/meting)</span></span><br><span class="line"><span class="attr">aplayerInject:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>4、在主题配置文件 <code>[Blogroot]/_config.butterfly.yml</code> 的 <code>inject</code> 配置项中添加 APlayer 的容器。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;div</span> <span class="string">class=&quot;aplayer</span> <span class="literal">no</span><span class="string">-destroy&quot;</span> <span class="string">data-id=&quot;歌单id&quot;</span> <span class="string">data-server=&quot;netease&quot;</span> <span class="string">data-type=&quot;playlist&quot;</span> <span class="string">data-fixed=&quot;true&quot;</span> <span class="string">data-mini=&quot;true&quot;</span> <span class="string">data-listFolded=&quot;false&quot;</span> <span class="string">data-order=&quot;random&quot;</span> <span class="string">data-preload=&quot;none&quot;</span> <span class="string">data-autoplay=&quot;false&quot;</span> <span class="string">muted&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>关于播放器代码设置注释：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// aplayer 设置，info: &#123;</span></span><br><span class="line"><span class="comment">//   fixed: false,       // 不开启吸底模式</span></span><br><span class="line"><span class="comment">//   listFolded: true,   // 折叠歌曲列表</span></span><br><span class="line"><span class="comment">//   autoplay: true,     // 开启自动播放</span></span><br><span class="line"><span class="comment">//   preload: &quot;auto&quot;,    // 自动预加载歌曲</span></span><br><span class="line"><span class="comment">//   loop: &quot;all&quot;,        // 播放循环模式：all 全部循环，one 单曲循环，none 只播放一次</span></span><br><span class="line"><span class="comment">//   order: &quot;list&quot;,      // 播放模式：list 列表播放，random 随机播放</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>5、在博客根目录 <code>[Blogroot]</code> 下打开终端，运行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>6、关于更换歌单：</p>
+<ul>
+<li><code>data-id</code>：歌单的 ID</li>
+<li><code>data-server</code>：歌单的服务商</li>
+<li><code>data-type</code>：歌单的类型</li>
+</ul>
+<hr>
+<h1 id="HTML背景音乐跳转页面不停止"><a href="#HTML背景音乐跳转页面不停止" class="headerlink" title="HTML背景音乐跳转页面不停止"></a>HTML背景音乐跳转页面不停止</h1><p>1、在主题配置文件下引入以下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pjax：防止跳转页面音乐暂停 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、在主题配置文件中开启 <code>pjax</code>。以 Butterfly 为例，其他主题同理。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Pjax</span></span><br><span class="line"><span class="comment"># It may contain bugs and unstable, give feedback when you find the bugs.</span></span><br><span class="line"><span class="comment"># https://github.com/MoOx/pjax</span></span><br><span class="line"><span class="attr">pjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>3、正常三连操作即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>关于在搭建Hexo中出现的问题</title>
@@ -622,6 +591,37 @@
 ]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web前端-HTML5章节-标签之超文本链接</title>
+    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/</url>
+    <content><![CDATA[<h1 id="标签之超文本链接"><a href="#标签之超文本链接" class="headerlink" title="标签之超文本链接"></a>标签之超文本链接</h1><hr>
+<h2 id="超链接描述"><a href="#超链接描述" class="headerlink" title="超链接描述"></a>超链接描述</h2><p>HTML 使用标签 <code>&lt;a&gt;</code> 来设置超文本链接。</p>
+<p>超链接可以是一个字、一个词，或者一组词，也可以是一幅图像。用户可以点击这些内容，跳转到新的文档，或者跳转到当前文档中的某个部分。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;url&quot;</span>&gt;</span>链接文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="超链接属性"><a href="#超链接属性" class="headerlink" title="超链接属性"></a>超链接属性</h2><p>在标签 <code>&lt;a&gt;</code> 中，可以使用 <code>href</code> 属性来描述链接的地址。</p>
+<p>默认情况下，链接会以下面的形式出现在浏览器中：</p>
+<ol>
+<li>一个未访问过的链接显示为蓝色字体，并带有下划线。</li>
+<li>访问过的链接显示为紫色，并带有下划线。</li>
+<li>点击链接时，链接显示为红色，并带有下划线。</li>
+</ol>
+<p>特别提示：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">后期我们会通过 CSS 样式修改掉这些效果。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="超链接表现"><a href="#超链接表现" class="headerlink" title="超链接表现"></a>超链接表现</h2><p>当我们把鼠标指针移动到网页中的某个链接上时，箭头会变为一只小手。</p>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
       </tags>
   </entry>
 </search>
