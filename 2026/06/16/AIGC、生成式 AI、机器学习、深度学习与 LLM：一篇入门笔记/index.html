@@ -1,0 +1,922 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记 | MurrayT's Blog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="整理 AIGC、生成式 AI、机器学习、深度学习和大语言模型之间的关系，并用简单例子说明监督学习、无监督学习和强化学习。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记">
+<meta property="og:url" content="https://murraytsai.github.io/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="MurrayT&#39;s Blog">
+<meta property="og:description" content="整理 AIGC、生成式 AI、机器学习、深度学习和大语言模型之间的关系，并用简单例子说明监督学习、无监督学习和强化学习。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/covers/default-1.jpg">
+<meta property="article:published_time" content="2026-06-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-15T20:10:00.220Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta property="article:tag" content="AIGC">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Generative AI">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/covers/default-1.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记",
+  "url": "https://murraytsai.github.io/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/",
+  "image": "https://murraytsai.github.io/images/covers/default-1.jpg",
+  "datePublished": "2026-06-15T16:00:00.000Z",
+  "dateModified": "2026-06-15T20:10:00.220Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "人畜无害的菜姥爷",
+      "url": "https://MurrayTsai.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/images/home-bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/covers/default-1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MurrayT's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-15T16:00:00.000Z" title="发表于 2026-06-16 00:00:00">2026-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T20:10:00.220Z" title="更新于 2026-06-16 04:10:00">2026-06-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/03-genai-llm-relationship.png" class="">
+
+
+<p>最近我在整理 AI 相关概念时，发现很多词看起来很像，但它们其实不是同一层级的东西。</p>
+<p>比如：</p>
+<ul>
+<li>AIGC 更偏向“AI 生成出来的内容”。</li>
+<li>生成式 AI 更偏向“能够生成内容的技术或系统”。</li>
+<li>机器学习是 AI 的一种实现方式。</li>
+<li>深度学习是机器学习中的一种重要方法。</li>
+<li>大语言模型，也就是 LLM，是深度学习和生成式 AI 中非常重要的一类模型。</li>
+</ul>
+<p>所以，这篇笔记主要用来梳理这些概念之间的关系。</p>
+<hr>
+<h2 id="一、AIGC-是什么？"><a href="#一、AIGC-是什么？" class="headerlink" title="一、AIGC 是什么？"></a>一、AIGC 是什么？</h2><p><strong>AIGC</strong> 的全称是 <strong>AI Generated Content</strong>，意思是“由人工智能生成的内容”。</p>
+<p>这里的“内容”可以包括很多类型，比如：</p>
+<ul>
+<li>文本：文章、摘要、故事、邮件、论文大纲；</li>
+<li>代码：函数、脚本、网页组件、自动化工具；</li>
+<li>图片：插画、海报、头像、产品图；</li>
+<li>音频：配音、音乐、音效；</li>
+<li>视频：短片、动画、数字人视频。</li>
+</ul>
+<p>所以，AIGC 不是某一种具体模型。它更强调的是 <strong>AI 生成出来的结果</strong>。</p>
+<p>可以简单理解为：</p>
+<blockquote>
+<p>只要内容主要由 AI 生成，就可以被称为 AIGC。</p>
+</blockquote>
+<hr>
+<h2 id="二、生成式-AI-是什么？"><a href="#二、生成式-AI-是什么？" class="headerlink" title="二、生成式 AI 是什么？"></a>二、生成式 AI 是什么？</h2><p><strong>生成式 AI</strong> 的英文是 <strong>Generative AI</strong>。它指的是能够根据已有数据和用户输入，生成新内容的 AI 系统。</p>
+<p>它可以生成文本、代码、图像、音频、视频等内容。</p>
+<p>生成式 AI 和 AIGC 的区别在于：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>重点</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AIGC</td>
+<td>强调生成出来的内容</td>
+<td>一张 AI 画的图片，一段 AI 写的代码</td>
+</tr>
+<tr>
+<td>生成式 AI</td>
+<td>强调生成内容的技术或系统</td>
+<td>ChatGPT、Midjourney、Stable Diffusion、Suno</td>
+</tr>
+</tbody></table>
+<p>换句话说：</p>
+<blockquote>
+<p>生成式 AI 是“生产工具”，AIGC 是“生产结果”。</p>
+</blockquote>
+<hr>
+<h2 id="三、AI、机器学习、深度学习、生成式-AI-和-LLM-的层级关系"><a href="#三、AI、机器学习、深度学习、生成式-AI-和-LLM-的层级关系" class="headerlink" title="三、AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系"></a>三、AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系</h2><p>下面这个图可以帮助理解它们之间的大致关系。</p>
+<pre class="mermaid">flowchart TD
+    AI[人工智能 AI] --> ML[机器学习 Machine Learning]
+
+    ML --> Paradigm[常见学习方式]
+    Paradigm --> SL[监督学习 Supervised Learning]
+    Paradigm --> UL[无监督学习 Unsupervised Learning]
+    Paradigm --> RL[强化学习 Reinforcement Learning]
+
+    ML --> DL[深度学习 Deep Learning<br/>机器学习中的一种重要方法]
+
+    DL -. 可以用于 .-> SL
+    DL -. 可以用于 .-> UL
+    DL -. 可以用于 .-> RL
+
+    DL --> GenAI[主流生成式 AI<br/>Generative AI]
+
+    GenAI -- 生成 --> AIGC[AIGC<br/>AI 生成的内容]
+
+    GenAI --> LLM[大语言模型 LLM<br/>偏文本和语言任务]
+    GenAI --> IMG[图像生成模型]
+    GenAI --> AUD[音频/音乐生成模型]
+    GenAI --> VID[视频生成模型]</pre>
+
+<p>这个图里最重要的一点是：</p>
+<blockquote>
+<p>深度学习不是和监督学习、无监督学习、强化学习并列的第四类。它更像是一种技术方法，可以被用在监督学习、无监督学习和强化学习中。</p>
+</blockquote>
+<hr>
+<h2 id="四、显式编程和机器学习的区别"><a href="#四、显式编程和机器学习的区别" class="headerlink" title="四、显式编程和机器学习的区别"></a>四、显式编程和机器学习的区别</h2><p>传统软件开发通常使用 <strong>显式编程</strong>。</p>
+<p>显式编程的逻辑是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">人写规则 + 输入数据 = 输出结果</span><br></pre></td></tr></table></figure>
+
+<p>比如，我们想判断一个数字是不是偶数，可以直接写规则：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果一个数字能被 2 整除，那么它就是偶数。</span><br></pre></td></tr></table></figure>
+
+<p>这类问题规则很清楚，所以适合显式编程。</p>
+<p>但是有些问题很难直接写出规则。比如：</p>
+<ul>
+<li>如何判断一张图片里是猫还是狗？</li>
+<li>如何判断一封邮件是不是垃圾邮件？</li>
+<li>如何根据房子特征预测房价？</li>
+<li>如何让机器人在复杂环境中做出合适动作？</li>
+</ul>
+<p>这些问题的规则很复杂，人很难一条一条写出来。</p>
+<p>这时就可以使用 <strong>机器学习</strong>。</p>
+<p>机器学习的逻辑是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入数据 + 参考答案/反馈 = 模型学到的规律</span><br></pre></td></tr></table></figure>
+
+<p>训练完成后，再使用这个模型处理新数据：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新输入数据 + 训练好的模型 = 预测结果</span><br></pre></td></tr></table></figure>
+
+<p>所以，机器学习不是让程序员直接写死所有规则，而是让模型从数据中学习规律。</p>
+<hr>
+<h2 id="五、机器学习的三种常见类型"><a href="#五、机器学习的三种常见类型" class="headerlink" title="五、机器学习的三种常见类型"></a>五、机器学习的三种常见类型</h2><p>机器学习通常可以分为三种常见学习方式：</p>
+<ol>
+<li>监督学习；</li>
+<li>无监督学习；</li>
+<li>强化学习。</li>
+</ol>
+<p>这三种方式的核心区别在于：模型学习时有没有标签，以及模型如何获得反馈。</p>
+<hr>
+<h2 id="六、监督学习：有标签的数据学习"><a href="#六、监督学习：有标签的数据学习" class="headerlink" title="六、监督学习：有标签的数据学习"></a>六、监督学习：有标签的数据学习</h2><p><strong>监督学习</strong> 的英文是 <strong>Supervised Learning</strong>。</p>
+<p>它的特点是：训练数据里有明确的标签或答案。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">图片 A：猫</span><br><span class="line">图片 B：狗</span><br><span class="line">图片 C：猫</span><br><span class="line">图片 D：狗</span><br></pre></td></tr></table></figure>
+
+<p>模型会根据这些带标签的数据，学习“猫”和“狗”的差异。之后，当它看到一张新的动物图片时，它就可以预测图片里更可能是猫还是狗。</p>
+<p>监督学习常见任务有两类：</p>
+<h3 id="1-分类：预测类别"><a href="#1-分类：预测类别" class="headerlink" title="1. 分类：预测类别"></a>1. 分类：预测类别</h3><p>分类任务的目标是预测一个对象属于哪一类。</p>
+<p>例子：</p>
+<ul>
+<li>判断图片是猫还是狗；</li>
+<li>判断邮件是不是垃圾邮件；</li>
+<li>判断用户评论是正面还是负面；</li>
+<li>判断病人检测结果是高风险还是低风险。</li>
+</ul>
+<p>分类任务的输出通常是离散类别。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">猫 / 狗</span><br><span class="line">垃圾邮件 / 正常邮件</span><br><span class="line">正面评论 / 负面评论</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-回归：预测数值"><a href="#2-回归：预测数值" class="headerlink" title="2. 回归：预测数值"></a>2. 回归：预测数值</h3><p>回归任务的目标是预测一个连续数值。</p>
+<p>例子：</p>
+<ul>
+<li>根据房子的面积、位置、房间数量预测房价；</li>
+<li>根据天气、节假日、历史销量预测商品销量；</li>
+<li>根据学生学习时间和作业完成情况预测考试分数。</li>
+</ul>
+<p>回归任务的输出通常是数值。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">房价 = 350000 美元</span><br><span class="line">销量 = 1200 件</span><br><span class="line">分数 = 87 分</span><br></pre></td></tr></table></figure>
+
+<p>所以，监督学习可以简单理解为：</p>
+<blockquote>
+<p>模型通过“带答案的数据”学习，然后对新数据做分类或数值预测。</p>
+</blockquote>
+<hr>
+<h2 id="七、无监督学习：没有标签的数据学习"><a href="#七、无监督学习：没有标签的数据学习" class="headerlink" title="七、无监督学习：没有标签的数据学习"></a>七、无监督学习：没有标签的数据学习</h2><p><strong>无监督学习</strong> 的英文是 <strong>Unsupervised Learning</strong>。</p>
+<p>它的特点是：训练数据没有明确标签。</p>
+<p>也就是说，数据不会告诉模型：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这篇文章属于体育新闻。</span><br><span class="line">那篇文章属于财经新闻。</span><br><span class="line">另一篇文章属于娱乐新闻。</span><br></pre></td></tr></table></figure>
+
+<p>模型需要自己从数据中寻找相似性、结构和模式。</p>
+<h3 id="聚类：自动把相似数据分组"><a href="#聚类：自动把相似数据分组" class="headerlink" title="聚类：自动把相似数据分组"></a>聚类：自动把相似数据分组</h3><p>聚类是无监督学习中很常见的一类任务。</p>
+<p>比如，我们把一堆新闻文章交给模型，但是不告诉模型每篇文章属于什么类别。模型可以根据文章中的关键词、主题和语义，把相似文章分到一起。</p>
+<p>最后可能形成这样的结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第 1 组：体育相关新闻</span><br><span class="line">第 2 组：财经相关新闻</span><br><span class="line">第 3 组：科技相关新闻</span><br><span class="line">第 4 组：娱乐相关新闻</span><br></pre></td></tr></table></figure>
+
+<p>这里的重点是：</p>
+<blockquote>
+<p>人没有提前告诉模型正确答案，模型是自己根据数据特征进行分组。</p>
+</blockquote>
+<p>无监督学习还可以用于：</p>
+<ul>
+<li>用户分群；</li>
+<li>异常检测；</li>
+<li>推荐系统中的相似对象发现；</li>
+<li>数据降维和可视化。</li>
+</ul>
+<hr>
+<h2 id="八、强化学习：通过反馈学习行动策略"><a href="#八、强化学习：通过反馈学习行动策略" class="headerlink" title="八、强化学习：通过反馈学习行动策略"></a>八、强化学习：通过反馈学习行动策略</h2><p><strong>强化学习</strong> 的英文是 <strong>Reinforcement Learning</strong>。</p>
+<p>它的特点是：模型不是只看静态数据，而是在环境中采取行动，然后根据反馈不断学习。</p>
+<p>强化学习里通常有几个核心概念：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>智能体 Agent</td>
+<td>做决策的对象，比如机器人、游戏 AI、自动驾驶系统</td>
+</tr>
+<tr>
+<td>环境 Environment</td>
+<td>智能体所处的世界，比如游戏地图、道路环境</td>
+</tr>
+<tr>
+<td>行动 Action</td>
+<td>智能体可以做出的选择</td>
+</tr>
+<tr>
+<td>奖励 Reward</td>
+<td>环境给智能体的反馈</td>
+</tr>
+<tr>
+<td>策略 Policy</td>
+<td>智能体在不同情况下选择行动的方法</td>
+</tr>
+</tbody></table>
+<p>一个简单例子是训练游戏 AI。</p>
+<p>如果 AI 做出一个好动作，比如成功躲避敌人或获得分数，它就得到正奖励。如果它做出坏动作，比如撞墙或失败，它就得到负奖励。经过很多次尝试后，AI 会逐渐学会在不同情况下做出更好的选择。</p>
+<p>所以，强化学习可以简单理解为：</p>
+<blockquote>
+<p>模型通过“行动—反馈—调整”的过程学习，目标是在长期中获得更高奖励。</p>
+</blockquote>
+<p>这有点像训练动物。奖励会强化某些行为，惩罚或负反馈会减少某些行为。</p>
+<hr>
+<h2 id="九、深度学习：机器学习中的一种重要方法"><a href="#九、深度学习：机器学习中的一种重要方法" class="headerlink" title="九、深度学习：机器学习中的一种重要方法"></a>九、深度学习：机器学习中的一种重要方法</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/02-ai-ml-dl-genai-llm.png" class="" title="AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系">
+
+<p><strong>深度学习</strong> 的英文是 <strong>Deep Learning</strong>。</p>
+<p>它不是监督学习、无监督学习和强化学习之外的第四类学习方式。更准确地说，深度学习是机器学习中的一种方法。</p>
+<p>深度学习的核心是 <strong>人工神经网络</strong>。</p>
+<p>神经网络的灵感来自人脑处理信息的方式。它由很多计算单元组成，这些计算单元通常被称为“神经元”。多个神经元按照层级连接起来，就形成了神经网络。</p>
+<p>一个深度神经网络通常包含多层结构：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入层 → 隐藏层 1 → 隐藏层 2 → 隐藏层 3 → 输出层</span><br></pre></td></tr></table></figure>
+
+<p>这些层会逐步提取数据特征。</p>
+<p>以图片识别为例：</p>
+<ul>
+<li>浅层可能学习边缘、颜色和纹理；</li>
+<li>中间层可能学习眼睛、耳朵、轮廓等局部结构；</li>
+<li>更深层可能学习“猫”“狗”“汽车”等整体概念。</li>
+</ul>
+<p>这就是“层次化特征提取”。</p>
+<p>所以，深度学习可以简单理解为：</p>
+<blockquote>
+<p>用多层神经网络从大量数据中自动学习复杂特征。</p>
+</blockquote>
+<p>深度学习可以用于监督学习，也可以用于无监督学习和强化学习。</p>
+<hr>
+<h2 id="十、生成式-AI-和深度学习的关系"><a href="#十、生成式-AI-和深度学习的关系" class="headerlink" title="十、生成式 AI 和深度学习的关系"></a>十、生成式 AI 和深度学习的关系</h2><p>现在主流的生成式 AI 大多依赖深度学习。</p>
+<p>比如：</p>
+<ul>
+<li>大语言模型可以生成文本和代码；</li>
+<li>图像生成模型可以生成图片；</li>
+<li>音频模型可以生成声音和音乐；</li>
+<li>视频模型可以生成动态画面。</li>
+</ul>
+<p>这些模型通常需要从大量数据中学习模式，然后根据用户输入生成新的内容。</p>
+<p>但是要注意一个细节：</p>
+<blockquote>
+<p>生成式 AI 不完全等于深度学习。只是现在最主流、最强大的生成式 AI，大多是基于深度学习发展起来的。</p>
+</blockquote>
+<p>所以，更准确的说法是：</p>
+<blockquote>
+<p>生成式 AI 是深度学习的重要应用方向之一。</p>
+</blockquote>
+<hr>
+<h2 id="十一、大语言模型-LLM-是什么？"><a href="#十一、大语言模型-LLM-是什么？" class="headerlink" title="十一、大语言模型 LLM 是什么？"></a>十一、大语言模型 LLM 是什么？</h2><p><strong>LLM</strong> 的全称是 <strong>Large Language Model</strong>，中文通常叫 <strong>大语言模型</strong>。</p>
+<p>它是一类主要处理语言任务的模型。它可以理解、生成和转换文本，也可以完成很多自然语言处理任务。</p>
+<p>常见能力包括：</p>
+<ul>
+<li>写文章；</li>
+<li>总结内容；</li>
+<li>翻译语言；</li>
+<li>回答问题；</li>
+<li>生成代码；</li>
+<li>改写文本；</li>
+<li>提取信息；</li>
+<li>进行多轮对话。</li>
+</ul>
+<p>大语言模型的核心特点是：</p>
+<ol>
+<li>训练数据规模很大；</li>
+<li>模型参数规模通常很大；</li>
+<li>主要处理语言和文本；</li>
+<li>可以根据上下文生成连贯内容。</li>
+</ol>
+<p>不过，现在很多模型已经不只处理文字。它们还可以处理图片、音频、视频等信息。这类模型通常被称为多模态模型。</p>
+<hr>
+<h2 id="十二、生成式-AI-和-LLM-的关系"><a href="#十二、生成式-AI-和-LLM-的关系" class="headerlink" title="十二、生成式 AI 和 LLM 的关系"></a>十二、生成式 AI 和 LLM 的关系</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/01-aigc-overview.png" class="">
+
+<p>LLM 是生成式 AI 的重要分支，但不是生成式 AI 的全部。</p>
+<p>可以这样理解：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">生成式 AI</span><br><span class="line">├── 大语言模型：生成文本、代码、对话</span><br><span class="line">├── 图像生成模型：生成图片、插画、设计图</span><br><span class="line">├── 音频生成模型：生成语音、音乐、音效</span><br><span class="line">└── 视频生成模型：生成动画、短片、数字人视频</span><br></pre></td></tr></table></figure>
+
+<p>所以，下面这句话是正确的：</p>
+<blockquote>
+<p>并非所有生成式 AI 都属于大语言模型。</p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>Midjourney 主要生成图像，它是生成式 AI，但不是传统意义上的 LLM；</li>
+<li>Stable Diffusion 主要生成图像，它也是生成式 AI，但不是 LLM；</li>
+<li>Suno 主要生成音乐，它是生成式 AI，但不是 LLM；</li>
+<li>ChatGPT 这类系统主要基于大语言模型，可以生成文本和代码，也可以在多模态能力加持下处理更多类型内容。</li>
+</ul>
+<p>因此，LLM 更像是生成式 AI 大家族中的一个重要成员。</p>
+<hr>
+<h2 id="十三、几个容易混淆的点"><a href="#十三、几个容易混淆的点" class="headerlink" title="十三、几个容易混淆的点"></a>十三、几个容易混淆的点</h2><h3 id="1-AIGC-不等于生成式-AI"><a href="#1-AIGC-不等于生成式-AI" class="headerlink" title="1. AIGC 不等于生成式 AI"></a>1. AIGC 不等于生成式 AI</h3><p>AIGC 是内容结果。生成式 AI 是生成内容的技术或系统。</p>
+<h3 id="2-生成式-AI-不等于-LLM"><a href="#2-生成式-AI-不等于-LLM" class="headerlink" title="2. 生成式 AI 不等于 LLM"></a>2. 生成式 AI 不等于 LLM</h3><p>LLM 主要处理语言。生成式 AI 还包括图像、音频、视频等生成模型。</p>
+<h3 id="3-深度学习不是机器学习的三大分支之一"><a href="#3-深度学习不是机器学习的三大分支之一" class="headerlink" title="3. 深度学习不是机器学习的三大分支之一"></a>3. 深度学习不是机器学习的三大分支之一</h3><p>监督学习、无监督学习和强化学习更像是学习方式。深度学习是一种技术方法。</p>
+<h3 id="4-机器学习不一定都是深度学习"><a href="#4-机器学习不一定都是深度学习" class="headerlink" title="4. 机器学习不一定都是深度学习"></a>4. 机器学习不一定都是深度学习</h3><p>传统机器学习也包括决策树、随机森林、支持向量机、线性回归、逻辑回归等方法。</p>
+<h3 id="5-深度学习也不一定都是生成式-AI"><a href="#5-深度学习也不一定都是生成式-AI" class="headerlink" title="5. 深度学习也不一定都是生成式 AI"></a>5. 深度学习也不一定都是生成式 AI</h3><p>深度学习可以用于图像分类、语音识别、推荐系统、医学影像分析等任务。这些任务不一定都属于生成式 AI。</p>
+<hr>
+<h2 id="十四、用一句话总结每个概念"><a href="#十四、用一句话总结每个概念" class="headerlink" title="十四、用一句话总结每个概念"></a>十四、用一句话总结每个概念</h2><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>一句话理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI</td>
+<td>让机器表现出类似人类智能的技术总称</td>
+</tr>
+<tr>
+<td>机器学习</td>
+<td>让机器从数据中学习规律，而不是完全依赖人工写规则</td>
+</tr>
+<tr>
+<td>监督学习</td>
+<td>用带标签的数据训练模型</td>
+</tr>
+<tr>
+<td>无监督学习</td>
+<td>用没有标签的数据，让模型自己找结构和模式</td>
+</tr>
+<tr>
+<td>强化学习</td>
+<td>让模型通过行动和反馈学习最优策略</td>
+</tr>
+<tr>
+<td>深度学习</td>
+<td>用多层神经网络自动学习复杂特征</td>
+</tr>
+<tr>
+<td>生成式 AI</td>
+<td>能生成新内容的 AI 技术或系统</td>
+</tr>
+<tr>
+<td>AIGC</td>
+<td>AI 生成出来的内容</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>主要处理和生成语言内容的大规模模型</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十五、最终总结"><a href="#十五、最终总结" class="headerlink" title="十五、最终总结"></a>十五、最终总结</h2><p>这几个概念可以按下面的逻辑理解：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AI 是最大范围。</span><br><span class="line">机器学习是实现 AI 的重要方式。</span><br><span class="line">深度学习是机器学习中的一种重要方法。</span><br><span class="line">主流生成式 AI 大多基于深度学习。</span><br><span class="line">LLM 是生成式 AI 中偏语言任务的一类模型。</span><br><span class="line">AIGC 是生成式 AI 生成出来的内容。</span><br></pre></td></tr></table></figure>
+
+<p>如果再压缩成一句话：</p>
+<blockquote>
+<p>AI 是大方向，机器学习是学习方法，深度学习是神经网络方法，生成式 AI 是生成内容的技术，LLM 是生成语言内容的重要模型，AIGC 是最终生成出来的内容。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>IBM, “What is Machine Learning?”</li>
+<li>IBM, “Supervised vs. Unsupervised Learning”</li>
+<li>Google Cloud, “Large Language Models”</li>
+<li>Google Cloud, “Generative AI”</li>
+<li>AWS, “Generative AI”</li>
+<li>NIST, “Artificial Intelligence”</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://MurrayTsai.github.io">人畜无害的菜姥爷</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://murraytsai.github.io/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">https://murraytsai.github.io/2026/06/16/AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://MurrayTsai.github.io" target="_blank">MurrayT's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AIGC/">AIGC</a><a class="post-meta__tags" href="/tags/Generative-AI/">Generative AI</a><a class="post-meta__tags" href="/tags/Machine-Learning/">Machine Learning</a><a class="post-meta__tags" href="/tags/Deep-Learning/">Deep Learning</a><a class="post-meta__tags" href="/tags/LLM/">LLM</a></div><div class="post-share"><div class="social-share" data-image="/images/covers/default-1.jpg" data-sites="x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记"><img class="cover" src="/images/covers/default-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记</div></div><div class="info-2"><div class="info-item-1">前言这篇文章整理我对 大语言模型 LLM 的入门理解。 一开始我只知道 LLM 可以生成、分类、改写和总结文本。后来我发现，想真正理解 GPT 这一类模型，就需要继续往下看它背后的结构。GPT 背后最关键的技术之一是 Transformer。 Transformer 又涉及几个核心概念：  Token； Embedding； Positional Encoding； Self-Attention； Multi-Head Attention； Encoder； Decoder； Linear； Softmax； Output Probabilities。  在 Transformer 流行之前，处理序列数据经常会用到 RNN。后来 RNN 被改良为 LSTM，用来缓解长序列信息丢失的问题。再后来，Transformer 因为更适合长距离关系建模和并行训练，逐渐成为现代大语言模型的重要基础。  一、什么是大语言模型 LLM？LLM 的全称是 Large Language Model，中文通常叫 大语言模型。 它是一类通过大量文本数据训练出来的模型。它可以处理自然语言，也可以生成自然语...</div></div></div></a><a class="pagination-related" href="/2026/06/11/hello-world/" title="Hello World"><img class="cover" src="/images/covers/default-2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记"><img class="cover" src="/images/covers/default-3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记</div></div><div class="info-2"><div class="info-item-1">前言这篇文章整理我对 大语言模型 LLM 的入门理解。 一开始我只知道 LLM 可以生成、分类、改写和总结文本。后来我发现，想真正理解 GPT 这一类模型，就需要继续往下看它背后的结构。GPT 背后最关键的技术之一是 Transformer。 Transformer 又涉及几个核心概念：  Token； Embedding； Positional Encoding； Self-Attention； Multi-Head Attention； Encoder； Decoder； Linear； Softmax； Output Probabilities。  在 Transformer 流行之前，处理序列数据经常会用到 RNN。后来 RNN 被改良为 LSTM，用来缓解长序列信息丢失的问题。再后来，Transformer 因为更适合长距离关系建模和并行训练，逐渐成为现代大语言模型的重要基础。  一、什么是大语言模型 LLM？LLM 的全称是 Large Language Model，中文通常叫 大语言模型。 它是一类通过大量文本数据训练出来的模型。它可以处理自然语言，也可以生成自然语...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">人畜无害的菜姥爷</div><div class="author-info-description">饭要吃到肚子里，屎要拉到马桶里</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MurrayTsai/MurrayTsai.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MurrayTsai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:591732689@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">没更新就是懒的更，要么就是忘了</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81AIGC-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">一、AIGC 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">二、生成式 AI 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E5%92%8C-LLM-%E7%9A%84%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">三、AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%98%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">四、显式编程和机器学习的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">五、机器学习的三种常见类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E6%A0%87%E7%AD%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0"><span class="toc-number">7.</span> <span class="toc-text">六、监督学习：有标签的数据学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB%EF%BC%9A%E9%A2%84%E6%B5%8B%E7%B1%BB%E5%88%AB"><span class="toc-number">7.1.</span> <span class="toc-text">1. 分类：预测类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9B%9E%E5%BD%92%EF%BC%9A%E9%A2%84%E6%B5%8B%E6%95%B0%E5%80%BC"><span class="toc-number">7.2.</span> <span class="toc-text">2. 回归：预测数值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%B2%A1%E6%9C%89%E6%A0%87%E7%AD%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">七、无监督学习：没有标签的数据学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%EF%BC%9A%E8%87%AA%E5%8A%A8%E6%8A%8A%E7%9B%B8%E4%BC%BC%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84"><span class="toc-number">8.1.</span> <span class="toc-text">聚类：自动把相似数据分组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E9%80%9A%E8%BF%87%E5%8F%8D%E9%A6%88%E5%AD%A6%E4%B9%A0%E8%A1%8C%E5%8A%A8%E7%AD%96%E7%95%A5"><span class="toc-number">9.</span> <span class="toc-text">八、强化学习：通过反馈学习行动策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E7%A7%8D%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text">九、深度学习：机器学习中的一种重要方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">11.</span> <span class="toc-text">十、生成式 AI 和深度学习的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B-LLM-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">十一、大语言模型 LLM 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E5%92%8C-LLM-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">13.</span> <span class="toc-text">十二、生成式 AI 和 LLM 的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E7%82%B9"><span class="toc-number">14.</span> <span class="toc-text">十三、几个容易混淆的点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AIGC-%E4%B8%8D%E7%AD%89%E4%BA%8E%E7%94%9F%E6%88%90%E5%BC%8F-AI"><span class="toc-number">14.1.</span> <span class="toc-text">1. AIGC 不等于生成式 AI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E4%B8%8D%E7%AD%89%E4%BA%8E-LLM"><span class="toc-number">14.2.</span> <span class="toc-text">2. 生成式 AI 不等于 LLM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8D%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%89%E5%A4%A7%E5%88%86%E6%94%AF%E4%B9%8B%E4%B8%80"><span class="toc-number">14.3.</span> <span class="toc-text">3. 深度学习不是机器学习的三大分支之一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E4%B8%80%E5%AE%9A%E9%83%BD%E6%98%AF%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">14.4.</span> <span class="toc-text">4. 机器学习不一定都是深度学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%9F%E4%B8%8D%E4%B8%80%E5%AE%9A%E9%83%BD%E6%98%AF%E7%94%9F%E6%88%90%E5%BC%8F-AI"><span class="toc-number">14.5.</span> <span class="toc-text">5. 深度学习也不一定都是生成式 AI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E7%94%A8%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93%E6%AF%8F%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="toc-number">15.</span> <span class="toc-text">十四、用一句话总结每个概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E6%9C%80%E7%BB%88%E6%80%BB%E7%BB%93"><span class="toc-number">16.</span> <span class="toc-text">十五、最终总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">17.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记"/></a><div class="content"><a class="title" href="/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记">什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记"/></a><div class="content"><a class="title" href="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记">AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记</a><time datetime="2026-06-15T16:00:00.000Z" title="发表于 2026-06-16 00:00:00">2026-06-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/11/hello-world/" title="Hello World"><img src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2026/06/11/hello-world/" title="Hello World">Hello World</a><time datetime="2026-06-10T21:35:17.630Z" title="发表于 2026-06-11 05:35:17">2026-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/12/CSS%E7%AE%80%E4%BB%8B/" title="CSS简介"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS简介"/></a><div class="content"><a class="title" href="/2022/12/12/CSS%E7%AE%80%E4%BB%8B/" title="CSS简介">CSS简介</a><time datetime="2022-12-12T01:06:41.000Z" title="发表于 2022-12-12 09:06:41">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/" title="Web前端-HTML5章节-块元素与行内元素（内联元素）"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web前端-HTML5章节-块元素与行内元素（内联元素）"/></a><div class="content"><a class="title" href="/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/" title="Web前端-HTML5章节-块元素与行内元素（内联元素）">Web前端-HTML5章节-块元素与行内元素（内联元素）</a><time datetime="2022-12-08T00:14:17.000Z" title="发表于 2022-12-08 08:14:17">2022-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>
