@@ -1,71 +1,1025 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Web前端-HTML5章节-HTML5简介与基础框架</title>
-    <url>/2022/12/02/HTML5%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[<h1 id="HTML5简介与基础框架"><a href="#HTML5简介与基础框架" class="headerlink" title="HTML5简介与基础框架"></a>HTML5简介与基础框架</h1><h3 id="HTML5介绍"><a href="#HTML5介绍" class="headerlink" title="HTML5介绍"></a>HTML5介绍</h3><p>HTML5 是用来描述网页的一种语言，被称为超文本标记语言。用 HTML5 编写的文件，后缀以 <code>.html</code> 结尾。</p>
-<p>HTML5 是一种标记语言。标记语言是一套标记标签。标签是由尖括号包围的关键字，例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>标签有两种表现形式：</p>
-<p>双标签，例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>单标签，例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+    <title>ChatGPT 是如何练成的：从预训练、SFT 到 RLHF</title>
+    <url>/2025/08/22/3.ChatGPT%20%E6%98%AF%E5%A6%82%E4%BD%95%E7%BB%83%E6%88%90%E7%9A%84%EF%BC%9A%E4%BB%8E%E9%A2%84%E8%AE%AD%E7%BB%83%E3%80%81SFT%20%E5%88%B0%20RLHF-%E7%B2%BE%E7%AE%80%E6%A0%87%E9%A2%98%E7%89%88/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ChatGPT 看起来像一个会聊天、会写作、会总结、会改代码的 AI 助手。</p>
+<p>但它不是一开始就会自然对话。它通常要经过几个阶段的训练，才会从一个“会预测下一个 token 的语言模型”，变成一个“更会按照人类意图回答问题的对话模型”。</p>
+<p>可以先用一句话理解：</p>
+<blockquote>
+<p>ChatGPT 先通过海量文本学会语言，再通过人类示范学会回答，最后通过人类反馈学会什么样的回答更好。</p>
+</blockquote>
 <hr>
-<h3 id="HTML5的DOCTYPE声明"><a href="#HTML5的DOCTYPE声明" class="headerlink" title="HTML5的DOCTYPE声明"></a>HTML5的DOCTYPE声明</h3><p>DOCTYPE 是 document（文档类型）的缩写。</p>
-<p><code>&lt;!DOCTYPE html&gt;</code> 是 HTML5 的声明，位于文档的最前面，处于 <code>&lt;html&gt;</code> 标签之前。它是网页必备的组成部分，可以避免浏览器进入怪异模式。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ChatGPT-的训练流程总览"><a href="#ChatGPT-的训练流程总览" class="headerlink" title="ChatGPT 的训练流程总览"></a>ChatGPT 的训练流程总览</h2><p>ChatGPT 背后是大语言模型，也就是 <strong>LLM</strong>。</p>
+<p>LLM 的基础能力之一是：</p>
+<blockquote>
+<p>根据前面的上下文，预测下一个最可能出现的 token。</p>
+</blockquote>
+<p>比如输入：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">人工智能是一种</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="HTML5基本骨架"><a href="#HTML5基本骨架" class="headerlink" title="HTML5基本骨架"></a>HTML5基本骨架</h3><h4 id="html标签"><a href="#html标签" class="headerlink" title="html标签"></a>html标签</h4><p><code>html</code> 标签用于定义 HTML 文档。浏览器看到这个元素后，就会知道这是一个 HTML 文档。</p>
-<p>其他元素都需要包裹在 <code>html</code> 标签里面。<code>html</code> 标签限定了文档的开始点与结束点。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>模型可能会继续预测：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">技术 / 方法 / 工具 / 能力</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h4><p><code>head</code> 标签用于定义文档的头部。</p>
-<p>文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置，以及和其他文档的关系等。</p>
-<p>绝大多数文档头部包含的数据都不会真正作为内容显示给读者。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>它会根据训练中学到的语言规律，一步一步生成后面的内容。</p>
+<p>不过，一个只会预测下一个 token 的模型，不一定就是一个好助手。它还需要经过后续训练。</p>
+<p>整体流程可以这样理解：</p>
+<pre class="mermaid">flowchart TD
+    Data[大量文本数据] --> Pretrain[无监督预训练]
+    Pretrain --> Base[基座模型<br/>Base Model]
 
-<hr>
-<h4 id="body标签"><a href="#body标签" class="headerlink" title="body标签"></a>body标签</h4><p><code>body</code> 元素用于定义文档的主体。</p>
-<p><code>body</code> 元素包含文档的所有内容，比如文本、超链接、图像、表格和列表等。</p>
-<p>它会直接在页面中显示出来，也就是用户可以直观看到的内容。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    Demo[高质量问答数据] --> SFT[监督微调<br/>SFT]
+    Base --> SFT
+    SFT --> SFTModel[SFT 模型<br/>更会按指令回答]
 
+    Ranking[人工排序数据] --> RMTrain[训练奖励模型<br/>Reward Model]
+    RMTrain --> RM[奖励模型<br/>判断回答质量]
+
+    SFTModel --> RLHF[RLHF<br/>基于人类反馈的强化学习]
+    RM --> RLHF
+    RLHF --> ChatGPT[更符合人类偏好的对话模型]</pre>
+
+<p>这条路线里有几个关键词：</p>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base Model</td>
+<td>基座模型，预训练后得到的基础语言模型</td>
+</tr>
+<tr>
+<td>SFT</td>
+<td>监督微调，让模型更会按照指令回答</td>
+</tr>
+<tr>
+<td>Reward Model</td>
+<td>奖励模型，用来预测回答质量</td>
+</tr>
+<tr>
+<td>RLHF</td>
+<td>基于人类反馈的强化学习</td>
+</tr>
+<tr>
+<td>3H</td>
+<td>Helpful、Honest、Harmless，也就是有用、诚实、无害</td>
+</tr>
+</tbody></table>
 <hr>
-<h4 id="title标签"><a href="#title标签" class="headerlink" title="title标签"></a>title标签</h4><ol>
-<li><p><code>title</code> 标签可以定义文档的标题。</p>
-</li>
-<li><p>它会显示在浏览器窗口的标题栏或者状态栏上。</p>
-</li>
-<li><p><code>&lt;title&gt;</code> 标签是 <code>&lt;head&gt;</code> 标签中唯一必须包含的内容。也就是说，<code>head</code> 里面一定要写 <code>title</code>。</p>
-</li>
-<li><p><code>&lt;title&gt;</code> 的增加有利于 SEO 优化。</p>
-</li>
+<h2 id="无监督预训练：先得到基座模型"><a href="#无监督预训练：先得到基座模型" class="headerlink" title="无监督预训练：先得到基座模型"></a>无监督预训练：先得到基座模型</h2><p>第一阶段是 <strong>无监督预训练</strong>。</p>
+<p>这一阶段会使用非常大规模的文本数据进行训练。数据可能来自书籍、网页、文章、代码、问答内容等。</p>
+<p>这里的“无监督”不是说模型没有训练目标，而是说这些数据通常不是人工一条条标好答案的问答数据。模型主要通过文本本身学习语言规律。</p>
+<p>它的训练目标可以简单理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">给定前文，预测后文。</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">输入：今天天气很好，我想去</span><br><span class="line">目标：公园 / 散步 / 打球 / 学校</span><br></pre></td></tr></table></figure>
+
+<p>模型会不断做这种预测任务。通过大量训练，它会逐渐学到：</p>
+<ul>
+<li>词语之间的关系；</li>
+<li>句子的语法结构；</li>
+<li>常见知识和表达方式；</li>
+<li>文本风格；</li>
+<li>代码模式；</li>
+<li>一些常见推理模式。</li>
+</ul>
+<p>这一阶段完成后，会得到一个 <strong>基座模型 Base Model</strong>。</p>
+<p>基座模型可以理解为：</p>
+<blockquote>
+<p>一个语言能力很强，但还不够会聊天的模型。</p>
+</blockquote>
+<p>它已经能生成文本，但不一定擅长稳定回答用户问题。它可能会：</p>
+<ul>
+<li>不够像助手；</li>
+<li>不一定遵循指令；</li>
+<li>回答格式不稳定；</li>
+<li>有时续写用户的话，而不是回答用户；</li>
+<li>可能生成不安全或不合适的内容；</li>
+<li>不知道什么时候应该拒绝。</li>
+</ul>
+<p>所以，预训练只是第一步。</p>
+<p>另外，预训练成本很高。主要原因是：</p>
+<table>
+<thead>
+<tr>
+<th>成本来源</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据规模大</td>
+<td>需要海量文本，还要清洗、筛选和去重</td>
+</tr>
+<tr>
+<td>训练时间长</td>
+<td>大模型需要处理大量 token</td>
+</tr>
+<tr>
+<td>算力成本高</td>
+<td>需要大量 GPU 或 AI 加速芯片</td>
+</tr>
+<tr>
+<td>工程复杂</td>
+<td>训练过程需要存储、网络、调度和稳定性保障</td>
+</tr>
+</tbody></table>
+<p>可以总结为：</p>
+<blockquote>
+<p>预训练让模型学会语言和知识，但不一定让模型学会“如何当一个好助手”。</p>
+</blockquote>
+<hr>
+<h2 id="监督微调-SFT：让模型学会按指令回答"><a href="#监督微调-SFT：让模型学会按指令回答" class="headerlink" title="监督微调 SFT：让模型学会按指令回答"></a>监督微调 SFT：让模型学会按指令回答</h2><p>第二阶段是 <strong>监督微调</strong>。</p>
+<p>英文是 <strong>Supervised Fine-Tuning</strong>，简称 <strong>SFT</strong>。</p>
+<p>这一阶段会用人类撰写的高质量对话数据，继续训练基座模型。</p>
+<p>数据大概长这样：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户问题：请解释什么是机器学习。</span><br><span class="line"></span><br><span class="line">高质量回答：机器学习是一种让计算机从数据中学习规律的方法。它不是让程序员把所有规则写死，而是让模型从样本中总结模式。</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，人类先写出比较理想的回答，然后让模型学习这些回答方式。</p>
+<p>SFT 的目标是：</p>
+<blockquote>
+<p>让模型更像一个会按照指令回答问题的助手。</p>
+</blockquote>
+<p>预训练和 SFT 的区别可以这样看：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>使用数据</th>
+<th>主要目标</th>
+<th>得到结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无监督预训练</td>
+<td>大规模普通文本</td>
+<td>学习语言规律和知识</td>
+<td>Base Model</td>
+</tr>
+<tr>
+<td>监督微调 SFT</td>
+<td>高质量问答&#x2F;对话数据</td>
+<td>学会按照人类指令回答</td>
+<td>SFT Model</td>
+</tr>
+</tbody></table>
+<p>可以类比成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">预训练：让模型读很多书。</span><br><span class="line">SFT：老师示范“别人这样问，你应该这样答”。</span><br></pre></td></tr></table></figure>
+
+<p>经过 SFT 后，模型会更擅长：</p>
+<ul>
+<li>回答问题；</li>
+<li>总结内容；</li>
+<li>改写文本；</li>
+<li>按格式输出；</li>
+<li>遵循用户指令；</li>
+<li>用更像助手的语气回复。</li>
+</ul>
+<p>但是，SFT 模型仍然不完美。</p>
+<p>它可能仍然会：</p>
+<ul>
+<li>回答看起来合理，但事实错误；</li>
+<li>太啰嗦；</li>
+<li>没有真正解决用户问题；</li>
+<li>不知道哪个回答更符合人类偏好；</li>
+<li>在安全问题上处理不够稳定。</li>
+</ul>
+<p>所以，还需要继续训练奖励模型。</p>
+<hr>
+<h2 id="奖励模型和-RLHF：让模型更符合人类偏好"><a href="#奖励模型和-RLHF：让模型更符合人类偏好" class="headerlink" title="奖励模型和 RLHF：让模型更符合人类偏好"></a>奖励模型和 RLHF：让模型更符合人类偏好</h2><p>第三阶段是训练 <strong>奖励模型 Reward Model</strong>。</p>
+<p>奖励模型不是直接负责聊天的模型。它更像一个“评分器”。</p>
+<p>它的任务是：</p>
+<blockquote>
+<p>判断一个回答好不好。</p>
+</blockquote>
+<p>训练奖励模型时，通常会准备这样的数据：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">同一个用户问题</span><br><span class="line">→ 模型生成多个不同回答</span><br><span class="line">→ 人类标注员对回答进行排序</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">问题：请解释什么是机器学习。</span><br><span class="line"></span><br><span class="line">回答 A：机器学习是一种让计算机从数据中学习规律的方法，常见任务包括分类和回归。</span><br><span class="line">回答 B：机器学习就是机器人自己变聪明。</span><br><span class="line">回答 C：机器学习是一种算法，但这里不展开。</span><br><span class="line"></span><br><span class="line">人工排序：A &gt; C &gt; B</span><br></pre></td></tr></table></figure>
+
+<p>然后系统会用这些排序数据训练奖励模型。</p>
+<p>奖励模型学到的是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">给定一个问题和一个回答 → 预测这个回答的质量分数</span><br></pre></td></tr></table></figure>
+
+<p>它会学习人类更喜欢什么样的回答，比如：</p>
+<ul>
+<li>更有帮助；</li>
+<li>更真实；</li>
+<li>更安全；</li>
+<li>更符合用户要求；</li>
+<li>结构更清楚；</li>
+<li>更少胡说。</li>
+</ul>
+<p>奖励模型训练好后，就进入 <strong>RLHF</strong> 阶段。</p>
+<p><strong>RLHF</strong> 的全称是 <strong>Reinforcement Learning from Human Feedback</strong>，意思是 <strong>基于人类反馈的强化学习</strong>。</p>
+<p>流程可以这样理解：</p>
+<pre class="mermaid">flowchart TD
+    Prompt[用户问题] --> Model[SFT 模型生成回答]
+    Model --> Answer[候选回答]
+    Answer --> RM[奖励模型评分]
+    RM --> Score[Reward 分数]
+    Score --> Update[强化学习更新模型]
+    Update --> Better[模型更倾向生成高分回答]</pre>
+
+<p>这里有一个容易误解的点：</p>
+<blockquote>
+<p>RLHF 不是每一步都让人类实时打分。</p>
+</blockquote>
+<p>更常见的流程是：</p>
+<ol>
+<li>人类先对大量回答做排序；</li>
+<li>用排序数据训练奖励模型；</li>
+<li>强化学习阶段主要让奖励模型自动打分；</li>
+<li>人类继续抽查、评估和改进数据。</li>
 </ol>
-<p>SEO 是搜索引擎优化的英文缩写。通过对网站内容的调整，可以让网页更符合搜索引擎的排名需求。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>原因很简单：</p>
+<blockquote>
+<p>强化学习需要大量反馈。如果每次都让人类手动打分，成本太高，也太慢。</p>
+</blockquote>
+<p>所以，人类反馈主要用于训练奖励模型。奖励模型再参与大规模优化。</p>
+<hr>
+<h2 id="3H-原则：有用、诚实、无害"><a href="#3H-原则：有用、诚实、无害" class="headerlink" title="3H 原则：有用、诚实、无害"></a>3H 原则：有用、诚实、无害</h2><p>训练 ChatGPT 这类对话模型时，一个重要标准是 <strong>3H 原则</strong>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Helpful：有用</span><br><span class="line">Honest：诚实</span><br><span class="line">Harmless：无害</span><br></pre></td></tr></table></figure>
+
+<p>可以翻译成：</p>
+<table>
+<thead>
+<tr>
+<th>原则</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Helpful</td>
+<td>回答要真正帮助用户</td>
+<td>给出清楚解释、步骤、例子</td>
+</tr>
+<tr>
+<td>Honest</td>
+<td>回答要真实，不确定就说不确定</td>
+<td>不编造事实，不伪造引用</td>
+</tr>
+<tr>
+<td>Harmless</td>
+<td>回答不能帮助造成伤害</td>
+<td>不提供违法、危险、伤害性内容</td>
+</tr>
+</tbody></table>
+<h3 id="Helpful：有用"><a href="#Helpful：有用" class="headerlink" title="Helpful：有用"></a>Helpful：有用</h3><p>有用的回答应该正面回应用户的问题，并且尽量解决真实需求。</p>
+<p>比如用户问：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我从零开始怎么学 Python？</span><br></pre></td></tr></table></figure>
+
+<p>低质量回答可能是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Python 很简单，你多练就行。</span><br></pre></td></tr></table></figure>
+
+<p>更有用的回答应该是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你可以先学变量、字符串、列表、字典、if 判断、for 循环和函数。每天练一个小脚本，比如读取 CSV、统计单词数量、整理文件名。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Honest：诚实"><a href="#Honest：诚实" class="headerlink" title="Honest：诚实"></a>Honest：诚实</h3><p>诚实的回答应该尽量真实、准确，并且在不确定时说明不确定。</p>
+<p>比如用户问：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">某篇论文的第三页说了什么？</span><br></pre></td></tr></table></figure>
+
+<p>如果模型没有看到论文，就不应该编造内容。更好的做法是说：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我现在没有看到这篇论文，所以不能确定第三页的内容。你可以上传文件，我再帮你看。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Harmless：无害"><a href="#Harmless：无害" class="headerlink" title="Harmless：无害"></a>Harmless：无害</h3><p>无害性指的是回答不能帮助用户造成伤害。</p>
+<p>比如用户要求：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">教我怎么入侵别人的账号。</span><br></pre></td></tr></table></figure>
+
+<p>模型应该拒绝提供攻击方法，并且可以转向安全学习方向：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我不能帮助入侵他人账号。如果你想学习网络安全，可以从密码安全、权限管理、日志分析和防御测试开始。</span><br></pre></td></tr></table></figure>
+
+<p>3H 原则有时会互相冲突。</p>
+<p>比如用户问危险问题。直接回答可能“有用”，但不“无害”。这时模型应该优先保证安全。</p>
+<p>所以，一个好的模型不仅要会回答，还要学会：</p>
+<blockquote>
+<p>什么时候应该回答，什么时候应该拒绝，什么时候应该说明不确定。</p>
+</blockquote>
+<hr>
+<h2 id="训练流程的简单类比"><a href="#训练流程的简单类比" class="headerlink" title="训练流程的简单类比"></a>训练流程的简单类比</h2><p>可以把 ChatGPT 的训练过程类比成培养一个学生。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>类比</th>
+<th>对应模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无监督预训练</td>
+<td>学生大量阅读</td>
+<td>Base Model</td>
+</tr>
+<tr>
+<td>监督微调 SFT</td>
+<td>老师示范标准答案</td>
+<td>SFT Model</td>
+</tr>
+<tr>
+<td>奖励模型</td>
+<td>评委比较多个答案好坏</td>
+<td>Reward Model</td>
+</tr>
+<tr>
+<td>RLHF</td>
+<td>学生根据评分反复练习</td>
+<td>更符合人类偏好的模型</td>
+</tr>
+</tbody></table>
+<p>这个类比可以帮助理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">预训练让模型有语言基础。</span><br><span class="line">SFT 让模型学会回答问题。</span><br><span class="line">奖励模型让系统知道什么回答更好。</span><br><span class="line">RLHF 让模型更倾向生成高质量回答。</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h4 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h4><p><code>meta</code> 标签用来描述一个 HTML 网页文档的属性、关键词等。</p>
-<p>例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="容易混淆的点"><a href="#容易混淆的点" class="headerlink" title="容易混淆的点"></a>容易混淆的点</h2><h3 id="1-预训练不是监督微调"><a href="#1-预训练不是监督微调" class="headerlink" title="1. 预训练不是监督微调"></a>1. 预训练不是监督微调</h3><p>预训练主要学习语言规律。监督微调主要学习如何按照指令回答。</p>
+<h3 id="2-基座模型不等于-ChatGPT"><a href="#2-基座模型不等于-ChatGPT" class="headerlink" title="2. 基座模型不等于 ChatGPT"></a>2. 基座模型不等于 ChatGPT</h3><p>基座模型会生成文本，但不一定会稳定对话。</p>
+<h3 id="3-SFT-模型不等于最终模型"><a href="#3-SFT-模型不等于最终模型" class="headerlink" title="3. SFT 模型不等于最终模型"></a>3. SFT 模型不等于最终模型</h3><p>SFT 模型已经更会回答，但还需要人类偏好数据和强化学习优化。</p>
+<h3 id="4-奖励模型不是聊天模型"><a href="#4-奖励模型不是聊天模型" class="headerlink" title="4. 奖励模型不是聊天模型"></a>4. 奖励模型不是聊天模型</h3><p>奖励模型主要负责评分，不是直接负责和用户对话。</p>
+<h3 id="5-RLHF-不是让模型永远正确"><a href="#5-RLHF-不是让模型永远正确" class="headerlink" title="5. RLHF 不是让模型永远正确"></a>5. RLHF 不是让模型永远正确</h3><p>RLHF 让模型更符合人类偏好，但不能保证所有事实都正确。模型仍然可能出现幻觉、偏见或误判。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>ChatGPT 的训练可以压缩成四个阶段：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">第一阶段：无监督预训练</span><br><span class="line">用大量文本训练基座模型，让模型学会语言规律和文本生成。</span><br><span class="line"></span><br><span class="line">第二阶段：监督微调 SFT</span><br><span class="line">用人类写好的高质量问答数据训练模型，让模型更会按照指令回答。</span><br><span class="line"></span><br><span class="line">第三阶段：训练奖励模型</span><br><span class="line">让人类对多个回答排序，再训练一个模型预测回答质量。</span><br><span class="line"></span><br><span class="line">第四阶段：RLHF</span><br><span class="line">让 SFT 模型生成回答，用奖励模型打分，再用强化学习优化模型。</span><br></pre></td></tr></table></figure>
 
-<p>这表示当前页面使用的是 <code>utf-8</code> 编码格式。</p>
-<p>在开发中，我们经常会看到 <code>utf-8</code> 或 <code>gbk</code>，这些都是编码格式。通常情况下，我们使用 <code>utf-8</code>。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果用一句话总结：</p>
+<blockquote>
+<p>ChatGPT 不是一开始就会聊天，而是先通过海量文本学会语言，再通过人类示范学会回答，最后通过人类偏好和强化学习变得更有用、更诚实、更无害。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Ouyang, Long, et al. “Training Language Models to Follow Instructions with Human Feedback.” <em>Advances in Neural Information Processing Systems</em>, 2022.</li>
+<li>Christiano, Paul F., et al. “Deep Reinforcement Learning from Human Preferences.” <em>Advances in Neural Information Processing Systems</em>, 2017.</li>
+<li>Brown, Tom B., et al. “Language Models Are Few-Shot Learners.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
+<li>OpenAI. “Introducing ChatGPT.” <em>OpenAI Blog</em>, 2022.</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Web前端</category>
+        <category>AI</category>
       </categories>
       <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
+        <tag>ChatGPT</tag>
+        <tag>LLM</tag>
+        <tag>GPT</tag>
+        <tag>SFT</tag>
+        <tag>RLHF</tag>
+        <tag>Reward Model</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何和 AI 说话：提示工程入门笔记</title>
+    <url>/2025/08/28/4.%E5%A6%82%E4%BD%95%E5%92%8C%20AI%20%E8%AF%B4%E8%AF%9D%EF%BC%9A%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很多人刚开始用 AI 时，会觉得 AI 有时很聪明，有时又很不稳定。</p>
+<p>同一个问题，换一种问法，AI 的回答质量可能完全不同。</p>
+<p>所以，和 AI 说话不是随便输入一句话就结束。我们需要学习一种方法，叫 <strong>提示工程</strong>。</p>
+<hr>
+<h2 id="一、什么是提示工程？"><a href="#一、什么是提示工程？" class="headerlink" title="一、什么是提示工程？"></a>一、什么是提示工程？</h2><p><strong>提示工程</strong> 的英文是 <strong>Prompt Engineering</strong>。</p>
+<p><strong>Prompt</strong> 指的是我们给 AI 的输入，也就是提示词、问题或指令。</p>
+<p><strong>Prompt Engineering</strong> 指的是设计更清楚、更有效的提示词，让 AI 更容易理解我们的目标，并给出更符合需求的回答。</p>
+<p>简单来说：</p>
+<blockquote>
+<p>提示工程就是学习如何更好地向 AI 提问。</p>
+</blockquote>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">不好：帮我写一下。</span><br><span class="line"></span><br><span class="line">更好：请帮我写一篇 800 字左右的中文博客，主题是“如何从零学习 Python”。要求语言简单，适合初学者，并分成 5 个部分。</span><br></pre></td></tr></table></figure>
+
+<p>第二个提示更好，因为它告诉了 AI：</p>
+<ul>
+<li>要写什么；</li>
+<li>写多长；</li>
+<li>给谁看；</li>
+<li>用什么风格；</li>
+<li>按什么结构写。</li>
+</ul>
+<p>所以，一个好的 Prompt 更像是一份任务说明书，而不是一句随便的问题。</p>
+<hr>
+<h2 id="二、和-AI-说话的核心结构"><a href="#二、和-AI-说话的核心结构" class="headerlink" title="二、和 AI 说话的核心结构"></a>二、和 AI 说话的核心结构</h2><p>一个好的 Prompt 通常包含几个关键部分。</p>
+<pre class="mermaid">flowchart TD
+    Prompt[一个好的 Prompt] --> Task[任务<br/>你要 AI 做什么]
+    Prompt --> Context[背景<br/>为什么要做]
+    Prompt --> Requirement[要求<br/>格式 风格 限制]
+    Prompt --> Example[示例<br/>给 AI 参考]
+    Prompt --> Output[输出格式<br/>表格 列表 文章 代码]</pre>
+
+<p>可以把 Prompt 理解成给 AI 的任务说明书。</p>
+<p>说明越清楚，结果越稳定。</p>
+<p>一个简单好用的基础模板是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你是【角色】。</span><br><span class="line">请帮我完成【任务】。</span><br><span class="line">背景是【背景信息】。</span><br><span class="line">要求是【具体要求】。</span><br><span class="line">输出格式为【格式】。</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你是一位适合初学者的 Python 老师。</span><br><span class="line">请帮我解释 list 和 dict 的区别。</span><br><span class="line">背景是我刚开始学 Python，经常记不住这些概念。</span><br><span class="line">要求是语言简单，多用类比，每个概念给 2 个例子。</span><br><span class="line">输出格式为：先解释，再对比，最后给练习题。</span><br></pre></td></tr></table></figure>
+
+<p>这个 Prompt 比“解释 list 和 dict”更清楚，所以 AI 更容易给出有用的答案。</p>
+<hr>
+<h2 id="三、小样本提示：先给示例，再让-AI-模仿"><a href="#三、小样本提示：先给示例，再让-AI-模仿" class="headerlink" title="三、小样本提示：先给示例，再让 AI 模仿"></a>三、小样本提示：先给示例，再让 AI 模仿</h2><p><strong>小样本提示</strong> 的英文是 <strong>Few-shot Prompting</strong>。</p>
+<p>它的意思是：</p>
+<blockquote>
+<p>在正式提问之前，先给 AI 几个示例，让 AI 模仿示例的格式、风格或思路。</p>
+</blockquote>
+<p>比如你想让 AI 把复杂概念解释成简单语言，可以这样写：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请按照下面的风格解释概念。</span><br><span class="line"></span><br><span class="line">示例 1：</span><br><span class="line">输入：变量</span><br><span class="line">输出：变量就像一个盒子，可以用来存放数据。</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line">输入：函数</span><br><span class="line">输出：函数就像一台小机器，你给它输入，它按照规则处理后给你输出。</span><br><span class="line"></span><br><span class="line">现在请解释：</span><br><span class="line">输入：字典 dict</span><br><span class="line">输出：</span><br></pre></td></tr></table></figure>
+
+<p>这样做的好处是：</p>
+<ul>
+<li>AI 更容易理解你想要的风格；</li>
+<li>输出格式更稳定；</li>
+<li>结果更接近你的期待；</li>
+<li>适合分类、改写、翻译、总结和格式转换任务。</li>
+</ul>
+<p>小样本提示可以和 <strong>零样本提示</strong> 对比理解。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>零样本提示 Zero-shot</td>
+<td>不给示例，直接让 AI 做任务</td>
+<td>请解释什么是提示工程</td>
+</tr>
+<tr>
+<td>小样本提示 Few-shot</td>
+<td>给几个示例，再让 AI 模仿</td>
+<td>先给 2 个解释示例，再让 AI 解释新概念</td>
+</tr>
+</tbody></table>
+<p>简单理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Zero-shot：直接问。</span><br><span class="line">Few-shot：先示范，再让 AI 做。</span><br></pre></td></tr></table></figure>
+
+<p>如果任务很简单，Zero-shot 通常够用。</p>
+<p>如果你对格式、风格、分类标准有要求，Few-shot 更稳定。</p>
+<hr>
+<h2 id="四、思维链与分步骤思考"><a href="#四、思维链与分步骤思考" class="headerlink" title="四、思维链与分步骤思考"></a>四、思维链与分步骤思考</h2><p><strong>思维链</strong> 的英文是 <strong>Chain of Thought</strong>，简称 <strong>CoT</strong>。</p>
+<p>它的核心思想是：</p>
+<blockquote>
+<p>不只让 AI 给出答案，还让 AI 按步骤分析问题。</p>
+</blockquote>
+<p>比如数学题，如果只让 AI 直接给答案，它可能会出错。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">不好：</span><br><span class="line">直接告诉我答案。</span><br><span class="line"></span><br><span class="line">更好：</span><br><span class="line">请分步骤计算，并在最后给出答案。</span><br></pre></td></tr></table></figure>
+
+<p>思维链提示的作用是让 AI 把问题拆开，一步一步处理。</p>
+<p>这对以下任务很有帮助：</p>
+<ul>
+<li>数学计算；</li>
+<li>逻辑推理；</li>
+<li>代码分析；</li>
+<li>复杂决策；</li>
+<li>多条件判断；</li>
+<li>长文本分析。</li>
+</ul>
+<p>很多人会发现，AI 写文章很强，但做数学时可能会算错。</p>
+<p>这不是因为 AI “完全不会数学”，而是因为大语言模型的核心机制通常是根据上下文预测下一个 token。它更擅长生成看起来合理的语言，而不是像计算器一样保证每一步运算绝对精确。</p>
+<p>所以它可能出现：</p>
+<ul>
+<li>算术错误；</li>
+<li>漏掉条件；</li>
+<li>中间步骤跳太快；</li>
+<li>公式套错；</li>
+<li>最终答案和过程不一致。</li>
+</ul>
+<p>因此，在数学或逻辑问题中，我们可以要求 AI：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请分步骤计算。</span><br><span class="line">请写出公式。</span><br><span class="line">请不要跳步。</span><br><span class="line">请最后检查一遍答案。</span><br></pre></td></tr></table></figure>
+
+<p>如果是非常精确的计算，最好让 AI 配合计算器、Python 或其他工具。</p>
+<p><strong>分步骤思考</strong> 是最常用的 Prompt 技巧之一。</p>
+<p>英文里常见的说法是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Let&#x27;s think step by step.</span><br></pre></td></tr></table></figure>
+
+<p>中文可以写成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请一步一步分析。</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请先拆解问题，再给出最终答案。</span><br></pre></td></tr></table></figure>
+
+<p>分步骤提示和思维链很像，但重点略有不同。</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>重点</th>
+<th>适合场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分步骤提示</td>
+<td>要求 AI 按步骤完成任务</td>
+<td>学习计划、写作、分析问题</td>
+</tr>
+<tr>
+<td>思维链</td>
+<td>要求 AI 展示中间推理过程</td>
+<td>数学、逻辑、复杂判断</td>
+</tr>
+</tbody></table>
+<p>简单理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">分步骤提示：把任务拆成几步做。</span><br><span class="line">思维链：把推理过程写出来。</span><br></pre></td></tr></table></figure>
+
+<p>实际使用时，它们经常一起出现。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请先分步骤分析，再给出最终结论。</span><br></pre></td></tr></table></figure>
+
+<p>不过要注意：</p>
+<blockquote>
+<p>AI 的分步骤解释不一定永远正确。步骤看起来合理，也可能有错误。所以关键任务仍然需要核查。</p>
+</blockquote>
+<hr>
+<h2 id="五、常用-Prompt-技巧和模板"><a href="#五、常用-Prompt-技巧和模板" class="headerlink" title="五、常用 Prompt 技巧和模板"></a>五、常用 Prompt 技巧和模板</h2><p>我现在最推荐的 Prompt 结构是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">角色 + 任务 + 背景 + 要求 + 输出格式 + 检查</span><br></pre></td></tr></table></figure>
+
+<p>可以写成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你是【角色】。</span><br><span class="line">我要完成【任务】。</span><br><span class="line">我的背景是【背景】。</span><br><span class="line">请满足以下要求：</span><br><span class="line">1. 【要求一】</span><br><span class="line">2. 【要求二】</span><br><span class="line">3. 【要求三】</span><br><span class="line"></span><br><span class="line">请按照【输出格式】回答。</span><br><span class="line">最后请检查是否有明显错误。</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你是一位适合初学者的 AI 老师。</span><br><span class="line">我要写一篇关于提示工程的博客。</span><br><span class="line">我的背景是刚开始学习 AI，希望内容简单易懂。</span><br><span class="line">请满足以下要求：</span><br><span class="line">1. 解释 Prompt Engineering；</span><br><span class="line">2. 介绍小样本提示、思维链和分步骤思考；</span><br><span class="line">3. 每个概念都给一个例子；</span><br><span class="line">4. 不要写得太学术。</span><br><span class="line"></span><br><span class="line">请按照 Markdown 格式回答。</span><br><span class="line">最后请检查有没有概念错误。</span><br></pre></td></tr></table></figure>
+
+<p>常见技巧可以总结成下面这张表。</p>
+<table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>英文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>明确角色</td>
+<td>Role Prompting</td>
+<td>让 AI 按某种身份回答</td>
+</tr>
+<tr>
+<td>明确任务</td>
+<td>Task Instruction</td>
+<td>减少回答跑偏</td>
+</tr>
+<tr>
+<td>给背景</td>
+<td>Context</td>
+<td>让 AI 知道你的真实需求</td>
+</tr>
+<tr>
+<td>给格式</td>
+<td>Output Format</td>
+<td>让输出更稳定</td>
+</tr>
+<tr>
+<td>给示例</td>
+<td>Few-shot Prompting</td>
+<td>让 AI 模仿示例</td>
+</tr>
+<tr>
+<td>分步骤</td>
+<td>Step-by-step</td>
+<td>让复杂任务更清楚</td>
+</tr>
+<tr>
+<td>思维链</td>
+<td>Chain of Thought</td>
+<td>帮助处理推理问题</td>
+</tr>
+<tr>
+<td>要求检查</td>
+<td>Self-check</td>
+<td>降低明显错误</td>
+</tr>
+</tbody></table>
+<p>提示工程的层级关系可以简单理解成：</p>
+<pre class="mermaid">flowchart TD
+    PE[提示工程<br/>Prompt Engineering] --> Basic[基础结构]
+    Basic --> Role[角色]
+    Basic --> Task[任务]
+    Basic --> Context[背景]
+    Basic --> Format[输出格式]
+
+    PE --> Advanced[进阶技巧]
+    Advanced --> FewShot[小样本提示<br/>Few-shot]
+    Advanced --> CoT[思维链<br/>Chain of Thought]
+    Advanced --> Step[分步骤思考<br/>Step-by-step]
+    Advanced --> Check[检查与修正<br/>Self-check]
+
+    PE --> Goal[目标：让回答更清楚、更稳定、更有用]</pre>
+
+<p>这个图可以简单理解为：</p>
+<blockquote>
+<p>提示工程的核心不是把话写得很复杂，而是把任务说清楚。</p>
+</blockquote>
+<hr>
+<h2 id="六、不要把-Prompt-写得太空"><a href="#六、不要把-Prompt-写得太空" class="headerlink" title="六、不要把 Prompt 写得太空"></a>六、不要把 Prompt 写得太空</h2><p>很多低质量 Prompt 的问题是太空。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">帮我写文章。</span><br></pre></td></tr></table></figure>
+
+<p>AI 不知道你要什么文章，也不知道给谁看，更不知道写多长。</p>
+<p>可以改成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请帮我写一篇 Hexo 博客文章，主题是“如何和 AI 说话”。</span><br><span class="line">读者是刚开始接触 AI 的初学者。</span><br><span class="line">要求语言简单，结构清楚，不要太学术。</span><br><span class="line">内容包括提示工程、小样本提示、思维链和分步骤思考。</span><br><span class="line">请用 Markdown 格式输出。</span><br></pre></td></tr></table></figure>
+
+<p>这样 AI 才更容易给出符合需求的内容。</p>
+<hr>
+<h2 id="七、使用-AI-时要注意什么？"><a href="#七、使用-AI-时要注意什么？" class="headerlink" title="七、使用 AI 时要注意什么？"></a>七、使用 AI 时要注意什么？</h2><p>提示工程可以提高回答质量，但不能保证 AI 永远正确。</p>
+<p>使用 AI 时，要注意几点：</p>
+<ol>
+<li><p><strong>事实要核查</strong><br>涉及数据、法律、医学、论文、引用时，不要直接相信。</p>
+</li>
+<li><p><strong>计算要验证</strong><br>数学题、财务计算、代码运行结果，最好用工具检查。</p>
+</li>
+<li><p><strong>要求要明确</strong><br>如果回答不符合预期，不一定是 AI 不行，也可能是提示不够清楚。</p>
+</li>
+<li><p><strong>可以反复迭代</strong><br>第一次回答不好，可以继续要求它修改、补充、压缩、换风格。</p>
+</li>
+<li><p><strong>不要输入敏感隐私</strong><br>不要随便把身份证、密码、银行卡、私人文件等信息放进 Prompt。</p>
+</li>
+</ol>
+<hr>
+<h2 id="八、最终总结"><a href="#八、最终总结" class="headerlink" title="八、最终总结"></a>八、最终总结</h2><p>这篇笔记可以压缩成一句话：</p>
+<blockquote>
+<p>提示工程就是把任务、背景、要求、示例和输出格式说清楚，让 AI 更容易给出稳定、有用的回答。</p>
+</blockquote>
+<p>几个关键词要记住：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Prompt Engineering：提示工程</span><br><span class="line">Few-shot Prompting：小样本提示</span><br><span class="line">Chain of Thought：思维链</span><br><span class="line">Step-by-step：分步骤思考</span><br><span class="line">Self-check：自我检查</span><br></pre></td></tr></table></figure>
+
+<p>最实用的 Prompt 模板是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">你是【角色】。</span><br><span class="line">请完成【任务】。</span><br><span class="line">背景是【背景】。</span><br><span class="line">要求是【要求】。</span><br><span class="line">输出格式是【格式】。</span><br><span class="line">最后请检查是否有错误。</span><br></pre></td></tr></table></figure>
+
+<p>如果问题比较复杂，可以加一句：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请一步一步分析。</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Let&#x27;s think step by step.</span><br></pre></td></tr></table></figure>
+
+<p>这样通常能让 AI 的回答更清楚，也更容易检查。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Brown, Tom B., et al. “Language Models Are Few-Shot Learners.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
+<li>Wei, Jason, et al. “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.” <em>Advances in Neural Information Processing Systems</em>, 2022.</li>
+<li>OpenAI. “Prompt Engineering Guide.” <em>OpenAI Documentation</em>.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>Prompt Engineering</tag>
+        <tag>提示工程</tag>
+        <tag>Few-shot Prompting</tag>
+        <tag>Chain of Thought</tag>
+        <tag>AI 学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI 不准怎么办：RAG、PAL 和 ReAct 入门笔记</title>
+    <url>/2025/09/01/5.AI%20%E4%B8%8D%E5%87%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9ARAG%E3%80%81PAL%20%E5%92%8C%20ReAct%20%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大语言模型很强。它可以写文章、总结内容、生成代码、回答问题。</p>
+<p>但它也有明显限制。</p>
+<p>比如：</p>
+<ul>
+<li>数据可能过时；</li>
+<li>可能编造事实；</li>
+<li>数学计算可能不准；</li>
+<li>复杂任务中可能遗漏步骤；</li>
+<li>面对外部世界信息时，它不一定知道最新情况。</li>
+</ul>
+<p>所以，真实应用里不能只依赖模型“直接回答”。</p>
+<p>更常见的做法是：</p>
+<blockquote>
+<p>让大语言模型配合外部知识、工具和环境一起工作。</p>
+</blockquote>
+<p>这篇笔记主要整理三个重要方法：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">RAG：解决知识过时和事实依据问题</span><br><span class="line">PAL：解决计算和程序执行问题</span><br><span class="line">ReAct：解决复杂任务中的推理和行动问题</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="为什么-AI-会数据过时、编造事实、计算不准？"><a href="#为什么-AI-会数据过时、编造事实、计算不准？" class="headerlink" title="为什么 AI 会数据过时、编造事实、计算不准？"></a>为什么 AI 会数据过时、编造事实、计算不准？</h2><p>大语言模型的核心能力之一是：</p>
+<blockquote>
+<p>根据上下文预测下一个最可能出现的 token。</p>
+</blockquote>
+<p>这让它很擅长生成自然语言，但也带来一些问题。</p>
+<h3 id="1-数据可能过时"><a href="#1-数据可能过时" class="headerlink" title="1. 数据可能过时"></a>1. 数据可能过时</h3><p>模型训练完成后，它的内部知识不会自动实时更新。</p>
+<p>如果用户问的是最新政策、最新价格、最新新闻、公司内部文档或个人资料，模型可能不知道。</p>
+<h3 id="2-可能编造事实"><a href="#2-可能编造事实" class="headerlink" title="2. 可能编造事实"></a>2. 可能编造事实</h3><p>模型有时会生成看起来很像真的内容，但实际上没有依据。</p>
+<p>这类问题通常叫 <strong>幻觉</strong>，英文是 <strong>Hallucination</strong>。</p>
+<p>比如它可能会：</p>
+<ul>
+<li>编造论文引用；</li>
+<li>编造公司政策；</li>
+<li>编造不存在的网页；</li>
+<li>把相似事实混在一起；</li>
+<li>在不确定时仍然给出肯定答案。</li>
+</ul>
+<h3 id="3-计算可能不准"><a href="#3-计算可能不准" class="headerlink" title="3. 计算可能不准"></a>3. 计算可能不准</h3><p>大语言模型不是专门的计算器。</p>
+<p>它可以写出计算步骤，但在长计算、多位数计算、复杂公式和代码执行时，可能出现错误。</p>
+<p>所以，面对知识、事实、计算和复杂行动任务，我们需要让模型使用外部能力。</p>
+<hr>
+<h2 id="整体解决思路"><a href="#整体解决思路" class="headerlink" title="整体解决思路"></a>整体解决思路</h2><p>可以先用一张图理解这三种方法的关系。</p>
+<pre class="mermaid">flowchart TD
+    Problem[LLM 的常见问题] --> Outdated[知识过时<br/>不知道最新或私有信息]
+    Problem --> Hallucination[编造事实<br/>回答没有依据]
+    Problem --> Calculation[计算不准<br/>不适合直接心算]
+    Problem --> Complex[复杂任务<br/>需要边想边查边做]
+
+    Outdated --> RAG[RAG<br/>检索增强生成]
+    Hallucination --> RAG
+
+    Calculation --> PAL[PAL<br/>程序辅助语言模型]
+
+    Complex --> ReAct[ReAct<br/>推理 + 行动 + 观察]
+
+    RAG --> Knowledge[外部知识库]
+    PAL --> Tool[Python / 计算器 / 程序]
+    ReAct --> Env[搜索 / 工具 / 数据库 / API]</pre>
+
+<p>简单来说：</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>更适合的方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>知识过时</td>
+<td>RAG</td>
+</tr>
+<tr>
+<td>需要引用资料</td>
+<td>RAG</td>
+</tr>
+<tr>
+<td>企业知识库问答</td>
+<td>RAG</td>
+</tr>
+<tr>
+<td>数学计算不准</td>
+<td>PAL</td>
+</tr>
+<tr>
+<td>需要代码执行</td>
+<td>PAL</td>
+</tr>
+<tr>
+<td>复杂任务需要多步操作</td>
+<td>ReAct</td>
+</tr>
+<tr>
+<td>需要边查边判断</td>
+<td>ReAct</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="RAG：检索增强生成"><a href="#RAG：检索增强生成" class="headerlink" title="RAG：检索增强生成"></a>RAG：检索增强生成</h2><p><strong>RAG</strong> 的全称是 <strong>Retrieval-Augmented Generation</strong>，中文通常叫 <strong>检索增强生成</strong>。</p>
+<p>它的核心思路是：</p>
+<blockquote>
+<p>不让模型只靠记忆回答，而是先去外部知识库检索资料，再根据资料生成回答。</p>
+</blockquote>
+<p>这可以缓解两个问题：</p>
+<ol>
+<li>模型知识过时；</li>
+<li>模型容易编造事实。</li>
+</ol>
+<h3 id="RAG-的基本流程"><a href="#RAG-的基本流程" class="headerlink" title="RAG 的基本流程"></a>RAG 的基本流程</h3><p>RAG 通常包括两个阶段：建库阶段和问答阶段。</p>
+<h3 id="1-建库阶段"><a href="#1-建库阶段" class="headerlink" title="1. 建库阶段"></a>1. 建库阶段</h3><p>先把外部知识整理成模型可以检索的形式。</p>
+<p>流程大概是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">文档</span><br><span class="line">→ 切分成段落 Chunk</span><br><span class="line">→ 转换成向量 Embedding</span><br><span class="line">→ 存入向量数据库 Vector Database</span><br></pre></td></tr></table></figure>
+
+<p>比如企业有很多内部文档：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">员工手册</span><br><span class="line">产品说明</span><br><span class="line">项目文档</span><br><span class="line">客服问答</span><br><span class="line">合同条款</span><br><span class="line">会议纪要</span><br></pre></td></tr></table></figure>
+
+<p>系统会把这些文档切成一个个小段落，再把每个段落转换成向量，最后存入向量数据库。</p>
+<h3 id="2-问答阶段"><a href="#2-问答阶段" class="headerlink" title="2. 问答阶段"></a>2. 问答阶段</h3><p>当用户提出问题时，系统会把用户问题也转换成向量。</p>
+<p>然后去向量数据库里查找最相似的文档段落。</p>
+<p>流程大概是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户问题</span><br><span class="line">→ 转换成查询向量</span><br><span class="line">→ 检索相似段落</span><br><span class="line">→ 把相关段落交给 LLM</span><br><span class="line">→ LLM 基于资料生成回答</span><br></pre></td></tr></table></figure>
+
+<h3 id="RAG-的流程图"><a href="#RAG-的流程图" class="headerlink" title="RAG 的流程图"></a>RAG 的流程图</h3><pre class="mermaid">flowchart LR
+    Docs[外部文档] --> Chunk[切分 Chunk]
+    Chunk --> Embed[向量化 Embedding]
+    Embed --> VectorDB[向量数据库]
+
+    Query[用户问题] --> QEmbed[问题向量化]
+    QEmbed --> Search[相似度检索]
+    VectorDB --> Search
+    Search --> Context[相关资料]
+    Context --> LLM[大语言模型]
+    Query --> LLM
+    LLM --> Answer[基于资料的回答]</pre>
+
+<h3 id="RAG-适合什么场景？"><a href="#RAG-适合什么场景？" class="headerlink" title="RAG 适合什么场景？"></a>RAG 适合什么场景？</h3><p>RAG 非常适合搭建：</p>
+<ul>
+<li>企业知识库；</li>
+<li>个人知识库；</li>
+<li>客服问答系统；</li>
+<li>内部文档助手；</li>
+<li>法规政策问答；</li>
+<li>产品文档问答；</li>
+<li>论文资料问答。</li>
+</ul>
+<p>比如你想问：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我们公司的报销流程是什么？</span><br></pre></td></tr></table></figure>
+
+<p>模型本身不一定知道你公司的内部制度。</p>
+<p>但如果系统接入了公司文档，RAG 就可以先检索相关制度，再让模型根据文档回答。</p>
+<h3 id="RAG-的局限"><a href="#RAG-的局限" class="headerlink" title="RAG 的局限"></a>RAG 的局限</h3><p>RAG 不是万能的。</p>
+<p>它也可能有问题：</p>
+<ul>
+<li>文档切分不好，检索不到关键内容；</li>
+<li>向量检索找到了相似但不相关的段落；</li>
+<li>文档本身过时或错误；</li>
+<li>模型没有严格根据资料回答；</li>
+<li>引用来源不清楚。</li>
+</ul>
+<p>所以，一个好的 RAG 系统不仅要有模型，还要有好的文档整理、切分、检索、排序和引用机制。</p>
+<hr>
+<h2 id="PAL：程序辅助语言模型"><a href="#PAL：程序辅助语言模型" class="headerlink" title="PAL：程序辅助语言模型"></a>PAL：程序辅助语言模型</h2><p><strong>PAL</strong> 的全称是 <strong>Program-Aided Language Model</strong>，可以理解为 <strong>程序辅助语言模型</strong>。</p>
+<p>它的核心思路是：</p>
+<blockquote>
+<p>不让 AI 直接心算答案，而是让 AI 写出程序，再交给程序运行。</p>
+</blockquote>
+<p>这适合解决计算不准的问题。</p>
+<p>大语言模型生成文字很强，但它不是专门的计算器。面对数学计算时，如果让它直接猜答案，就可能出错。</p>
+<p>PAL 的做法是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户问题</span><br><span class="line">→ LLM 把问题转成代码</span><br><span class="line">→ Python 等工具执行代码</span><br><span class="line">→ 得到准确结果</span><br><span class="line">→ LLM 把结果解释给用户</span><br></pre></td></tr></table></figure>
+
+<h3 id="一个简单例子"><a href="#一个简单例子" class="headerlink" title="一个简单例子"></a>一个简单例子</h3><p>用户问：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">一个商品原价 128 美元，打 7.5 折，再加 8% 税，最后多少钱？</span><br></pre></td></tr></table></figure>
+
+<p>如果让模型直接算，它可能会算错。</p>
+<p>PAL 的思路是让模型写代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">price = <span class="number">128</span></span><br><span class="line">discount_price = price * <span class="number">0.75</span></span><br><span class="line">final_price = discount_price * <span class="number">1.08</span></span><br><span class="line"><span class="built_in">print</span>(final_price)</span><br></pre></td></tr></table></figure>
+
+<p>程序执行后得到结果，再由模型解释。</p>
+<h3 id="PAL-的流程图"><a href="#PAL-的流程图" class="headerlink" title="PAL 的流程图"></a>PAL 的流程图</h3><pre class="mermaid">flowchart LR
+    Question[用户问题] --> LLM[大语言模型]
+    LLM --> Code[生成程序<br/>Python / SQL / 表达式]
+    Code --> Executor[程序执行器]
+    Executor --> Result[准确结果]
+    Result --> LLM2[模型解释结果]
+    LLM2 --> Answer[最终回答]</pre>
+
+<h3 id="PAL-适合什么场景？"><a href="#PAL-适合什么场景？" class="headerlink" title="PAL 适合什么场景？"></a>PAL 适合什么场景？</h3><p>PAL 适合：</p>
+<ul>
+<li>数学计算；</li>
+<li>金融计算；</li>
+<li>表格统计；</li>
+<li>数据分析；</li>
+<li>公式计算；</li>
+<li>代码运行；</li>
+<li>SQL 查询；</li>
+<li>单位换算；</li>
+<li>批量处理数据。</li>
+</ul>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">帮我计算这 20 笔订单的总金额。</span><br></pre></td></tr></table></figure>
+
+<p>这种任务最好不要只让模型直接“口算”。更稳的方法是让模型调用程序。</p>
+<h3 id="PAL-的局限"><a href="#PAL-的局限" class="headerlink" title="PAL 的局限"></a>PAL 的局限</h3><p>PAL 也不是万能的。</p>
+<p>它依赖几个前提：</p>
+<ul>
+<li>模型要正确理解问题；</li>
+<li>模型要写出正确代码；</li>
+<li>程序执行环境要可靠；</li>
+<li>输入数据要准确；</li>
+<li>结果还要被正确解释。</li>
+</ul>
+<p>如果问题理解错了，代码再正确也会算错方向。</p>
+<p>所以 PAL 的关键不是“让模型闭嘴”，而是：</p>
+<blockquote>
+<p>让模型负责理解和表达，让程序负责精确计算。</p>
+</blockquote>
+<hr>
+<h2 id="ReAct：推理和行动结合"><a href="#ReAct：推理和行动结合" class="headerlink" title="ReAct：推理和行动结合"></a>ReAct：推理和行动结合</h2><p><strong>ReAct</strong> 是 <strong>Reasoning + Acting</strong> 的组合。</p>
+<p>中文可以理解为：</p>
+<blockquote>
+<p>推理 + 行动。</p>
+</blockquote>
+<p>它的核心思路是：</p>
+<blockquote>
+<p>让模型一边推理，一边采取行动，再根据观察结果继续调整。</p>
+</blockquote>
+<p>ReAct 通常包含三个循环步骤：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Reasoning：推理</span><br><span class="line">Action：行动</span><br><span class="line">Observation：观察</span><br></pre></td></tr></table></figure>
+
+<p>也可以写成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">思考 → 行动 → 观察 → 再思考 → 再行动</span><br></pre></td></tr></table></figure>
+
+<h3 id="为什么需要-ReAct？"><a href="#为什么需要-ReAct？" class="headerlink" title="为什么需要 ReAct？"></a>为什么需要 ReAct？</h3><p>有些任务不是一次回答就能完成的。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">帮我找出这份文档里最重要的三个风险点，并给出处理建议。</span><br></pre></td></tr></table></figure>
+
+<p>这类任务可能需要：</p>
+<ol>
+<li>先理解用户目标；</li>
+<li>再读取文档；</li>
+<li>找出相关段落；</li>
+<li>对信息进行比较；</li>
+<li>得出结论；</li>
+<li>给出建议。</li>
+</ol>
+<p>如果模型只靠一次生成，可能会漏掉步骤。</p>
+<p>ReAct 让模型可以动态地和外界互动。</p>
+<h3 id="ReAct-的流程图"><a href="#ReAct-的流程图" class="headerlink" title="ReAct 的流程图"></a>ReAct 的流程图</h3><pre class="mermaid">flowchart TD
+    Task[用户任务] --> Think[Reasoning<br/>先判断下一步该做什么]
+    Think --> Act[Action<br/>调用工具或采取行动]
+    Act --> Obs[Observation<br/>观察工具返回结果]
+    Obs --> Think2[继续推理]
+    Think2 --> Act2[继续行动]
+    Act2 --> Final[最终回答]</pre>
+
+<h3 id="ReAct-适合什么场景？"><a href="#ReAct-适合什么场景？" class="headerlink" title="ReAct 适合什么场景？"></a>ReAct 适合什么场景？</h3><p>ReAct 适合：</p>
+<ul>
+<li>搜索资料；</li>
+<li>多步问答；</li>
+<li>读文件并分析；</li>
+<li>使用工具完成任务；</li>
+<li>调用数据库；</li>
+<li>调用 API；</li>
+<li>自动化工作流；</li>
+<li>Agent 智能体任务。</li>
+</ul>
+<p>比如一个 AI Agent 需要帮用户订行程。它可能要：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">查航班 → 比价格 → 看时间 → 查酒店 → 整理方案 → 给建议</span><br></pre></td></tr></table></figure>
+
+<p>这就是典型的“推理 + 行动 + 观察”过程。</p>
+<h3 id="ReAct-的局限"><a href="#ReAct-的局限" class="headerlink" title="ReAct 的局限"></a>ReAct 的局限</h3><p>ReAct 的问题是流程更复杂。</p>
+<p>它可能遇到：</p>
+<ul>
+<li>工具调用失败；</li>
+<li>搜索结果不可靠；</li>
+<li>中间步骤判断错误；</li>
+<li>行动次数过多；</li>
+<li>成本和时间增加；</li>
+<li>任务边界不清晰。</li>
+</ul>
+<p>所以 ReAct 更适合复杂任务。简单问题不一定需要 ReAct。</p>
+<hr>
+<h2 id="RAG、PAL-和-ReAct-的区别"><a href="#RAG、PAL-和-ReAct-的区别" class="headerlink" title="RAG、PAL 和 ReAct 的区别"></a>RAG、PAL 和 ReAct 的区别</h2><p>这三个方法都能增强大语言模型，但它们解决的问题不同。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>主要解决什么问题</th>
+<th>核心能力</th>
+<th>常见工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RAG</td>
+<td>知识过时、缺少依据、需要查资料</td>
+<td>检索外部知识</td>
+<td>向量数据库、搜索、知识库</td>
+</tr>
+<tr>
+<td>PAL</td>
+<td>计算不准、需要程序执行</td>
+<td>用程序得到准确结果</td>
+<td>Python、SQL、计算器</td>
+</tr>
+<tr>
+<td>ReAct</td>
+<td>多步任务、动态决策、需要行动</td>
+<td>推理 + 行动 + 观察</td>
+<td>搜索、API、数据库、工具调用</td>
+</tr>
+</tbody></table>
+<p>可以这样记：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">RAG：先查资料，再回答。</span><br><span class="line">PAL：先写程序，再计算。</span><br><span class="line">ReAct：边思考，边行动，边观察。</span><br></pre></td></tr></table></figure>
+
+<p>它们也可以组合使用。</p>
+<p>比如企业知识库 Agent 可以这样工作：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户提问</span><br><span class="line">→ ReAct 判断需要查资料</span><br><span class="line">→ RAG 检索企业文档</span><br><span class="line">→ 如果涉及计算，PAL 调用 Python</span><br><span class="line">→ 最后生成带依据的回答</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="最终总结"><a href="#最终总结" class="headerlink" title="最终总结"></a>最终总结</h2><p>AI 出现数据过时、编造事实、计算不准，并不代表它没有用。</p>
+<p>更准确地说：</p>
+<blockquote>
+<p>大语言模型本身擅长语言理解和生成，但真实任务往往还需要外部知识、计算工具和行动能力。</p>
+</blockquote>
+<p>这篇笔记可以压缩成三句话：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">RAG 用来补知识。</span><br><span class="line">PAL 用来做计算。</span><br><span class="line">ReAct 用来完成复杂行动任务。</span><br></pre></td></tr></table></figure>
+
+<p>再完整一点：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">当 AI 不知道最新信息时，用 RAG 检索外部知识。</span><br><span class="line">当 AI 容易算错时，用 PAL 调用程序计算。</span><br><span class="line">当任务需要多步推理和工具互动时，用 ReAct 让模型边推理边行动。</span><br></pre></td></tr></table></figure>
+
+<p>如果用一句话总结：</p>
+<blockquote>
+<p>未来的 AI 应用，不只是让模型直接回答，而是让模型连接知识库、计算器、代码解释器、搜索工具和外部系统，一起完成任务。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Lewis, Patrick, et al. “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
+<li>Gao, Luyu, et al. “PAL: Program-Aided Language Models.” <em>International Conference on Machine Learning</em>, 2023.</li>
+<li>Yao, Shunyu, et al. “ReAct: Synergizing Reasoning and Acting in Language Models.” <em>International Conference on Learning Representations</em>, 2023.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>Prompt Engineering</tag>
+        <tag>RAG</tag>
+        <tag>PAL</tag>
+        <tag>ReAct</tag>
       </tags>
   </entry>
   <entry>
@@ -107,8 +1061,8 @@
   </entry>
   <entry>
     <title>AIGC、生成式 AI、机器学习、深度学习与 LLM：一篇入门笔记</title>
-    <url>/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/03-genai-llm-relationship.png" class="">
+    <url>/2025/08/16/1.AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/2025/08/16/1.AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/03-genai-llm-relationship.png" class="">
 
 
 <p>最近我在整理 AI 相关概念时，发现很多词看起来很像，但它们其实不是同一层级的东西。</p>
@@ -323,7 +1277,7 @@
 </blockquote>
 <p>这有点像训练动物。奖励会强化某些行为，惩罚或负反馈会减少某些行为。</p>
 <hr>
-<h2 id="九、深度学习：机器学习中的一种重要方法"><a href="#九、深度学习：机器学习中的一种重要方法" class="headerlink" title="九、深度学习：机器学习中的一种重要方法"></a>九、深度学习：机器学习中的一种重要方法</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/02-ai-ml-dl-genai-llm.png" class="" title="AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系">
+<h2 id="九、深度学习：机器学习中的一种重要方法"><a href="#九、深度学习：机器学习中的一种重要方法" class="headerlink" title="九、深度学习：机器学习中的一种重要方法"></a>九、深度学习：机器学习中的一种重要方法</h2><img src="/2025/08/16/1.AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/02-ai-ml-dl-genai-llm.png" class="" title="AI、机器学习、深度学习、生成式 AI 和 LLM 的层级关系">
 
 <p><strong>深度学习</strong> 的英文是 <strong>Deep Learning</strong>。</p>
 <p>它不是监督学习、无监督学习和强化学习之外的第四类学习方式。更准确地说，深度学习是机器学习中的一种方法。</p>
@@ -386,7 +1340,7 @@
 </ol>
 <p>不过，现在很多模型已经不只处理文字。它们还可以处理图片、音频、视频等信息。这类模型通常被称为多模态模型。</p>
 <hr>
-<h2 id="十二、生成式-AI-和-LLM-的关系"><a href="#十二、生成式-AI-和-LLM-的关系" class="headerlink" title="十二、生成式 AI 和 LLM 的关系"></a>十二、生成式 AI 和 LLM 的关系</h2><img src="/2026/06/16/AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/01-aigc-overview.png" class="">
+<h2 id="十二、生成式-AI-和-LLM-的关系"><a href="#十二、生成式-AI-和-LLM-的关系" class="headerlink" title="十二、生成式 AI 和 LLM 的关系"></a>十二、生成式 AI 和 LLM 的关系</h2><img src="/2025/08/16/1.AIGC%E3%80%81%E7%94%9F%E6%88%90%E5%BC%8F%20AI%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%20LLM%EF%BC%9A%E4%B8%80%E7%AF%87%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/01-aigc-overview.png" class="">
 
 <p>LLM 是生成式 AI 的重要分支，但不是生成式 AI 的全部。</p>
 <p>可以这样理解：</p>
@@ -477,11 +1431,464 @@
         <category>AI</category>
       </categories>
       <tags>
-        <tag>AIGC</tag>
-        <tag>Generative AI</tag>
-        <tag>Machine Learning</tag>
-        <tag>Deep Learning</tag>
         <tag>LLM</tag>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web前端-HTML5章节-HTML5简介与基础框架</title>
+    <url>/2022/12/02/HTML5%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<h1 id="HTML5简介与基础框架"><a href="#HTML5简介与基础框架" class="headerlink" title="HTML5简介与基础框架"></a>HTML5简介与基础框架</h1><h3 id="HTML5介绍"><a href="#HTML5介绍" class="headerlink" title="HTML5介绍"></a>HTML5介绍</h3><p>HTML5 是用来描述网页的一种语言，被称为超文本标记语言。用 HTML5 编写的文件，后缀以 <code>.html</code> 结尾。</p>
+<p>HTML5 是一种标记语言。标记语言是一套标记标签。标签是由尖括号包围的关键字，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>标签有两种表现形式：</p>
+<p>双标签，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>单标签，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="HTML5的DOCTYPE声明"><a href="#HTML5的DOCTYPE声明" class="headerlink" title="HTML5的DOCTYPE声明"></a>HTML5的DOCTYPE声明</h3><p>DOCTYPE 是 document（文档类型）的缩写。</p>
+<p><code>&lt;!DOCTYPE html&gt;</code> 是 HTML5 的声明，位于文档的最前面，处于 <code>&lt;html&gt;</code> 标签之前。它是网页必备的组成部分，可以避免浏览器进入怪异模式。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="HTML5基本骨架"><a href="#HTML5基本骨架" class="headerlink" title="HTML5基本骨架"></a>HTML5基本骨架</h3><h4 id="html标签"><a href="#html标签" class="headerlink" title="html标签"></a>html标签</h4><p><code>html</code> 标签用于定义 HTML 文档。浏览器看到这个元素后，就会知道这是一个 HTML 文档。</p>
+<p>其他元素都需要包裹在 <code>html</code> 标签里面。<code>html</code> 标签限定了文档的开始点与结束点。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h4><p><code>head</code> 标签用于定义文档的头部。</p>
+<p>文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置，以及和其他文档的关系等。</p>
+<p>绝大多数文档头部包含的数据都不会真正作为内容显示给读者。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="body标签"><a href="#body标签" class="headerlink" title="body标签"></a>body标签</h4><p><code>body</code> 元素用于定义文档的主体。</p>
+<p><code>body</code> 元素包含文档的所有内容，比如文本、超链接、图像、表格和列表等。</p>
+<p>它会直接在页面中显示出来，也就是用户可以直观看到的内容。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="title标签"><a href="#title标签" class="headerlink" title="title标签"></a>title标签</h4><ol>
+<li><p><code>title</code> 标签可以定义文档的标题。</p>
+</li>
+<li><p>它会显示在浏览器窗口的标题栏或者状态栏上。</p>
+</li>
+<li><p><code>&lt;title&gt;</code> 标签是 <code>&lt;head&gt;</code> 标签中唯一必须包含的内容。也就是说，<code>head</code> 里面一定要写 <code>title</code>。</p>
+</li>
+<li><p><code>&lt;title&gt;</code> 的增加有利于 SEO 优化。</p>
+</li>
+</ol>
+<p>SEO 是搜索引擎优化的英文缩写。通过对网站内容的调整，可以让网页更符合搜索引擎的排名需求。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h4><p><code>meta</code> 标签用来描述一个 HTML 网页文档的属性、关键词等。</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这表示当前页面使用的是 <code>utf-8</code> 编码格式。</p>
+<p>在开发中，我们经常会看到 <code>utf-8</code> 或 <code>gbk</code>，这些都是编码格式。通常情况下，我们使用 <code>utf-8</code>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    我会显示在浏览器中</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是 RAG：检索增强生成入门笔记</title>
+    <url>/2026/06/17/5.%E4%BB%80%E4%B9%88%E6%98%AF%20RAG%EF%BC%9A%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大语言模型很强，但它并不是万能的。</p>
+<p>它可能遇到几个常见问题：</p>
+<ul>
+<li>数据可能过时；</li>
+<li>不知道企业内部资料；</li>
+<li>不知道个人知识库内容；</li>
+<li>容易编造事实；</li>
+<li>一次性输入太多资料时，context 容量不够；</li>
+<li>输入内容太长时，推理成本高，速度也会变慢。</li>
+</ul>
+<p>这时就可以用 <strong>RAG</strong>。</p>
+<p><strong>RAG</strong> 的全称是 <strong>Retrieval-Augmented Generation</strong>，中文通常叫 <strong>检索增强生成</strong>。</p>
+<p>简单来说：</p>
+<blockquote>
+<p>RAG 就是先从资料库里检索相关内容，再让大语言模型基于这些内容生成答案。</p>
+</blockquote>
+<hr>
+<h2 id="一、为什么需要-RAG？"><a href="#一、为什么需要-RAG？" class="headerlink" title="一、为什么需要 RAG？"></a>一、为什么需要 RAG？</h2><p>如果我们想做一个产品智能客服，最直接的想法可能是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">把产品手册全部发给大模型，让它根据手册回答用户问题。</span><br></pre></td></tr></table></figure>
+
+<p>但是，如果产品手册很长，就会遇到三个问题。</p>
+<h3 id="1-模型无法读取所有内容"><a href="#1-模型无法读取所有内容" class="headerlink" title="1. 模型无法读取所有内容"></a>1. 模型无法读取所有内容</h3><p>大语言模型有上下文窗口限制，也就是一次能处理的文本长度有限。</p>
+<p>如果产品手册太长，模型不一定能一次读完全部内容。</p>
+<h3 id="2-推理成本高"><a href="#2-推理成本高" class="headerlink" title="2. 推理成本高"></a>2. 推理成本高</h3><p>输入给模型的内容越多，模型处理的 token 就越多。</p>
+<p>这会提高调用成本。</p>
+<h3 id="3-推理速度慢"><a href="#3-推理速度慢" class="headerlink" title="3. 推理速度慢"></a>3. 推理速度慢</h3><p>内容越长，模型处理时间通常越长。</p>
+<p>用户问一个简单问题，却要让模型读完整本手册，这很浪费。</p>
+<p>所以，更合理的方式不是把所有文档都塞给模型，而是：</p>
+<blockquote>
+<p>用户问什么，就只找和问题最相关的资料片段，再交给模型回答。</p>
+</blockquote>
+<p>这就是 RAG 的核心思想。</p>
+<hr>
+<h2 id="二、RAG-的整体流程"><a href="#二、RAG-的整体流程" class="headerlink" title="二、RAG 的整体流程"></a>二、RAG 的整体流程</h2><p>RAG 可以分成两个阶段：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">提问前：分片 + 索引</span><br><span class="line">提问后：召回 + 重排 + 生成</span><br></pre></td></tr></table></figure>
+
+<p>整体流程可以用这张图理解。</p>
+<pre class="mermaid">flowchart TD
+    Docs[资料库文档] --> Chunk[提问前：分片 Chunking]
+    Chunk --> Embed[Embedding<br/>文本转向量]
+    Embed --> Index[索引 Indexing]
+    Index --> VectorDB[向量数据库]
+
+    Query[用户问题] --> QEmbed[问题向量化]
+    QEmbed --> Recall[召回 Retrieval]
+    VectorDB --> Recall
+    Recall --> Rerank[重排 Rerank]
+    Rerank --> Context[相关片段 Context]
+    Context --> LLM[大语言模型]
+    Query --> LLM
+    LLM --> Answer[生成答案]</pre>
+
+<p>可以简单理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">先把资料库整理好。</span><br><span class="line">用户提问后，只取相关片段。</span><br><span class="line">模型基于片段回答。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、提问前：分片和索引"><a href="#三、提问前：分片和索引" class="headerlink" title="三、提问前：分片和索引"></a>三、提问前：分片和索引</h2><p>RAG 的第一部分发生在用户提问之前。</p>
+<p>这一阶段主要做两件事：</p>
+<ol>
+<li><strong>分片</strong>；</li>
+<li><strong>索引</strong>。</li>
+</ol>
+<h3 id="分片-Chunking"><a href="#分片-Chunking" class="headerlink" title="分片 Chunking"></a>分片 Chunking</h3><p><strong>分片</strong> 就是把长文档切成多个小片段。</p>
+<p>因为模型和向量数据库通常不直接处理一本完整的文档，而是处理更小的文本块。</p>
+<p>比如一本产品手册可以被切成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">片段 1：产品介绍</span><br><span class="line">片段 2：安装方法</span><br><span class="line">片段 3：账号注册</span><br><span class="line">片段 4：付款方式</span><br><span class="line">片段 5：售后政策</span><br><span class="line">片段 6：常见问题</span><br></pre></td></tr></table></figure>
+
+<p>常见分片方式包括：</p>
+<table>
+<thead>
+<tr>
+<th>分片方式</th>
+<th>含义</th>
+<th>适合场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>按字数</td>
+<td>每隔固定字数切一段</td>
+<td>文本结构不明显的资料</td>
+</tr>
+<tr>
+<td>按段落</td>
+<td>按自然段切分</td>
+<td>普通文章、说明文</td>
+</tr>
+<tr>
+<td>按章节</td>
+<td>按标题和章节切分</td>
+<td>手册、教材、长报告</td>
+</tr>
+<tr>
+<td>按页码</td>
+<td>按 PDF 页码切分</td>
+<td>扫描件、固定版式文件</td>
+</tr>
+</tbody></table>
+<p>分片太长，可能包含太多无关信息。</p>
+<p>分片太短，可能丢失上下文。</p>
+<p>所以，分片的关键是：</p>
+<blockquote>
+<p>每个片段要足够短，方便检索；也要足够完整，方便理解。</p>
+</blockquote>
+<h3 id="索引-Indexing"><a href="#索引-Indexing" class="headerlink" title="索引 Indexing"></a>索引 Indexing</h3><p>分片之后，需要把每个片段存起来，方便后面搜索。</p>
+<p>但系统不是只存文本本身，还会把文本转换成向量。</p>
+<p>这一步通常包含：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">文本片段</span><br><span class="line">→ Embedding 模型</span><br><span class="line">→ 片段向量</span><br><span class="line">→ 存入向量数据库</span><br></pre></td></tr></table></figure>
+
+<p>最后数据库里会保存：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">片段文本 + 片段向量 + 元数据</span><br></pre></td></tr></table></figure>
+
+<p>元数据可以包括：</p>
+<ul>
+<li>文件名；</li>
+<li>页码；</li>
+<li>章节标题；</li>
+<li>更新时间；</li>
+<li>来源链接；</li>
+<li>文档类型。</li>
+</ul>
+<p>这样后面回答时，不仅可以找到相关片段，还可以知道内容来自哪里。</p>
+<hr>
+<h2 id="四、关键名词：向量、Embedding、向量数据库"><a href="#四、关键名词：向量、Embedding、向量数据库" class="headerlink" title="四、关键名词：向量、Embedding、向量数据库"></a>四、关键名词：向量、Embedding、向量数据库</h2><p>理解 RAG，需要先理解三个词：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">向量</span><br><span class="line">Embedding</span><br><span class="line">向量数据库</span><br></pre></td></tr></table></figure>
+
+<h3 id="向量-Vector"><a href="#向量-Vector" class="headerlink" title="向量 Vector"></a>向量 Vector</h3><p><strong>向量</strong> 是既有大小又有方向的量。</p>
+<p>在 AI 里，可以简单理解为：</p>
+<blockquote>
+<p>向量是一串数字，用来表示文本、图片、音频等内容的特征。</p>
+</blockquote>
+<p>比如一句话可以被表示成类似这样的数字列表：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">[0.12, -0.35, 0.88, 0.07, ...]</span><br></pre></td></tr></table></figure>
+
+<p>真实向量通常有很多维度，比如几百维、几千维。</p>
+<h3 id="Embedding"><a href="#Embedding" class="headerlink" title="Embedding"></a>Embedding</h3><p><strong>Embedding</strong> 指的是把文本转换成向量的过程。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">“如何重置密码？”</span><br><span class="line">→ Embedding 模型</span><br><span class="line">→ [0.21, -0.18, 0.66, ...]</span><br></pre></td></tr></table></figure>
+
+<p>为什么要转换成向量？</p>
+<p>因为计算机可以通过向量之间的距离或角度，判断两段文本是否相似。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">“怎么修改密码？”</span><br><span class="line">“如何重置密码？”</span><br></pre></td></tr></table></figure>
+
+<p>这两句话字面不完全一样，但意思很接近。</p>
+<p>转换成向量后，它们在向量空间里的位置通常也会比较接近。</p>
+<h3 id="向量数据库-Vector-Database"><a href="#向量数据库-Vector-Database" class="headerlink" title="向量数据库 Vector Database"></a>向量数据库 Vector Database</h3><p><strong>向量数据库</strong> 是用来存储和查询向量的数据库。</p>
+<p>普通数据库更擅长精确匹配，比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">姓名 = 张三</span><br><span class="line">订单号 = 10086</span><br></pre></td></tr></table></figure>
+
+<p>向量数据库更擅长相似度搜索，比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">找出和“如何重置密码”最相似的文档片段。</span><br></pre></td></tr></table></figure>
+
+<p>常见向量数据库或向量检索工具包括：</p>
+<ul>
+<li>Milvus；</li>
+<li>Pinecone；</li>
+<li>Weaviate；</li>
+<li>FAISS；</li>
+<li>Chroma；</li>
+<li>pgvector。</li>
+</ul>
+<hr>
+<h2 id="五、提问后：召回、重排和生成"><a href="#五、提问后：召回、重排和生成" class="headerlink" title="五、提问后：召回、重排和生成"></a>五、提问后：召回、重排和生成</h2><p>用户提问之后，RAG 进入第二部分。</p>
+<p>这一部分主要包括：</p>
+<ol>
+<li><strong>召回</strong>；</li>
+<li><strong>重排</strong>；</li>
+<li><strong>生成</strong>。</li>
+</ol>
+<h3 id="召回-Retrieval"><a href="#召回-Retrieval" class="headerlink" title="召回 Retrieval"></a>召回 Retrieval</h3><p><strong>召回</strong> 指的是：</p>
+<blockquote>
+<p>在向量数据库中搜索与用户问题相关的候选片段。</p>
+</blockquote>
+<p>流程大概是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户问题</span><br><span class="line">→ 转换成问题向量</span><br><span class="line">→ 和数据库中的片段向量比较相似度</span><br><span class="line">→ 找出最相似的 Top K 个片段</span><br></pre></td></tr></table></figure>
+
+<p>比如用户问：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">这个产品怎么申请退款？</span><br></pre></td></tr></table></figure>
+
+<p>系统会去资料库里找和“退款”“售后”“订单取消”“付款退回”等相关的片段。</p>
+<p>召回的目标不是一次就找到最终答案，而是先把可能相关的内容找出来。</p>
+<h3 id="向量相似度"><a href="#向量相似度" class="headerlink" title="向量相似度"></a>向量相似度</h3><p>常见方法是计算 <strong>向量相似度</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>直观理解</th>
+<th>判断方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>余弦相似度 Cosine Similarity</td>
+<td>看两个向量方向是否接近</td>
+<td>值越大，通常越相似</td>
+</tr>
+<tr>
+<td>欧氏距离 Euclidean Distance</td>
+<td>看两个向量之间距离多远</td>
+<td>距离越小，通常越相似</td>
+</tr>
+<tr>
+<td>点积 Dot Product</td>
+<td>用代数方式衡量相似程度</td>
+<td>值越大，通常越相似</td>
+</tr>
+</tbody></table>
+<p><strong>余弦相似度</strong> 关注两个向量的夹角。两个向量方向越接近，文本语义越可能相似。</p>
+<p><strong>欧氏距离</strong> 关注两个向量之间的直线距离。距离越近，文本语义越可能接近。</p>
+<p><strong>点积</strong> 通过代数计算衡量两个向量的相似程度。在向量经过合适处理的情况下，点积越大，通常表示越相似。不过点积也会受到向量长度影响。</p>
+<h3 id="重排-Rerank"><a href="#重排-Rerank" class="headerlink" title="重排 Rerank"></a>重排 Rerank</h3><p><strong>重排</strong> 指的是：</p>
+<blockquote>
+<p>在召回得到的候选片段中，再进一步筛选和排序，找出最适合回答用户问题的片段。</p>
+</blockquote>
+<p>为什么需要重排？</p>
+<p>因为召回阶段通常追求速度和覆盖面。它会先找出一批可能相关的片段，但这些片段不一定都准确。</p>
+<p>所以还需要重排模型进一步判断：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">这个片段是否真的能回答用户问题？</span><br><span class="line">这个片段是不是比另一个片段更相关？</span><br></pre></td></tr></table></figure>
+
+<h3 id="召回和重排的区别"><a href="#召回和重排的区别" class="headerlink" title="召回和重排的区别"></a>召回和重排的区别</h3><p>召回和重排都在找相关文本，但它们的计算逻辑不一样。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>常见方法</th>
+<th>特点</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>召回</td>
+<td>向量相似度</td>
+<td>成本低、速度快、覆盖广，但准确率相对低</td>
+<td>初步筛选</td>
+</tr>
+<tr>
+<td>重排</td>
+<td>Cross-Encoder</td>
+<td>成本高、速度慢、准确率更高</td>
+<td>精挑细选</td>
+</tr>
+</tbody></table>
+<p>可以这样理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">召回：先从几万段里快速找出几十段。</span><br><span class="line">重排：再从几十段里认真挑出最相关的几段。</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-Generation"><a href="#生成-Generation" class="headerlink" title="生成 Generation"></a>生成 Generation</h3><p>最后一步是 <strong>生成</strong>。</p>
+<p>系统会把用户问题和筛选后的相关片段一起交给大语言模型。</p>
+<p>模型根据这些资料生成最终答案。</p>
+<p>这一步的关键是：</p>
+<blockquote>
+<p>模型应该基于检索到的资料回答，而不是凭空编造。</p>
+</blockquote>
+<p>一个好的 RAG 系统通常还会要求模型：</p>
+<ul>
+<li>引用来源；</li>
+<li>不知道就说不知道；</li>
+<li>不要超出资料范围乱说；</li>
+<li>回答要简洁；</li>
+<li>必要时说明资料不足。</li>
+</ul>
+<hr>
+<h2 id="六、RAG-的典型应用场景"><a href="#六、RAG-的典型应用场景" class="headerlink" title="六、RAG 的典型应用场景"></a>六、RAG 的典型应用场景</h2><p>RAG 很适合需要外部知识的场景。</p>
+<p>比如：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>产品智能客服</td>
+<td>根据产品手册回答用户问题</td>
+</tr>
+<tr>
+<td>企业知识库</td>
+<td>根据内部文档回答员工问题</td>
+</tr>
+<tr>
+<td>个人知识库</td>
+<td>根据个人笔记、论文、资料回答问题</td>
+</tr>
+<tr>
+<td>法规政策问答</td>
+<td>根据政策原文回答问题</td>
+</tr>
+<tr>
+<td>论文阅读助手</td>
+<td>根据论文内容回答问题</td>
+</tr>
+<tr>
+<td>合同问答</td>
+<td>根据合同条款提取信息</td>
+</tr>
+<tr>
+<td>项目文档助手</td>
+<td>根据项目文档解释需求和进度</td>
+</tr>
+</tbody></table>
+<p>用产品客服举例：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户问：这个产品支持退款吗？</span><br><span class="line"></span><br><span class="line">RAG 系统：</span><br><span class="line">1. 检索产品手册和售后政策；</span><br><span class="line">2. 找到退款相关段落；</span><br><span class="line">3. 把段落交给大语言模型；</span><br><span class="line">4. 模型基于段落生成回答。</span><br></pre></td></tr></table></figure>
+
+<p>这种方式比直接让模型“凭记忆回答”更可靠。</p>
+<hr>
+<h2 id="七、RAG-的优点和局限"><a href="#七、RAG-的优点和局限" class="headerlink" title="七、RAG 的优点和局限"></a>七、RAG 的优点和局限</h2><p>RAG 的优点很明显：</p>
+<ul>
+<li>可以接入最新资料；</li>
+<li>可以接入私有资料；</li>
+<li>可以降低幻觉；</li>
+<li>可以构建企业知识库；</li>
+<li>可以构建个人知识库；</li>
+<li>可以让答案更有依据；</li>
+<li>不需要把所有资料一次性塞进模型。</li>
+</ul>
+<p>但 RAG 也不是万能的。</p>
+<p>它的效果取决于整个流程。</p>
+<p>常见问题包括：</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>检索不到关键内容</td>
+<td>分片不好，或者用户问题表达太模糊</td>
+</tr>
+<tr>
+<td>找到相似但不相关的片段</td>
+<td>向量相似度不等于真正能回答问题</td>
+</tr>
+<tr>
+<td>回答仍然编造</td>
+<td>模型没有严格根据资料回答</td>
+</tr>
+<tr>
+<td>资料过时</td>
+<td>知识库没有及时更新</td>
+</tr>
+<tr>
+<td>引用不清楚</td>
+<td>文档元数据没有保存好</td>
+</tr>
+<tr>
+<td>成本变高</td>
+<td>加入重排和长上下文后成本增加</td>
+</tr>
+</tbody></table>
+<p>所以，一个好的 RAG 系统不只是“接一个向量数据库”这么简单。</p>
+<p>它需要设计好：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">文档清洗</span><br><span class="line">分片策略</span><br><span class="line">Embedding 模型</span><br><span class="line">向量数据库</span><br><span class="line">召回策略</span><br><span class="line">重排模型</span><br><span class="line">Prompt</span><br><span class="line">引用来源</span><br><span class="line">答案评估</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、最终总结"><a href="#八、最终总结" class="headerlink" title="八、最终总结"></a>八、最终总结</h2><p>RAG 可以用一句话理解：</p>
+<blockquote>
+<p>RAG 是先检索资料，再基于资料生成答案。</p>
+</blockquote>
+<p>它的核心流程是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">提问前：分片 → 索引</span><br><span class="line">提问后：召回 → 重排 → 生成</span><br></pre></td></tr></table></figure>
+
+<p>几个关键名词要记住：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Chunking：分片</span><br><span class="line">Embedding：把文本转换成向量</span><br><span class="line">Vector Database：向量数据库</span><br><span class="line">Retrieval：召回</span><br><span class="line">Rerank：重排</span><br><span class="line">Generation：生成</span><br></pre></td></tr></table></figure>
+
+<p>如果再压缩成一句话：</p>
+<blockquote>
+<p>RAG 的价值不是让模型记住所有知识，而是让模型在回答前先找到相关资料，再基于资料回答。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Lewis, Patrick, et al. “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
+<li>Karpukhin, Vladimir, et al. “Dense Passage Retrieval for Open-Domain Question Answering.” <em>Empirical Methods in Natural Language Processing</em>, 2020.</li>
+<li>Reimers, Nils, and Iryna Gurevych. “Sentence-BERT: Sentence Embeddings Using Siamese BERT-Networks.” <em>Empirical Methods in Natural Language Processing</em>, 2019.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>RAG</tag>
+        <tag>Retrieval-Augmented Generation</tag>
+        <tag>Embedding</tag>
+        <tag>Vector Database</tag>
       </tags>
   </entry>
   <entry>
@@ -531,6 +1938,63 @@
 
 <p>如下：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web前端-HTML5章节-块元素与行内元素（内联元素）</title>
+    <url>/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="块元素与行内元素（内联元素）"><a href="#块元素与行内元素（内联元素）" class="headerlink" title="块元素与行内元素（内联元素）"></a>块元素与行内元素（内联元素）</h1><p>HTML5 出现之前，经常把元素按照块级元素和内联元素来区分。</p>
+<p>在 HTML5 中，元素不再按照这种方式来区分，而是按照内容模型来区分，分为：</p>
+<ol>
+<li>元数据型：metadata content</li>
+<li>区块型：sectioning content</li>
+<li>标题型：heading content</li>
+<li>文档流型：flow content</li>
+<li>语句型：phrasing content</li>
+<li>内嵌型：embedded content</li>
+<li>交互型：interactive content</li>
+</ol>
+<p>有些元素不属于任何一个类别，被称为穿透的。有些元素可能属于不止一个类别，被称为混合型。</p>
+<p>虽然 HTML5 的元素分类更细致了，但对初学者并不友好。所以我们仍然按照块元素和内联元素去区分。这对页面布局起到了至关重要的作用。</p>
+<hr>
+<h2 id="内联元素和块级元素的区别"><a href="#内联元素和块级元素的区别" class="headerlink" title="内联元素和块级元素的区别"></a>内联元素和块级元素的区别</h2><table>
+<thead>
+<tr>
+<th>块级元素</th>
+<th>内联元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块元素会在页面中独占一行，自上向下排列。</td>
+<td>行内元素不会独占页面中的一行，只占自身的大小。</td>
+</tr>
+<tr>
+<td>可以设置 <code>width</code>、<code>height</code> 属性。</td>
+<td>行内元素设置 <code>width</code>、<code>height</code> 属性无效。</td>
+</tr>
+<tr>
+<td>一般块级元素可以包含行内元素和其他块级元素。</td>
+<td>一般内联元素可以包含内联元素，但不包含块级元素。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="常见块级元素"><a href="#常见块级元素" class="headerlink" title="常见块级元素"></a>常见块级元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">div、form、h1-h6、hr、p、table、ul 等</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="常见内联元素"><a href="#常见内联元素" class="headerlink" title="常见内联元素"></a>常见内联元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">a、b、em、i、span、strong 等</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h2><p>行内块级元素的特点是：不换行，但是能识别宽高。</p>
+<p>常见行内块级元素有：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">button、img、input 等</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Web前端</category>
@@ -605,213 +2069,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Web前端-HTML5章节-标签之图片</title>
-    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<h1 id="网站中最多的元素"><a href="#网站中最多的元素" class="headerlink" title="网站中最多的元素"></a>网站中最多的元素</h1><p>网站中最多的元素一定是图片。</p>
-<p><code>&lt;img&gt;</code> 标签定义 HTML 页面中的图像。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>注意事项：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;img&gt; 是单标签，不需要进行闭合操作。</span><br></pre></td></tr></table></figure>
-
-<p>属性：</p>
-<ol>
-<li><code>src</code>：路径，也就是图片地址与名字。</li>
-<li><code>alt</code>：规定图像的替代文本。</li>
-<li><code>width</code>：规定图像的宽度。</li>
-<li><code>height</code>：规定图像的高度。</li>
-<li><code>title</code>：鼠标悬停在图片上给予的提示。</li>
-</ol>
-<hr>
-<h1 id="图片路径详解"><a href="#图片路径详解" class="headerlink" title="图片路径详解"></a>图片路径详解</h1><hr>
-<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>绝对路径是电脑的盘符存储与访问的具体地址。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">D:\Blog\source\assets</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;D:\Blog\source\assets&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p>相对路径表示两个文件之间的相对关系。</p>
-<p>常见关系有：</p>
-<ol>
-<li>子级关系：<code>/</code></li>
-<li>父级关系：<code>../</code></li>
-<li>同级关系：<code>./</code></li>
-</ol>
-<hr>
-<h2 id="网络路径"><a href="#网络路径" class="headerlink" title="网络路径"></a>网络路径</h2><p>网络路径就是具体的网络地址，例如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://www.imagehub.cc/image/jHDR</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 同级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;01.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 子级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/03.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 父级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../02.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 网络路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.imagehub.cc/image/jHDR&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2026/06/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Web前端-HTML5章节-标签之超文本链接</title>
-    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/</url>
-    <content><![CDATA[<h1 id="标签之超文本链接"><a href="#标签之超文本链接" class="headerlink" title="标签之超文本链接"></a>标签之超文本链接</h1><hr>
-<h2 id="超链接描述"><a href="#超链接描述" class="headerlink" title="超链接描述"></a>超链接描述</h2><p>HTML 使用标签 <code>&lt;a&gt;</code> 来设置超文本链接。</p>
-<p>超链接可以是一个字、一个词，或者一组词，也可以是一幅图像。用户可以点击这些内容，跳转到新的文档，或者跳转到当前文档中的某个部分。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;url&quot;</span>&gt;</span>链接文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="超链接属性"><a href="#超链接属性" class="headerlink" title="超链接属性"></a>超链接属性</h2><p>在标签 <code>&lt;a&gt;</code> 中，可以使用 <code>href</code> 属性来描述链接的地址。</p>
-<p>默认情况下，链接会以下面的形式出现在浏览器中：</p>
-<ol>
-<li>一个未访问过的链接显示为蓝色字体，并带有下划线。</li>
-<li>访问过的链接显示为紫色，并带有下划线。</li>
-<li>点击链接时，链接显示为红色，并带有下划线。</li>
-</ol>
-<p>特别提示：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">后期我们会通过 CSS 样式修改掉这些效果。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="超链接表现"><a href="#超链接表现" class="headerlink" title="超链接表现"></a>超链接表现</h2><p>当我们把鼠标指针移动到网页中的某个链接上时，箭头会变为一只小手。</p>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web前端-HTML5章节-块元素与行内元素（内联元素）</title>
-    <url>/2022/12/08/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E5%9D%97%E5%85%83%E7%B4%A0%E4%B8%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%88%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="块元素与行内元素（内联元素）"><a href="#块元素与行内元素（内联元素）" class="headerlink" title="块元素与行内元素（内联元素）"></a>块元素与行内元素（内联元素）</h1><p>HTML5 出现之前，经常把元素按照块级元素和内联元素来区分。</p>
-<p>在 HTML5 中，元素不再按照这种方式来区分，而是按照内容模型来区分，分为：</p>
-<ol>
-<li>元数据型：metadata content</li>
-<li>区块型：sectioning content</li>
-<li>标题型：heading content</li>
-<li>文档流型：flow content</li>
-<li>语句型：phrasing content</li>
-<li>内嵌型：embedded content</li>
-<li>交互型：interactive content</li>
-</ol>
-<p>有些元素不属于任何一个类别，被称为穿透的。有些元素可能属于不止一个类别，被称为混合型。</p>
-<p>虽然 HTML5 的元素分类更细致了，但对初学者并不友好。所以我们仍然按照块元素和内联元素去区分。这对页面布局起到了至关重要的作用。</p>
-<hr>
-<h2 id="内联元素和块级元素的区别"><a href="#内联元素和块级元素的区别" class="headerlink" title="内联元素和块级元素的区别"></a>内联元素和块级元素的区别</h2><table>
-<thead>
-<tr>
-<th>块级元素</th>
-<th>内联元素</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块元素会在页面中独占一行，自上向下排列。</td>
-<td>行内元素不会独占页面中的一行，只占自身的大小。</td>
-</tr>
-<tr>
-<td>可以设置 <code>width</code>、<code>height</code> 属性。</td>
-<td>行内元素设置 <code>width</code>、<code>height</code> 属性无效。</td>
-</tr>
-<tr>
-<td>一般块级元素可以包含行内元素和其他块级元素。</td>
-<td>一般内联元素可以包含内联元素，但不包含块级元素。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="常见块级元素"><a href="#常见块级元素" class="headerlink" title="常见块级元素"></a>常见块级元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">div、form、h1-h6、hr、p、table、ul 等</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="常见内联元素"><a href="#常见内联元素" class="headerlink" title="常见内联元素"></a>常见内联元素</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">a、b、em、i、span、strong 等</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h2><p>行内块级元素的特点是：不换行，但是能识别宽高。</p>
-<p>常见行内块级元素有：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">button、img、input 等</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web前端-HTML5章节-标签之表格</title>
-    <url>/2022/12/07/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%A1%A8%E6%A0%BC/</url>
-    <content><![CDATA[<h1 id="标签之表格"><a href="#标签之表格" class="headerlink" title="标签之表格"></a>标签之表格</h1><h2 id="表格展示效果"><a href="#表格展示效果" class="headerlink" title="表格展示效果"></a>表格展示效果</h2><p>表格在数据展示方面非常简单，而且表现优秀。</p>
-<p>表格组成与特点：</p>
-<ol>
-<li>行</li>
-<li>列</li>
-<li>单元格</li>
-</ol>
-<p>单元格特点：同行等高，同列等宽。</p>
-<hr>
-<h2 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h2><p>常用表格标签：</p>
-<ol>
-<li>表格：<code>&lt;table&gt;</code></li>
-<li>行：<code>&lt;tr&gt;</code></li>
-<li>单元格，也就是列：<code>&lt;td&gt;</code></li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>白菜<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>鱼肉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>土豆<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>鸡肉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>快捷键：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">快速生成表格结构：table&gt;tr*2&gt;td</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><p>表格常用属性：</p>
-<ol>
-<li><code>border</code>：设置表格的边框。</li>
-<li><code>width</code>：设置表格的宽度。</li>
-<li><code>height</code>：设置表格的高度。</li>
-</ol>
-<p>例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;400&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="表格单元格合并"><a href="#表格单元格合并" class="headerlink" title="表格单元格合并"></a>表格单元格合并</h2><p>单元格合并属性：</p>
-<ol>
-<li>水平合并：<code>colspan</code></li>
-<li>垂直合并：<code>rowspan</code></li>
-</ol>
-<p>如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>单元格1-2-3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格4<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格5<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>单元格6-11<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格7<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>单元格8-13<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>单元格9-10-14-15<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格12<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Web前端</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>web前端</tag>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Web前端-HTML5章节-标签之标题</title>
     <url>/2022/12/04/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E6%A0%87%E9%A2%98/</url>
     <content><![CDATA[<h2 id="标题的介绍与应用"><a href="#标题的介绍与应用" class="headerlink" title="标题的介绍与应用"></a>标题的介绍与应用</h2><p>标题（Heading）是通过 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 标签进行定义的。</p>
@@ -874,706 +2131,104 @@
       </tags>
   </entry>
   <entry>
-    <title>什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记</title>
-    <url>/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章整理我对 <strong>大语言模型 LLM</strong> 的入门理解。</p>
-<p>一开始我只知道 LLM 可以生成、分类、改写和总结文本。后来我发现，想真正理解 GPT 这一类模型，就需要继续往下看它背后的结构。GPT 背后最关键的技术之一是 <strong>Transformer</strong>。</p>
-<p>Transformer 又涉及几个核心概念：</p>
-<ul>
-<li>Token；</li>
-<li>Embedding；</li>
-<li>Positional Encoding；</li>
-<li>Self-Attention；</li>
-<li>Multi-Head Attention；</li>
-<li>Encoder；</li>
-<li>Decoder；</li>
-<li>Linear；</li>
-<li>Softmax；</li>
-<li>Output Probabilities。</li>
-</ul>
-<p>在 Transformer 流行之前，处理序列数据经常会用到 RNN。后来 RNN 被改良为 LSTM，用来缓解长序列信息丢失的问题。再后来，Transformer 因为更适合长距离关系建模和并行训练，逐渐成为现代大语言模型的重要基础。</p>
-<hr>
-<h2 id="一、什么是大语言模型-LLM？"><a href="#一、什么是大语言模型-LLM？" class="headerlink" title="一、什么是大语言模型 LLM？"></a>一、什么是大语言模型 LLM？</h2><p><strong>LLM</strong> 的全称是 <strong>Large Language Model</strong>，中文通常叫 <strong>大语言模型</strong>。</p>
-<p>它是一类通过大量文本数据训练出来的模型。它可以处理自然语言，也可以生成自然语言。</p>
-<p>这里的“语言”不只包括中文、英文这样的自然语言，也可以包括代码、表格、公式、结构化文本和指令。</p>
-<p>简单来说：</p>
-<blockquote>
-<p>大语言模型是一种能够根据上下文理解和生成文本的 AI 模型。</p>
-</blockquote>
-<p>比如用户输入一句话：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请帮我总结这篇文章。</span><br></pre></td></tr></table></figure>
-
-<p>模型会根据输入内容和上下文，生成一段总结。</p>
-<hr>
-<h2 id="二、LLM-的常见能力"><a href="#二、LLM-的常见能力" class="headerlink" title="二、LLM 的常见能力"></a>二、LLM 的常见能力</h2><p>LLM 最常见的能力包括：</p>
-<table>
-<thead>
-<tr>
-<th>能力</th>
-<th>含义</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>生成</td>
-<td>根据提示写出新内容</td>
-<td>写文章、写邮件、写代码</td>
-</tr>
-<tr>
-<td>分类</td>
-<td>判断文本属于哪一类</td>
-<td>判断评论是正面、负面还是中立</td>
-</tr>
-<tr>
-<td>改写</td>
-<td>保留原意，换一种表达方式</td>
-<td>把复杂句改成简单句</td>
-</tr>
-<tr>
-<td>总结</td>
-<td>提取重点，压缩内容</td>
-<td>把长文总结成短文</td>
-</tr>
-<tr>
-<td>翻译</td>
-<td>在不同语言之间转换</td>
-<td>中文翻译成英文</td>
-</tr>
-<tr>
-<td>问答</td>
-<td>根据问题生成回答</td>
-<td>回答学习问题或工作问题</td>
-</tr>
-<tr>
-<td>信息提取</td>
-<td>从文本中抽取关键信息</td>
-<td>提取姓名、时间、地点、金额</td>
-</tr>
-</tbody></table>
-<p>其中，生成、分类、改写和总结是最容易理解的四种能力。</p>
-<hr>
-<h2 id="三、LLM-的基本工作方式：预测下一个-Token"><a href="#三、LLM-的基本工作方式：预测下一个-Token" class="headerlink" title="三、LLM 的基本工作方式：预测下一个 Token"></a>三、LLM 的基本工作方式：预测下一个 Token</h2><p>LLM 表面上看是在“回答问题”。但从很多语言模型的训练目标来看，它们本质上是在做一件事：</p>
-<blockquote>
-<p>根据前面的上下文，预测下一个最可能出现的 token。</p>
-</blockquote>
-<p><strong>Token</strong> 可以理解为模型处理文本的基本单位。它可能是一个字、一个词，也可能是词的一部分。</p>
-<p>比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我想学习人工智能</span><br></pre></td></tr></table></figure>
-
-<p>模型会先把这句话切成多个 token，再把 token 转换成模型可以处理的数字形式。</p>
-<p>大致过程是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">文本 → Token → Token ID → 向量 → 模型计算 → 下一个 Token 的概率</span><br></pre></td></tr></table></figure>
-
-<p>模型不是一次性把完整答案全部写出来。它通常是一个 token 一个 token 地生成内容。</p>
-<p>例如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">人工智能 → 是 → 一种 → 让 → 机器 → 模拟 → 人类 → 智能 → 的 → 技术</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么 LLM 的输出看起来像是在逐步“写出来”。</p>
-<hr>
-<h2 id="四、GPT-背后有-Transformer"><a href="#四、GPT-背后有-Transformer" class="headerlink" title="四、GPT 背后有 Transformer"></a>四、GPT 背后有 Transformer</h2><p>学习 LLM 时，一个重点是：</p>
-<blockquote>
-<p>GPT 背后有 Transformer。</p>
-</blockquote>
-<p><strong>GPT</strong> 的全称是 <strong>Generative Pre-trained Transformer</strong>。</p>
-<img src="/2026/06/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/v2-4b5.png" class="">
-
-<p>可以拆开理解：</p>
-<table>
-<thead>
-<tr>
-<th>词</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Generative</td>
-<td>生成式，说明它可以生成内容</td>
-</tr>
-<tr>
-<td>Pre-trained</td>
-<td>预训练，说明它先在大量文本上学习语言规律</td>
-</tr>
-<tr>
-<td>Transformer</td>
-<td>模型架构，说明它基于 Transformer 结构</td>
-</tr>
-</tbody></table>
-<p>所以，GPT 的名字本身就说明了它的技术路线：</p>
-<blockquote>
-<p>GPT 是一种基于 Transformer 架构的生成式预训练语言模型。</p>
-</blockquote>
-<p>不过这里要注意一个细节：</p>
-<blockquote>
-<p>原始 Transformer 由 Encoder 和 Decoder 组成；GPT 主要使用的是 Decoder-only Transformer，也就是只使用解码器部分的 Transformer 架构。</p>
-</blockquote>
-<p>所以，当我们说“GPT 背后有 Transformer”时，不能简单理解为 GPT 完整照搬了原始 Transformer 的 Encoder-Decoder 结构。更准确的说法是：</p>
-<blockquote>
-<p>GPT 使用了 Transformer 的核心思想，尤其是自注意力机制和位置编码，并采用了偏生成任务的 Decoder-only 架构。</p>
-</blockquote>
-<hr>
-<h2 id="五、整体层级关系图"><a href="#五、整体层级关系图" class="headerlink" title="五、整体层级关系图"></a>五、整体层级关系图</h2><pre class="mermaid">flowchart TD
-    AI[人工智能 AI] --> ML[机器学习 Machine Learning]
-    ML --> DL[深度学习 Deep Learning]
-    DL --> NLP[自然语言处理 NLP]
-    NLP --> LM[语言模型 Language Model]
-    LM --> LLM[大语言模型 LLM]
-
-    DL --> RNN[RNN]
-    RNN --> LSTM[LSTM]
-
-    DL --> Transformer[Transformer]
-    Transformer --> EncoderDecoder[原始 Transformer<br/>Encoder + Decoder]
-    Transformer --> DecoderOnly[Decoder-only Transformer]
-    DecoderOnly --> GPT[GPT 系列模型]
-
-    LLM --> Generate[生成]
-    LLM --> Classify[分类]
-    LLM --> Rewrite[改写]
-    LLM --> Summarize[总结]</pre>
-
-<p>这个图里有两条线：</p>
+    <title>Web前端-HTML5章节-标签之表格</title>
+    <url>/2022/12/07/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<h1 id="标签之表格"><a href="#标签之表格" class="headerlink" title="标签之表格"></a>标签之表格</h1><h2 id="表格展示效果"><a href="#表格展示效果" class="headerlink" title="表格展示效果"></a>表格展示效果</h2><p>表格在数据展示方面非常简单，而且表现优秀。</p>
+<p>表格组成与特点：</p>
 <ol>
-<li>从 AI 到 LLM，是概念层级；</li>
-<li>从 RNN、LSTM 到 Transformer，是技术演进方向。</li>
+<li>行</li>
+<li>列</li>
+<li>单元格</li>
 </ol>
+<p>单元格特点：同行等高，同列等宽。</p>
 <hr>
-<h2 id="六、RNN：循环神经网络"><a href="#六、RNN：循环神经网络" class="headerlink" title="六、RNN：循环神经网络"></a>六、RNN：循环神经网络</h2><p><strong>RNN</strong> 的全称是 <strong>Recurrent Neural Network</strong>，中文叫 <strong>循环神经网络</strong>。</p>
-<p>RNN 适合处理序列数据。比如：</p>
-<ul>
-<li>文本；</li>
-<li>语音；</li>
-<li>时间序列；</li>
-<li>股票价格；</li>
-<li>用户行为序列。</li>
-</ul>
-<p>RNN 的核心思想是：</p>
-<blockquote>
-<p>按顺序处理输入，并把前面步骤的信息传给后面步骤。</p>
-</blockquote>
-<p>例如处理一句话：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 → 今天 → 想 → 学习 → Transformer</span><br></pre></td></tr></table></figure>
-
-<p>RNN 会一个词一个词地读。每读一个词，它都会更新自己的隐藏状态。</p>
-<p>可以简单理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">当前输入 + 上一步记忆 = 当前状态</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="七、为什么-RNN-不擅长长序列？"><a href="#七、为什么-RNN-不擅长长序列？" class="headerlink" title="七、为什么 RNN 不擅长长序列？"></a>七、为什么 RNN 不擅长长序列？</h2><p>RNN 看起来很适合处理语言，因为语言本来就是有顺序的。但 RNN 有一个明显问题：</p>
-<blockquote>
-<p>它不擅长处理很长的序列。</p>
-</blockquote>
-<p>原因主要有三个。</p>
-<h3 id="1-长距离信息容易丢失"><a href="#1-长距离信息容易丢失" class="headerlink" title="1. 长距离信息容易丢失"></a>1. 长距离信息容易丢失</h3><p>如果一句话很长，前面的信息要经过很多步才能传到后面。传递次数越多，信息越容易变弱。</p>
-<p>比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我昨天在图书馆借了一本关于人工智能历史的书，晚上回宿舍之后，我认真读了它。</span><br></pre></td></tr></table></figure>
-
-<p>这里的“它”指的是“书”。但是“书”和“它”之间隔了很多词。普通 RNN 可能很难稳定保留这个远距离关系。</p>
-<h3 id="2-容易出现梯度消失或梯度爆炸"><a href="#2-容易出现梯度消失或梯度爆炸" class="headerlink" title="2. 容易出现梯度消失或梯度爆炸"></a>2. 容易出现梯度消失或梯度爆炸</h3><p>RNN 在训练长序列时，容易遇到梯度问题。</p>
-<p>简单理解：</p>
-<ul>
-<li>梯度消失：重要信息传到前面时越来越弱，模型学不到长期关系；</li>
-<li>梯度爆炸：数值变得太大，训练变得不稳定。</li>
-</ul>
-<h3 id="3-并行能力弱"><a href="#3-并行能力弱" class="headerlink" title="3. 并行能力弱"></a>3. 并行能力弱</h3><p>RNN 是按顺序处理的。后一个 token 往往要等前一个 token 处理完才能继续。</p>
-<p>这会导致训练速度比较慢，不适合非常大规模的数据训练。</p>
-<p>所以可以总结为：</p>
-<blockquote>
-<p>RNN 可以处理序列，但不擅长长序列，也不适合大规模并行训练。</p>
-</blockquote>
-<hr>
-<h2 id="八、LSTM：RNN-的改良版"><a href="#八、LSTM：RNN-的改良版" class="headerlink" title="八、LSTM：RNN 的改良版"></a>八、LSTM：RNN 的改良版</h2><p><strong>LSTM</strong> 的全称是 <strong>Long Short-Term Memory</strong>，中文通常叫 <strong>长短期记忆网络</strong>。</p>
-<p>LSTM 是 RNN 的一种重要改良。它的目标是缓解 RNN 不擅长长序列的问题。</p>
-<p>LSTM 加入了“门控机制”，让模型可以决定：</p>
-<ul>
-<li>哪些旧信息需要遗忘；</li>
-<li>哪些新信息需要写入；</li>
-<li>哪些信息需要输出。</li>
-</ul>
-<p>LSTM 常见的三个门是：</p>
-<table>
-<thead>
-<tr>
-<th>门</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>遗忘门 Forget Gate</td>
-<td>决定哪些旧信息要丢掉</td>
-</tr>
-<tr>
-<td>输入门 Input Gate</td>
-<td>决定哪些新信息要写入记忆</td>
-</tr>
-<tr>
-<td>输出门 Output Gate</td>
-<td>决定当前要输出哪些信息</td>
-</tr>
-</tbody></table>
-<p>可以简单理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">RNN：信息一路往后传，容易丢。</span><br><span class="line">LSTM：增加记忆控制机制，让重要信息更容易保留下来。</span><br></pre></td></tr></table></figure>
-
-<p>不过，LSTM 仍然是按顺序处理序列。因此，它虽然比普通 RNN 更强，但在大规模并行训练方面仍然不如 Transformer。</p>
-<hr>
-<h2 id="九、Transformer-为什么出现？"><a href="#九、Transformer-为什么出现？" class="headerlink" title="九、Transformer 为什么出现？"></a>九、Transformer 为什么出现？</h2><p>Transformer 的出现，是为了解决传统序列模型的一些问题。</p>
-<p>RNN 和 LSTM 都是按顺序处理文本。它们有一个共同特点：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">必须一步一步读。</span><br></pre></td></tr></table></figure>
-
-<p>而 Transformer 的核心变化是：</p>
-<blockquote>
-<p>它不再完全依赖循环结构，而是通过注意力机制直接建模 token 之间的关系。</p>
-</blockquote>
-<p>这带来两个重要优势：</p>
+<h2 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h2><p>常用表格标签：</p>
 <ol>
-<li>更适合捕捉长距离依赖；</li>
-<li>更适合并行计算。</li>
+<li>表格：<code>&lt;table&gt;</code></li>
+<li>行：<code>&lt;tr&gt;</code></li>
+<li>单元格，也就是列：<code>&lt;td&gt;</code></li>
 </ol>
-<p>所以，现代大语言模型大量采用 Transformer 结构。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>水果<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>肉类<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>白菜<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>鱼肉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>土豆<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>鸡肉<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>快捷键：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">快速生成表格结构：table&gt;tr*2&gt;td</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h2 id="十、原始-Transformer-的整体结构"><a href="#十、原始-Transformer-的整体结构" class="headerlink" title="十、原始 Transformer 的整体结构"></a>十、原始 Transformer 的整体结构</h2><p>原始 Transformer 由两大部分组成：</p>
+<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><p>表格常用属性：</p>
 <ol>
-<li><strong>Encoder 编码器</strong>；</li>
-<li><strong>Decoder 解码器</strong>。</li>
+<li><code>border</code>：设置表格的边框。</li>
+<li><code>width</code>：设置表格的宽度。</li>
+<li><code>height</code>：设置表格的高度。</li>
 </ol>
-<p>它最早常用于机器翻译任务。比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">输入英文 → 输出中文</span><br></pre></td></tr></table></figure>
-
-<p>整体结构可以理解为：</p>
-<pre class="mermaid">flowchart LR
-    EN[英文输入<br/>Inputs] --> Encoder[Encoder 编码器]
-    Encoder --> Memory[输入文本的抽象表示]
-    Memory --> Decoder[Decoder 解码器]
-    ZH[已经生成的中文<br/>Outputs shifted right] --> Decoder
-    Decoder --> Linear[Linear 线性层]
-    Linear --> Softmax[Softmax]
-    Softmax --> Prob[Output Probabilities<br/>词表概率分布]
-    Prob --> Next[选择/采样下一个 Token]</pre>
-
-<p>这里的重点是：</p>
-<blockquote>
-<p>编码器负责理解输入，解码器负责生成输出。</p>
-</blockquote>
-<p>比如机器翻译中：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Encoder 读入英文句子。</span><br><span class="line">Decoder 根据英文句子的抽象表示和已经生成的中文，继续生成下一个中文 token。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="十一、Transformer-原始结构图：从输入到输出"><a href="#十一、Transformer-原始结构图：从输入到输出" class="headerlink" title="十一、Transformer 原始结构图：从输入到输出"></a>十一、Transformer 原始结构图：从输入到输出</h2><p>下面这个图把你笔记中的关键词整理成完整结构。</p>
-<pre class="mermaid">flowchart TD
-    subgraph Encoder[Encoder 编码器 Nx]
-        EI[Inputs] --> IE[Input Embedding]
-        IE --> PE1[Positional Encoding]
-        PE1 --> MHA1[Multi-Head Attention]
-        MHA1 --> AN1[Add & Norm]
-        AN1 --> FF1[Feed Forward]
-        FF1 --> AN2[Add & Norm]
-    end
-
-    subgraph Decoder[Decoder 解码器 Nx]
-        O[Outputs<br/>shifted right] --> OE[Output Embedding]
-        OE --> PE2[Positional Encoding]
-        PE2 --> MMHA[Masked Multi-Head Attention]
-        MMHA --> AN3[Add & Norm]
-        AN3 --> MHA2[Multi-Head Attention<br/>关注 Encoder 输出]
-        MHA2 --> AN4[Add & Norm]
-        AN4 --> FF2[Feed Forward]
-        FF2 --> AN5[Add & Norm]
-    end
-
-    AN2 --> MHA2
-    AN5 --> Linear[Linear]
-    Linear --> Softmax[Softmax]
-    Softmax --> OP[Output Probabilities]</pre>
-
-<p>图里的 <strong>Nx</strong> 表示这一层结构会重复堆叠多次。也就是说，Transformer 不是只有一层 Encoder 或一层 Decoder，而是把相似的结构堆很多层。</p>
-<hr>
-<h2 id="十二、编码器-Encoder-的工作流程"><a href="#十二、编码器-Encoder-的工作流程" class="headerlink" title="十二、编码器 Encoder 的工作流程"></a>十二、编码器 Encoder 的工作流程</h2><p>编码器负责处理输入文本，并把输入文本转换成更抽象的表示。</p>
-<p>以机器翻译为例：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">I love artificial intelligence.</span><br></pre></td></tr></table></figure>
-
-<p>这句话会先进入 Encoder。</p>
-<h3 id="1-Tokenization：文本切分成-Token"><a href="#1-Tokenization：文本切分成-Token" class="headerlink" title="1. Tokenization：文本切分成 Token"></a>1. Tokenization：文本切分成 Token</h3><p>输入文本先会被切分成 token。</p>
 <p>例如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">I love artificial intelligence.</span><br></pre></td></tr></table></figure>
-
-<p>可能被切成：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">I / love / artificial / intelligence / .</span><br></pre></td></tr></table></figure>
-
-<p>在真实模型中，token 不一定刚好等于单词。一个单词可能被拆成多个 token。</p>
-<h3 id="2-Token-ID：每个-Token-变成整数"><a href="#2-Token-ID：每个-Token-变成整数" class="headerlink" title="2. Token ID：每个 Token 变成整数"></a>2. Token ID：每个 Token 变成整数</h3><p>模型不能直接处理文字，所以每个 token 会被转换成一个整数编号，也就是 <strong>token id</strong>。</p>
-<p>例如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">I → 40</span><br><span class="line">love → 1842</span><br><span class="line">artificial → 11684</span><br><span class="line">intelligence → 9345</span><br><span class="line">. → 13</span><br></pre></td></tr></table></figure>
-
-<p>这些数字只是示意，不代表真实模型的编号。</p>
-<h3 id="3-Input-Embedding：把整数变成向量"><a href="#3-Input-Embedding：把整数变成向量" class="headerlink" title="3. Input Embedding：把整数变成向量"></a>3. Input Embedding：把整数变成向量</h3><p>单个整数本身表达的信息很有限，所以模型会把 token id 转换成向量。</p>
-<p>这一步叫 <strong>Input Embedding</strong>。</p>
-<p>可以理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">token id → 词向量</span><br></pre></td></tr></table></figure>
-
-<p>为什么要用向量？</p>
-<p>因为向量可以表示更丰富的语义信息。</p>
-<p>比如“猫”和“狗”在语义上比较接近，它们的向量可能也比较接近；“猫”和“汽车”语义差距较大，它们的向量可能距离更远。</p>
-<h3 id="4-Positional-Encoding：加入位置信息"><a href="#4-Positional-Encoding：加入位置信息" class="headerlink" title="4. Positional Encoding：加入位置信息"></a>4. Positional Encoding：加入位置信息</h3><p>Transformer 不像 RNN 那样天然按顺序处理文本。所以它需要额外加入词语顺序信息。</p>
-<p>这一步叫 <strong>位置编码</strong>，英文是 <strong>Positional Encoding</strong>。</p>
-<p>更准确地说：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">词向量 + 位置向量 = 带有位置信息的输入向量</span><br></pre></td></tr></table></figure>
-
-<p>注意，不是“词向量 + 位置向量 &#x3D; 位置向量”。相加之后得到的是融合了词义和位置的新向量。</p>
-<p>举个例子：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">小明喜欢小红</span><br><span class="line">小红喜欢小明</span><br></pre></td></tr></table></figure>
-
-<p>这两句话的词很像，但意思不同。区别来自词语顺序。位置编码就是为了让模型知道 token 的顺序。</p>
-<h3 id="5-Multi-Head-Attention：多头自注意力"><a href="#5-Multi-Head-Attention：多头自注意力" class="headerlink" title="5. Multi-Head Attention：多头自注意力"></a>5. Multi-Head Attention：多头自注意力</h3><p>进入编码器后，模型会使用 <strong>Multi-Head Attention</strong>。</p>
-<p>在 Encoder 里，这个注意力通常是 <strong>多头自注意力</strong>。</p>
-<p>自注意力机制的作用是：</p>
-<blockquote>
-<p>模型在处理每个 token 时，不只看它自己，也会看序列中其他 token，并判断哪些 token 更重要。</p>
-</blockquote>
-<p>比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">小明把书放进书包，因为它太重了。</span><br></pre></td></tr></table></figure>
-
-<p>模型处理“它”时，需要判断“它”可能指“书”还是“书包”。这时它会关注句子中其他词之间的关系。</p>
-<p>多头注意力中的“多头”可以理解为：</p>
-<blockquote>
-<p>模型从多个角度同时观察 token 之间的关系。</p>
-</blockquote>
-<p>有的头可能关注语法关系，有的头可能关注指代关系，有的头可能关注语义相关性。</p>
-<h3 id="6-Add-Norm：残差连接和归一化"><a href="#6-Add-Norm：残差连接和归一化" class="headerlink" title="6. Add &amp; Norm：残差连接和归一化"></a>6. Add &amp; Norm：残差连接和归一化</h3><p>注意力层之后会经过 <strong>Add &amp; Norm</strong>。</p>
-<p>它包含两个思想：</p>
-<ul>
-<li><strong>Add</strong>：把这一层的输入和输出相加，也叫残差连接；</li>
-<li><strong>Norm</strong>：对结果进行归一化，让训练更稳定。</li>
-</ul>
-<p>简单理解：</p>
-<blockquote>
-<p>Add &amp; Norm 可以帮助深层网络更稳定地训练，也能减少信息在多层传递中丢失的问题。</p>
-</blockquote>
-<h3 id="7-Feed-Forward：前馈神经网络"><a href="#7-Feed-Forward：前馈神经网络" class="headerlink" title="7. Feed Forward：前馈神经网络"></a>7. Feed Forward：前馈神经网络</h3><p>然后会进入 <strong>Feed Forward</strong> 层。</p>
-<p>它通常是一个小型的全连接神经网络。它对每个位置的向量分别做进一步变换。</p>
-<p>注意顺序是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Multi-Head Attention → Add &amp; Norm → Feed Forward → Add &amp; Norm</span><br></pre></td></tr></table></figure>
-
-<p>所以，更准确地说，前馈神经网络通常在注意力层之后，而不是在多头自注意力之前。</p>
-<h3 id="8-Encoder-输出"><a href="#8-Encoder-输出" class="headerlink" title="8. Encoder 输出"></a>8. Encoder 输出</h3><p>经过多层 Encoder 后，输入文本会被转换成更抽象的向量表示。</p>
-<p>这个表示包含：</p>
-<ul>
-<li>词汇信息；</li>
-<li>位置信息；</li>
-<li>语法关系；</li>
-<li>语义关系；</li>
-<li>上下文信息。</li>
-</ul>
-<p>可以理解为：</p>
-<blockquote>
-<p>Encoder 把原始输入文本压缩和转换成模型更容易使用的抽象表示。</p>
-</blockquote>
-<hr>
-<h2 id="十三、解码器-Decoder-的工作流程"><a href="#十三、解码器-Decoder-的工作流程" class="headerlink" title="十三、解码器 Decoder 的工作流程"></a>十三、解码器 Decoder 的工作流程</h2><p>Decoder 的任务是生成输出文本。</p>
-<p>在机器翻译里，Encoder 读入英文，Decoder 生成中文。</p>
-<p>比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: I love artificial intelligence.</span><br><span class="line">Output: 我喜欢人工智能。</span><br></pre></td></tr></table></figure>
-
-<p>Decoder 不只是看 Encoder 的输出。它还会看自己已经生成过的内容。</p>
-<h3 id="1-Outputs-shifted-right：右移后的输出"><a href="#1-Outputs-shifted-right：右移后的输出" class="headerlink" title="1. Outputs shifted right：右移后的输出"></a>1. Outputs shifted right：右移后的输出</h3><p>训练 Decoder 时，输出序列会右移一位。</p>
-<p>假设目标输出是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 喜欢 人工智能 。</span><br></pre></td></tr></table></figure>
-
-<p>Decoder 的输入大致会是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;start&gt; 我 喜欢 人工智能</span><br></pre></td></tr></table></figure>
-
-<p>它要预测的是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 喜欢 人工智能 。</span><br></pre></td></tr></table></figure>
-
-<p>这里的 <code>&lt;start&gt;</code> 是一个特殊标记，表示输出序列开始。</p>
-<p>为什么要右移？</p>
-<p>因为 Decoder 生成第一个词时，还没有生成任何内容，所以需要一个开始标记。生成后面的词时，它会把前面已经生成的词作为输入。</p>
-<h3 id="2-Output-Embedding-和-Positional-Encoding"><a href="#2-Output-Embedding-和-Positional-Encoding" class="headerlink" title="2. Output Embedding 和 Positional Encoding"></a>2. Output Embedding 和 Positional Encoding</h3><p>Decoder 输入的 token 也会经历类似流程：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">输出 token → token id → output embedding → positional encoding</span><br></pre></td></tr></table></figure>
-
-<p>也就是说，输出端也需要把 token 转成向量，并加入位置信息。</p>
-<h3 id="3-Masked-Multi-Head-Attention：带掩码的多头自注意力"><a href="#3-Masked-Multi-Head-Attention：带掩码的多头自注意力" class="headerlink" title="3. Masked Multi-Head Attention：带掩码的多头自注意力"></a>3. Masked Multi-Head Attention：带掩码的多头自注意力</h3><p>Decoder 的第一层注意力是 <strong>Masked Multi-Head Attention</strong>。</p>
-<p>它和 Encoder 里的自注意力不同。</p>
-<p>Decoder 生成某个 token 时，只能看当前 token 和它前面的 token，不能偷看后面的正确答案。</p>
-<p>比如要生成：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 喜欢 人工智能</span><br></pre></td></tr></table></figure>
-
-<p>当模型正在预测“喜欢”时，它不能提前看到后面的“人工智能”。</p>
-<p>所以需要 Mask，也就是“遮住未来信息”。</p>
-<p>这一步的目的很重要：</p>
-<blockquote>
-<p>Masked Attention 保证模型按照从左到右的顺序生成文本。</p>
-</blockquote>
-<h3 id="4-Encoder-Decoder-Attention：关注编码器输出"><a href="#4-Encoder-Decoder-Attention：关注编码器输出" class="headerlink" title="4. Encoder-Decoder Attention：关注编码器输出"></a>4. Encoder-Decoder Attention：关注编码器输出</h3><p>Decoder 还有一层 Multi-Head Attention。</p>
-<p>这一层不是只看 Decoder 自己已经生成的内容，而是会关注 Encoder 的输出。</p>
-<p>在机器翻译中，它的作用是：</p>
-<blockquote>
-<p>Decoder 在生成中文时，可以参考 Encoder 对英文句子的理解。</p>
-</blockquote>
-<p>比如英文句子里有 “artificial intelligence”，Decoder 生成中文时需要关注这部分输入，然后生成“人工智能”。</p>
-<h3 id="5-Feed-Forward-和-Add-Norm"><a href="#5-Feed-Forward-和-Add-Norm" class="headerlink" title="5. Feed Forward 和 Add &amp; Norm"></a>5. Feed Forward 和 Add &amp; Norm</h3><p>Decoder 也会经过 Feed Forward 和 Add &amp; Norm。</p>
-<p>顺序大致是：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Masked Multi-Head Attention</span><br><span class="line">→ Add &amp; Norm</span><br><span class="line">→ Encoder-Decoder Multi-Head Attention</span><br><span class="line">→ Add &amp; Norm</span><br><span class="line">→ Feed Forward</span><br><span class="line">→ Add &amp; Norm</span><br></pre></td></tr></table></figure>
-
-<p>这些结构会堆叠多层，所以 Decoder 也有 Nx。</p>
-<h3 id="6-Linear：线性层"><a href="#6-Linear：线性层" class="headerlink" title="6. Linear：线性层"></a>6. Linear：线性层</h3><p>Decoder 输出的是一组向量，但最终我们需要得到具体的 token。</p>
-<p>所以需要一个 <strong>Linear</strong> 层，把 Decoder 的向量映射到词汇表大小的维度。</p>
-<p>假设词汇表有 50000 个 token，那么 Linear 层会输出 50000 个分数。</p>
-<p>这些分数还不是概率，只是每个 token 的原始得分。</p>
-<h3 id="7-Softmax：转换成概率"><a href="#7-Softmax：转换成概率" class="headerlink" title="7. Softmax：转换成概率"></a>7. Softmax：转换成概率</h3><p>Softmax 的作用是把 Linear 层输出的分数转换成概率分布。</p>
-<p>可以理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Linear 输出分数 → Softmax → 每个 token 的概率</span><br></pre></td></tr></table></figure>
-
-<p>最后得到：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Output Probabilities</span><br></pre></td></tr></table></figure>
-
-<p>也就是词汇表中每个 token 作为下一个输出的概率。</p>
-<p>模型会根据这些概率选择或采样下一个 token。</p>
-<hr>
-<h2 id="十四、GPT-为什么常被说成-Decoder-only？"><a href="#十四、GPT-为什么常被说成-Decoder-only？" class="headerlink" title="十四、GPT 为什么常被说成 Decoder-only？"></a>十四、GPT 为什么常被说成 Decoder-only？</h2><p>前面讲的是原始 Transformer 的 Encoder-Decoder 架构。</p>
-<p>但是 GPT 不是完整使用 Encoder + Decoder 的结构。</p>
-<p>GPT 主要使用 <strong>Decoder-only Transformer</strong>。</p>
-<p>这意味着 GPT 更关注一件事：</p>
-<blockquote>
-<p>根据已经出现的上下文，预测下一个 token。</p>
-</blockquote>
-<p>它的结构更适合生成任务。</p>
-<p>可以简单理解为：</p>
-<pre class="mermaid">flowchart LR
-    Prompt[输入 Prompt] --> Token[Tokenization]
-    Token --> Embedding[Token Embedding + Positional Encoding]
-    Embedding --> MaskedAttention[Masked Self-Attention]
-    MaskedAttention --> FFN[Feed Forward]
-    FFN --> Linear[Linear]
-    Linear --> Softmax[Softmax]
-    Softmax --> NextToken[下一个 Token]
-    NextToken --> Continue[继续生成]</pre>
-
-<p>GPT 会不断重复这个过程：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">读上下文 → 预测下一个 token → 加入上下文 → 再预测下一个 token</span><br></pre></td></tr></table></figure>
-
-<p>这就是 GPT 能够连续生成文本的原因。</p>
-<hr>
-<h2 id="十五、自注意力机制-Self-Attention"><a href="#十五、自注意力机制-Self-Attention" class="headerlink" title="十五、自注意力机制 Self-Attention"></a>十五、自注意力机制 Self-Attention</h2><p><strong>自注意力机制</strong> 的英文是 <strong>Self-Attention</strong>。</p>
-<p>它的核心问题是：</p>
-<blockquote>
-<p>处理一个 token 时，模型应该关注序列里的哪些其他 token？</p>
-</blockquote>
-<p>比如：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">猫坐在垫子上，因为它很舒服。</span><br></pre></td></tr></table></figure>
-
-<p>这里的“它”可能指“猫”，也可能指“垫子”。模型需要通过上下文判断。</p>
-<p>自注意力机制会让每个 token 和其他 token 建立联系，并计算它们之间的重要程度。</p>
-<p>可以简单理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">每个 token 都会问：</span><br><span class="line">我应该重点关注哪些 token？</span><br></pre></td></tr></table></figure>
-
-<p>自注意力机制的价值在于：</p>
-<ul>
-<li>它可以建立远距离词之间的联系；</li>
-<li>它可以动态决定关注重点；</li>
-<li>它比 RNN 更容易并行计算；</li>
-<li>它适合处理复杂上下文。</li>
-</ul>
-<hr>
-<h2 id="十六、多头注意力-Multi-Head-Attention"><a href="#十六、多头注意力-Multi-Head-Attention" class="headerlink" title="十六、多头注意力 Multi-Head Attention"></a>十六、多头注意力 Multi-Head Attention</h2><p><strong>Multi-Head Attention</strong> 是多个注意力头并行工作。</p>
-<p>单个注意力头只能从一个角度关注文本关系。多个注意力头可以从不同角度学习关系。</p>
-<p>例如：</p>
-<ul>
-<li>一个头关注主语和谓语；</li>
-<li>一个头关注代词指代；</li>
-<li>一个头关注长距离依赖；</li>
-<li>一个头关注句子结构；</li>
-<li>一个头关注语义相关性。</li>
-</ul>
-<p>所以，多头注意力可以让模型获得更丰富的上下文表示。</p>
-<p>简单理解：</p>
-<blockquote>
-<p>Self-Attention 是注意力机制；Multi-Head Attention 是多个注意力机制一起工作。</p>
-</blockquote>
-<hr>
-<h2 id="十七、位置编码-Positional-Encoding"><a href="#十七、位置编码-Positional-Encoding" class="headerlink" title="十七、位置编码 Positional Encoding"></a>十七、位置编码 Positional Encoding</h2><p>Transformer 本身不像 RNN 那样天然知道词语顺序。</p>
-<p>如果没有位置编码，模型看到下面两句话时会很难区分：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">小明喜欢小红。</span><br><span class="line">小红喜欢小明。</span><br></pre></td></tr></table></figure>
-
-<p>这两句话包含的词很相似，但意思完全不同。</p>
-<p>所以 Transformer 需要加入位置信息。</p>
-<p>位置编码的作用是：</p>
-<blockquote>
-<p>告诉模型每个 token 在序列中的位置。</p>
-</blockquote>
-<p>计算上可以简单理解为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Token Embedding + Positional Encoding = 带位置信息的输入表示</span><br></pre></td></tr></table></figure>
-
-<p>这样模型既知道 token 的含义，也知道 token 的顺序。</p>
-<hr>
-<h2 id="十八、为什么模型会出现幻觉-Hallucination？"><a href="#十八、为什么模型会出现幻觉-Hallucination？" class="headerlink" title="十八、为什么模型会出现幻觉 Hallucination？"></a>十八、为什么模型会出现幻觉 Hallucination？</h2><p>你笔记里提到：</p>
-<blockquote>
-<p>解码器本质上是猜下一个最有可能的输出，所以模型可能胡说八道，这也叫幻觉 hallucination。</p>
-</blockquote>
-<p>这个理解方向是对的。</p>
-<p>LLM 在生成文本时，通常是在根据上下文预测下一个 token。它的目标是生成“看起来最合理”的内容，而不一定保证每一句话都是真的。</p>
-<p>所以，幻觉可以理解为：</p>
-<blockquote>
-<p>模型生成了语法通顺、看起来可信，但事实错误或没有依据的内容。</p>
-</blockquote>
-<p>幻觉出现的原因很多，比如：</p>
-<ul>
-<li>训练数据中可能有错误；</li>
-<li>模型不知道自己不知道；</li>
-<li>用户问题缺少足够上下文；</li>
-<li>模型为了保持回答连贯，会继续生成看似合理的内容；</li>
-<li>生成过程本身是概率性的。</li>
-</ul>
-<p>所以使用 LLM 时，尤其在事实、医学、法律、金融、学术引用等场景中，需要进行核查。</p>
-<hr>
-<h2 id="十九、RNN、LSTM-和-Transformer-对比"><a href="#十九、RNN、LSTM-和-Transformer-对比" class="headerlink" title="十九、RNN、LSTM 和 Transformer 对比"></a>十九、RNN、LSTM 和 Transformer 对比</h2><table>
-<thead>
-<tr>
-<th>模型</th>
-<th>核心思想</th>
-<th>优点</th>
-<th>局限</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>RNN</td>
-<td>按顺序循环处理序列</td>
-<td>结构直观，适合序列数据</td>
-<td>长序列信息容易丢失，并行能力弱</td>
-</tr>
-<tr>
-<td>LSTM</td>
-<td>在 RNN 上加入门控记忆</td>
-<td>比 RNN 更擅长保留长期信息</td>
-<td>仍然按顺序处理，训练效率有限</td>
-</tr>
-<tr>
-<td>Transformer</td>
-<td>用注意力机制建模 token 关系</td>
-<td>长距离建模强，并行能力强</td>
-<td>计算量大，需要较多数据和算力</td>
-</tr>
-<tr>
-<td>GPT</td>
-<td>Decoder-only Transformer</td>
-<td>擅长文本生成和对话</td>
-<td>可能产生幻觉，需要事实核查</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="二十、完整学习路线图"><a href="#二十、完整学习路线图" class="headerlink" title="二十、完整学习路线图"></a>二十、完整学习路线图</h2><pre class="mermaid">flowchart TD
-    Start[学习 LLM] --> Ability[先理解能力<br/>生成 分类 改写 总结]
-    Ability --> Token[理解 Token<br/>文本如何变成模型输入]
-    Token --> Embedding[理解 Embedding<br/>Token 如何变成向量]
-    Embedding --> Position[理解位置编码<br/>模型如何知道顺序]
-    Position --> Attention[理解自注意力机制<br/>模型如何关注上下文]
-    Attention --> MultiHead[理解多头注意力<br/>多个角度看关系]
-    MultiHead --> Transformer[理解 Transformer<br/>Encoder Decoder]
-    Transformer --> GPT[理解 GPT<br/>Decoder-only Transformer]
-    GPT --> Hallucination[理解幻觉<br/>为什么会胡说八道]</pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;400&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="二十一、用一句话总结每个概念"><a href="#二十一、用一句话总结每个概念" class="headerlink" title="二十一、用一句话总结每个概念"></a>二十一、用一句话总结每个概念</h2><table>
-<thead>
-<tr>
-<th>概念</th>
-<th>一句话理解</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LLM</td>
-<td>大规模训练出来的语言模型，可以理解和生成文本</td>
-</tr>
-<tr>
-<td>GPT</td>
-<td>基于 Transformer 的生成式预训练语言模型</td>
-</tr>
-<tr>
-<td>Transformer</td>
-<td>一种基于注意力机制的深度学习架构</td>
-</tr>
-<tr>
-<td>Encoder</td>
-<td>负责理解输入文本，并生成抽象表示</td>
-</tr>
-<tr>
-<td>Decoder</td>
-<td>负责根据上下文生成输出文本</td>
-</tr>
-<tr>
-<td>Token</td>
-<td>模型处理文本的基本单位</td>
-</tr>
-<tr>
-<td>Token ID</td>
-<td>Token 在词表中的整数编号</td>
-</tr>
-<tr>
-<td>Embedding</td>
-<td>把 token id 转换成语义向量</td>
-</tr>
-<tr>
-<td>Positional Encoding</td>
-<td>给 token 加入顺序信息</td>
-</tr>
-<tr>
-<td>Self-Attention</td>
-<td>让 token 关注同一句话中其他 token</td>
-</tr>
-<tr>
-<td>Multi-Head Attention</td>
-<td>从多个角度同时计算注意力</td>
-</tr>
-<tr>
-<td>Masked Attention</td>
-<td>遮住未来信息，保证从左到右生成</td>
-</tr>
-<tr>
-<td>Linear</td>
-<td>把模型输出映射成词表大小的分数</td>
-</tr>
-<tr>
-<td>Softmax</td>
-<td>把分数转换成概率分布</td>
-</tr>
-<tr>
-<td>Hallucination</td>
-<td>模型生成了看似合理但事实错误的内容</td>
-</tr>
-<tr>
-<td>RNN</td>
-<td>按顺序处理序列的循环神经网络</td>
-</tr>
-<tr>
-<td>LSTM</td>
-<td>加入门控记忆机制的改良版 RNN</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="二十二、最终总结"><a href="#二十二、最终总结" class="headerlink" title="二十二、最终总结"></a>二十二、最终总结</h2><p>这篇笔记可以压缩成一条主线：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">LLM 可以完成生成、分类、改写和总结等语言任务。</span><br><span class="line">GPT 是一种基于 Transformer 的生成式预训练语言模型。</span><br><span class="line">原始 Transformer 由 Encoder 和 Decoder 组成。</span><br><span class="line">Encoder 负责理解输入，Decoder 负责生成输出。</span><br><span class="line">GPT 主要使用 Decoder-only Transformer。</span><br><span class="line">Transformer 的关键是自注意力机制和位置编码。</span><br><span class="line">RNN 可以处理序列，但不擅长长序列。</span><br><span class="line">LSTM 是 RNN 的改良版，可以更好保留长期信息。</span><br><span class="line">Transformer 更适合长距离依赖建模和大规模并行训练。</span><br><span class="line">LLM 通过预测下一个 token 生成文本，所以可能出现幻觉。</span><br></pre></td></tr></table></figure>
-
-<p>如果用一句话总结：</p>
-<blockquote>
-<p>大语言模型不是简单背答案，而是通过 Transformer 等结构学习语言规律，并根据上下文一步步预测和生成下一个 token。</p>
-</blockquote>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li>Vaswani, Ashish, et al. “Attention Is All You Need.” <em>Advances in Neural Information Processing Systems</em>, 2017.</li>
-<li>Hochreiter, Sepp, and Jürgen Schmidhuber. “Long Short-Term Memory.” <em>Neural Computation</em>, vol. 9, no. 8, 1997, pp. 1735–1780.</li>
-<li>Radford, Alec, et al. “Improving Language Understanding by Generative Pre-Training.” OpenAI, 2018.</li>
-<li>Brown, Tom B., et al. “Language Models Are Few-Shot Learners.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
-</ul>
+<h2 id="表格单元格合并"><a href="#表格单元格合并" class="headerlink" title="表格单元格合并"></a>表格单元格合并</h2><p>单元格合并属性：</p>
+<ol>
+<li>水平合并：<code>colspan</code></li>
+<li>垂直合并：<code>rowspan</code></li>
+</ol>
+<p>如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>单元格1-2-3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格4<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格5<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>单元格6-11<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格7<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>单元格8-13<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>单元格9-10-14-15<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格12<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>AI</category>
+        <category>Web前端</category>
       </categories>
       <tags>
-        <tag>LLM</tag>
-        <tag>GPT</tag>
-        <tag>Transformer</tag>
-        <tag>Self-Attention</tag>
-        <tag>Positional Encoding</tag>
-        <tag>RNN</tag>
-        <tag>LSTM</tag>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web前端-HTML5章节-标签之图片</title>
+    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h1 id="网站中最多的元素"><a href="#网站中最多的元素" class="headerlink" title="网站中最多的元素"></a>网站中最多的元素</h1><p>网站中最多的元素一定是图片。</p>
+<p><code>&lt;img&gt;</code> 标签定义 HTML 页面中的图像。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意事项：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;img&gt; 是单标签，不需要进行闭合操作。</span><br></pre></td></tr></table></figure>
+
+<p>属性：</p>
+<ol>
+<li><code>src</code>：路径，也就是图片地址与名字。</li>
+<li><code>alt</code>：规定图像的替代文本。</li>
+<li><code>width</code>：规定图像的宽度。</li>
+<li><code>height</code>：规定图像的高度。</li>
+<li><code>title</code>：鼠标悬停在图片上给予的提示。</li>
+</ol>
+<hr>
+<h1 id="图片路径详解"><a href="#图片路径详解" class="headerlink" title="图片路径详解"></a>图片路径详解</h1><hr>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>绝对路径是电脑的盘符存储与访问的具体地址。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">D:\Blog\source\assets</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;D:\Blog\source\assets&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p>相对路径表示两个文件之间的相对关系。</p>
+<p>常见关系有：</p>
+<ol>
+<li>子级关系：<code>/</code></li>
+<li>父级关系：<code>../</code></li>
+<li>同级关系：<code>./</code></li>
+</ol>
+<hr>
+<h2 id="网络路径"><a href="#网络路径" class="headerlink" title="网络路径"></a>网络路径</h2><p>网络路径就是具体的网络地址，例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://www.imagehub.cc/image/jHDR</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 同级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;01.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 子级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/03.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 父级关系 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../02.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 网络路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.imagehub.cc/image/jHDR&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
       </tags>
   </entry>
   <entry>
@@ -1704,6 +2359,485 @@
 ]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web前端-HTML5章节-标签之超文本链接</title>
+    <url>/2022/12/06/Web%E5%89%8D%E7%AB%AF-HTML5%E7%AB%A0%E8%8A%82-%E6%A0%87%E7%AD%BE%E4%B9%8B%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/</url>
+    <content><![CDATA[<h1 id="标签之超文本链接"><a href="#标签之超文本链接" class="headerlink" title="标签之超文本链接"></a>标签之超文本链接</h1><hr>
+<h2 id="超链接描述"><a href="#超链接描述" class="headerlink" title="超链接描述"></a>超链接描述</h2><p>HTML 使用标签 <code>&lt;a&gt;</code> 来设置超文本链接。</p>
+<p>超链接可以是一个字、一个词，或者一组词，也可以是一幅图像。用户可以点击这些内容，跳转到新的文档，或者跳转到当前文档中的某个部分。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;url&quot;</span>&gt;</span>链接文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="超链接属性"><a href="#超链接属性" class="headerlink" title="超链接属性"></a>超链接属性</h2><p>在标签 <code>&lt;a&gt;</code> 中，可以使用 <code>href</code> 属性来描述链接的地址。</p>
+<p>默认情况下，链接会以下面的形式出现在浏览器中：</p>
+<ol>
+<li>一个未访问过的链接显示为蓝色字体，并带有下划线。</li>
+<li>访问过的链接显示为紫色，并带有下划线。</li>
+<li>点击链接时，链接显示为红色，并带有下划线。</li>
+</ol>
+<p>特别提示：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">后期我们会通过 CSS 样式修改掉这些效果。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="超链接表现"><a href="#超链接表现" class="headerlink" title="超链接表现"></a>超链接表现</h2><p>当我们把鼠标指针移动到网页中的某个链接上时，箭头会变为一只小手。</p>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>web前端</tag>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是大语言模型 LLM：从 RNN、LSTM 到 Transformer 的入门笔记</title>
+    <url>/2025/08/19/2.%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章整理我对 <strong>大语言模型 LLM</strong> 的入门理解。</p>
+<p>一开始我只知道 LLM 可以生成、分类、改写和总结文本。后来我发现，想真正理解 GPT 这一类模型，就需要继续往下看它背后的结构。</p>
+<p>这条学习线可以简单理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">大语言模型 LLM</span><br><span class="line">→ 语言生成</span><br><span class="line">→ RNN / LSTM</span><br><span class="line">→ Transformer</span><br><span class="line">→ GPT</span><br></pre></td></tr></table></figure>
+
+<p>其中最重要的一点是：</p>
+<blockquote>
+<p>GPT 背后有 Transformer。Transformer 的关键是自注意力机制和位置编码。</p>
+</blockquote>
+<hr>
+<h2 id="一、什么是大语言模型-LLM？"><a href="#一、什么是大语言模型-LLM？" class="headerlink" title="一、什么是大语言模型 LLM？"></a>一、什么是大语言模型 LLM？</h2><p><strong>LLM</strong> 的全称是 <strong>Large Language Model</strong>，中文通常叫 <strong>大语言模型</strong>。</p>
+<p>它是一类通过大量文本数据训练出来的模型。它可以理解文本，也可以生成文本。</p>
+<p>这里的“语言”不只包括中文、英文，也包括代码、表格、公式、结构化文本和指令。</p>
+<p>简单来说：</p>
+<blockquote>
+<p>大语言模型是一种根据上下文理解和生成文本的 AI 模型。</p>
+</blockquote>
+<p>LLM 常见能力包括：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生成</td>
+<td>根据提示写出新内容</td>
+<td>写文章、写邮件、写代码</td>
+</tr>
+<tr>
+<td>分类</td>
+<td>判断文本属于哪一类</td>
+<td>判断评论是正面还是负面</td>
+</tr>
+<tr>
+<td>改写</td>
+<td>保留原意，换一种表达方式</td>
+<td>把复杂句改成简单句</td>
+</tr>
+<tr>
+<td>总结</td>
+<td>提取重点，压缩内容</td>
+<td>把长文总结成短文</td>
+</tr>
+<tr>
+<td>翻译</td>
+<td>在不同语言之间转换</td>
+<td>中文翻译成英文</td>
+</tr>
+<tr>
+<td>问答</td>
+<td>根据问题生成回答</td>
+<td>回答学习问题或工作问题</td>
+</tr>
+</tbody></table>
+<p>LLM 表面上像是在“回答问题”。但从很多语言模型的训练目标来看，它本质上是在做一件事：</p>
+<blockquote>
+<p>根据前面的上下文，预测下一个最可能出现的 token。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">人工智能是一种</span><br></pre></td></tr></table></figure>
+
+<p>模型会根据上下文预测后面可能出现：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">技术 / 方法 / 工具 / 能力</span><br></pre></td></tr></table></figure>
+
+<p>然后模型会继续预测下一个 token。很多回答就是这样一步一步生成出来的。</p>
+<hr>
+<h2 id="二、从-RNN-到-LSTM：为什么需要更强的序列模型？"><a href="#二、从-RNN-到-LSTM：为什么需要更强的序列模型？" class="headerlink" title="二、从 RNN 到 LSTM：为什么需要更强的序列模型？"></a>二、从 RNN 到 LSTM：为什么需要更强的序列模型？</h2><p>在 Transformer 流行之前，处理文本这类序列数据时，经常会用到 <strong>RNN</strong>。</p>
+<p><strong>RNN</strong> 的全称是 <strong>Recurrent Neural Network</strong>，中文叫 <strong>循环神经网络</strong>。</p>
+<p>它的核心思想是：</p>
+<blockquote>
+<p>按顺序处理输入，并把前面步骤的信息传给后面步骤。</p>
+</blockquote>
+<p>比如一句话：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 → 今天 → 想 → 学习 → Transformer</span><br></pre></td></tr></table></figure>
+
+<p>RNN 会一个词一个词地读。每读一个词，它都会更新自己的记忆状态。</p>
+<p>可以简单理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">当前输入 + 上一步记忆 = 当前状态</span><br></pre></td></tr></table></figure>
+
+<p>但是 RNN 有一个明显问题：</p>
+<blockquote>
+<p>RNN 不擅长处理很长的序列。</p>
+</blockquote>
+<p>原因主要有三个：</p>
+<ol>
+<li><p><strong>长距离信息容易丢失</strong><br>前面的信息要经过很多步才能传到后面。句子越长，信息越容易变弱。</p>
+</li>
+<li><p><strong>容易出现梯度问题</strong><br>训练长序列时，RNN 容易遇到梯度消失或梯度爆炸。</p>
+</li>
+<li><p><strong>并行能力弱</strong><br>RNN 要按顺序处理。后一个 token 通常要等前一个 token 处理完。</p>
+</li>
+</ol>
+<p>后来，RNN 被改良为 <strong>LSTM</strong>。</p>
+<p><strong>LSTM</strong> 的全称是 <strong>Long Short-Term Memory</strong>，中文通常叫 <strong>长短期记忆网络</strong>。</p>
+<p>LSTM 加入了“门控机制”，让模型决定：</p>
+<table>
+<thead>
+<tr>
+<th>门</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>遗忘门 Forget Gate</td>
+<td>决定哪些旧信息要丢掉</td>
+</tr>
+<tr>
+<td>输入门 Input Gate</td>
+<td>决定哪些新信息要写入记忆</td>
+</tr>
+<tr>
+<td>输出门 Output Gate</td>
+<td>决定当前要输出哪些信息</td>
+</tr>
+</tbody></table>
+<p>可以这样理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">RNN：信息一路往后传，容易丢。</span><br><span class="line">LSTM：增加记忆控制机制，让重要信息更容易保留下来。</span><br></pre></td></tr></table></figure>
+
+<p>不过，LSTM 本质上仍然是按顺序处理序列。它比 RNN 更强，但在大规模并行训练方面仍然不如 Transformer。</p>
+<hr>
+<h2 id="三、Transformer：现代大语言模型的核心结构"><a href="#三、Transformer：现代大语言模型的核心结构" class="headerlink" title="三、Transformer：现代大语言模型的核心结构"></a>三、Transformer：现代大语言模型的核心结构</h2><img src="/2025/08/19/2.%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%EF%BC%9A%E4%BB%8E%20RNN%E3%80%81LSTM%20%E5%88%B0%20Transformer%20%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/v2-4b5.png" class="">
+
+<p>Transformer 的出现，是为了解决传统序列模型的一些问题。</p>
+<p>RNN 和 LSTM 都要一步一步读文本，而 Transformer 不再完全依赖循环结构。它通过注意力机制直接建模 token 之间的关系。</p>
+<p>Transformer 的两个核心优势是：</p>
+<ol>
+<li><strong>更适合捕捉长距离依赖</strong>；</li>
+<li><strong>更适合并行计算</strong>。</li>
+</ol>
+<p>原始 Transformer 由两大部分组成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Encoder 编码器 + Decoder 解码器</span><br></pre></td></tr></table></figure>
+
+<p>它最早常用于机器翻译任务。比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">输入英文 → 输出中文</span><br></pre></td></tr></table></figure>
+
+<p>整体流程可以这样理解：</p>
+<pre class="mermaid">flowchart LR
+    Input[输入文本] --> Encoder[Encoder 编码器<br/>理解输入]
+    Encoder --> Memory[输入的抽象表示]
+    Memory --> Decoder[Decoder 解码器<br/>生成输出]
+    Decoder --> Linear[Linear]
+    Linear --> Softmax[Softmax]
+    Softmax --> Prob[Output Probabilities<br/>输出概率]
+    Prob --> Token[下一个 Token]</pre>
+
+
+<blockquote>
+<p>GPT 使用了 Transformer 的核心思想，尤其是自注意力机制和位置编码，并采用了适合生成任务的 Decoder-only 架构。</p>
+</blockquote>
+<hr>
+<h2 id="四、Transformer-核心概念速查表"><a href="#四、Transformer-核心概念速查表" class="headerlink" title="四、Transformer 核心概念速查表"></a>四、Transformer 核心概念速查表</h2><p>Transformer 涉及的名词比较多。入门阶段不需要一开始就记公式，可以先理解每个词在流程里负责什么。</p>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>中文理解</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Token</td>
+<td>文本基本单位</td>
+<td>模型不会直接处理整段文字，而是先把文字切成 token</td>
+</tr>
+<tr>
+<td>Embedding</td>
+<td>嵌入 &#x2F; 向量表示</td>
+<td>把 token id 转换成向量，让模型能计算语义关系</td>
+</tr>
+<tr>
+<td>Positional Encoding</td>
+<td>位置编码</td>
+<td>给 token 加入顺序信息，让模型知道谁在前谁在后</td>
+</tr>
+<tr>
+<td>Self-Attention</td>
+<td>自注意力机制</td>
+<td>让每个 token 关注同一句话里的其他 token</td>
+</tr>
+<tr>
+<td>Multi-Head Attention</td>
+<td>多头注意力</td>
+<td>从多个角度同时观察 token 之间的关系</td>
+</tr>
+<tr>
+<td>Encoder</td>
+<td>编码器</td>
+<td>负责理解输入文本，生成抽象表示</td>
+</tr>
+<tr>
+<td>Decoder</td>
+<td>解码器</td>
+<td>负责根据上下文生成输出文本</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>线性层</td>
+<td>把模型内部向量转换成词表大小的分数</td>
+</tr>
+<tr>
+<td>Softmax</td>
+<td>概率转换函数</td>
+<td>把分数转换成概率分布</td>
+</tr>
+<tr>
+<td>Output Probabilities</td>
+<td>输出概率</td>
+<td>表示每个 token 作为下一个输出的可能性</td>
+</tr>
+</tbody></table>
+<p>下面把这些概念按流程串起来。</p>
+<h3 id="1-Token：文本先被切开"><a href="#1-Token：文本先被切开" class="headerlink" title="1. Token：文本先被切开"></a>1. Token：文本先被切开</h3><p>模型不能直接处理一整段自然语言。它会先把文本切成 token。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我想学习人工智能</span><br></pre></td></tr></table></figure>
+
+<p>可能被切成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我 / 想 / 学习 / 人工智能</span><br></pre></td></tr></table></figure>
+
+<p>真实模型的 token 不一定等于一个字或一个词。一个词可能被拆成多个 token。</p>
+<h3 id="2-Embedding：token-变成向量"><a href="#2-Embedding：token-变成向量" class="headerlink" title="2. Embedding：token 变成向量"></a>2. Embedding：token 变成向量</h3><p>每个 token 会先变成一个整数编号，也叫 <strong>token id</strong>。</p>
+<p>但是一个整数表达的信息太少，所以模型会把 token id 转换成向量。</p>
+<p>这一步叫 <strong>Embedding</strong>。</p>
+<p>可以理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">token → token id → embedding 向量</span><br></pre></td></tr></table></figure>
+
+<p>向量比单个数字能表达更多信息。比如“猫”和“狗”语义更接近，它们的向量可能也更接近。</p>
+<h3 id="3-Positional-Encoding：加入顺序信息"><a href="#3-Positional-Encoding：加入顺序信息" class="headerlink" title="3. Positional Encoding：加入顺序信息"></a>3. Positional Encoding：加入顺序信息</h3><p>Transformer 不像 RNN 那样天然按顺序读文本。</p>
+<p>所以它需要额外加入位置信息。</p>
+<p>这一步叫 <strong>Positional Encoding</strong>。</p>
+<p>更准确地说：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Token Embedding + Positional Encoding = 带位置信息的输入表示</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">小明喜欢小红。</span><br><span class="line">小红喜欢小明。</span><br></pre></td></tr></table></figure>
+
+<p>这两句话用到的词很像，但意思不同。区别就在顺序。位置编码就是为了让模型知道 token 的位置。</p>
+<h3 id="4-Self-Attention：让-token-互相关注"><a href="#4-Self-Attention：让-token-互相关注" class="headerlink" title="4. Self-Attention：让 token 互相关注"></a>4. Self-Attention：让 token 互相关注</h3><p><strong>Self-Attention</strong> 解决的问题是：</p>
+<blockquote>
+<p>当前 token 应该重点关注句子里的哪些其他 token？</p>
+</blockquote>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">小明把书放进书包，因为它太重了。</span><br></pre></td></tr></table></figure>
+
+<p>模型处理“它”时，需要判断“它”更可能指“书”还是“书包”。</p>
+<p>自注意力机制会让每个 token 和其他 token 建立关系，并判断哪些 token 更重要。</p>
+<p>简单理解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">每个 token 都会问：</span><br><span class="line">我应该关注哪些其他 token？</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Multi-Head-Attention：多个角度一起看"><a href="#5-Multi-Head-Attention：多个角度一起看" class="headerlink" title="5. Multi-Head Attention：多个角度一起看"></a>5. Multi-Head Attention：多个角度一起看</h3><p><strong>Multi-Head Attention</strong> 可以理解为多个注意力头并行工作。</p>
+<p>一个注意力头可能关注语法关系，另一个头可能关注指代关系，还有一个头可能关注长距离语义关系。</p>
+<p>所以，多头注意力的作用是：</p>
+<blockquote>
+<p>让模型从多个角度理解上下文。</p>
+</blockquote>
+<p>简单来说：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Self-Attention：一个注意力机制。</span><br><span class="line">Multi-Head Attention：多个注意力机制一起工作。</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-Encoder：负责理解输入"><a href="#6-Encoder：负责理解输入" class="headerlink" title="6. Encoder：负责理解输入"></a>6. Encoder：负责理解输入</h3><p>在原始 Transformer 中，Encoder 负责处理输入文本。</p>
+<p>它会经过：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input Embedding</span><br><span class="line">→ Positional Encoding</span><br><span class="line">→ Multi-Head Attention</span><br><span class="line">→ Add &amp; Norm</span><br><span class="line">→ Feed Forward</span><br><span class="line">→ Add &amp; Norm</span><br></pre></td></tr></table></figure>
+
+<p>这些结构会重复很多层，也就是图里的 <strong>Nx</strong>。</p>
+<p>Encoder 最后的输出不是普通文字，而是一组抽象向量。它们保留了输入文本的词汇、顺序、语法和语义信息。</p>
+<p>可以简单理解为：</p>
+<blockquote>
+<p>Encoder 把输入文本转换成模型更容易使用的抽象表示。</p>
+</blockquote>
+<h3 id="7-Decoder：负责生成输出"><a href="#7-Decoder：负责生成输出" class="headerlink" title="7. Decoder：负责生成输出"></a>7. Decoder：负责生成输出</h3><p>Decoder 的任务是生成输出文本。</p>
+<p>在翻译任务中，Encoder 读英文，Decoder 生成中文。</p>
+<p>Decoder 生成内容时，会参考两部分信息：</p>
+<ol>
+<li>Encoder 对输入文本的理解；</li>
+<li>Decoder 自己已经生成过的内容。</li>
+</ol>
+<p>Decoder 里还有一个重要结构，叫 <strong>Masked Multi-Head Attention</strong>。</p>
+<p>它的作用是遮住未来信息。</p>
+<p>比如模型正在生成第 3 个 token，它只能看第 1 个和第 2 个 token，不能偷看后面的答案。</p>
+<p>这样做是为了保证模型按顺序生成。</p>
+<h3 id="8-Linear：把向量变成词表分数"><a href="#8-Linear：把向量变成词表分数" class="headerlink" title="8. Linear：把向量变成词表分数"></a>8. Linear：把向量变成词表分数</h3><p>Decoder 输出的是向量，但最终模型要选择具体 token。</p>
+<p>所以需要 <strong>Linear</strong> 层。</p>
+<p>假设词表里有 50000 个 token，Linear 层就会输出 50000 个分数。</p>
+<p>这些分数还不是概率，只是每个 token 的原始得分。</p>
+<h3 id="9-Softmax：把分数变成概率"><a href="#9-Softmax：把分数变成概率" class="headerlink" title="9. Softmax：把分数变成概率"></a>9. Softmax：把分数变成概率</h3><p><strong>Softmax</strong> 的作用是把 Linear 层输出的分数转换成概率分布。</p>
+<p>可以理解为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Linear 输出分数 → Softmax → 每个 token 的概率</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-Output-Probabilities：选择下一个-token"><a href="#10-Output-Probabilities：选择下一个-token" class="headerlink" title="10. Output Probabilities：选择下一个 token"></a>10. Output Probabilities：选择下一个 token</h3><p>Softmax 后得到的就是 <strong>Output Probabilities</strong>。</p>
+<p>它表示：</p>
+<blockquote>
+<p>词表中每个 token 作为下一个输出的可能性有多大。</p>
+</blockquote>
+<p>模型会根据这些概率选择或采样下一个 token。</p>
+<p>所以，生成过程可以总结为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">上下文 → 模型计算 → 下一个 token 的概率 → 选择 token → 继续生成</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、GPT-为什么常被说成-Decoder-only？"><a href="#五、GPT-为什么常被说成-Decoder-only？" class="headerlink" title="五、GPT 为什么常被说成 Decoder-only？"></a>五、GPT 为什么常被说成 Decoder-only？</h2><p>GPT 的全称是 <strong>Generative Pre-trained Transformer</strong>。</p>
+<p>可以拆开理解：</p>
+<table>
+<thead>
+<tr>
+<th>词</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Generative</td>
+<td>生成式，说明它可以生成内容</td>
+</tr>
+<tr>
+<td>Pre-trained</td>
+<td>预训练，说明它先在大量文本上学习语言规律</td>
+</tr>
+<tr>
+<td>Transformer</td>
+<td>模型架构，说明它基于 Transformer 结构</td>
+</tr>
+</tbody></table>
+<p>GPT 主要使用 <strong>Decoder-only Transformer</strong>。</p>
+<p>这意味着 GPT 更关注一件事：</p>
+<blockquote>
+<p>根据已经出现的上下文，预测下一个 token。</p>
+</blockquote>
+<p>流程可以简单理解为：</p>
+<pre class="mermaid">flowchart LR
+    Prompt[输入 Prompt] --> Token[Tokenization]
+    Token --> Embedding[Embedding + Positional Encoding]
+    Embedding --> MaskedAttention[Masked Self-Attention]
+    MaskedAttention --> FFN[Feed Forward]
+    FFN --> Linear[Linear]
+    Linear --> Softmax[Softmax]
+    Softmax --> NextToken[下一个 Token]
+    NextToken --> Continue[继续生成]</pre>
+
+<p>GPT 会不断重复这个过程：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">读上下文 → 预测下一个 token → 加入上下文 → 再预测下一个 token</span><br></pre></td></tr></table></figure>
+
+<p>这就是 GPT 能够连续生成文本的原因。</p>
+<hr>
+<h2 id="六、为什么模型会出现幻觉？"><a href="#六、为什么模型会出现幻觉？" class="headerlink" title="六、为什么模型会出现幻觉？"></a>六、为什么模型会出现幻觉？</h2><p><strong>幻觉</strong> 的英文是 <strong>Hallucination</strong>。</p>
+<p>它指的是：</p>
+<blockquote>
+<p>模型生成了语法通顺、看起来可信，但事实错误或没有依据的内容。</p>
+</blockquote>
+<p>为什么会这样？</p>
+<p>因为 LLM 在生成文本时，通常是在根据上下文预测下一个 token。它的目标是生成“看起来最合理”的内容，但这不等于保证每一句都是真的。</p>
+<p>幻觉可能来自：</p>
+<ul>
+<li>训练数据中有错误；</li>
+<li>用户问题缺少足够上下文；</li>
+<li>模型不知道自己不知道；</li>
+<li>模型为了保持回答连贯，继续生成看似合理的内容；</li>
+<li>生成过程本身有概率性。</li>
+</ul>
+<p>所以使用 LLM 时，尤其在事实、论文、医学、法律、金融和引用场景中，需要核查。</p>
+<hr>
+<h2 id="七、整体关系图和对比总结"><a href="#七、整体关系图和对比总结" class="headerlink" title="七、整体关系图和对比总结"></a>七、整体关系图和对比总结</h2><p>下面这个图把 LLM、RNN、LSTM、Transformer 和 GPT 放在一起。</p>
+<pre class="mermaid">flowchart TD
+    AI[人工智能 AI] --> ML[机器学习]
+    ML --> DL[深度学习]
+    DL --> LLM[大语言模型 LLM]
+
+    DL --> RNN[RNN<br/>按顺序处理序列]
+    RNN --> LSTM[LSTM<br/>改良 RNN 的长期记忆]
+
+    DL --> Transformer[Transformer<br/>注意力机制]
+    Transformer --> EncoderDecoder[原始结构<br/>Encoder + Decoder]
+    Transformer --> DecoderOnly[Decoder-only]
+    DecoderOnly --> GPT[GPT]
+
+    LLM --> Generate[生成]
+    LLM --> Classify[分类]
+    LLM --> Rewrite[改写]
+    LLM --> Summarize[总结]</pre>
+
+<p>RNN、LSTM、Transformer 和 GPT 可以这样对比：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>核心思想</th>
+<th>优点</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RNN</td>
+<td>按顺序循环处理序列</td>
+<td>结构直观，适合序列数据</td>
+<td>长序列信息容易丢失，并行能力弱</td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td>在 RNN 上加入门控记忆</td>
+<td>比 RNN 更擅长保留长期信息</td>
+<td>仍然按顺序处理，训练效率有限</td>
+</tr>
+<tr>
+<td>Transformer</td>
+<td>用注意力机制建模 token 关系</td>
+<td>长距离建模强，并行能力强</td>
+<td>计算量大，需要较多数据和算力</td>
+</tr>
+<tr>
+<td>GPT</td>
+<td>Decoder-only Transformer</td>
+<td>擅长文本生成和对话</td>
+<td>可能产生幻觉，需要事实核查</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、最终总结"><a href="#八、最终总结" class="headerlink" title="八、最终总结"></a>八、最终总结</h2><p>这篇笔记可以压缩成一条主线：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">LLM 可以完成生成、分类、改写和总结等语言任务。</span><br><span class="line">RNN 可以处理序列，但不擅长长序列。</span><br><span class="line">LSTM 是 RNN 的改良版，可以更好保留长期信息。</span><br><span class="line">Transformer 用注意力机制建模 token 关系，更适合长距离依赖和并行训练。</span><br><span class="line">原始 Transformer 由 Encoder 和 Decoder 组成。</span><br><span class="line">GPT 主要使用 Decoder-only Transformer。</span><br><span class="line">GPT 根据上下文预测下一个 token，所以能连续生成文本，也可能出现幻觉。</span><br></pre></td></tr></table></figure>
+
+<p>Transformer 的核心名词可以这样记：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Token：文本基本单位</span><br><span class="line">Embedding：把 token 变成向量</span><br><span class="line">Positional Encoding：加入顺序信息</span><br><span class="line">Self-Attention：让 token 互相关注</span><br><span class="line">Multi-Head Attention：从多个角度关注</span><br><span class="line">Encoder：理解输入</span><br><span class="line">Decoder：生成输出</span><br><span class="line">Linear：输出词表分数</span><br><span class="line">Softmax：把分数变成概率</span><br><span class="line">Output Probabilities：下一个 token 的概率分布</span><br></pre></td></tr></table></figure>
+
+<p>如果用一句话总结：</p>
+<blockquote>
+<p>大语言模型不是简单背答案，而是通过 Transformer 等结构学习语言规律，并根据上下文一步步预测和生成下一个 token。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Vaswani, Ashish, et al. “Attention Is All You Need.” <em>Advances in Neural Information Processing Systems</em>, 2017.</li>
+<li>Hochreiter, Sepp, and Jürgen Schmidhuber. “Long Short-Term Memory.” <em>Neural Computation</em>, vol. 9, no. 8, 1997, pp. 1735–1780.</li>
+<li>Radford, Alec, et al. “Improving Language Understanding by Generative Pre-Training.” OpenAI, 2018.</li>
+<li>Brown, Tom B., et al. “Language Models Are Few-Shot Learners.” <em>Advances in Neural Information Processing Systems</em>, 2020.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>GPT</tag>
+        <tag>Transformer</tag>
+        <tag>Self-Attention</tag>
+        <tag>Positional Encoding</tag>
+        <tag>RNN</tag>
+        <tag>LSTM</tag>
       </tags>
   </entry>
 </search>
