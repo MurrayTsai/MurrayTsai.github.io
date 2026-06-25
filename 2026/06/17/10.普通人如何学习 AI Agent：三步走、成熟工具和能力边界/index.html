@@ -1,0 +1,1024 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>普通人如何学习 AI Agent：三步走、成熟工具和能力边界 | MurrayT's Blog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="一篇写给普通人的 AI Agent 入门笔记，解释普通人学习 Agent 的真正目标、三步实践路线、重点和过程、适合场景以及能力边界。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="普通人如何学习 AI Agent：三步走、成熟工具和能力边界">
+<meta property="og:url" content="https://murraytsai.github.io/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/index.html">
+<meta property="og:site_name" content="MurrayT&#39;s Blog">
+<meta property="og:description" content="一篇写给普通人的 AI Agent 入门笔记，解释普通人学习 Agent 的真正目标、三步实践路线、重点和过程、适合场景以及能力边界。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/covers/default-1.jpg">
+<meta property="article:published_time" content="2026-06-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-24T03:59:12.583Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="Coding Agent">
+<meta property="article:tag" content="自动化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/covers/default-1.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "普通人如何学习 AI Agent：三步走、成熟工具和能力边界",
+  "url": "https://murraytsai.github.io/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/",
+  "image": "https://murraytsai.github.io/images/covers/default-1.jpg",
+  "datePublished": "2026-06-16T16:00:00.000Z",
+  "dateModified": "2026-06-24T03:59:12.583Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "人畜无害的菜姥爷",
+      "url": "https://MurrayTsai.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '普通人如何学习 AI Agent：三步走、成熟工具和能力边界',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/images/home-bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/covers/default-1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MurrayT's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-24T03:59:12.583Z" title="更新于 2026-06-24 11:59:12">2026-06-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>普通人学习 AI Agent，不是为了从零写一个 Agent 框架。</p>
+<p>也不是为了研究 Agent 的底层结构。</p>
+<p>普通人的核心目标应该是：</p>
+<blockquote>
+<p>用成熟的 AI Agent 工具，提高工作效率，解决真实问题。</p>
+</blockquote>
+<p>所以普通人不需要一开始就折腾 LangChain、Output Parser、MCP Server，也不需要自己手写一个复杂 Agent。</p>
+<p>更现实的路线是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先选成熟工具</span><br><span class="line">→ 再准备任务环境</span><br><span class="line">→ 然后让 Agent 执行</span><br><span class="line">→ 最后检查结果并迭代</span><br></pre></td></tr></table></figure>
+
+<p>这篇文章主要讲普通人如何学习和使用 AI Agent。</p>
+<p>重点不是“造 Agent”，而是“用好 Agent”。</p>
+<hr>
+<h2 id="一、普通人学习-AI-Agent-的核心目标"><a href="#一、普通人学习-AI-Agent-的核心目标" class="headerlink" title="一、普通人学习 AI Agent 的核心目标"></a>一、普通人学习 AI Agent 的核心目标</h2><p>普通人学习 AI Agent，目标不是成为 Agent 框架开发者。</p>
+<p>更准确的目标是：</p>
+<blockquote>
+<p>把原本需要人工重复执行的任务，交给成熟 Agent 自动完成一部分。</p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>整理资料；</li>
+<li>分析文档；</li>
+<li>处理表格；</li>
+<li>生成报告；</li>
+<li>批量修改文件；</li>
+<li>写简单脚本；</li>
+<li>整理代码；</li>
+<li>处理简单数据库任务；</li>
+<li>自动生成项目说明文档。</li>
+</ul>
+<p>这些任务有一个共同点：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">有资料</span><br><span class="line">有流程</span><br><span class="line">有目标</span><br><span class="line">能检查结果</span><br></pre></td></tr></table></figure>
+
+<p>这类任务很适合交给 Agent。</p>
+<p>但如果一个任务本身没有资料、没有流程、没有判断标准，那 Agent 也很难稳定完成。</p>
+<p>所以，普通人学习 Agent 的重点不是研究概念，而是训练一种能力：</p>
+<blockquote>
+<p>把任务整理成 Agent 能理解、能执行、能验证的形式。</p>
+</blockquote>
+<hr>
+<h2 id="二、普通人学习-AI-Agent-可以分成三步走"><a href="#二、普通人学习-AI-Agent-可以分成三步走" class="headerlink" title="二、普通人学习 AI Agent 可以分成三步走"></a>二、普通人学习 AI Agent 可以分成三步走</h2><p>普通人学习 Agent，可以先按三步走：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    Start[&quot;普通人学习 AI Agent&quot;] --&gt; Step1[&quot;第一步：选工具&quot;]
+    Step1 --&gt; Step2[&quot;第二步：准备任务环境&quot;]
+    Step2 --&gt; Step3[&quot;第三步：执行、记录和验证&quot;]
+
+    Step1 --&gt; Tool[&quot;成熟 Coding Agent 或稳定模型方案&quot;]
+    Step2 --&gt; Context[&quot;任务目标、资料、流程、输出格式&quot;]
+    Step3 --&gt; Check[&quot;JSON 状态、日志、人工检查、继续迭代&quot;]
+  </pre></div>
+
+<p>这三步里，真正重要的不是工具名字。</p>
+<p>真正重要的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">你能不能把任务变清楚。</span><br><span class="line">你能不能把资料准备完整。</span><br><span class="line">你能不能让结果可以被检查。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、第一步：先选工具，不要先造工具"><a href="#三、第一步：先选工具，不要先造工具" class="headerlink" title="三、第一步：先选工具，不要先造工具"></a>三、第一步：先选工具，不要先造工具</h2><p>普通人第一步不是学习怎么写 Agent 框架。</p>
+<p>第一步应该是选择一个能长期使用的成熟工具。</p>
+<p>可以考虑：</p>
+<ul>
+<li>Claude Code；</li>
+<li>Codex；</li>
+<li>OpenCode；</li>
+<li>Kimi Code；</li>
+<li>其他成熟 Coding Agent。</li>
+</ul>
+<p>如果你还没有固定工具，也可以先选择一个能稳定使用的模型或 Coding Plan。</p>
+<p>模型排名网站可以作为参考，比如 LiveBench.ai。</p>
+<p>但模型排名只是参考，不是唯一标准。</p>
+<p>Anthropic 和 OpenAI 的模型很强，比如 Claude 和 GPT 系列。</p>
+<p>但它们价格通常较高，而且在中国大陆订阅、支付或稳定使用可能有一定门槛。</p>
+<p>如果你只是做普通任务，比如：</p>
+<ul>
+<li>写代码；</li>
+<li>改文档；</li>
+<li>整理资料；</li>
+<li>生成报告；</li>
+<li>分析表格；</li>
+<li>写小脚本；</li>
+<li>修改博客；</li>
+<li>处理文件。</li>
+</ul>
+<p>那你不一定非要用最贵的模型。</p>
+<p>国内头部大模型厂商也可以考虑，比如：</p>
+<ul>
+<li>智谱；</li>
+<li>Moonshot &#x2F; 月之暗面；</li>
+<li>阿里 Qwen；</li>
+<li>DeepSeek；</li>
+<li>小米 MiMo；</li>
+<li>快手；</li>
+<li>MiniMax；</li>
+<li>阶跃星辰。</li>
+</ul>
+<p>这里的判断标准不是“哪个模型最强”。</p>
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">能不能稳定使用？</span><br><span class="line">价格能不能接受？</span><br><span class="line">是否适合自己的任务？</span><br><span class="line">是否支持 Coding Agent 或 Coding Plan？</span><br><span class="line">是否方便接入自己的工作流？</span><br></pre></td></tr></table></figure>
+
+<p>可以这样理解：</p>
+<blockquote>
+<p>80 分到 90 分的模型已经很有性价比，能解决大部分日常 Coding 和办公需求。</p>
+</blockquote>
+<p>95 分模型当然更强。</p>
+<p>但对普通人来说，它可能太贵。</p>
+<p>而且大多数人的任务，也没有复杂到必须使用最贵模型。</p>
+<p>所以普通人选工具时，不要只追求“最强”。</p>
+<p>更应该看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">稳定性</span><br><span class="line">价格</span><br><span class="line">可用性</span><br><span class="line">工具生态</span><br><span class="line">自己的任务类型</span><br></pre></td></tr></table></figure>
+
+<p>这一阶段的目标是：</p>
+<blockquote>
+<p>先让自己有一个能稳定使用的 Agent 工具。</p>
+</blockquote>
+<hr>
+<h2 id="四、普通人不要一开始就从零造-Agent"><a href="#四、普通人不要一开始就从零造-Agent" class="headerlink" title="四、普通人不要一开始就从零造 Agent"></a>四、普通人不要一开始就从零造 Agent</h2><p>普通人最容易犯的错误是：</p>
+<blockquote>
+<p>以为学习 AI Agent 就必须自己搭一个 Agent。</p>
+</blockquote>
+<p>但如果你不做 Agent 内核研发，也不在 AI Startup，代码能力也不强，那么从零造 Agent 很可能是在浪费时间。</p>
+<p>因为你会遇到很多复杂问题：</p>
+<ul>
+<li>Prompt 怎么拼接；</li>
+<li>Output Parser 怎么写；</li>
+<li>Tool Calling 怎么稳定；</li>
+<li>MCP Server 怎么配置；</li>
+<li>文件读写怎么管理；</li>
+<li>任务循环怎么停止；</li>
+<li>上下文太长怎么压缩；</li>
+<li>执行命令怎么保证安全；</li>
+<li>失败以后怎么恢复。</li>
+</ul>
+<p>这些问题，成熟 Coding Agent 已经帮你解决了很多。</p>
+<p>所以普通人的重点不是造轮子。</p>
+<p>而是：</p>
+<blockquote>
+<p>用好轮子。</p>
+</blockquote>
+<p>普通人学习 AI Agent 的路线，不应该从“自己写框架”开始。</p>
+<p>而应该从“使用成熟工具完成真实任务”开始。</p>
+<hr>
+<h2 id="五、第二步：准备任务环境，让-Agent-能干活"><a href="#五、第二步：准备任务环境，让-Agent-能干活" class="headerlink" title="五、第二步：准备任务环境，让 Agent 能干活"></a>五、第二步：准备任务环境，让 Agent 能干活</h2><p>选好工具以后，最重要的不是马上提问。</p>
+<p>更重要的是准备任务环境。</p>
+<p>你需要准备：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">任务目标</span><br><span class="line">相关资料</span><br><span class="line">输入文件</span><br><span class="line">输出格式</span><br><span class="line">执行步骤</span><br><span class="line">权限范围</span><br><span class="line">验证标准</span><br></pre></td></tr></table></figure>
+
+<p>一个很实用的方法是：</p>
+<blockquote>
+<p>成熟 Coding Agent + 临时任务文件夹 + 脚本调度 + JSON 状态输出。</p>
+</blockquote>
+<p>这个方法的核心是：</p>
+<blockquote>
+<p>不自己写 Agent 内核，而是让成熟 Agent 在一个准备好的任务环境里工作。</p>
+</blockquote>
+<p>整体流程可以这样理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    Task[&quot;任务目标&quot;] --&gt; Folder[&quot;临时任务文件夹&quot;]
+    Materials[&quot;任务资料&quot;] --&gt; Folder
+    Prompt[&quot;任务说明和输出要求&quot;] --&gt; Folder
+
+    Folder --&gt; Script[&quot;脚本或命令调用 Coding Agent&quot;]
+    Script --&gt; Agent[&quot;成熟 Coding Agent 执行任务&quot;]
+    Agent --&gt; Files[&quot;生成或修改文件&quot;]
+    Agent --&gt; JSON[&quot;写入 JSON 状态结果&quot;]
+
+    JSON --&gt; Check[&quot;读取结果并检查&quot;]
+    Files --&gt; Check
+    Check --&gt; Next[&quot;继续修改、人工检查或进入下一个任务&quot;]
+  </pre></div>
+
+<p>这个方法不一定适合所有人。</p>
+<p>但它很适合想把 Agent 用到真实工作流里的普通人。</p>
+<p>因为它把一次性人工操作，变成了可以重复执行的流程。</p>
+<hr>
+<h2 id="六、具体操作流程"><a href="#六、具体操作流程" class="headerlink" title="六、具体操作流程"></a>六、具体操作流程</h2><h3 id="1-配置好-Claude-Code-或其他-Coding-Agent"><a href="#1-配置好-Claude-Code-或其他-Coding-Agent" class="headerlink" title="1. 配置好 Claude Code 或其他 Coding Agent"></a>1. 配置好 Claude Code 或其他 Coding Agent</h3><p>先选择一个你能稳定使用的 Coding Agent。</p>
+<p>比如：</p>
+<ul>
+<li>Claude Code；</li>
+<li>Codex；</li>
+<li>OpenCode；</li>
+<li>Kimi Code。</li>
+</ul>
+<p>如果使用 Claude Code，就配置好账号、付款方式、Authentication 和需要用到的 MCP。</p>
+<p>如果使用其他 Coding Agent，就按照对应文档配置账号、权限和工作目录。</p>
+<p>这一步的目标是：</p>
+<blockquote>
+<p>让工具可以正常运行，并且只能访问你允许它访问的文件和工具。</p>
+</blockquote>
+<p>这里要特别注意权限。</p>
+<p>不要随便让 Agent 访问整个电脑。</p>
+<p>更好的做法是给它一个明确的工作空间。</p>
+<h3 id="2-创建一个临时任务文件夹"><a href="#2-创建一个临时任务文件夹" class="headerlink" title="2. 创建一个临时任务文件夹"></a>2. 创建一个临时任务文件夹</h3><p>每次做任务时，单独创建一个临时文件夹。</p>
+<p>这个文件夹就是 Agent 的工作空间。</p>
+<p>你可以把所有任务相关资料都放进去。</p>
+<p>比如：</p>
+<ul>
+<li>文档；</li>
+<li>表格；</li>
+<li>报表；</li>
+<li>图表；</li>
+<li>报告；</li>
+<li>SQLite 数据库；</li>
+<li>Access 数据库；</li>
+<li>PDF；</li>
+<li>扫描件；</li>
+<li>数据文件；</li>
+<li>Markdown；</li>
+<li>代码；</li>
+<li>图片；</li>
+<li>业务资料；</li>
+<li>指令文件；</li>
+<li>Prompt；</li>
+<li>Config。</li>
+</ul>
+<p>这一步非常重要。</p>
+<p>因为 Agent 不是神。</p>
+<p>它需要上下文。</p>
+<p>你给它的资料越完整，它越容易完成任务。</p>
+<h3 id="3-写脚本或命令调用-Agent"><a href="#3-写脚本或命令调用-Agent" class="headerlink" title="3. 写脚本或命令调用 Agent"></a>3. 写脚本或命令调用 Agent</h3><p>如果工具支持 Headless 模式，可以用脚本从 Terminal 调用 Agent。</p>
+<p>常见选择包括：</p>
+<ul>
+<li>Node.js；</li>
+<li>Bun.js；</li>
+<li>Python。</li>
+</ul>
+<p>脚本需要告诉 Agent：</p>
+<ul>
+<li>任务目标是什么；</li>
+<li>资料在哪个文件夹；</li>
+<li>输出格式是什么；</li>
+<li>成功后写入哪里；</li>
+<li>失败后如何记录；</li>
+<li>是否需要调用 MCP；</li>
+<li>权限范围是什么；</li>
+<li>最终结果应该保存成什么格式。</li>
+</ul>
+<p>这一步的意义是：</p>
+<blockquote>
+<p>把一次性人工操作，变成可以重复执行的自动化流程。</p>
+</blockquote>
+<p>这里也要注意：</p>
+<p>不是所有 Agent 都支持完全一样的 Headless 模式。</p>
+<p>所以你要根据自己使用的工具，调整调用方式。</p>
+<h3 id="4-把结果写进-JSON-文件"><a href="#4-把结果写进-JSON-文件" class="headerlink" title="4. 把结果写进 JSON 文件"></a>4. 把结果写进 JSON 文件</h3><p>无论任务成功还是失败，都可以让 Agent 更新一个 JSON 文件。</p>
+<p>成功时，JSON 里可以记录：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;success&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;summary&quot;</span><span class="punctuation">:</span> <span class="string">&quot;任务完成&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;changed_files&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;output_files&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;logs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;next_steps&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>失败时，JSON 里可以记录：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;failed&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;错误原因&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;failed_step&quot;</span><span class="punctuation">:</span> <span class="string">&quot;执行到哪一步&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;logs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;can_retry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样后续流程就可以继续读取 JSON 内容，进入下一步。</p>
+<p>JSON 状态文件的好处是：</p>
+<ul>
+<li>方便脚本继续处理；</li>
+<li>方便记录任务结果；</li>
+<li>方便失败后重试；</li>
+<li>方便人工检查；</li>
+<li>方便多个任务串起来。</li>
+</ul>
+<h3 id="5-等待进程结束，再读取结果"><a href="#5-等待进程结束，再读取结果" class="headerlink" title="5. 等待进程结束，再读取结果"></a>5. 等待进程结束，再读取结果</h3><p>Agent 执行完成后，再读取 JSON 文件。</p>
+<p>然后根据结果决定下一步。</p>
+<p>比如：</p>
+<ul>
+<li>继续让 Agent 修改；</li>
+<li>人工检查结果；</li>
+<li>进入下一个任务；</li>
+<li>生成报告；</li>
+<li>保存文件；</li>
+<li>触发新的脚本；</li>
+<li>写入项目日志。</li>
+</ul>
+<p>这就形成了一个简单的自动化流程。</p>
+<p>它不复杂，但已经能解决很多普通业务问题。</p>
+<hr>
+<h2 id="七、第三步：执行、检查、迭代"><a href="#七、第三步：执行、检查、迭代" class="headerlink" title="七、第三步：执行、检查、迭代"></a>七、第三步：执行、检查、迭代</h2><p>Agent 执行完以后，不要直接相信结果。</p>
+<p>你要检查：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件有没有生成？</span><br><span class="line">格式对不对？</span><br><span class="line">数据有没有错？</span><br><span class="line">测试能不能通过？</span><br><span class="line">结果是否符合任务目标？</span><br><span class="line">失败原因有没有写清楚？</span><br></pre></td></tr></table></figure>
+
+<p>所以最好让 Agent 输出日志或 JSON 状态文件。</p>
+<p>比如记录：</p>
+<ul>
+<li>任务是否成功；</li>
+<li>修改了哪些文件；</li>
+<li>生成了哪些结果；</li>
+<li>失败原因是什么；</li>
+<li>下一步建议是什么。</li>
+</ul>
+<p>这一阶段的目标是：</p>
+<blockquote>
+<p>让 Agent 的执行结果可以被检查、复用和继续处理。</p>
+</blockquote>
+<p>如果结果不对，就继续迭代。</p>
+<p>如果结果符合要求，再进入下一个任务。</p>
+<p>这一步很重要。</p>
+<p>因为 Agent 不是完全可靠的自动驾驶。</p>
+<p>更现实的方式是：</p>
+<blockquote>
+<p>Agent 负责执行，人类负责验收。</p>
+</blockquote>
+<hr>
+<h2 id="八、哪些是重点，哪些只是过程？"><a href="#八、哪些是重点，哪些只是过程？" class="headerlink" title="八、哪些是重点，哪些只是过程？"></a>八、哪些是重点，哪些只是过程？</h2><p>这篇文章真正的重点不是工具名，也不是 Headless 模式。</p>
+<p>真正的重点是四件事：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">任务描述</span><br><span class="line">资料准备</span><br><span class="line">流程设计</span><br><span class="line">结果验证</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，普通人使用 Agent 的能力，不是“会不会写 Agent 框架”。</p>
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">能不能把一个模糊任务，整理成一个清楚任务。</span><br><span class="line">能不能把资料准备完整。</span><br><span class="line">能不能把执行步骤写清楚。</span><br><span class="line">能不能设计检查结果的方法。</span><br></pre></td></tr></table></figure>
+
+<p>如果这四件事做好，Agent 的效果会明显变好。</p>
+<p>而下面这些只是过程，不是核心目标：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">选择 Claude Code 还是 Codex</span><br><span class="line">是否使用 Headless 模式</span><br><span class="line">是否用 Node.js、Bun.js 或 Python 写脚本</span><br><span class="line">JSON 文件字段怎么设计</span><br><span class="line">临时文件夹叫什么名字</span><br><span class="line">是否接 MCP</span><br></pre></td></tr></table></figure>
+
+<p>这些都重要，但它们只是实现方式。</p>
+<p>真正的核心不是某个工具，而是：</p>
+<blockquote>
+<p>让 Agent 在一个清楚、可控、可验证的任务环境里工作。</p>
+</blockquote>
+<hr>
+<h2 id="九、什么时候可以自己造-Agent？"><a href="#九、什么时候可以自己造-Agent？" class="headerlink" title="九、什么时候可以自己造 Agent？"></a>九、什么时候可以自己造 Agent？</h2><p>如果你满足下面这些条件，可以考虑自己设计 Agent。</p>
+<p>比如：</p>
+<ul>
+<li>你清楚 Agent 内核怎么工作；</li>
+<li>你能做出更好的 Context Management；</li>
+<li>你有自己的 LLM 省钱方案；</li>
+<li>你更懂某个具体业务场景；</li>
+<li>你能设计更稳定的 Workflow；</li>
+<li>你知道怎么处理权限和安全问题；</li>
+<li>你知道怎么验证结果。</li>
+</ul>
+<p>否则，对大多数人来说，直接使用成熟 Coding Agent 更省时间、更省钱、更稳定。</p>
+<p>可以这样判断：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果你的目标是提高个人效率，用成熟 Agent。</span><br><span class="line">如果你的目标是做一个 Agent 产品，再考虑自己造 Agent。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十、普通人必须理解-Agent-的能力边界"><a href="#十、普通人必须理解-Agent-的能力边界" class="headerlink" title="十、普通人必须理解 Agent 的能力边界"></a>十、普通人必须理解 Agent 的能力边界</h2><p>普通人使用 Agent 时，一定要记住：</p>
+<blockquote>
+<p>AI Agent 不是神。</p>
+</blockquote>
+<p>它不是超人，也不是万能黑箱。</p>
+<p>它不能在缺少数据、缺少流程、缺少验证方式的情况下，稳定给出可靠结果。</p>
+<p>比如这些任务就不适合盲目交给 Agent：</p>
+<ul>
+<li>预测明天的彩票号码；</li>
+<li>精准预测股票涨跌；</li>
+<li>轻松证明黎曼猜想；</li>
+<li>准确预测未来经济走势；</li>
+<li>在没有数据的情况下做复杂商业判断。</li>
+</ul>
+<p>这些任务人类本来就很难可靠完成。</p>
+<p>Agent 也不能凭空解决。</p>
+<p>如果你硬问它，它可能会给你一个答案。</p>
+<p>但这个答案不一定可信。</p>
+<p>所以使用 Agent 时，要记住一个原则：</p>
+<blockquote>
+<p>Agent 最适合做有资料、有流程、能验证的任务。</p>
+</blockquote>
+<hr>
+<h2 id="十一、判断一个任务能不能交给-Agent"><a href="#十一、判断一个任务能不能交给-Agent" class="headerlink" title="十一、判断一个任务能不能交给 Agent"></a>十一、判断一个任务能不能交给 Agent</h2><p>普通人可以用三个问题判断任务是否适合 Agent。</p>
+<h3 id="1-人能不能完成？"><a href="#1-人能不能完成？" class="headerlink" title="1. 人能不能完成？"></a>1. 人能不能完成？</h3><p>如果人类自己都不知道怎么做，Agent 也很难稳定完成。</p>
+<p>Agent 可以提高执行效率。</p>
+<p>但它不能替你凭空发明可靠方法。</p>
+<h3 id="2-有没有清楚流程？"><a href="#2-有没有清楚流程？" class="headerlink" title="2. 有没有清楚流程？"></a>2. 有没有清楚流程？</h3><p>如果人类有明确流程，只是执行起来很费时间，那么 Agent 适合自动化。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">读取文件</span><br><span class="line">整理信息</span><br><span class="line">转换格式</span><br><span class="line">生成报告</span><br><span class="line">检查错误</span><br><span class="line">根据报错修改</span><br><span class="line">再次运行测试</span><br></pre></td></tr></table></figure>
+
+<p>这种任务很适合 Agent。</p>
+<h3 id="3-有没有足够资料和验证方式？"><a href="#3-有没有足够资料和验证方式？" class="headerlink" title="3. 有没有足够资料和验证方式？"></a>3. 有没有足够资料和验证方式？</h3><p>Agent 需要足够上下文。</p>
+<p>比如：</p>
+<ul>
+<li>文档；</li>
+<li>数据；</li>
+<li>代码；</li>
+<li>图片；</li>
+<li>表格；</li>
+<li>规则；</li>
+<li>示例；</li>
+<li>错误日志；</li>
+<li>测试结果。</li>
+</ul>
+<p>同时，最好有验证方式。</p>
+<p>比如：</p>
+<ul>
+<li>测试能不能通过；</li>
+<li>输出格式是否正确；</li>
+<li>数据总数是否一致；</li>
+<li>文件是否生成；</li>
+<li>报告是否包含指定内容；</li>
+<li>人工能不能快速检查。</li>
+</ul>
+<p>没有上下文，Agent 只能猜。</p>
+<p>没有验证，Agent 错了你也不知道。</p>
+<hr>
+<h2 id="十二、普通人最适合用-Agent-的场景"><a href="#十二、普通人最适合用-Agent-的场景" class="headerlink" title="十二、普通人最适合用 Agent 的场景"></a>十二、普通人最适合用 Agent 的场景</h2><p>普通人可以优先把 Agent 用在这些任务上：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>为什么适合 Agent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文档整理</td>
+<td>有明确资料，结果容易检查</td>
+</tr>
+<tr>
+<td>资料总结</td>
+<td>适合从多份材料里提取重点</td>
+</tr>
+<tr>
+<td>表格分析</td>
+<td>可以配合脚本、公式和可视化</td>
+</tr>
+<tr>
+<td>报告生成</td>
+<td>有固定结构和输出格式</td>
+</tr>
+<tr>
+<td>简单代码修改</td>
+<td>可以运行测试和根据报错修正</td>
+</tr>
+<tr>
+<td>批量文件处理</td>
+<td>重复性强，适合自动化</td>
+</tr>
+<tr>
+<td>项目说明文档生成</td>
+<td>可以读取项目结构和代码</td>
+</tr>
+<tr>
+<td>数据格式转换</td>
+<td>输入输出清楚，容易验证</td>
+</tr>
+<tr>
+<td>简单自动化脚本</td>
+<td>目标明确，执行路径清楚</td>
+</tr>
+<tr>
+<td>重复性办公任务</td>
+<td>流程固定，适合交给 Agent</td>
+</tr>
+</tbody></table>
+<p>这些任务通常有明确资料、明确目标，也比较容易检查结果。</p>
+<p>所以它们更适合普通人先练手。</p>
+<hr>
+<h2 id="十三、最终总结"><a href="#十三、最终总结" class="headerlink" title="十三、最终总结"></a>十三、最终总结</h2><p>普通人学习 AI Agent，不是为了从零造一个 Agent。</p>
+<p>普通人最该学的是：</p>
+<blockquote>
+<p>如何把任务、资料、流程和验证方式准备好，然后用成熟 Agent 自动完成重复工作。</p>
+</blockquote>
+<p>AI Agent 的真正价值，不是替你算命，也不是凭空创造答案。</p>
+<p>它的真正价值是：</p>
+<blockquote>
+<p>在人类已有流程、有足够资料、可以检查结果的任务里，把重复劳动自动化。</p>
+</blockquote>
+<p>所以普通人学习 AI Agent，可以先记住这条路线：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">选一个稳定工具</span><br><span class="line">→ 准备临时任务文件夹</span><br><span class="line">→ 放入资料和任务说明</span><br><span class="line">→ 让成熟 Agent 执行</span><br><span class="line">→ 用 JSON 或日志记录结果</span><br><span class="line">→ 人类检查并继续迭代</span><br></pre></td></tr></table></figure>
+
+<p>如果再压缩成一句话：</p>
+<blockquote>
+<p>不要先造 Agent，而是先组织好任务，让成熟 Agent 帮你执行。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>个人学习笔记：《给普通人的 AI Agent 学习笔记》。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://MurrayTsai.github.io">人畜无害的菜姥爷</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://murraytsai.github.io/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/">https://murraytsai.github.io/2026/06/17/10.普通人如何学习 AI Agent：三步走、成熟工具和能力边界/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://MurrayTsai.github.io" target="_blank">MurrayT's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI-Agent/">AI Agent</a><a class="post-meta__tags" href="/tags/Coding-Agent/">Coding Agent</a><a class="post-meta__tags" href="/tags/Claude-Code/">Claude Code</a><a class="post-meta__tags" href="/tags/Codex/">Codex</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a></div><div class="post-share"><div class="social-share" data-image="/images/covers/default-1.jpg" data-sites="x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/17/7.%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E6%87%82%EF%BC%9A%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AF%A5%E7%94%A8%E5%BE%AE%E8%B0%83%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%EF%BC%9F-%E4%BC%98%E5%8C%96%E7%89%88/" title="大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？"><img class="cover" src="/images/covers/default-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？</div></div><div class="info-2"><div class="info-item-1">前言大模型效果不好时，不要一上来就说： 1我们做个微调吧。  这通常不是一个成熟的大模型产品经理该有的第一反应。 正确思路应该是： 1先找问题，再找原因，最后选手段。  微调只是大模型优化手段之一。它不是万能药。 很多问题其实用这些方法就能解决：  Prompt 工程； RAG； 反问模块； 问题拆解； 参数调整； 外部记忆； 更强模型； 推理模块。  所以，这篇文章主要回答一个问题：  大模型效果不好时，产品经理到底应该怎么判断，什么时候才该用微调？   一、为什么产品经理必须懂大模型优化？很多人会觉得： 12模型优化不是算法和研发的事情吗？为什么产品经理要懂？  因为大模型产品和普通产品不一样。 普通产品更关注：  页面； 流程； 功能； 交互。  但大模型产品更关注：  回答准不准； 回答专不专业； 回答有没有针对性； 输出稳不稳定； 语气合不合适； 格式能不能直接用。  用户最终感受到的，不是你的技术架构，而是模型的输出效果。 所以，大模型产品经理不能只写需求文档。 他要对产品最终效果负责。 如果你完全不懂模型优化，就很难判断： 12345问题到底出在哪里？是输入质量差，...</div></div></div></a><a class="pagination-related" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径"><img class="cover" src="/images/covers/default-2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI产品经理能力模型与职业发展路径</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理不是一个固定岗位。 不同类型的 AI 公司，对产品经理的要求完全不同。有人需要懂算法，有人需要懂行业，有人需要懂业务落地和供应商管理。 可以先记住一句话：  纯 AI 重技术，AI+ 重创新，+AI 重业务落地。  这篇文章主要整理四个问题： 12341. AI 公司可以分成哪几类？2. 不同类型的 AI 产品经理分别做什么？3. AI 产品经理需要哪些能力？4. 普通人如何快速入门 AI 产品经理？   一、AI 公司可以分成三类AI 相关公司可以大致分成三类：      flowchart TD     AICompany[AI 相关公司] --&gt; PureAI[纯 AI&lt;br&#x2F;&gt;造 AI 发动机]     AICompany --&gt; AIPlus[AI+&lt;br&#x2F;&gt;用 AI 做新产品]     AICompany --&gt; PlusAI[+AI&lt;br&#x2F;&gt;传统产品接入 AI]      PureAI --&gt; Tech[关键词：大模型、算法、芯片、算力、API]     AI...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">人畜无害的菜姥爷</div><div class="author-info-description">饭要吃到肚子里，屎要拉到马桶里</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MurrayTsai/MurrayTsai.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MurrayTsai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:591732689@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">没更新就是懒的更，要么就是忘�?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%99%AE%E9%80%9A%E4%BA%BA%E5%AD%A6%E4%B9%A0-AI-Agent-%E7%9A%84%E6%A0%B8%E5%BF%83%E7%9B%AE%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">一、普通人学习 AI Agent 的核心目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%99%AE%E9%80%9A%E4%BA%BA%E5%AD%A6%E4%B9%A0-AI-Agent-%E5%8F%AF%E4%BB%A5%E5%88%86%E6%88%90%E4%B8%89%E6%AD%A5%E8%B5%B0"><span class="toc-number">3.</span> <span class="toc-text">二、普通人学习 AI Agent 可以分成三步走</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%85%88%E9%80%89%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%85%88%E9%80%A0%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">三、第一步：先选工具，不要先造工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%99%AE%E9%80%9A%E4%BA%BA%E4%B8%8D%E8%A6%81%E4%B8%80%E5%BC%80%E5%A7%8B%E5%B0%B1%E4%BB%8E%E9%9B%B6%E9%80%A0-Agent"><span class="toc-number">5.</span> <span class="toc-text">四、普通人不要一开始就从零造 Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%87%86%E5%A4%87%E4%BB%BB%E5%8A%A1%E7%8E%AF%E5%A2%83%EF%BC%8C%E8%AE%A9-Agent-%E8%83%BD%E5%B9%B2%E6%B4%BB"><span class="toc-number">6.</span> <span class="toc-text">五、第二步：准备任务环境，让 Agent 能干活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">六、具体操作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE%E5%A5%BD-Claude-Code-%E6%88%96%E5%85%B6%E4%BB%96-Coding-Agent"><span class="toc-number">7.1.</span> <span class="toc-text">1. 配置好 Claude Code 或其他 Coding Agent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%B4%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">7.2.</span> <span class="toc-text">2. 创建一个临时任务文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%86%99%E8%84%9A%E6%9C%AC%E6%88%96%E5%91%BD%E4%BB%A4%E8%B0%83%E7%94%A8-Agent"><span class="toc-number">7.3.</span> <span class="toc-text">3. 写脚本或命令调用 Agent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8A%8A%E7%BB%93%E6%9E%9C%E5%86%99%E8%BF%9B-JSON-%E6%96%87%E4%BB%B6"><span class="toc-number">7.4.</span> <span class="toc-text">4. 把结果写进 JSON 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%AD%89%E5%BE%85%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9D%9F%EF%BC%8C%E5%86%8D%E8%AF%BB%E5%8F%96%E7%BB%93%E6%9E%9C"><span class="toc-number">7.5.</span> <span class="toc-text">5. 等待进程结束，再读取结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%89%A7%E8%A1%8C%E3%80%81%E6%A3%80%E6%9F%A5%E3%80%81%E8%BF%AD%E4%BB%A3"><span class="toc-number">8.</span> <span class="toc-text">七、第三步：执行、检查、迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%93%AA%E4%BA%9B%E6%98%AF%E9%87%8D%E7%82%B9%EF%BC%8C%E5%93%AA%E4%BA%9B%E5%8F%AA%E6%98%AF%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">八、哪些是重点，哪些只是过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E9%80%A0-Agent%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">九、什么时候可以自己造 Agent？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%99%AE%E9%80%9A%E4%BA%BA%E5%BF%85%E9%A1%BB%E7%90%86%E8%A7%A3-Agent-%E7%9A%84%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C"><span class="toc-number">11.</span> <span class="toc-text">十、普通人必须理解 Agent 的能力边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%E8%83%BD%E4%B8%8D%E8%83%BD%E4%BA%A4%E7%BB%99-Agent"><span class="toc-number">12.</span> <span class="toc-text">十一、判断一个任务能不能交给 Agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%BA%E8%83%BD%E4%B8%8D%E8%83%BD%E5%AE%8C%E6%88%90%EF%BC%9F"><span class="toc-number">12.1.</span> <span class="toc-text">1. 人能不能完成？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%89%E6%B2%A1%E6%9C%89%E6%B8%85%E6%A5%9A%E6%B5%81%E7%A8%8B%EF%BC%9F"><span class="toc-number">12.2.</span> <span class="toc-text">2. 有没有清楚流程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%89%E6%B2%A1%E6%9C%89%E8%B6%B3%E5%A4%9F%E8%B5%84%E6%96%99%E5%92%8C%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">12.3.</span> <span class="toc-text">3. 有没有足够资料和验证方式？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%99%AE%E9%80%9A%E4%BA%BA%E6%9C%80%E9%80%82%E5%90%88%E7%94%A8-Agent-%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-number">13.</span> <span class="toc-text">十二、普通人最适合用 Agent 的场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E6%9C%80%E7%BB%88%E6%80%BB%E7%BB%93"><span class="toc-number">14.</span> <span class="toc-text">十三、最终总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">15.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/5.%E4%BB%80%E4%B9%88%E6%98%AF%20RAG%EF%BC%9A%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是 RAG：检索增强生成入门笔记"><img src="/images/covers/default-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是 RAG：检索增强生成入门笔记"/></a><div class="content"><a class="title" href="/2026/06/17/5.%E4%BB%80%E4%B9%88%E6%98%AF%20RAG%EF%BC%9A%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="什么是 RAG：检索增强生成入门笔记">什么是 RAG：检索增强生成入门笔记</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径"><img src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI产品经理能力模型与职业发展路径"/></a><div class="content"><a class="title" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径">AI产品经理能力模型与职业发展路径</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"/></a><div class="content"><a class="title" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/7.%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E6%87%82%EF%BC%9A%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AF%A5%E7%94%A8%E5%BE%AE%E8%B0%83%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%EF%BC%9F-%E4%BC%98%E5%8C%96%E7%89%88/" title="大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？"/></a><div class="content"><a class="title" href="/2026/06/17/7.%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E6%87%82%EF%BC%9A%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AF%A5%E7%94%A8%E5%BE%AE%E8%B0%83%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%EF%BC%9F-%E4%BC%98%E5%8C%96%E7%89%88/" title="大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？">大模型产品经理必懂：什么时候该用微调？如何优化大模型效果？</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/8.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E4%B8%8D%E8%A6%81%E6%87%82%E6%8A%80%E6%9C%AF%EF%BC%9A%E7%AE%97%E6%B3%95%E3%80%81%E6%95%B0%E6%8D%AE%E3%80%81%E7%AE%97%E5%8A%9B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记"><img src="/images/covers/default-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记"/></a><div class="content"><a class="title" href="/2026/06/17/8.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E4%B8%8D%E8%A6%81%E6%87%82%E6%8A%80%E6%9C%AF%EF%BC%9A%E7%AE%97%E6%B3%95%E3%80%81%E6%95%B0%E6%8D%AE%E3%80%81%E7%AE%97%E5%8A%9B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记">AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>
