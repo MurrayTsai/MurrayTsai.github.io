@@ -1,0 +1,1321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>产品经理入门：开发流程、团队职责与能力模型 | MurrayT's Blog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="一篇产品经理入门笔记，整理产品定义、产品经理职责、开发流程、团队分工、常见误区、能力模型、综合素质和未来发展方向。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品经理入门：开发流程、团队职责与能力模型">
+<meta property="og:url" content="https://murraytsai.github.io/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="MurrayT&#39;s Blog">
+<meta property="og:description" content="一篇产品经理入门笔记，整理产品定义、产品经理职责、开发流程、团队分工、常见误区、能力模型、综合素质和未来发展方向。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/covers/default-2.jpg">
+<meta property="article:published_time" content="2026-06-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-02T11:27:38.588Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta property="article:tag" content="PRD">
+<meta property="article:tag" content="产品开发流程">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="能力模型">
+<meta property="article:tag" content="需求分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/covers/default-2.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "产品经理入门：开发流程、团队职责与能力模型",
+  "url": "https://murraytsai.github.io/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/",
+  "image": "https://murraytsai.github.io/images/covers/default-2.jpg",
+  "datePublished": "2026-06-16T16:00:00.000Z",
+  "dateModified": "2026-07-02T11:27:38.588Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "人畜无害的菜姥爷",
+      "url": "https://MurrayTsai.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '产品经理入门：开发流程、团队职责与能力模型',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/images/home-bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/covers/default-2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MurrayT's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">产品经理入门：开发流程、团队职责与能力模型</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">产品经理入门：开发流程、团队职责与能力模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-02T11:27:38.588Z" title="更新于 2026-07-02 19:27:38">2026-07-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇笔记是产品经理入门课程的整理。</p>
+<p>它不是只解释“产品经理是什么”，而是围绕一个更完整的问题展开：</p>
+<blockquote>
+<p>产品经理到底是干什么的？在产品开发流程里站在哪里？需要什么能力？未来可以往哪里发展？</p>
+</blockquote>
+<p>这堂课的主线可以压缩成五层：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 先理解产品</span><br><span class="line">2. 再理解产品经理</span><br><span class="line">3. 再理解产品经理在开发流程里的位置</span><br><span class="line">4. 再理解产品经理和团队成员的分工</span><br><span class="line">5. 最后理解产品经理需要的能力和发展方向</span><br></pre></td></tr></table></figure>
+
+<p>如果放到 AI 产品经理求职里，这堂课的意义也很明确：</p>
+<blockquote>
+<p>AI 产品经理首先还是产品经理。不能只会搭 AI 工具，也要懂需求分析、开发流程、团队协作、文档输出和上线迭代。</p>
+</blockquote>
+<hr>
+<h2 id="一、什么是产品？"><a href="#一、什么是产品？" class="headerlink" title="一、什么是产品？"></a>一、什么是产品？</h2><p>课程里给产品下了一个很基础但重要的定义：</p>
+<blockquote>
+<p>产品就是能够解决某个问题的东西。</p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>电脑解决办公问题；</li>
+<li>手机、微信解决通信问题；</li>
+<li>书解决阅读问题；</li>
+<li>课程解决学习问题；</li>
+<li>耳机解决听音乐的问题；</li>
+<li>AI 客服助手解决客服回答慢、知识分散、回复不稳定的问题。</li>
+</ul>
+<p>所以判断一个东西是不是产品，不是看它贵不贵，也不是看它是不是软件。</p>
+<p>而是看它：</p>
+<blockquote>
+<p>有没有明确解决某类用户的某个问题。</p>
+</blockquote>
+<p>产品可以分为两类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>举例</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有形产品</td>
+<td>水杯、电脑、手机、书、耳机</td>
+<td>有颜色、形状、尺寸、材质、物理形态</td>
+</tr>
+<tr>
+<td>无形产品</td>
+<td>课程、微信、抖音、SaaS 系统、AI 服务</td>
+<td>没有固定外在形态，更多是服务、软件或数字化商品</td>
+</tr>
+</tbody></table>
+<p>这一点对 AI 产品也很重要。</p>
+<p>比如“AI 客服知识库助手”不是一个实物，但它仍然是产品。</p>
+<p>因为它解决了一个真实业务问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">客服知识分散</span><br><span class="line">人工回复慢</span><br><span class="line">不同客服回复不一致</span><br><span class="line">用户需要更快获得售后规则</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、什么是产品经理？"><a href="#二、什么是产品经理？" class="headerlink" title="二、什么是产品经理？"></a>二、什么是产品经理？</h2><p>产品经理可以先用一句话理解：</p>
+<blockquote>
+<p>产品经理是把产品想清楚的人。</p>
+</blockquote>
+<p>一款产品从无到有，大致会经历三个阶段：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">想清楚 → 做出来 → 卖出去 / 用起来</span><br></pre></td></tr></table></figure>
+
+<p>对应到团队分工：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>主要负责角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>想清楚产品解决什么问题、给谁用、有哪些功能</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>把产品开发出来</td>
+<td>开发工程师</td>
+</tr>
+<tr>
+<td>把产品推向用户，获得增长和收入</td>
+<td>运营 &#x2F; 市场 &#x2F; 销售</td>
+</tr>
+<tr>
+<td>保证产品稳定运行</td>
+<td>运维 &#x2F; 技术团队</td>
+</tr>
+</tbody></table>
+<p>所以产品经理不是“画页面的人”。</p>
+<p>也不是“写文档的人”。</p>
+<p>更不是“老板说什么就加什么功能的人”。</p>
+<p>产品经理的核心价值是：</p>
+<blockquote>
+<p>判断什么问题值得解决，并设计出合理的产品方案。</p>
+</blockquote>
+<hr>
+<h2 id="三、合格产品经理要关注什么？"><a href="#三、合格产品经理要关注什么？" class="headerlink" title="三、合格产品经理要关注什么？"></a>三、合格产品经理要关注什么？</h2><p>合格产品经理要先想清楚两个问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">问题是什么？</span><br><span class="line">东西怎么设计？</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-先想清楚问题"><a href="#1-先想清楚问题" class="headerlink" title="1. 先想清楚问题"></a>1. 先想清楚问题</h3><p>描述一个问题时，可以用这个结构：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">谁，在什么场景下，遇到了什么需求？</span><br></pre></td></tr></table></figure>
+
+<p>也就是：</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>产品经理要问的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户</td>
+<td>目标用户是谁？有哪些用户类型？用户有什么特征？</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>用户在什么时间、地点、环境、状态下使用？</td>
+</tr>
+<tr>
+<td>需求</td>
+<td>用户到底想解决什么？是真需求还是伪需求？</td>
+</tr>
+</tbody></table>
+<p>比如做 AI 客服助手，不能只写：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户需要客服。</span><br></pre></td></tr></table></figure>
+
+<p>要拆成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户：购买电商商品后的消费者</span><br><span class="line">场景：退货、换货、物流异常、售后咨询</span><br><span class="line">需求：快速知道规则，获得明确处理路径，必要时转人工</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-再想清楚东西怎么设计"><a href="#2-再想清楚东西怎么设计" class="headerlink" title="2. 再想清楚东西怎么设计"></a>2. 再想清楚东西怎么设计</h3><p>产品方案要回答：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>产品经理要问的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>产品提供什么能力？</td>
+</tr>
+<tr>
+<td>体验</td>
+<td>用户用起来是否顺畅？是否容易理解？</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>相比人工客服、传统 FAQ，有什么优势？</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>是否真的降低成本、提升效率、减少错误？</td>
+</tr>
+</tbody></table>
+<p>所以产品经理的完整思路是：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart LR
+    A[&quot;用户问题&quot;] --&gt; B[&quot;场景分析&quot;]
+    B --&gt; C[&quot;需求判断&quot;]
+    C --&gt; D[&quot;功能设计&quot;]
+    D --&gt; E[&quot;体验设计&quot;]
+    E --&gt; F[&quot;价值验证&quot;]
+  </pre></div>
+
+<p>这也是 AI 产品项目必须具备的逻辑。</p>
+<p>如果只做 Demo，不讲用户、场景、需求和价值，就不像一个完整产品。</p>
+<hr>
+<h2 id="四、产品经理有哪些分类？"><a href="#四、产品经理有哪些分类？" class="headerlink" title="四、产品经理有哪些分类？"></a>四、产品经理有哪些分类？</h2><p>课程里把产品经理分类分成几个视角：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">按服务对象分</span><br><span class="line">按产品平台分</span><br><span class="line">按行业分</span><br><span class="line">按工作内容分</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-按服务对象分"><a href="#1-按服务对象分" class="headerlink" title="1. 按服务对象分"></a>1. 按服务对象分</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>服务对象</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C 端产品经理</td>
+<td>普通消费者 &#x2F; 个人用户</td>
+<td>微信、抖音、淘宝、小红书</td>
+</tr>
+<tr>
+<td>B 端产品经理</td>
+<td>企业、组织、内部员工</td>
+<td>OA、CRM、ERP、SaaS 系统</td>
+</tr>
+<tr>
+<td>G 端产品经理</td>
+<td>政府、公共机构</td>
+<td>政务系统、公安系统、公共服务平台</td>
+</tr>
+</tbody></table>
+<p>对 AI 产品求职来说，比较适合关注：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">B 端</span><br><span class="line">企业服务</span><br><span class="line">AI 应用</span><br><span class="line">SaaS</span><br><span class="line">政企数字化</span><br></pre></td></tr></table></figure>
+
+<p>因为很多 AI 产品会先在企业服务、知识库、客服、运营自动化、数据分析等场景落地。</p>
+<h3 id="2-按产品平台分"><a href="#2-按产品平台分" class="headerlink" title="2. 按产品平台分"></a>2. 按产品平台分</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>移动端产品经理</td>
+<td>App、小程序、移动网页</td>
+</tr>
+<tr>
+<td>PC 客户端产品经理</td>
+<td>电脑软件，如 Office、PS、客户端工具</td>
+</tr>
+<tr>
+<td>Web 端产品经理</td>
+<td>浏览器访问的网页、后台管理系统</td>
+</tr>
+<tr>
+<td>智能硬件产品经理</td>
+<td>智能手表、智能家居、车载系统、穿戴设备</td>
+</tr>
+</tbody></table>
+<h3 id="3-按行业分"><a href="#3-按行业分" class="headerlink" title="3. 按行业分"></a>3. 按行业分</h3><p>常见方向包括：</p>
+<ul>
+<li>教育产品经理；</li>
+<li>电商产品经理；</li>
+<li>金融产品经理；</li>
+<li>医疗产品经理；</li>
+<li>社交产品经理；</li>
+<li>旅游产品经理；</li>
+<li>出行产品经理；</li>
+<li>企业服务产品经理。</li>
+</ul>
+<p>这里有一个重点：</p>
+<blockquote>
+<p>行业经验很重要，不建议频繁跨行业乱跳。</p>
+</blockquote>
+<p>因为产品经理不仅要懂功能，还要懂行业业务、用户行为和市场规律。</p>
+<h3 id="4-按工作内容分"><a href="#4-按工作内容分" class="headerlink" title="4. 按工作内容分"></a>4. 按工作内容分</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关注重点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能产品经理</td>
+<td>功能设计、需求分析、原型、PRD</td>
+</tr>
+<tr>
+<td>策略产品经理</td>
+<td>推荐、排序、规则、增长策略</td>
+</tr>
+<tr>
+<td>商业产品经理</td>
+<td>广告、支付、会员、变现</td>
+</tr>
+<tr>
+<td>数据产品经理</td>
+<td>数据平台、数据中台、指标体系</td>
+</tr>
+<tr>
+<td>用户体验产品经理</td>
+<td>用户心理、交互、视觉、体验优化</td>
+</tr>
+</tbody></table>
+<p>入门 AI 产品，适合先从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能产品经理 + AI 应用产品经理 + B 端 / 企业服务方向</span><br></pre></td></tr></table></figure>
+
+<p>再逐步补充：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据分析</span><br><span class="line">策略设计</span><br><span class="line">AI 评估</span><br><span class="line">业务指标</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、产品开发流程"><a href="#五、产品开发流程" class="headerlink" title="五、产品开发流程"></a>五、产品开发流程</h2><p>课程里给了一个很重要的开发流程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析定义 → 软件设计 → 编码测试 → 运行维护</span><br></pre></td></tr></table></figure>
+
+<p>可以用图表示：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart LR
+    A[&quot;分析定义&quot;] --&gt; B[&quot;软件设计&quot;]
+    B --&gt; C[&quot;编码测试&quot;]
+    C --&gt; D[&quot;运行维护&quot;]
+  </pre></div>
+
+<p>产品经理主要站在前半段，但也要参与后半段的验收和迭代。</p>
+<h3 id="1-分析定义阶段"><a href="#1-分析定义阶段" class="headerlink" title="1. 分析定义阶段"></a>1. 分析定义阶段</h3><p>这一阶段主要做：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">问题定义 → 可行性研究 → 需求分析</span><br></pre></td></tr></table></figure>
+
+<p>产品经理在这里的工作最多。</p>
+<p>要搞清楚：</p>
+<ul>
+<li>产品要解决什么问题；</li>
+<li>目标用户是谁；</li>
+<li>需求是否真实；</li>
+<li>是否值得做；</li>
+<li>商业上是否成立；</li>
+<li>技术上是否可行；</li>
+<li>成本和风险是否可控。</li>
+</ul>
+<p>常见输出包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MRD</span><br><span class="line">立项报告</span><br><span class="line">需求分析结论</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-软件设计阶段"><a href="#2-软件设计阶段" class="headerlink" title="2. 软件设计阶段"></a>2. 软件设计阶段</h3><p>这一阶段可以分成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">概要设计 → 详细设计</span><br></pre></td></tr></table></figure>
+
+<p>概要设计偏整体：</p>
+<ul>
+<li>产品定位；</li>
+<li>业务流程；</li>
+<li>功能结构；</li>
+<li>模块划分；</li>
+<li>信息架构。</li>
+</ul>
+<p>详细设计偏落地：</p>
+<ul>
+<li>页面原型；</li>
+<li>交互逻辑；</li>
+<li>字段规则；</li>
+<li>异常情况；</li>
+<li>业务状态；</li>
+<li>PRD。</li>
+</ul>
+<p>常见输出包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原型图</span><br><span class="line">流程图</span><br><span class="line">PRD</span><br><span class="line">交互说明</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-编码测试阶段"><a href="#3-编码测试阶段" class="headerlink" title="3. 编码测试阶段"></a>3. 编码测试阶段</h3><p>这一阶段主要是研发和测试推进：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序编码 → 集成测试</span><br></pre></td></tr></table></figure>
+
+<p>开发把 PRD 和原型实现出来。</p>
+<p>测试验证功能是否正确、完整、安全、稳定。</p>
+<p>产品经理虽然不写代码，但要参与：</p>
+<ul>
+<li>需求答疑；</li>
+<li>验收测试；</li>
+<li>确认实现是否符合预期；</li>
+<li>处理需求变更；</li>
+<li>记录 bug 和 badcase。</li>
+</ul>
+<h3 id="4-运行维护阶段"><a href="#4-运行维护阶段" class="headerlink" title="4. 运行维护阶段"></a>4. 运行维护阶段</h3><p>这一阶段主要是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">部署上线 → 运行维护</span><br></pre></td></tr></table></figure>
+
+<p>运维关注：</p>
+<ul>
+<li>服务器；</li>
+<li>操作系统；</li>
+<li>数据库；</li>
+<li>网络；</li>
+<li>安全；</li>
+<li>稳定性。</li>
+</ul>
+<p>产品经理关注：</p>
+<ul>
+<li>上线效果；</li>
+<li>用户反馈；</li>
+<li>数据指标；</li>
+<li>问题收集；</li>
+<li>后续迭代。</li>
+</ul>
+<p>所以产品开发不是“写完 PRD 就结束”。</p>
+<p>产品经理还要持续关注上线后的真实效果。</p>
+<hr>
+<h2 id="六、团队成员和职责分工"><a href="#六、团队成员和职责分工" class="headerlink" title="六、团队成员和职责分工"></a>六、团队成员和职责分工</h2><p>一个常见的产品技术团队可以这样理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;产品技术中心&quot;] --&gt; B[&quot;产品设计部&quot;]
+    A --&gt; C[&quot;研发部&quot;]
+    A --&gt; D[&quot;项目组&quot;]
+
+    B --&gt; B1[&quot;产品经理&quot;]
+    B --&gt; B2[&quot;UI 设计师&quot;]
+    B --&gt; B3[&quot;UE &#x2F; 交互设计师&quot;]
+
+    C --&gt; C1[&quot;前端工程师&quot;]
+    C --&gt; C2[&quot;后端工程师&quot;]
+    C --&gt; C3[&quot;测试工程师&quot;]
+    C --&gt; C4[&quot;运维工程师&quot;]
+
+    D --&gt; D1[&quot;项目经理&quot;]
+  </pre></div>
+
+<h3 id="1-开发工程师"><a href="#1-开发工程师" class="headerlink" title="1. 开发工程师"></a>1. 开发工程师</h3><table>
+<thead>
+<tr>
+<th>岗位</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前端工程师</td>
+<td>做网站、App、小程序中用户看得见、点得到的部分</td>
+</tr>
+<tr>
+<td>后端工程师</td>
+<td>做平台设计、接口设计、业务逻辑、数据处理</td>
+</tr>
+<tr>
+<td>测试工程师</td>
+<td>保证功能正确、完整、安全、质量可靠</td>
+</tr>
+<tr>
+<td>运维工程师</td>
+<td>负责服务器、操作系统、数据库、部署和运行环境</td>
+</tr>
+</tbody></table>
+<h3 id="2-项目经理"><a href="#2-项目经理" class="headerlink" title="2. 项目经理"></a>2. 项目经理</h3><p>项目经理关注的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计划、团队、进度、质量、成本、风险</span><br></pre></td></tr></table></figure>
+
+<p>具体包括：</p>
+<ul>
+<li>制定项目管理计划；</li>
+<li>组建项目团队；</li>
+<li>跟踪项目进度；</li>
+<li>监控项目质量；</li>
+<li>控制成本和风险。</li>
+</ul>
+<p>项目经理关心的是：</p>
+<blockquote>
+<p>项目能不能按时、按质、按预算交付。</p>
+</blockquote>
+<h3 id="3-产品经理"><a href="#3-产品经理" class="headerlink" title="3. 产品经理"></a>3. 产品经理</h3><p>产品经理主要关注两个核心职责：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">评估产品机会</span><br><span class="line">定义要开发的产品</span><br></pre></td></tr></table></figure>
+
+<p>评估产品机会包括：</p>
+<ul>
+<li>需求收集；</li>
+<li>用户调研；</li>
+<li>市场分析；</li>
+<li>竞品分析；</li>
+<li>可行性研究；</li>
+<li>机会判断。</li>
+</ul>
+<p>常见输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MRD</span><br><span class="line">立项报告</span><br><span class="line">需求调研报告</span><br></pre></td></tr></table></figure>
+
+<p>定义要开发的产品包括：</p>
+<ul>
+<li>需求分析；</li>
+<li>业务流程设计；</li>
+<li>功能设计；</li>
+<li>原型设计；</li>
+<li>PRD 撰写。</li>
+</ul>
+<p>常见输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PRD</span><br><span class="line">原型图</span><br><span class="line">流程图</span><br><span class="line">产品说明文档</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-UI-UE-设计师"><a href="#4-UI-UE-设计师" class="headerlink" title="4. UI &#x2F; UE 设计师"></a>4. UI &#x2F; UE 设计师</h3><table>
+<thead>
+<tr>
+<th>岗位</th>
+<th>关注重点</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UI 设计师</td>
+<td>视觉效果、界面图标、页面美观</td>
+<td>效果图、Icon、视觉规范</td>
+</tr>
+<tr>
+<td>UE &#x2F; 交互设计师</td>
+<td>动作交互、反馈体验、操作流程</td>
+<td>交互稿、交互说明</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、产品经理工作中的常见误区"><a href="#七、产品经理工作中的常见误区" class="headerlink" title="七、产品经理工作中的常见误区"></a>七、产品经理工作中的常见误区</h2><p>产品经理入门时最容易掉进几个误区。</p>
+<h3 id="误区一：把产品经理当成“画原型的”"><a href="#误区一：把产品经理当成“画原型的”" class="headerlink" title="误区一：把产品经理当成“画原型的”"></a>误区一：把产品经理当成“画原型的”</h3><p>这是最常见的误区。</p>
+<p>如果产品经理只画原型，就会跳过：</p>
+<ul>
+<li>需求分析；</li>
+<li>问题定义；</li>
+<li>用户研究；</li>
+<li>可行性判断；</li>
+<li>价值判断。</li>
+</ul>
+<p>结果就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只会画页面，不会定义产品。</span><br></pre></td></tr></table></figure>
+
+<p>真正的产品经理不是从页面开始，而是从问题开始。</p>
+<h3 id="误区二：把产品经理当成“管理项目的”"><a href="#误区二：把产品经理当成“管理项目的”" class="headerlink" title="误区二：把产品经理当成“管理项目的”"></a>误区二：把产品经理当成“管理项目的”</h3><p>产品经理和项目经理不同。</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>关注重点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>产品经理</td>
+<td>产品价值、用户需求、功能方案、体验、业务逻辑</td>
+</tr>
+<tr>
+<td>项目经理</td>
+<td>任务拆解、进度、资源、质量、成本、风险</td>
+</tr>
+</tbody></table>
+<p>产品经理可以参与项目推进，但不能把自己完全等同于项目经理。</p>
+<h3 id="误区三：老板需求、用户需求、自己想法都当成产品需求"><a href="#误区三：老板需求、用户需求、自己想法都当成产品需求" class="headerlink" title="误区三：老板需求、用户需求、自己想法都当成产品需求"></a>误区三：老板需求、用户需求、自己想法都当成产品需求</h3><p>老板说的，不一定是产品需求。</p>
+<p>用户说的，不一定是本质需求。</p>
+<p>自己想到的，也不一定有价值。</p>
+<p>产品经理要做的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">收集需求 → 分析需求 → 判断价值 → 排优先级 → 决定做不做</span><br></pre></td></tr></table></figure>
+
+<p>而不是别人说什么就加什么。</p>
+<h3 id="误区四：把自己当“经理”去命令别人"><a href="#误区四：把自己当“经理”去命令别人" class="headerlink" title="误区四：把自己当“经理”去命令别人"></a>误区四：把自己当“经理”去命令别人</h3><p>产品经理名字里有“经理”，但很多时候并没有行政管理权。</p>
+<p>产品经理要靠：</p>
+<ul>
+<li>沟通；</li>
+<li>说服；</li>
+<li>逻辑；</li>
+<li>数据；</li>
+<li>共识；</li>
+<li>协作。</li>
+</ul>
+<p>而不是靠命令开发、测试、设计师。</p>
+<hr>
+<h2 id="八、产品经理需要哪些专业能力？"><a href="#八、产品经理需要哪些专业能力？" class="headerlink" title="八、产品经理需要哪些专业能力？"></a>八、产品经理需要哪些专业能力？</h2><p>课程里把专业能力分成五类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">调研分析</span><br><span class="line">决策判断</span><br><span class="line">规划定义</span><br><span class="line">体验设计</span><br><span class="line">文档工具</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-调研分析能力"><a href="#1-调研分析能力" class="headerlink" title="1. 调研分析能力"></a>1. 调研分析能力</h3><p>包括：</p>
+<ul>
+<li>商业分析；</li>
+<li>行业分析；</li>
+<li>市场分析；</li>
+<li>用户分析；</li>
+<li>竞品分析；</li>
+<li>需求分析。</li>
+</ul>
+<p>这一类能力解决的问题是：</p>
+<blockquote>
+<p>为什么要做？有没有机会？用户到底需要什么？</p>
+</blockquote>
+<h3 id="2-决策判断能力"><a href="#2-决策判断能力" class="headerlink" title="2. 决策判断能力"></a>2. 决策判断能力</h3><p>包括：</p>
+<ul>
+<li>可行性判断；</li>
+<li>优先级判断；</li>
+<li>机会判断；</li>
+<li>成本判断；</li>
+<li>技术风险判断。</li>
+</ul>
+<p>这一类能力解决的问题是：</p>
+<blockquote>
+<p>做不做？先做什么？后做什么？值不值得投入？</p>
+</blockquote>
+<h3 id="3-规划定义能力"><a href="#3-规划定义能力" class="headerlink" title="3. 规划定义能力"></a>3. 规划定义能力</h3><p>包括：</p>
+<ul>
+<li>业务规划；</li>
+<li>产品架构；</li>
+<li>业务流程；</li>
+<li>产品结构；</li>
+<li>功能模块；</li>
+<li>功能逻辑。</li>
+</ul>
+<p>这一类能力解决的问题是：</p>
+<blockquote>
+<p>产品应该长什么样？功能之间怎么组织？流程怎么走？</p>
+</blockquote>
+<h3 id="4-体验设计能力"><a href="#4-体验设计能力" class="headerlink" title="4. 体验设计能力"></a>4. 体验设计能力</h3><p>包括：</p>
+<ul>
+<li>用户体验；</li>
+<li>产品体验；</li>
+<li>原型设计；</li>
+<li>交互设计。</li>
+</ul>
+<p>这一类能力解决的问题是：</p>
+<blockquote>
+<p>用户能不能顺利用起来？用起来是否容易理解？</p>
+</blockquote>
+<h3 id="5-文档和工具能力"><a href="#5-文档和工具能力" class="headerlink" title="5. 文档和工具能力"></a>5. 文档和工具能力</h3><p>常见文档包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BRD：商业需求文档</span><br><span class="line">MRD：市场需求文档</span><br><span class="line">PRD：产品需求文档</span><br><span class="line">立项说明书</span><br><span class="line">产品说明书</span><br></pre></td></tr></table></figure>
+
+<p>常见工具包括：</p>
+<table>
+<thead>
+<tr>
+<th>工具类型</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原型工具</td>
+<td>Axure、墨刀、Sketch、Figma</td>
+</tr>
+<tr>
+<td>脑图工具</td>
+<td>XMind、MindMaster</td>
+</tr>
+<tr>
+<td>流程图工具</td>
+<td>ProcessOn、Visio、亿图</td>
+</tr>
+<tr>
+<td>协作工具</td>
+<td>飞书、禅道、Tapd、Jira</td>
+</tr>
+<tr>
+<td>办公工具</td>
+<td>Word、Excel、PPT</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、产品经理需要哪些综合素质？"><a href="#九、产品经理需要哪些综合素质？" class="headerlink" title="九、产品经理需要哪些综合素质？"></a>九、产品经理需要哪些综合素质？</h2><p>专业技能只能说明你“干得了”。</p>
+<p>综合素质决定你“干得好”。</p>
+<table>
+<thead>
+<tr>
+<th>素质</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>责任心</td>
+<td>对产品、公司、用户负责，持续关注产品问题</td>
+</tr>
+<tr>
+<td>沟通表达</td>
+<td>把需求讲清楚，把方案讲明白，协调上下游</td>
+</tr>
+<tr>
+<td>同理心</td>
+<td>理解用户真实处境，而不是只站在自己角度设计</td>
+</tr>
+<tr>
+<td>终身学习</td>
+<td>持续了解技术、市场、行业、运营变化</td>
+</tr>
+<tr>
+<td>创新精神</td>
+<td>能做微创新、组合创新，让产品持续迭代</td>
+</tr>
+<tr>
+<td>情商和逆商</td>
+<td>能承受压力，处理老板、客户、研发之间的冲突</td>
+</tr>
+<tr>
+<td>协作组织</td>
+<td>让设计、研发、测试、运营围绕共同目标推进</td>
+</tr>
+<tr>
+<td>逻辑思辨</td>
+<td>能判断需求合理性，抓住问题本质</td>
+</tr>
+</tbody></table>
+<p>对 AI 产品经理来说，不能只懂 AI 名词。</p>
+<p>更重要的是：</p>
+<blockquote>
+<p>能把混乱需求整理成清晰产品方案。</p>
+</blockquote>
+<hr>
+<h2 id="十、产品经理的发展方向"><a href="#十、产品经理的发展方向" class="headerlink" title="十、产品经理的发展方向"></a>十、产品经理的发展方向</h2><p>产品经理的发展方向可以分成三块：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">市场现状</span><br><span class="line">C 端趋势</span><br><span class="line">B 端与数字经济趋势</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-市场现状"><a href="#1-市场现状" class="headerlink" title="1. 市场现状"></a>1. 市场现状</h3><p>产品经理岗位仍然有需求，但要求越来越高。</p>
+<p>现在企业不只需要会画原型的人。</p>
+<p>更需要能理解业务、技术、数据和增长的人。</p>
+<p>对 AI 产品求职来说，重点不是盲目追 C 端 App。</p>
+<p>更适合关注：</p>
+<blockquote>
+<p>B 端、企业服务、SaaS、AI 应用、数字化转型。</p>
+</blockquote>
+<h3 id="2-C-端未来趋势"><a href="#2-C-端未来趋势" class="headerlink" title="2. C 端未来趋势"></a>2. C 端未来趋势</h3><p>C 端趋势包括：</p>
+<ul>
+<li>智能终端：手机、AR 眼镜、智能手表、手环、智能跑鞋等；</li>
+<li>轻量化应用：小程序、轻应用、低门槛工具；</li>
+<li>视频内容创作：短视频、直播、智能剪辑、虚拟特效；</li>
+<li>电商消费升级：3D 展示、XR 试穿、虚拟看房、虚拟试妆；</li>
+<li>虚拟社交：虚拟人、数字分身、沉浸式互动；</li>
+<li>自动驾驶：车道级导航、车载系统、辅助驾驶体验。</li>
+</ul>
+<h3 id="3-B-端未来趋势"><a href="#3-B-端未来趋势" class="headerlink" title="3. B 端未来趋势"></a>3. B 端未来趋势</h3><p>B 端重点是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">云 + 数 + 智 + 物</span><br></pre></td></tr></table></figure>
+
+<p>也就是：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>云计算</td>
+<td>IaaS、PaaS、SaaS，帮助企业低成本部署系统</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>数据平台、数据中台、数据分析、数据决策</td>
+</tr>
+<tr>
+<td>人工智能</td>
+<td>智能客服、智能推荐、智能决策、AI 流程自动化</td>
+</tr>
+<tr>
+<td>物联网</td>
+<td>设备联网、数据采集、万物互联</td>
+</tr>
+</tbody></table>
+<p>B 端产品会越来越关注：</p>
+<ul>
+<li>SaaS；</li>
+<li>低代码；</li>
+<li>aPaaS；</li>
+<li>BPM；</li>
+<li>RPA；</li>
+<li>企业数字化转型；</li>
+<li>AI 自动化；</li>
+<li>数据中台；</li>
+<li>智能客服；</li>
+<li>工业互联网。</li>
+</ul>
+<p>这部分和 AI 客服、RAG 知识库、Dify 工作流是能接上的。</p>
+<hr>
+<h2 id="十一、这堂课对-AI-产品求职的启发"><a href="#十一、这堂课对-AI-产品求职的启发" class="headerlink" title="十一、这堂课对 AI 产品求职的启发"></a>十一、这堂课对 AI 产品求职的启发</h2><p>这堂课虽然讲的是产品经理基础，但对 AI 产品求职很重要。</p>
+<p>因为很多人做 AI 项目时容易只展示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我会用 Dify。</span><br><span class="line">我会搭一个工作流。</span><br><span class="line">我会接知识库。</span><br><span class="line">我会写 Prompt。</span><br></pre></td></tr></table></figure>
+
+<p>但真正的产品经理项目不能只停在这里。</p>
+<p>你要展示完整链路：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">用户是谁？</span><br><span class="line">场景是什么？</span><br><span class="line">痛点是什么？</span><br><span class="line">为什么适合 AI？</span><br><span class="line">产品流程怎么设计？</span><br><span class="line">知识库怎么设计？</span><br><span class="line">异常情况怎么兜底？</span><br><span class="line">测试集怎么设计？</span><br><span class="line">Badcase 怎么分析？</span><br><span class="line">上线后怎么迭代？</span><br></pre></td></tr></table></figure>
+
+<p>也就是说：</p>
+<blockquote>
+<p>AI 项目不能只展示工具能力，还要展示产品能力。</p>
+</blockquote>
+<p>你做电商售后 AI 客服项目时，就可以用这堂课的逻辑包装：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">产品定义：面向电商售后场景的 AI 客服知识库助手</span><br><span class="line">用户：消费者、客服人员、电商商家</span><br><span class="line">场景：退货、换货、退款、物流、赔付、投诉</span><br><span class="line">需求：快速获得明确规则，减少人工客服压力</span><br><span class="line">功能：知识库检索、回答生成、条件分支、转人工兜底</span><br><span class="line">测试：标准问题、同义问题、模糊问题、超范围问题、复杂问题</span><br><span class="line">优化：根据 Badcase 调整知识库、Prompt、切片和分支判断</span><br></pre></td></tr></table></figure>
+
+<p>这样它才不像普通 Demo，而像真正的 AI 产品经理项目。</p>
+<hr>
+<h2 id="十二、最终总结"><a href="#十二、最终总结" class="headerlink" title="十二、最终总结"></a>十二、最终总结</h2><p>这堂课最重要的结论是：</p>
+<blockquote>
+<p>产品经理不是画原型的人，而是定义产品的人。</p>
+</blockquote>
+<p>一个合格产品经理要先想清楚：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户是谁？</span><br><span class="line">场景是什么？</span><br><span class="line">需求是什么？</span><br><span class="line">问题值不值得解决？</span><br><span class="line">产品用什么功能解决？</span><br><span class="line">体验好不好？</span><br><span class="line">相比竞品有什么优势？</span><br><span class="line">最终创造什么价值？</span><br></pre></td></tr></table></figure>
+
+<p>产品开发流程是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析定义 → 软件设计 → 编码测试 → 运行维护</span><br></pre></td></tr></table></figure>
+
+<p>产品经理主要站在前半段：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">需求收集</span><br><span class="line">可行性研究</span><br><span class="line">需求分析</span><br><span class="line">产品规划</span><br><span class="line">原型设计</span><br><span class="line">PRD 撰写</span><br><span class="line">需求评审</span><br><span class="line">上线验收</span><br><span class="line">迭代优化</span><br></pre></td></tr></table></figure>
+
+<p>团队分工是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">产品经理：定义产品价值和需求</span><br><span class="line">项目经理：管进度、质量、成本、风险</span><br><span class="line">前端：实现用户看得见的界面</span><br><span class="line">后端：实现平台、接口、业务逻辑</span><br><span class="line">测试：保证功能正确和质量稳定</span><br><span class="line">运维：保证服务器、系统、数据库稳定运行</span><br><span class="line">UI / UE：保证视觉和交互体验</span><br></pre></td></tr></table></figure>
+
+<p>产品经理最容易犯的错误是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">只画原型</span><br><span class="line">只管项目</span><br><span class="line">老板说什么就做什么</span><br><span class="line">把自己当领导命令别人</span><br></pre></td></tr></table></figure>
+
+<p>产品经理要具备五类专业能力：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">调研分析</span><br><span class="line">决策判断</span><br><span class="line">规划定义</span><br><span class="line">体验设计</span><br><span class="line">文档工具</span><br></pre></td></tr></table></figure>
+
+<p>还要具备八类综合素质：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">责任心</span><br><span class="line">沟通表达</span><br><span class="line">同理心</span><br><span class="line">终身学习</span><br><span class="line">创新精神</span><br><span class="line">情商逆商</span><br><span class="line">协作组织</span><br><span class="line">逻辑思辨</span><br></pre></td></tr></table></figure>
+
+<p>对 AI 产品求职来说，这堂课可以转化成一句话：</p>
+<blockquote>
+<p>项目不能只展示“我会搭一个 Dify 工作流”，而要展示你能从用户问题出发，完成需求分析、产品定义、原型设计、PRD、测试评估和上线迭代。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>课程笔记：《产品经理课程总结：开发流程、团队职责与能力模型》。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://MurrayTsai.github.io">人畜无害的菜姥爷</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://murraytsai.github.io/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/">https://murraytsai.github.io/2026/06/17/15.产品经理入门：开发流程、团队职责与能力模型/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://MurrayTsai.github.io" target="_blank">MurrayT's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a><a class="post-meta__tags" href="/tags/%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/">产品开发流程</a><a class="post-meta__tags" href="/tags/PRD/">PRD</a><a class="post-meta__tags" href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">需求分析</a><a class="post-meta__tags" href="/tags/%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/">能力模型</a></div><div class="post-share"><div class="social-share" data-image="/images/covers/default-2.jpg" data-sites="x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/" title="产品经理入门：如何抓住核心用户"><img class="cover" src="/images/covers/default-5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">产品经理入门：如何抓住核心用户</div></div><div class="info-2"><div class="info-item-1">前言这一章的重点不是简单说： 1用户很重要。  而是讲一个更具体的问题：  产品经理如何从“所有用户”中，识别出最重要的一群人，并围绕他们做产品取舍？  产品经理不能试图满足所有用户。 因为资源永远有限。 开发资源有限，推广预算有限，团队时间有限，产品容量也有限。 所以产品经理必须先判断： 1234谁是最重要的用户？谁对产品成败影响最大？谁能给产品带来更高价值？谁的需求应该优先被满足？  这群人就是 核心用户。 一句话总结：  产品经理不能满足所有人，而要先抓住能够创造最大价值、最影响产品成败的核心用户。   一、这一章在产品方法论里的位置产品经理做产品时，通常要从三个视角出发： 123用户视角场景视角需求视角  这一章主要讲的是 用户视角。 也就是：  谁是最重要的用户？  可以用下面这张图理解：      flowchart TD     A[&quot;产品分析&quot;] --&gt; B[&quot;用户视角：谁是用户？谁最重要？&quot;]     A --&gt; C[&quot;场景视角：用户在什么情况下产生需求？&quot;]     A --&gt; D[...</div></div></div></a><a class="pagination-related" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？"><img class="cover" src="/images/covers/default-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">什么是 AI 产品经理？</div></div><div class="info-2"><div class="info-item-1">前言很多人一听到“AI 产品经理”，第一反应是： 1234是不是会写 Prompt？是不是会调大模型？是不是做聊天机器人？是不是要懂算法？  这些理解都只对了一部分。 更准确地说：  AI 产品经理不是单纯写 Prompt 或调用模型的人，而是把真实业务问题转化成可落地、可评估、可优化的 AI 产品方案的人。  AI 产品经理要做的事情，不只是“用 AI”。 而是要回答一整串问题： 123456789用户是谁？场景是什么？问题是否真实存在？AI 是否适合解决？应该用什么技术方案？产品流程怎么设计？异常情况怎么兜底？效果如何评估？上线后如何优化？  所以，AI 产品经理的价值不是“会用 AI 工具”。 而是：  能把业务问题转化成 AI 产品方案，并推动方案落地。   一、AI 产品经理不是单一岗位AI 产品经理不是一个固定岗位。 它会因为公司类型、产品形态、业务深度和技术位置不同，被分成不同方向。 最重要的分类框架是三层： 123+AIAI+AI  可以用这张图理解：      flowchart TD     A[&quot;AI 产品经理&quot;] --&gt; B[&q...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/" title="产品经理入门：产品解决方案四步法"><img class="cover" src="/images/covers/default-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：产品解决方案四步法</div></div><div class="info-2"><div class="info-item-1">前言产品解决方案不是： 1用户说什么，产品经理就做什么。  真正的产品解决方案应该是：  先挖出需求本质，再判断功能先后顺序，再评估投入产出比，最后检查用户用起来好不好。  很多新人产品经理容易犯一个错误： 1234一听到需求，就开始想功能。一看到竞品有功能，就想照着做。老板说加功能，就直接写进 PRD。用户说想要什么，就马上安排开发。  这样做很危险。 因为用户说出来的，可能只是表层需求。 老板提出来的，也可能只是一个想法。 竞品做了的，也不一定适合自己的产品。 所以产品经理要通过四个步骤，把“原始需求”变成“产品解决方案”： 1234需求分析→ 功能优先级划分→ 功能价值判断→ 用户体验校验  可以用下面这张图理解：      flowchart TD     A[&quot;原始需求&quot;] --&gt; B[&quot;一、需求分析&quot;]     B --&gt; C[&quot;二、功能优先级划分&quot;]     C --&gt; D[&quot;三、功能价值&quot;]     D --&gt; E[&quot;四、用户体验&quot;]    ...</div></div></div></a><a class="pagination-related" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径"><img class="cover" src="/images/covers/default-2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理能力模型与职业发展路径</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理不是一个固定岗位。 不同类型的 AI 公司，对产品经理的要求完全不同。有人需要懂算法，有人需要懂行业，有人需要懂业务落地和供应商管理。 可以先记住一句话：  纯 AI 重技术，AI+ 重创新，+AI 重业务落地。  这篇文章主要整理四个问题： 12341. AI 公司可以分成哪几类？2. 不同类型的 AI 产品经理分别做什么？3. AI 产品经理需要哪些能力？4. 普通人如何快速入门 AI 产品经理？   一、AI 公司可以分成三类AI 相关公司可以大致分成三类：      flowchart TD     AICompany[AI 相关公司] --&gt; PureAI[纯 AI&lt;br&#x2F;&gt;造 AI 发动机]     AICompany --&gt; AIPlus[AI+&lt;br&#x2F;&gt;用 AI 做新产品]     AICompany --&gt; PlusAI[+AI&lt;br&#x2F;&gt;传统产品接入 AI]      PureAI --&gt; Tech[关键词：大模型、算法、芯片、算力、API]     AI...</div></div></div></a><a class="pagination-related" href="/2026/06/17/17.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96%E5%88%86%E6%9E%90%E3%80%81%E9%9C%80%E6%B1%82%E6%94%B6%E9%9B%86%E4%B8%8E%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B/" title="产品经理入门：场景化分析、需求收集与用户故事"><img class="cover" src="/images/covers/default-3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：场景化分析、需求收集与用户故事</div></div><div class="info-2"><div class="info-item-1">前言这一章的核心是：  产品经理要学会从“用户 → 场景 → 需求 → 用户故事”四个层次思考问题。  前面一章讲的是： 1谁是核心用户？  这一章继续往下走，开始回答三个问题： 123用户在什么情况下产生需求？需求从哪里来，如何判断真假？如何把需求写成开发能理解的表达？  所以这一章可以看成产品经理需求分析方法的基础课。 一句话总结：  先抓住核心用户，再把用户放进具体场景，接着收集并辨别需求，最后用用户故事把需求转成开发可以理解的表达。   一、本章的整体逻辑产品经理不能只说： 1用户有需求。  这句话太空。 更完整的思考方式应该是： 12345谁是用户？用户在哪个场景里？他遇到了什么问题？这个需求是不是真实、强烈、高频？最后怎么写成开发能理解的用户故事？  可以用下面这张图理解：      flowchart TD     A[&quot;核心用户&quot;] --&gt; B[&quot;场景化分析&quot;]     B --&gt; C[&quot;需求收集与辨别&quot;]     C --&gt; D[&quot;用户故事&quot;]      A --&...</div></div></div></a><a class="pagination-related" href="/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/" title="产品经理入门：如何抓住核心用户"><img class="cover" src="/images/covers/default-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：如何抓住核心用户</div></div><div class="info-2"><div class="info-item-1">前言这一章的重点不是简单说： 1用户很重要。  而是讲一个更具体的问题：  产品经理如何从“所有用户”中，识别出最重要的一群人，并围绕他们做产品取舍？  产品经理不能试图满足所有用户。 因为资源永远有限。 开发资源有限，推广预算有限，团队时间有限，产品容量也有限。 所以产品经理必须先判断： 1234谁是最重要的用户？谁对产品成败影响最大？谁能给产品带来更高价值？谁的需求应该优先被满足？  这群人就是 核心用户。 一句话总结：  产品经理不能满足所有人，而要先抓住能够创造最大价值、最影响产品成败的核心用户。   一、这一章在产品方法论里的位置产品经理做产品时，通常要从三个视角出发： 123用户视角场景视角需求视角  这一章主要讲的是 用户视角。 也就是：  谁是最重要的用户？  可以用下面这张图理解：      flowchart TD     A[&quot;产品分析&quot;] --&gt; B[&quot;用户视角：谁是用户？谁最重要？&quot;]     A --&gt; C[&quot;场景视角：用户在什么情况下产生需求？&quot;]     A --&gt; D[...</div></div></div></a><a class="pagination-related" href="/2026/06/17/8.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E4%B8%8D%E8%A6%81%E6%87%82%E6%8A%80%E6%9C%AF%EF%BC%9A%E7%AE%97%E6%B3%95%E3%80%81%E6%95%B0%E6%8D%AE%E3%80%81%E7%AE%97%E5%8A%9B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记"><img class="cover" src="/images/covers/default-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理要不要懂技术？ 我的答案是：  AI 产品经理一定要懂技术，但不是要变成算法工程师、后端工程师或硬件工程师。  AI 产品经理要懂到什么程度？ 可以先记住这句话：  能判断技术能不能做，知道该找谁做，能和供应商、算法、研发、硬件团队沟通，能把技术变成可落地的产品方案。  也就是说，AI 产品经理不是技术的执行者。 但他必须是技术和产品之间的翻译官。  一、为什么 AI 产品经理必须懂技术？普通产品经理要不要懂技术，本来就是一个经常被讨论的问题。 但到了 AI 产品经理这里，答案会更明确：  AI 产品经理必须懂一些技术。  原因很简单。 AI 产品不是普通的软件产品。 普通产品可能更关注：  页面； 流程； 交互； 运营； 用户体验。  但 AI 产品还会涉及：  算法； 数据； 算力； 硬件； 模型效果； 数据采集； 供应商； 工程实现； 隐私安全； 成本控制。  如果 AI 产品经理完全不懂技术，就很难主导产品。 你可能只能做这些事： 12345约会议写会议纪要传话催进度跟着研发走  这样你不是在主导产品，而是被产品团队边缘化。 因为真正重要的问题，你可能判...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">人畜无害的菜姥爷</div><div class="author-info-description">饭要吃到肚子里，屎要拉到马桶里</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MurrayTsai/MurrayTsai.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MurrayTsai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:591732689@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">没更新就是懒的更，要么就是忘�?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A7%E5%93%81%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">一、什么是产品？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">二、什么是产品经理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%90%88%E6%A0%BC%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E5%85%B3%E6%B3%A8%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">三、合格产品经理要关注什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E6%83%B3%E6%B8%85%E6%A5%9A%E9%97%AE%E9%A2%98"><span class="toc-number">4.1.</span> <span class="toc-text">1. 先想清楚问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%8D%E6%83%B3%E6%B8%85%E6%A5%9A%E4%B8%9C%E8%A5%BF%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.</span> <span class="toc-text">2. 再想清楚东西怎么设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E6%9C%89%E5%93%AA%E4%BA%9B%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">四、产品经理有哪些分类？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8C%89%E6%9C%8D%E5%8A%A1%E5%AF%B9%E8%B1%A1%E5%88%86"><span class="toc-number">5.1.</span> <span class="toc-text">1. 按服务对象分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8C%89%E4%BA%A7%E5%93%81%E5%B9%B3%E5%8F%B0%E5%88%86"><span class="toc-number">5.2.</span> <span class="toc-text">2. 按产品平台分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8C%89%E8%A1%8C%E4%B8%9A%E5%88%86"><span class="toc-number">5.3.</span> <span class="toc-text">3. 按行业分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%89%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9%E5%88%86"><span class="toc-number">5.4.</span> <span class="toc-text">4. 按工作内容分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">五、产品开发流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%86%E6%9E%90%E5%AE%9A%E4%B9%89%E9%98%B6%E6%AE%B5"><span class="toc-number">6.1.</span> <span class="toc-text">1. 分析定义阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5"><span class="toc-number">6.2.</span> <span class="toc-text">2. 软件设计阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BC%96%E7%A0%81%E6%B5%8B%E8%AF%95%E9%98%B6%E6%AE%B5"><span class="toc-number">6.3.</span> <span class="toc-text">3. 编码测试阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E7%BB%B4%E6%8A%A4%E9%98%B6%E6%AE%B5"><span class="toc-number">6.4.</span> <span class="toc-text">4. 运行维护阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98%E5%92%8C%E8%81%8C%E8%B4%A3%E5%88%86%E5%B7%A5"><span class="toc-number">7.</span> <span class="toc-text">六、团队成员和职责分工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-number">7.1.</span> <span class="toc-text">1. 开发工程师</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86"><span class="toc-number">7.2.</span> <span class="toc-text">2. 项目经理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86"><span class="toc-number">7.3.</span> <span class="toc-text">3. 产品经理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-UI-UE-%E8%AE%BE%E8%AE%A1%E5%B8%88"><span class="toc-number">7.4.</span> <span class="toc-text">4. UI &#x2F; UE 设计师</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA"><span class="toc-number">8.</span> <span class="toc-text">七、产品经理工作中的常见误区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%80%EF%BC%9A%E6%8A%8A%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BD%93%E6%88%90%E2%80%9C%E7%94%BB%E5%8E%9F%E5%9E%8B%E7%9A%84%E2%80%9D"><span class="toc-number">8.1.</span> <span class="toc-text">误区一：把产品经理当成“画原型的”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%BA%8C%EF%BC%9A%E6%8A%8A%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BD%93%E6%88%90%E2%80%9C%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E7%9A%84%E2%80%9D"><span class="toc-number">8.2.</span> <span class="toc-text">误区二：把产品经理当成“管理项目的”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%89%EF%BC%9A%E8%80%81%E6%9D%BF%E9%9C%80%E6%B1%82%E3%80%81%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E3%80%81%E8%87%AA%E5%B7%B1%E6%83%B3%E6%B3%95%E9%83%BD%E5%BD%93%E6%88%90%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82"><span class="toc-number">8.3.</span> <span class="toc-text">误区三：老板需求、用户需求、自己想法都当成产品需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E5%9B%9B%EF%BC%9A%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%BD%93%E2%80%9C%E7%BB%8F%E7%90%86%E2%80%9D%E5%8E%BB%E5%91%BD%E4%BB%A4%E5%88%AB%E4%BA%BA"><span class="toc-number">8.4.</span> <span class="toc-text">误区四：把自己当“经理”去命令别人</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E4%B8%93%E4%B8%9A%E8%83%BD%E5%8A%9B%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">八、产品经理需要哪些专业能力？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B0%83%E7%A0%94%E5%88%86%E6%9E%90%E8%83%BD%E5%8A%9B"><span class="toc-number">9.1.</span> <span class="toc-text">1. 调研分析能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%B3%E7%AD%96%E5%88%A4%E6%96%AD%E8%83%BD%E5%8A%9B"><span class="toc-number">9.2.</span> <span class="toc-text">2. 决策判断能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%84%E5%88%92%E5%AE%9A%E4%B9%89%E8%83%BD%E5%8A%9B"><span class="toc-number">9.3.</span> <span class="toc-text">3. 规划定义能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E8%83%BD%E5%8A%9B"><span class="toc-number">9.4.</span> <span class="toc-text">4. 体验设计能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%96%87%E6%A1%A3%E5%92%8C%E5%B7%A5%E5%85%B7%E8%83%BD%E5%8A%9B"><span class="toc-number">9.5.</span> <span class="toc-text">5. 文档和工具能力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">九、产品经理需要哪些综合素质？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-number">11.</span> <span class="toc-text">十、产品经理的发展方向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%82%E5%9C%BA%E7%8E%B0%E7%8A%B6"><span class="toc-number">11.1.</span> <span class="toc-text">1. 市场现状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-C-%E7%AB%AF%E6%9C%AA%E6%9D%A5%E8%B6%8B%E5%8A%BF"><span class="toc-number">11.2.</span> <span class="toc-text">2. C 端未来趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-B-%E7%AB%AF%E6%9C%AA%E6%9D%A5%E8%B6%8B%E5%8A%BF"><span class="toc-number">11.3.</span> <span class="toc-text">3. B 端未来趋势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E8%BF%99%E5%A0%82%E8%AF%BE%E5%AF%B9-AI-%E4%BA%A7%E5%93%81%E6%B1%82%E8%81%8C%E7%9A%84%E5%90%AF%E5%8F%91"><span class="toc-number">12.</span> <span class="toc-text">十一、这堂课对 AI 产品求职的启发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%9C%80%E7%BB%88%E6%80%BB%E7%BB%93"><span class="toc-number">13.</span> <span class="toc-text">十二、最终总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">14.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"><img src="/images/covers/default-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"/></a><div class="content"><a class="title" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"><img src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"/></a><div class="content"><a class="title" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）">AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"><img src="/images/covers/default-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"/></a><div class="content"><a class="title" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品">典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 产品经理必备的 AI 技术知识（下）"/></a><div class="content"><a class="title" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）">AI 产品经理必备的 AI 技术知识（下）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是 AI 产品经理？"/></a><div class="content"><a class="title" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？">什么是 AI 产品经理？</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>

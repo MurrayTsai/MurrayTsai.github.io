@@ -1,0 +1,1068 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>产品经理入门：如何抓住核心用户 | MurrayT's Blog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="一篇产品经理入门笔记，整理什么是核心用户、为什么要抓住核心用户、如何描述核心用户，以及五种核心用户抓取策略。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品经理入门：如何抓住核心用户">
+<meta property="og:url" content="https://murraytsai.github.io/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/index.html">
+<meta property="og:site_name" content="MurrayT&#39;s Blog">
+<meta property="og:description" content="一篇产品经理入门笔记，整理什么是核心用户、为什么要抓住核心用户、如何描述核心用户，以及五种核心用户抓取策略。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/covers/default-5.jpg">
+<meta property="article:published_time" content="2026-06-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-03T10:50:15.875Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="核心用户">
+<meta property="article:tag" content="用户分析">
+<meta property="article:tag" content="用户画像">
+<meta property="article:tag" content="用户运营">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/covers/default-5.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "产品经理入门：如何抓住核心用户",
+  "url": "https://murraytsai.github.io/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/",
+  "image": "https://murraytsai.github.io/images/covers/default-5.jpg",
+  "datePublished": "2026-06-16T16:00:00.000Z",
+  "dateModified": "2026-07-03T10:50:15.875Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "人畜无害的菜姥爷",
+      "url": "https://MurrayTsai.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '产品经理入门：如何抓住核心用户',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/images/home-bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/covers/default-5.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MurrayT's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">产品经理入门：如何抓住核心用户</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">产品经理入门：如何抓住核心用户</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-03T10:50:15.875Z" title="更新于 2026-07-03 18:50:15">2026-07-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这一章的重点不是简单说：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户很重要。</span><br></pre></td></tr></table></figure>
+
+<p>而是讲一个更具体的问题：</p>
+<blockquote>
+<p>产品经理如何从“所有用户”中，识别出最重要的一群人，并围绕他们做产品取舍？</p>
+</blockquote>
+<p>产品经理不能试图满足所有用户。</p>
+<p>因为资源永远有限。</p>
+<p>开发资源有限，推广预算有限，团队时间有限，产品容量也有限。</p>
+<p>所以产品经理必须先判断：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">谁是最重要的用户？</span><br><span class="line">谁对产品成败影响最大？</span><br><span class="line">谁能给产品带来更高价值？</span><br><span class="line">谁的需求应该优先被满足？</span><br></pre></td></tr></table></figure>
+
+<p>这群人就是 <strong>核心用户</strong>。</p>
+<p>一句话总结：</p>
+<blockquote>
+<p>产品经理不能满足所有人，而要先抓住能够创造最大价值、最影响产品成败的核心用户。</p>
+</blockquote>
+<hr>
+<h2 id="一、这一章在产品方法论里的位置"><a href="#一、这一章在产品方法论里的位置" class="headerlink" title="一、这一章在产品方法论里的位置"></a>一、这一章在产品方法论里的位置</h2><p>产品经理做产品时，通常要从三个视角出发：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户视角</span><br><span class="line">场景视角</span><br><span class="line">需求视角</span><br></pre></td></tr></table></figure>
+
+<p>这一章主要讲的是 <strong>用户视角</strong>。</p>
+<p>也就是：</p>
+<blockquote>
+<p>谁是最重要的用户？</p>
+</blockquote>
+<p>可以用下面这张图理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;产品分析&quot;] --&gt; B[&quot;用户视角：谁是用户？谁最重要？&quot;]
+    A --&gt; C[&quot;场景视角：用户在什么情况下产生需求？&quot;]
+    A --&gt; D[&quot;需求视角：需求从哪里来？是真是假？&quot;]
+    A --&gt; E[&quot;用户故事：如何把用户、场景、需求组织成开发可理解的表达？&quot;]
+
+    B --&gt; B1[&quot;用户分类&quot;]
+    B --&gt; B2[&quot;核心用户定义&quot;]
+    B --&gt; B3[&quot;核心用户画像&quot;]
+    B --&gt; B4[&quot;核心用户抓取策略&quot;]
+  </pre></div>
+
+<p>所以这节课不是单独讲“用户”。</p>
+<p>而是在为后面的场景分析、需求判断、用户故事和产品设计打基础。</p>
+<hr>
+<h2 id="二、什么是用户？为什么要了解用户？"><a href="#二、什么是用户？为什么要了解用户？" class="headerlink" title="二、什么是用户？为什么要了解用户？"></a>二、什么是用户？为什么要了解用户？</h2><p>用户不是一个抽象的人群。</p>
+<p>用户是所有和产品发生关系的人。</p>
+<p>这些人有共性，也有差异。</p>
+<p>共性是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">他们都和产品有关。</span><br><span class="line">他们可能有相似的问题或需求。</span><br></pre></td></tr></table></figure>
+
+<p>差异是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">他们的身份不同。</span><br><span class="line">消费能力不同。</span><br><span class="line">使用频次不同。</span><br><span class="line">需求强度不同。</span><br><span class="line">付费意愿不同。</span><br><span class="line">对产品贡献的价值不同。</span><br></pre></td></tr></table></figure>
+
+<p>产品经理必须了解用户，主要有两个原因。</p>
+<h3 id="1-公司做产品需要商业价值"><a href="#1-公司做产品需要商业价值" class="headerlink" title="1. 公司做产品需要商业价值"></a>1. 公司做产品需要商业价值</h3><p>商业公司做产品，不只是为了“做好事”。</p>
+<p>它要在解决用户问题的基础上创造商业价值。</p>
+<p>如果不了解用户，就不知道：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户愿意为什么付费？</span><br><span class="line">谁最可能付费？</span><br><span class="line">谁贡献最高收入？</span><br><span class="line">谁影响口碑？</span><br><span class="line">谁容易流失？</span><br><span class="line">谁值得优先服务？</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-用户需求会不断变化"><a href="#2-用户需求会不断变化" class="headerlink" title="2. 用户需求会不断变化"></a>2. 用户需求会不断变化</h3><p>用户需求不是固定不变的。</p>
+<p>它会随着社会环境、个人条件、消费能力和使用习惯变化而变化。</p>
+<p>比如：</p>
+<ul>
+<li>学生毕业后会变成职场用户；</li>
+<li>低价敏感用户可能升级成品质用户；</li>
+<li>新用户可能变成熟练用户；</li>
+<li>普通用户可能变成专家用户；</li>
+<li>企业客户的规模和业务流程也会变化。</li>
+</ul>
+<p>所以产品经理要持续听见用户声音。</p>
+<p>但这里要注意：</p>
+<blockquote>
+<p>了解用户不是为了讨好所有人，而是为了识别不同用户的价值差异，并把有限资源优先投入到最值得服务的用户身上。</p>
+</blockquote>
+<hr>
+<h2 id="三、用户分类：目标用户、潜在用户、种子用户、核心用户"><a href="#三、用户分类：目标用户、潜在用户、种子用户、核心用户" class="headerlink" title="三、用户分类：目标用户、潜在用户、种子用户、核心用户"></a>三、用户分类：目标用户、潜在用户、种子用户、核心用户</h2><p>课程里把用户分成四类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">目标用户</span><br><span class="line">潜在用户</span><br><span class="line">种子用户</span><br><span class="line">核心用户</span><br></pre></td></tr></table></figure>
+
+<p>这四类用户很容易混。</p>
+<p>可以先看这张表：</p>
+<table>
+<thead>
+<tr>
+<th>用户类型</th>
+<th>定义</th>
+<th>关键词</th>
+<th>价值重点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目标用户</td>
+<td>已经使用产品，或者已经接受产品服务的用户</td>
+<td>已经使用</td>
+<td>是当前产品真实服务的人群</td>
+</tr>
+<tr>
+<td>潜在用户</td>
+<td>有需求，但还没有使用产品或服务的用户</td>
+<td>有需求但未使用</td>
+<td>是未来可能转化的人群</td>
+</tr>
+<tr>
+<td>种子用户</td>
+<td>从目标用户中筛选出来，愿意尝鲜、愿意反馈的用户</td>
+<td>尝鲜、反馈、试点</td>
+<td>用于新产品、新功能小范围测试</td>
+</tr>
+<tr>
+<td>核心用户</td>
+<td>目标用户中能给企业创造更高价值、更大利润来源的用户</td>
+<td>高价值、高贡献、高利润</td>
+<td>是最需要优先服务的人群</td>
+</tr>
+</tbody></table>
+<p>这四类用户的关系可以这样理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;潜在用户：有需求但未使用&quot;] --&gt; B[&quot;目标用户：已经使用产品&quot;]
+    B --&gt; C[&quot;种子用户：愿意尝鲜和反馈&quot;]
+    B --&gt; D[&quot;核心用户：创造更高价值&quot;]
+
+    C --&gt; C1[&quot;重点：验证新功能&quot;]
+    D --&gt; D1[&quot;重点：贡献价值和影响产品成败&quot;]
+  </pre></div>
+
+<p>这里有两个重点。</p>
+<p>第一，种子用户不一定是核心用户。</p>
+<p>种子用户的重点是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">愿意尝鲜</span><br><span class="line">愿意反馈</span><br><span class="line">适合试点</span><br></pre></td></tr></table></figure>
+
+<p>核心用户的重点是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">贡献高</span><br><span class="line">价值高</span><br><span class="line">影响产品成败</span><br></pre></td></tr></table></figure>
+
+<p>第二，目标用户也不等于核心用户。</p>
+<p>目标用户只是已经在使用产品的人。</p>
+<p>核心用户是目标用户中最有价值、最需要优先抓住的一部分。</p>
+<hr>
+<h2 id="四、为什么一定要抓住核心用户？"><a href="#四、为什么一定要抓住核心用户？" class="headerlink" title="四、为什么一定要抓住核心用户？"></a>四、为什么一定要抓住核心用户？</h2><p>产品经理为什么不能平均对待所有用户？</p>
+<p>课程里给了三个理由：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户越来越细分</span><br><span class="line">市场竞争越来越激烈</span><br><span class="line">产品资源永远有限</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-用户越来越细分"><a href="#1-用户越来越细分" class="headerlink" title="1. 用户越来越细分"></a>1. 用户越来越细分</h3><p>不是所有用户价值都一样。</p>
+<p>有些用户只是偶尔使用。</p>
+<p>有些用户经常使用。</p>
+<p>有些用户愿意付费。</p>
+<p>有些用户会带来口碑传播。</p>
+<p>有些用户会直接影响收入和利润。</p>
+<p>所以产品经理不能只看“大用户群”。</p>
+<p>要继续往下拆，找到最值得服务的人。</p>
+<h3 id="2-市场竞争越来越激烈"><a href="#2-市场竞争越来越激烈" class="headerlink" title="2. 市场竞争越来越激烈"></a>2. 市场竞争越来越激烈</h3><p>现在很多行业已经不是“有没有产品”的竞争。</p>
+<p>而是“同类产品太多”的竞争。</p>
+<p>增量时代过去后，留住高价值用户更关键。</p>
+<p>产品竞争不是只拼功能数量，而是拼：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">谁更懂核心用户？</span><br><span class="line">谁更能解决核心用户的核心需求？</span><br><span class="line">谁更能让核心用户留下来？</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-资源有限，需要取舍"><a href="#3-资源有限，需要取舍" class="headerlink" title="3. 资源有限，需要取舍"></a>3. 资源有限，需要取舍</h3><p>产品无法满足所有用户需求。</p>
+<p>开发资源有限。</p>
+<p>推广预算有限。</p>
+<p>时间有限。</p>
+<p>团队精力有限。</p>
+<p>所以需求排优先级时，不能只看谁喊得最大声。</p>
+<p>而要看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个需求是不是核心用户的核心需求？</span><br><span class="line">这个需求解决后，对业务价值有多大？</span><br><span class="line">这个需求不做，会不会影响核心用户留存或付费？</span><br></pre></td></tr></table></figure>
+
+<p>可以总结成一句话：</p>
+<blockquote>
+<p>产品经理抓核心用户，本质上是在有限资源下做取舍。</p>
+</blockquote>
+<hr>
+<h2 id="五、案例：传智教育如何识别核心用户？"><a href="#五、案例：传智教育如何识别核心用户？" class="headerlink" title="五、案例：传智教育如何识别核心用户？"></a>五、案例：传智教育如何识别核心用户？</h2><p>课程用职业 IT 培训机构举了一个例子。</p>
+<p>传智教育提供的产品不是实物，而是“课程服务”。</p>
+<p>课程服务也是产品。</p>
+<p>因为它解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用户想学习技能</span><br><span class="line">用户想转行</span><br><span class="line">用户想就业</span><br><span class="line">用户想进入互联网行业</span><br></pre></td></tr></table></figure>
+
+<p>在这个案例里，可以把用户分成四类。</p>
+<table>
+<thead>
+<tr>
+<th>用户类型</th>
+<th>在传智教育案例中的对应人群</th>
+<th>判断理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目标用户</td>
+<td>已经报名线上技术班或就业班的学员</td>
+<td>他们已经在使用课程服务</td>
+</tr>
+<tr>
+<td>潜在用户</td>
+<td>想进入互联网行业，正在咨询、看公开视频或对比机构的人</td>
+<td>他们有学习和转行需求，但还没报名</td>
+</tr>
+<tr>
+<td>种子用户</td>
+<td>新学科第一批学员，或新版本课程试点班级</td>
+<td>他们可以验证新课程、新服务的效果</td>
+</tr>
+<tr>
+<td>核心用户</td>
+<td>就业班学员，尤其是高客单价、强就业目标的学员</td>
+<td>他们创造更高利润，也更影响口碑、退费风险和竞争力</td>
+</tr>
+</tbody></table>
+<p>这个案例的关键结论是：</p>
+<blockquote>
+<p>如果资源有限，机构应该优先保障就业班课程质量，因为就业班用户是更高价值的核心用户。</p>
+</blockquote>
+<p>为什么？</p>
+<p>因为就业班用户通常：</p>
+<ul>
+<li>付费更高；</li>
+<li>学习周期更长；</li>
+<li>对结果更敏感；</li>
+<li>更关注就业效果；</li>
+<li>更容易影响机构口碑；</li>
+<li>如果课程质量不好，退费风险更高。</li>
+</ul>
+<p>所以对于职业培训机构来说，核心用户不是所有看公开视频的人。</p>
+<p>而是那些：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">愿意为就业结果付费</span><br><span class="line">目标明确</span><br><span class="line">高客单价</span><br><span class="line">对课程质量和就业服务要求更高</span><br></pre></td></tr></table></figure>
+
+<p>的用户。</p>
+<hr>
+<h2 id="六、如何描述核心用户：四个维度"><a href="#六、如何描述核心用户：四个维度" class="headerlink" title="六、如何描述核心用户：四个维度"></a>六、如何描述核心用户：四个维度</h2><p>知道“核心用户重要”还不够。</p>
+<p>产品经理还要能把核心用户描述清楚。</p>
+<p>课程给了四个描述维度：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">供需关系</span><br><span class="line">人口统计学</span><br><span class="line">产品熟悉程度</span><br><span class="line">业务场景</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-供需关系"><a href="#1-供需关系" class="headerlink" title="1. 供需关系"></a>1. 供需关系</h3><p>供需关系是看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">谁提供服务？</span><br><span class="line">谁消费服务？</span><br></pre></td></tr></table></figure>
+
+<p>很多产品里，供给端和消费端都很重要。</p>
+<p>比如打车平台：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">司机是供给端用户。</span><br><span class="line">乘客是消费端用户。</span><br></pre></td></tr></table></figure>
+
+<p>如果司机太少，乘客打不到车。</p>
+<p>如果乘客太少，司机赚不到钱。</p>
+<p>所以平台型产品要同时考虑两端用户。</p>
+<h3 id="2-人口统计学"><a href="#2-人口统计学" class="headerlink" title="2. 人口统计学"></a>2. 人口统计学</h3><p>人口统计学是用一些基础信息描述用户。</p>
+<p>比如：</p>
+<ul>
+<li>年龄；</li>
+<li>性别；</li>
+<li>地域；</li>
+<li>学历；</li>
+<li>职业；</li>
+<li>收入；</li>
+<li>消费水平。</li>
+</ul>
+<p>例如母婴产品可能重点面向：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重视品质和安全的 90 后宝妈。</span><br></pre></td></tr></table></figure>
+
+<p>这些信息可以帮助产品经理更具体地理解用户。</p>
+<h3 id="3-产品熟悉程度"><a href="#3-产品熟悉程度" class="headerlink" title="3. 产品熟悉程度"></a>3. 产品熟悉程度</h3><p>可以把用户按产品熟悉程度分为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">新用户</span><br><span class="line">老用户</span><br><span class="line">专家用户</span><br></pre></td></tr></table></figure>
+
+<p>不同产品对用户熟悉程度的要求不同。</p>
+<p>比如婚礼服务，大多数用户都是新用户。</p>
+<p>因为很多人一生只办一次婚礼。</p>
+<p>电商和餐饮更依赖老用户。</p>
+<p>因为用户会反复购买。</p>
+<p>小红书、抖音、知乎等内容平台，则需要专家型内容创作者。</p>
+<p>因为他们能创造内容，带动更多用户。</p>
+<h3 id="4-业务场景"><a href="#4-业务场景" class="headerlink" title="4. 业务场景"></a>4. 业务场景</h3><p>业务场景是从产品定位和业务模式出发描述用户。</p>
+<p>比如：</p>
+<ul>
+<li>餐饮 SaaS 产品可能重点服务中小微餐饮商家；</li>
+<li>企业培训产品可能重点服务 HR 和培训负责人；</li>
+<li>打车平台需要同时关注司机和乘客；</li>
+<li>内容社区需要同时关注普通浏览用户和内容创作者。</li>
+</ul>
+<p>产品经理要知道：</p>
+<blockquote>
+<p>供需关系和业务场景通常来自产品定位；人口统计学和熟悉程度通常来自运营数据、行为数据和消费数据。</p>
+</blockquote>
+<p>所以描述核心用户，可以总结成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心用户画像 = 产品定位 + 运营数据 + 业务理解</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="七、案例：传智教育核心用户画像"><a href="#七、案例：传智教育核心用户画像" class="headerlink" title="七、案例：传智教育核心用户画像"></a>七、案例：传智教育核心用户画像</h2><p>用四个维度重新描述传智教育的核心用户，可以得到更具体的画像。</p>
+<table>
+<thead>
+<tr>
+<th>描述维度</th>
+<th>对应结论</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>供需关系</td>
+<td>教师端提供教学服务，学生端消费课程服务；这里重点看学生端核心用户</td>
+</tr>
+<tr>
+<td>人口统计学</td>
+<td>大致年龄 20—30 多岁，大专及以上学历，寻求在一二线城市就业</td>
+</tr>
+<tr>
+<td>产品熟悉程度</td>
+<td>主要是新用户，因为职业培训往往服务从小白到就业的转化过程</td>
+</tr>
+<tr>
+<td>业务场景</td>
+<td>IT 职业教育培训，核心诉求是转行、掌握技能、获得就业机会</td>
+</tr>
+</tbody></table>
+<p>所以，传智教育的核心用户可以这样表达：</p>
+<blockquote>
+<p>20—30 多岁、大专及以上学历、希望进入互联网行业并在一二线城市就业、愿意为就业结果付费的新学员。</p>
+</blockquote>
+<p>这个表达比“想学 IT 的人”清楚很多。</p>
+<p>因为它说明了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">年龄</span><br><span class="line">学历</span><br><span class="line">目标行业</span><br><span class="line">就业城市</span><br><span class="line">付费意愿</span><br><span class="line">学习阶段</span><br><span class="line">核心诉求</span><br></pre></td></tr></table></figure>
+
+<p>这才是产品经理需要的核心用户画像。</p>
+<hr>
+<h2 id="八、如何抓住核心用户：五种类型与策略"><a href="#八、如何抓住核心用户：五种类型与策略" class="headerlink" title="八、如何抓住核心用户：五种类型与策略"></a>八、如何抓住核心用户：五种类型与策略</h2><p>课程把核心用户进一步分成五种类型。</p>
+<p>每种类型背后的用户心理不同，所以抓取策略也不同。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>用户心理 &#x2F; 特征</th>
+<th>抓取策略</th>
+<th>课程案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>捆绑式核心用户</td>
+<td>爱占便宜、怕损失、冲动消费，容易被会员和套餐绑定</td>
+<td>办会员、买套餐、预付费、折扣锁定</td>
+<td>健身房、理发店会员卡</td>
+</tr>
+<tr>
+<td>诱导式核心用户</td>
+<td>对价格敏感，规模大，愿意被低价吸引</td>
+<td>降低成本、提高运营效率，用低价或补贴吸引</td>
+<td>沃尔玛、Costco</td>
+</tr>
+<tr>
+<td>享受型核心用户</td>
+<td>重视服务、内容、特权和体验，不只是看便宜</td>
+<td>提升优越感，提供超预期服务</td>
+<td>Amazon Prime、Netflix</td>
+</tr>
+<tr>
+<td>网络型核心用户</td>
+<td>通过社交关系、兴趣圈层、粉丝关系影响更多用户</td>
+<td>建设社群、粉丝关系、口碑传播</td>
+<td>小红书、Soul、抖音</td>
+</tr>
+<tr>
+<td>股东型核心用户</td>
+<td>愿意深度参与产品，与品牌形成共同利益和共同认知</td>
+<td>筛选优质用户，建立共创关系和命运共同体</td>
+<td>小米手环、小米空气净化器、品牌社群</td>
+</tr>
+</tbody></table>
+<p>这五种策略不是单纯营销技巧。</p>
+<p>它们背后对应的是不同的产品增长逻辑。</p>
+<hr>
+<h2 id="九、五种策略的底层逻辑"><a href="#九、五种策略的底层逻辑" class="headerlink" title="九、五种策略的底层逻辑"></a>九、五种策略的底层逻辑</h2><p>五种核心用户策略可以这样理解：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>底层逻辑</th>
+<th>适合什么产品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>捆绑式</td>
+<td>先让用户付费或承诺，减少流失</td>
+<td>健身、教育、理发、美容、课程套餐等预付费服务</td>
+</tr>
+<tr>
+<td>诱导式</td>
+<td>用价格优势降低用户决策门槛</td>
+<td>零售、电商、低价体验课、标准化服务</td>
+</tr>
+<tr>
+<td>享受型</td>
+<td>让用户因为体验、权益和服务留下来</td>
+<td>会员制内容平台、服务型产品、高频消费产品</td>
+</tr>
+<tr>
+<td>网络型</td>
+<td>让用户连接用户，形成自传播</td>
+<td>社区、社交、内容平台、兴趣平台</td>
+</tr>
+<tr>
+<td>股东型</td>
+<td>让用户参与产品建设，变成品牌共创者</td>
+<td>粉丝品牌、智能硬件、社区驱动产品、长期服务产品</td>
+</tr>
+</tbody></table>
+<p>可以用图表示：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;抓住核心用户&quot;] --&gt; B[&quot;捆绑式：预付费和套餐锁定&quot;]
+    A --&gt; C[&quot;诱导式：低价或补贴降低门槛&quot;]
+    A --&gt; D[&quot;享受型：体验、权益和服务留存&quot;]
+    A --&gt; E[&quot;网络型：社群、内容和口碑传播&quot;]
+    A --&gt; F[&quot;股东型：共创关系和长期参与&quot;]
+  </pre></div>
+
+<p>产品经理选择策略时，不能只看别人怎么做。</p>
+<p>要看自己的产品类型和核心用户心理。</p>
+<p>比如：</p>
+<ul>
+<li>课程培训适合捆绑式和享受型；</li>
+<li>零售电商适合诱导式；</li>
+<li>内容社区适合网络型；</li>
+<li>智能硬件和粉丝品牌适合股东型。</li>
+</ul>
+<hr>
+<h2 id="十、把策略套回传智教育案例"><a href="#十、把策略套回传智教育案例" class="headerlink" title="十、把策略套回传智教育案例"></a>十、把策略套回传智教育案例</h2><p>传智教育这类职业培训产品，可以同时使用多种策略。</p>
+<table>
+<thead>
+<tr>
+<th>核心用户类型</th>
+<th>传智教育可以怎么做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>捆绑式</td>
+<td>推出课程会员、课程套餐、限时优惠，把有学习冲动的用户先绑定下来</td>
+</tr>
+<tr>
+<td>诱导式</td>
+<td>推出低价体验课、试听课、训练营，再转化到高价就业班</td>
+</tr>
+<tr>
+<td>享受型</td>
+<td>提供超预期服务，例如就业指导、企业合作、项目实战、班主任跟进</td>
+</tr>
+<tr>
+<td>网络型</td>
+<td>维护班级社群、校友社群，通过老学员口碑推荐新学员</td>
+</tr>
+<tr>
+<td>股东型</td>
+<td>跟进学员职业发展，收集进阶课程需求，让优秀学员参与课程迭代和口碑建设</td>
+</tr>
+</tbody></table>
+<p>这个案例说明：</p>
+<blockquote>
+<p>同一个产品不一定只用一种策略。</p>
+</blockquote>
+<p>产品经理要根据用户阶段和业务目标，组合使用不同策略。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">低价体验课负责拉新。</span><br><span class="line">高价就业班负责转化。</span><br><span class="line">班级服务负责留存。</span><br><span class="line">就业结果负责口碑。</span><br><span class="line">校友社群负责复购和推荐。</span><br></pre></td></tr></table></figure>
+
+<p>这样就形成了完整用户经营链路。</p>
+<hr>
+<h2 id="十一、产品经理要避免的误区"><a href="#十一、产品经理要避免的误区" class="headerlink" title="十一、产品经理要避免的误区"></a>十一、产品经理要避免的误区</h2><p>这一章最容易犯五个错误。</p>
+<h3 id="误区一：把所有用户都当成同等重要"><a href="#误区一：把所有用户都当成同等重要" class="headerlink" title="误区一：把所有用户都当成同等重要"></a>误区一：把所有用户都当成同等重要</h3><p>不是所有用户都一样重要。</p>
+<p>正确做法是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先区分用户价值，再决定服务优先级。</span><br></pre></td></tr></table></figure>
+
+<h3 id="误区二：只看用户数量，不看用户质量"><a href="#误区二：只看用户数量，不看用户质量" class="headerlink" title="误区二：只看用户数量，不看用户质量"></a>误区二：只看用户数量，不看用户质量</h3><p>核心用户不一定人数最多。</p>
+<p>但可能贡献最大。</p>
+<p>比如高客单价用户、强付费用户、内容创作者、关键 B 端客户，都可能比普通用户更重要。</p>
+<h3 id="误区三：把种子用户等同于核心用户"><a href="#误区三：把种子用户等同于核心用户" class="headerlink" title="误区三：把种子用户等同于核心用户"></a>误区三：把种子用户等同于核心用户</h3><p>种子用户负责验证。</p>
+<p>核心用户负责价值。</p>
+<p>种子用户可以帮你测试新功能，但不一定是长期高价值用户。</p>
+<h3 id="误区四：只凭感觉描述用户，不用数据验证"><a href="#误区四：只凭感觉描述用户，不用数据验证" class="headerlink" title="误区四：只凭感觉描述用户，不用数据验证"></a>误区四：只凭感觉描述用户，不用数据验证</h3><p>核心用户画像不能只靠想象。</p>
+<p>应该结合：</p>
+<ul>
+<li>运营数据；</li>
+<li>行为数据；</li>
+<li>消费数据；</li>
+<li>用户访谈；</li>
+<li>使用频次；</li>
+<li>付费金额；</li>
+<li>留存情况。</li>
+</ul>
+<h3 id="误区五：为了满足所有需求不断加功能"><a href="#误区五：为了满足所有需求不断加功能" class="headerlink" title="误区五：为了满足所有需求不断加功能"></a>误区五：为了满足所有需求不断加功能</h3><p>产品资源有限。</p>
+<p>如果不断满足所有人的需求，产品会变得臃肿。</p>
+<p>正确做法是：</p>
+<blockquote>
+<p>优先解决核心用户的核心需求。</p>
+</blockquote>
+<hr>
+<h2 id="十二、最终总结"><a href="#十二、最终总结" class="headerlink" title="十二、最终总结"></a>十二、最终总结</h2><p>这一章最重要的结论是：</p>
+<blockquote>
+<p>产品经理不能试图满足所有用户，而要先抓住能够创造最大价值、最影响产品成败的核心用户。</p>
+</blockquote>
+<p>用户可以分成四类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">目标用户：已经使用产品的人</span><br><span class="line">潜在用户：有需求但还没使用的人</span><br><span class="line">种子用户：愿意尝鲜和反馈的人</span><br><span class="line">核心用户：创造更高价值、最需要优先服务的人</span><br></pre></td></tr></table></figure>
+
+<p>描述核心用户可以从四个维度出发：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">供需关系</span><br><span class="line">人口统计学</span><br><span class="line">产品熟悉程度</span><br><span class="line">业务场景</span><br></pre></td></tr></table></figure>
+
+<p>抓住核心用户可以用五种策略：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">捆绑式</span><br><span class="line">诱导式</span><br><span class="line">享受型</span><br><span class="line">网络型</span><br><span class="line">股东型</span><br></pre></td></tr></table></figure>
+
+<p>但产品经理最重要的不是背这些名词。</p>
+<p>而是理解：</p>
+<blockquote>
+<p>不同用户价值不同，产品资源有限，所以必须围绕核心用户做取舍。</p>
+</blockquote>
+<p>如果用一句话总结：</p>
+<blockquote>
+<p>产品经理抓核心用户，本质上是在有限资源下，找到最值得服务的人，并优先满足他们最关键的需求。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>课程笔记：《产品经理课程总结：抓住核心用户》。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://MurrayTsai.github.io">人畜无害的菜姥爷</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://murraytsai.github.io/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/">https://murraytsai.github.io/2026/06/17/16.产品经理入门：如何抓住核心用户/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://MurrayTsai.github.io" target="_blank">MurrayT's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a><a class="post-meta__tags" href="/tags/%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90/">用户分析</a><a class="post-meta__tags" href="/tags/%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/">核心用户</a><a class="post-meta__tags" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/">用户画像</a><a class="post-meta__tags" href="/tags/%E7%94%A8%E6%88%B7%E8%BF%90%E8%90%A5/">用户运营</a></div><div class="post-share"><div class="social-share" data-image="/images/covers/default-5.jpg" data-sites="x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/" title="产品经理入门：产品解决方案四步法"><img class="cover" src="/images/covers/default-4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">产品经理入门：产品解决方案四步法</div></div><div class="info-2"><div class="info-item-1">前言产品解决方案不是： 1用户说什么，产品经理就做什么。  真正的产品解决方案应该是：  先挖出需求本质，再判断功能先后顺序，再评估投入产出比，最后检查用户用起来好不好。  很多新人产品经理容易犯一个错误： 1234一听到需求，就开始想功能。一看到竞品有功能，就想照着做。老板说加功能，就直接写进 PRD。用户说想要什么，就马上安排开发。  这样做很危险。 因为用户说出来的，可能只是表层需求。 老板提出来的，也可能只是一个想法。 竞品做了的，也不一定适合自己的产品。 所以产品经理要通过四个步骤，把“原始需求”变成“产品解决方案”： 1234需求分析→ 功能优先级划分→ 功能价值判断→ 用户体验校验  可以用下面这张图理解：      flowchart TD     A[&quot;原始需求&quot;] --&gt; B[&quot;一、需求分析&quot;]     B --&gt; C[&quot;二、功能优先级划分&quot;]     C --&gt; D[&quot;三、功能价值&quot;]     D --&gt; E[&quot;四、用户体验&quot;]    ...</div></div></div></a><a class="pagination-related" href="/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/" title="产品经理入门：开发流程、团队职责与能力模型"><img class="cover" src="/images/covers/default-2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">产品经理入门：开发流程、团队职责与能力模型</div></div><div class="info-2"><div class="info-item-1">前言这篇笔记是产品经理入门课程的整理。 它不是只解释“产品经理是什么”，而是围绕一个更完整的问题展开：  产品经理到底是干什么的？在产品开发流程里站在哪里？需要什么能力？未来可以往哪里发展？  这堂课的主线可以压缩成五层： 123451. 先理解产品2. 再理解产品经理3. 再理解产品经理在开发流程里的位置4. 再理解产品经理和团队成员的分工5. 最后理解产品经理需要的能力和发展方向  如果放到 AI 产品经理求职里，这堂课的意义也很明确：  AI 产品经理首先还是产品经理。不能只会搭 AI 工具，也要懂需求分析、开发流程、团队协作、文档输出和上线迭代。   一、什么是产品？课程里给产品下了一个很基础但重要的定义：  产品就是能够解决某个问题的东西。  比如：  电脑解决办公问题； 手机、微信解决通信问题； 书解决阅读问题； 课程解决学习问题； 耳机解决听音乐的问题； AI 客服助手解决客服回答慢、知识分散、回复不稳定的问题。  所以判断一个东西是不是产品，不是看它贵不贵，也不是看它是不是软件。 而是看它：  有没有明确解决某类用户的某个问题。  产品可以分为两类：    类型 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/06/17/8.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E4%B8%8D%E8%A6%81%E6%87%82%E6%8A%80%E6%9C%AF%EF%BC%9A%E7%AE%97%E6%B3%95%E3%80%81%E6%95%B0%E6%8D%AE%E3%80%81%E7%AE%97%E5%8A%9B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记"><img class="cover" src="/images/covers/default-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理要不要懂技术？ 我的答案是：  AI 产品经理一定要懂技术，但不是要变成算法工程师、后端工程师或硬件工程师。  AI 产品经理要懂到什么程度？ 可以先记住这句话：  能判断技术能不能做，知道该找谁做，能和供应商、算法、研发、硬件团队沟通，能把技术变成可落地的产品方案。  也就是说，AI 产品经理不是技术的执行者。 但他必须是技术和产品之间的翻译官。  一、为什么 AI 产品经理必须懂技术？普通产品经理要不要懂技术，本来就是一个经常被讨论的问题。 但到了 AI 产品经理这里，答案会更明确：  AI 产品经理必须懂一些技术。  原因很简单。 AI 产品不是普通的软件产品。 普通产品可能更关注：  页面； 流程； 交互； 运营； 用户体验。  但 AI 产品还会涉及：  算法； 数据； 算力； 硬件； 模型效果； 数据采集； 供应商； 工程实现； 隐私安全； 成本控制。  如果 AI 产品经理完全不懂技术，就很难主导产品。 你可能只能做这些事： 12345约会议写会议纪要传话催进度跟着研发走  这样你不是在主导产品，而是被产品团队边缘化。 因为真正重要的问题，你可能判...</div></div></div></a><a class="pagination-related" href="/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/" title="产品经理入门：开发流程、团队职责与能力模型"><img class="cover" src="/images/covers/default-2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：开发流程、团队职责与能力模型</div></div><div class="info-2"><div class="info-item-1">前言这篇笔记是产品经理入门课程的整理。 它不是只解释“产品经理是什么”，而是围绕一个更完整的问题展开：  产品经理到底是干什么的？在产品开发流程里站在哪里？需要什么能力？未来可以往哪里发展？  这堂课的主线可以压缩成五层： 123451. 先理解产品2. 再理解产品经理3. 再理解产品经理在开发流程里的位置4. 再理解产品经理和团队成员的分工5. 最后理解产品经理需要的能力和发展方向  如果放到 AI 产品经理求职里，这堂课的意义也很明确：  AI 产品经理首先还是产品经理。不能只会搭 AI 工具，也要懂需求分析、开发流程、团队协作、文档输出和上线迭代。   一、什么是产品？课程里给产品下了一个很基础但重要的定义：  产品就是能够解决某个问题的东西。  比如：  电脑解决办公问题； 手机、微信解决通信问题； 书解决阅读问题； 课程解决学习问题； 耳机解决听音乐的问题； AI 客服助手解决客服回答慢、知识分散、回复不稳定的问题。  所以判断一个东西是不是产品，不是看它贵不贵，也不是看它是不是软件。 而是看它：  有没有明确解决某类用户的某个问题。  产品可以分为两类：    类型 ...</div></div></div></a><a class="pagination-related" href="/2026/06/17/17.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96%E5%88%86%E6%9E%90%E3%80%81%E9%9C%80%E6%B1%82%E6%94%B6%E9%9B%86%E4%B8%8E%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B/" title="产品经理入门：场景化分析、需求收集与用户故事"><img class="cover" src="/images/covers/default-3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：场景化分析、需求收集与用户故事</div></div><div class="info-2"><div class="info-item-1">前言这一章的核心是：  产品经理要学会从“用户 → 场景 → 需求 → 用户故事”四个层次思考问题。  前面一章讲的是： 1谁是核心用户？  这一章继续往下走，开始回答三个问题： 123用户在什么情况下产生需求？需求从哪里来，如何判断真假？如何把需求写成开发能理解的表达？  所以这一章可以看成产品经理需求分析方法的基础课。 一句话总结：  先抓住核心用户，再把用户放进具体场景，接着收集并辨别需求，最后用用户故事把需求转成开发可以理解的表达。   一、本章的整体逻辑产品经理不能只说： 1用户有需求。  这句话太空。 更完整的思考方式应该是： 12345谁是用户？用户在哪个场景里？他遇到了什么问题？这个需求是不是真实、强烈、高频？最后怎么写成开发能理解的用户故事？  可以用下面这张图理解：      flowchart TD     A[&quot;核心用户&quot;] --&gt; B[&quot;场景化分析&quot;]     B --&gt; C[&quot;需求收集与辨别&quot;]     C --&gt; D[&quot;用户故事&quot;]      A --&...</div></div></div></a><a class="pagination-related" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径"><img class="cover" src="/images/covers/default-2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理能力模型与职业发展路径</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理不是一个固定岗位。 不同类型的 AI 公司，对产品经理的要求完全不同。有人需要懂算法，有人需要懂行业，有人需要懂业务落地和供应商管理。 可以先记住一句话：  纯 AI 重技术，AI+ 重创新，+AI 重业务落地。  这篇文章主要整理四个问题： 12341. AI 公司可以分成哪几类？2. 不同类型的 AI 产品经理分别做什么？3. AI 产品经理需要哪些能力？4. 普通人如何快速入门 AI 产品经理？   一、AI 公司可以分成三类AI 相关公司可以大致分成三类：      flowchart TD     AICompany[AI 相关公司] --&gt; PureAI[纯 AI&lt;br&#x2F;&gt;造 AI 发动机]     AICompany --&gt; AIPlus[AI+&lt;br&#x2F;&gt;用 AI 做新产品]     AICompany --&gt; PlusAI[+AI&lt;br&#x2F;&gt;传统产品接入 AI]      PureAI --&gt; Tech[关键词：大模型、算法、芯片、算力、API]     AI...</div></div></div></a><a class="pagination-related" href="/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/" title="产品经理入门：产品解决方案四步法"><img class="cover" src="/images/covers/default-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：产品解决方案四步法</div></div><div class="info-2"><div class="info-item-1">前言产品解决方案不是： 1用户说什么，产品经理就做什么。  真正的产品解决方案应该是：  先挖出需求本质，再判断功能先后顺序，再评估投入产出比，最后检查用户用起来好不好。  很多新人产品经理容易犯一个错误： 1234一听到需求，就开始想功能。一看到竞品有功能，就想照着做。老板说加功能，就直接写进 PRD。用户说想要什么，就马上安排开发。  这样做很危险。 因为用户说出来的，可能只是表层需求。 老板提出来的，也可能只是一个想法。 竞品做了的，也不一定适合自己的产品。 所以产品经理要通过四个步骤，把“原始需求”变成“产品解决方案”： 1234需求分析→ 功能优先级划分→ 功能价值判断→ 用户体验校验  可以用下面这张图理解：      flowchart TD     A[&quot;原始需求&quot;] --&gt; B[&quot;一、需求分析&quot;]     B --&gt; C[&quot;二、功能优先级划分&quot;]     C --&gt; D[&quot;三、功能价值&quot;]     D --&gt; E[&quot;四、用户体验&quot;]    ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">人畜无害的菜姥爷</div><div class="author-info-description">饭要吃到肚子里，屎要拉到马桶里</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MurrayTsai/MurrayTsai.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MurrayTsai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:591732689@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">没更新就是懒的更，要么就是忘�?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%BF%99%E4%B8%80%E7%AB%A0%E5%9C%A8%E4%BA%A7%E5%93%81%E6%96%B9%E6%B3%95%E8%AE%BA%E9%87%8C%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">一、这一章在产品方法论里的位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%94%A8%E6%88%B7%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BA%86%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">二、什么是用户？为什么要了解用户？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%AC%E5%8F%B8%E5%81%9A%E4%BA%A7%E5%93%81%E9%9C%80%E8%A6%81%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC"><span class="toc-number">3.1.</span> <span class="toc-text">1. 公司做产品需要商业价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E4%BC%9A%E4%B8%8D%E6%96%AD%E5%8F%98%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">2. 用户需求会不断变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%94%A8%E6%88%B7%E5%88%86%E7%B1%BB%EF%BC%9A%E7%9B%AE%E6%A0%87%E7%94%A8%E6%88%B7%E3%80%81%E6%BD%9C%E5%9C%A8%E7%94%A8%E6%88%B7%E3%80%81%E7%A7%8D%E5%AD%90%E7%94%A8%E6%88%B7%E3%80%81%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7"><span class="toc-number">4.</span> <span class="toc-text">三、用户分类：目标用户、潜在用户、种子用户、核心用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E5%AE%9A%E8%A6%81%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">四、为什么一定要抓住核心用户？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E8%B6%8A%E6%9D%A5%E8%B6%8A%E7%BB%86%E5%88%86"><span class="toc-number">5.1.</span> <span class="toc-text">1. 用户越来越细分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%82%E5%9C%BA%E7%AB%9E%E4%BA%89%E8%B6%8A%E6%9D%A5%E8%B6%8A%E6%BF%80%E7%83%88"><span class="toc-number">5.2.</span> <span class="toc-text">2. 市场竞争越来越激烈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B5%84%E6%BA%90%E6%9C%89%E9%99%90%EF%BC%8C%E9%9C%80%E8%A6%81%E5%8F%96%E8%88%8D"><span class="toc-number">5.3.</span> <span class="toc-text">3. 资源有限，需要取舍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BC%A0%E6%99%BA%E6%95%99%E8%82%B2%E5%A6%82%E4%BD%95%E8%AF%86%E5%88%AB%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">五、案例：传智教育如何识别核心用户？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7%EF%BC%9A%E5%9B%9B%E4%B8%AA%E7%BB%B4%E5%BA%A6"><span class="toc-number">7.</span> <span class="toc-text">六、如何描述核心用户：四个维度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BE%9B%E9%9C%80%E5%85%B3%E7%B3%BB"><span class="toc-number">7.1.</span> <span class="toc-text">1. 供需关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E5%AD%A6"><span class="toc-number">7.2.</span> <span class="toc-text">2. 人口统计学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%A7%E5%93%81%E7%86%9F%E6%82%89%E7%A8%8B%E5%BA%A6"><span class="toc-number">7.3.</span> <span class="toc-text">3. 产品熟悉程度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="toc-number">7.4.</span> <span class="toc-text">4. 业务场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BC%A0%E6%99%BA%E6%95%99%E8%82%B2%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F"><span class="toc-number">8.</span> <span class="toc-text">七、案例：传智教育核心用户画像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7%EF%BC%9A%E4%BA%94%E7%A7%8D%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%AD%96%E7%95%A5"><span class="toc-number">9.</span> <span class="toc-text">八、如何抓住核心用户：五种类型与策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BA%94%E7%A7%8D%E7%AD%96%E7%95%A5%E7%9A%84%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91"><span class="toc-number">10.</span> <span class="toc-text">九、五种策略的底层逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%8A%8A%E7%AD%96%E7%95%A5%E5%A5%97%E5%9B%9E%E4%BC%A0%E6%99%BA%E6%95%99%E8%82%B2%E6%A1%88%E4%BE%8B"><span class="toc-number">11.</span> <span class="toc-text">十、把策略套回传智教育案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E9%81%BF%E5%85%8D%E7%9A%84%E8%AF%AF%E5%8C%BA"><span class="toc-number">12.</span> <span class="toc-text">十一、产品经理要避免的误区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%80%EF%BC%9A%E6%8A%8A%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E9%83%BD%E5%BD%93%E6%88%90%E5%90%8C%E7%AD%89%E9%87%8D%E8%A6%81"><span class="toc-number">12.1.</span> <span class="toc-text">误区一：把所有用户都当成同等重要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%BA%8C%EF%BC%9A%E5%8F%AA%E7%9C%8B%E7%94%A8%E6%88%B7%E6%95%B0%E9%87%8F%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%94%A8%E6%88%B7%E8%B4%A8%E9%87%8F"><span class="toc-number">12.2.</span> <span class="toc-text">误区二：只看用户数量，不看用户质量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%89%EF%BC%9A%E6%8A%8A%E7%A7%8D%E5%AD%90%E7%94%A8%E6%88%B7%E7%AD%89%E5%90%8C%E4%BA%8E%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7"><span class="toc-number">12.3.</span> <span class="toc-text">误区三：把种子用户等同于核心用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E5%9B%9B%EF%BC%9A%E5%8F%AA%E5%87%AD%E6%84%9F%E8%A7%89%E6%8F%8F%E8%BF%B0%E7%94%A8%E6%88%B7%EF%BC%8C%E4%B8%8D%E7%94%A8%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81"><span class="toc-number">12.4.</span> <span class="toc-text">误区四：只凭感觉描述用户，不用数据验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA%E4%BA%94%EF%BC%9A%E4%B8%BA%E4%BA%86%E6%BB%A1%E8%B6%B3%E6%89%80%E6%9C%89%E9%9C%80%E6%B1%82%E4%B8%8D%E6%96%AD%E5%8A%A0%E5%8A%9F%E8%83%BD"><span class="toc-number">12.5.</span> <span class="toc-text">误区五：为了满足所有需求不断加功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%9C%80%E7%BB%88%E6%80%BB%E7%BB%93"><span class="toc-number">13.</span> <span class="toc-text">十二、最终总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">14.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"><img src="/images/covers/default-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"/></a><div class="content"><a class="title" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"><img src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"/></a><div class="content"><a class="title" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）">AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"><img src="/images/covers/default-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"/></a><div class="content"><a class="title" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品">典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 产品经理必备的 AI 技术知识（下）"/></a><div class="content"><a class="title" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）">AI 产品经理必备的 AI 技术知识（下）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是 AI 产品经理？"/></a><div class="content"><a class="title" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？">什么是 AI 产品经理？</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>

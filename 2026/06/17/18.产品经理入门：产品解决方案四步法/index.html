@@ -1,0 +1,1249 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>产品经理入门：产品解决方案四步法 | MurrayT's Blog</title><meta name="author" content="人畜无害的菜姥爷"><meta name="copyright" content="人畜无害的菜姥爷"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="一篇产品经理入门笔记，围绕需求分析、功能优先级划分、功能价值和用户体验四个结构，整理产品经理如何把用户需求转化为可落地的产品解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品经理入门：产品解决方案四步法">
+<meta property="og:url" content="https://murraytsai.github.io/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/index.html">
+<meta property="og:site_name" content="MurrayT&#39;s Blog">
+<meta property="og:description" content="一篇产品经理入门笔记，围绕需求分析、功能优先级划分、功能价值和用户体验四个结构，整理产品经理如何把用户需求转化为可落地的产品解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murraytsai.github.io/images/covers/default-4.jpg">
+<meta property="article:published_time" content="2026-06-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-04T07:13:54.476Z">
+<meta property="article:author" content="人畜无害的菜姥爷">
+<meta property="article:tag" content="Kano模型">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="产品解决方案">
+<meta property="article:tag" content="用户体验">
+<meta property="article:tag" content="需求分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://murraytsai.github.io/images/covers/default-4.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "产品经理入门：产品解决方案四步法",
+  "url": "https://murraytsai.github.io/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/",
+  "image": "https://murraytsai.github.io/images/covers/default-4.jpg",
+  "datePublished": "2026-06-16T16:00:00.000Z",
+  "dateModified": "2026-07-04T07:13:54.476Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "人畜无害的菜姥爷",
+      "url": "https://MurrayTsai.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://murraytsai.github.io/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '产品经理入门：产品解决方案四步法',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/images/home-bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/covers/default-4.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MurrayT's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">产品经理入门：产品解决方案四步法</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/resources/"><i class="fa-fw fas fa-cloud-download-alt"></i><span> 资源</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">产品经理入门：产品解决方案四步法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-04T07:13:54.476Z" title="更新于 2026-07-04 15:13:54">2026-07-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>产品解决方案不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户说什么，产品经理就做什么。</span><br></pre></td></tr></table></figure>
+
+<p>真正的产品解决方案应该是：</p>
+<blockquote>
+<p>先挖出需求本质，再判断功能先后顺序，再评估投入产出比，最后检查用户用起来好不好。</p>
+</blockquote>
+<p>很多新人产品经理容易犯一个错误：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一听到需求，就开始想功能。</span><br><span class="line">一看到竞品有功能，就想照着做。</span><br><span class="line">老板说加功能，就直接写进 PRD。</span><br><span class="line">用户说想要什么，就马上安排开发。</span><br></pre></td></tr></table></figure>
+
+<p>这样做很危险。</p>
+<p>因为用户说出来的，可能只是表层需求。</p>
+<p>老板提出来的，也可能只是一个想法。</p>
+<p>竞品做了的，也不一定适合自己的产品。</p>
+<p>所以产品经理要通过四个步骤，把“原始需求”变成“产品解决方案”：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">需求分析</span><br><span class="line">→ 功能优先级划分</span><br><span class="line">→ 功能价值判断</span><br><span class="line">→ 用户体验校验</span><br></pre></td></tr></table></figure>
+
+<p>可以用下面这张图理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;原始需求&quot;] --&gt; B[&quot;一、需求分析&quot;]
+    B --&gt; C[&quot;二、功能优先级划分&quot;]
+    C --&gt; D[&quot;三、功能价值&quot;]
+    D --&gt; E[&quot;四、用户体验&quot;]
+    E --&gt; F[&quot;可落地的产品解决方案&quot;]
+
+    B --&gt; B1[&quot;判断真实需求是什么&quot;]
+    C --&gt; C1[&quot;判断先做什么&quot;]
+    D --&gt; D1[&quot;判断值不值得做&quot;]
+    E --&gt; E1[&quot;判断用起来好不好&quot;]
+  </pre></div>
+
+<p>这一章可以用一句话总结：</p>
+<blockquote>
+<p>产品经理不是照搬需求，而是先想清楚为什么，再决定做什么，最后验证做得好不好。</p>
+</blockquote>
+<hr>
+<h2 id="一、需求分析"><a href="#一、需求分析" class="headerlink" title="一、需求分析"></a>一、需求分析</h2><p>需求分析是产品解决方案的第一步。</p>
+<p>它解决的问题是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用户说的需求，是不是真需求？</span><br><span class="line">用户真正想解决的问题是什么？</span><br><span class="line">这个需求背后有什么目标和动机？</span><br><span class="line">产品应该用什么方式解决？</span><br></pre></td></tr></table></figure>
+
+<p>产品经理不能只记录用户原话。</p>
+<p>因为用户说出来的，很多时候只是表层表达。</p>
+<p>比如用户说：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我想要一匹更快的马。</span><br></pre></td></tr></table></figure>
+
+<p>如果产品经理只照着用户说法做，就会去改良马。</p>
+<p>但继续追问会发现：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户真正想要的不是马。</span><br><span class="line">用户真正想要的是更快到达目的地。</span><br></pre></td></tr></table></figure>
+
+<p>这时产品方案就不一定是“更快的马”。</p>
+<p>也可能是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">汽车</span><br><span class="line">高铁</span><br><span class="line">飞机</span><br><span class="line">专车服务</span><br></pre></td></tr></table></figure>
+
+<p>所以，需求分析的核心不是“用户说什么”，而是“用户为什么这么说”。</p>
+<hr>
+<h3 id="1-用-Y-模型分析真实需求"><a href="#1-用-Y-模型分析真实需求" class="headerlink" title="1. 用 Y 模型分析真实需求"></a>1. 用 Y 模型分析真实需求</h3><p>课程里提到的 Y 模型，可以用来分析需求。</p>
+<p>Y 模型可以分成四个位置：</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>含义</th>
+<th>产品经理要问的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户需求</td>
+<td>用户说出来的原始表达</td>
+<td>用户说自己想要什么？在什么场景下提出？</td>
+</tr>
+<tr>
+<td>目标 &#x2F; 动机</td>
+<td>用户真正想达成的目的</td>
+<td>为什么想要这个？想解决什么问题？</td>
+</tr>
+<tr>
+<td>人性 &#x2F; 本质需求</td>
+<td>更底层的心理动因</td>
+<td>这个需求对应安全感、尊重、懒惰、贪婪、社交还是自我实现？</td>
+</tr>
+<tr>
+<td>产品功能 &#x2F; 方案</td>
+<td>产品可以提供的解决办法</td>
+<td>用什么功能、服务或内容实现？</td>
+</tr>
+</tbody></table>
+<p>Y 模型的思考方式可以这样理解：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;1 用户需求：用户说想要什么&quot;] --&gt; B[&quot;2 目标 &#x2F; 动机：为什么想要&quot;]
+    B --&gt; C[&quot;4 人性 &#x2F; 本质需求：底层心理动因&quot;]
+    C --&gt; D[&quot;3 产品功能 &#x2F; 方案：怎么解决&quot;]
+
+    A -.不断追问 Why.-&gt; B
+    B -.继续挖本质.-&gt; C
+    C -.反推产品方案.-&gt; D
+  </pre></div>
+
+<p>它有两条思考路径：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">深入：用户需求 → 目标动机 → 人性本质</span><br><span class="line">浅出：人性本质 → 目标动机 → 产品功能</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，产品经理要先往下挖，再往上设计。</p>
+<hr>
+<h3 id="2-从人性和心理动机理解需求"><a href="#2-从人性和心理动机理解需求" class="headerlink" title="2. 从人性和心理动机理解需求"></a>2. 从人性和心理动机理解需求</h3><p>很多产品需求背后，不只是功能问题。</p>
+<p>它还可能对应人的心理动机。</p>
+<p>课程里用“人性七宗罪”来说明这一点。</p>
+<table>
+<thead>
+<tr>
+<th>人性维度</th>
+<th>用户心理</th>
+<th>常见产品方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>傲慢</td>
+<td>希望比别人强，被看见、被尊重</td>
+<td>点赞数、粉丝数、会员标识、勋章、跑步排名、成就展示</td>
+</tr>
+<tr>
+<td>嫉妒</td>
+<td>看到别人更好，想追赶、想超过</td>
+<td>排行榜、段位、拉票、PK、等级成长体系</td>
+</tr>
+<tr>
+<td>愤怒</td>
+<td>被打扰、被冒犯、想发泄或离开</td>
+<td>拉黑、举报、注销、禁用、广告关闭、内容屏蔽</td>
+</tr>
+<tr>
+<td>懒惰</td>
+<td>不想多操作，不想多思考</td>
+<td>一键登录、一键清空、默认选项、自动推荐、自动填写</td>
+</tr>
+<tr>
+<td>贪婪</td>
+<td>想获得更多利益或奖励</td>
+<td>新人礼包、红包、积分、签到、抽奖、任务奖励</td>
+</tr>
+<tr>
+<td>饕餮</td>
+<td>被美食、视觉和氛围吸引</td>
+<td>吃播、探店、精美图片、短视频种草、KOL 推荐</td>
+</tr>
+<tr>
+<td>色欲</td>
+<td>希望展示魅力、获得关注和连接</td>
+<td>美颜、滤镜、附近的人、同城匹配、打招呼、隐私设置</td>
+</tr>
+</tbody></table>
+<p>这部分不是鼓励产品经理操纵用户。</p>
+<p>而是提醒我们：</p>
+<blockquote>
+<p>很多真实需求来自人的心理动机。产品经理要能识别动机，但也要把握伦理边界，避免过度诱导。</p>
+</blockquote>
+<hr>
+<h3 id="3-需求分析的输出"><a href="#3-需求分析的输出" class="headerlink" title="3. 需求分析的输出"></a>3. 需求分析的输出</h3><p>需求分析结束后，产品经理应该输出的不是一句：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户想要某个功能。</span><br></pre></td></tr></table></figure>
+
+<p>而是更完整的判断：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户在什么场景下提出需求？</span><br><span class="line">他说出来的表层需求是什么？</span><br><span class="line">他真正想达成的目标是什么？</span><br><span class="line">这个需求背后的心理动机是什么？</span><br><span class="line">产品可以有哪些解决方案？</span><br><span class="line">哪个方案更合理？</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，需求分析的结果应该是：</p>
+<blockquote>
+<p>真实需求 + 解决方向。</p>
+</blockquote>
+<p>如果第一步做错，后面功能排期、成本评估和体验设计都会偏。</p>
+<hr>
+<h2 id="二、功能优先级划分"><a href="#二、功能优先级划分" class="headerlink" title="二、功能优先级划分"></a>二、功能优先级划分</h2><p>需求分析解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个需求到底是什么？</span><br></pre></td></tr></table></figure>
+
+<p>功能优先级划分解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个功能同时出现时，先做哪个？</span><br></pre></td></tr></table></figure>
+
+<p>产品开发资源永远有限。</p>
+<p>所以产品经理不能按下面这些方式排优先级：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">谁先提就先做。</span><br><span class="line">谁声音大就先做。</span><br><span class="line">老板说什么就先做。</span><br><span class="line">竞品有什么就做什么。</span><br><span class="line">哪个功能看起来酷就先做。</span><br></pre></td></tr></table></figure>
+
+<p>更合理的方法是：</p>
+<blockquote>
+<p>先判断功能对用户满意度的影响，再决定优先级。</p>
+</blockquote>
+<p>这里可以使用 <strong>Kano 模型</strong>。</p>
+<hr>
+<h3 id="1-什么是-Kano-模型？"><a href="#1-什么是-Kano-模型？" class="headerlink" title="1. 什么是 Kano 模型？"></a>1. 什么是 Kano 模型？</h3><p>Kano 模型用于分析：</p>
+<blockquote>
+<p>功能具备程度和用户满意度之间的关系。</p>
+</blockquote>
+<p>它帮助产品经理判断：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">哪些功能必须先做？</span><br><span class="line">哪些功能需要重点优化？</span><br><span class="line">哪些功能可以制造惊喜？</span><br><span class="line">哪些功能做了反而会让用户不满？</span><br><span class="line">哪些功能用户根本不在意？</span><br></pre></td></tr></table></figure>
+
+<p>Kano 模型把功能分成五类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">必备属性</span><br><span class="line">期望属性</span><br><span class="line">魅力属性</span><br><span class="line">反向属性</span><br><span class="line">无差异属性</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-Kano-模型的五类功能属性"><a href="#2-Kano-模型的五类功能属性" class="headerlink" title="2. Kano 模型的五类功能属性"></a>2. Kano 模型的五类功能属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用户反应</th>
+<th>产品含义</th>
+<th>优先级建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>必备属性</td>
+<td>有了不一定惊喜，没有会非常不满</td>
+<td>产品基本盘，必须保证</td>
+<td>最高优先级，先做或立即修复</td>
+</tr>
+<tr>
+<td>期望属性</td>
+<td>做得越好越满意，做得差会不满</td>
+<td>和用户满意度线性相关</td>
+<td>第二优先级，重点优化</td>
+</tr>
+<tr>
+<td>魅力属性</td>
+<td>没有也能接受，有了会惊喜</td>
+<td>差异化亮点、创新体验</td>
+<td>资源允许时做，用于拉开差距</td>
+</tr>
+<tr>
+<td>反向属性</td>
+<td>做了反而让用户不满</td>
+<td>可能损害体验，但企业或广告方可能有收益</td>
+<td>谨慎权衡，不可盲目做</td>
+</tr>
+<tr>
+<td>无差异属性</td>
+<td>有无都无所谓</td>
+<td>用户感知弱，价值不明显</td>
+<td>通常不急做，甚至不做</td>
+</tr>
+</tbody></table>
+<p>可以用图表示：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;功能需求&quot;] --&gt; B[&quot;必备属性：没有会不满&quot;]
+    A --&gt; C[&quot;期望属性：越好越满意&quot;]
+    A --&gt; D[&quot;魅力属性：有了会惊喜&quot;]
+    A --&gt; E[&quot;反向属性：做了反而不满&quot;]
+    A --&gt; F[&quot;无差异属性：有无都无所谓&quot;]
+
+    B --&gt; B1[&quot;最高优先级&quot;]
+    C --&gt; C1[&quot;重点优化&quot;]
+    D --&gt; D1[&quot;资源允许时做&quot;]
+    E --&gt; E1[&quot;谨慎权衡&quot;]
+    F --&gt; F1[&quot;不急做或不做&quot;]
+  </pre></div>
+
+<hr>
+<h3 id="3-五类功能怎么理解？"><a href="#3-五类功能怎么理解？" class="headerlink" title="3. 五类功能怎么理解？"></a>3. 五类功能怎么理解？</h3><h4 id="必备属性"><a href="#必备属性" class="headerlink" title="必备属性"></a>必备属性</h4><p>必备属性是产品基本盘。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">登录不能出错。</span><br><span class="line">支付不能失败。</span><br><span class="line">订单不能丢。</span><br><span class="line">身份认证不能异常。</span><br><span class="line">数据不能丢失。</span><br></pre></td></tr></table></figure>
+
+<p>这类功能做好了，用户不一定夸你。</p>
+<p>但一旦出问题，用户会非常不满。</p>
+<p>所以必备属性优先级最高。</p>
+<h4 id="期望属性"><a href="#期望属性" class="headerlink" title="期望属性"></a>期望属性</h4><p>期望属性是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">做得越好，用户越满意。</span><br><span class="line">做得越差，用户越不满。</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">搜索越准确越好。</span><br><span class="line">物流越快越好。</span><br><span class="line">推荐越精准越好。</span><br><span class="line">页面加载越快越好。</span><br><span class="line">数据统计越清楚越好。</span><br></pre></td></tr></table></figure>
+
+<p>期望属性通常是产品持续优化的重点。</p>
+<h4 id="魅力属性"><a href="#魅力属性" class="headerlink" title="魅力属性"></a>魅力属性</h4><p>魅力属性是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">没有也能接受，有了会惊喜。</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">新奇互动。</span><br><span class="line">个性化动效。</span><br><span class="line">创新玩法。</span><br><span class="line">特别贴心的小功能。</span><br><span class="line">超出用户预期的提醒。</span><br></pre></td></tr></table></figure>
+
+<p>魅力属性适合做差异化。</p>
+<p>但前提是基本功能已经稳定。</p>
+<h4 id="反向属性"><a href="#反向属性" class="headerlink" title="反向属性"></a>反向属性</h4><p>反向属性是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">做了反而让用户不满。</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">强制广告。</span><br><span class="line">过度弹窗。</span><br><span class="line">强行注册。</span><br><span class="line">复杂流程。</span><br><span class="line">不必要的打扰。</span><br></pre></td></tr></table></figure>
+
+<p>有些反向属性可能对商业有利，但会伤害用户体验。</p>
+<p>所以必须谨慎权衡。</p>
+<h4 id="无差异属性"><a href="#无差异属性" class="headerlink" title="无差异属性"></a>无差异属性</h4><p>无差异属性是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有也行，没有也行。</span><br></pre></td></tr></table></figure>
+
+<p>用户感知弱，价值不明显。</p>
+<p>这类功能通常不急着做。</p>
+<hr>
+<h3 id="4-Kano-模型怎么用？"><a href="#4-Kano-模型怎么用？" class="headerlink" title="4. Kano 模型怎么用？"></a>4. Kano 模型怎么用？</h3><p>Kano 模型的使用步骤可以分成三步：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">设计问卷</span><br><span class="line">→ 评定功能属性</span><br><span class="line">→ 划分优先级</span><br></pre></td></tr></table></figure>
+
+<p>第一步，设计问卷。</p>
+<p>对每个功能分别问两个问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果有这个功能，你感觉如何？</span><br><span class="line">如果没有这个功能，你感觉如何？</span><br></pre></td></tr></table></figure>
+
+<p>第二步，评定功能属性。</p>
+<p>根据用户回答，把功能归入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">必备属性</span><br><span class="line">期望属性</span><br><span class="line">魅力属性</span><br><span class="line">反向属性</span><br><span class="line">无差异属性</span><br></pre></td></tr></table></figure>
+
+<p>第三步，划分优先级。</p>
+<p>先根据功能属性排序，再结合：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">业务目标</span><br><span class="line">实现成本</span><br><span class="line">技术风险</span><br><span class="line">版本节奏</span><br><span class="line">商业价值</span><br></pre></td></tr></table></figure>
+
+<p>做最终判断。</p>
+<p>Kano 模型不是唯一标准。</p>
+<p>它是帮助产品经理做判断的工具。</p>
+<hr>
+<h3 id="5-短视频产品案例：三个需求怎么排优先级？"><a href="#5-短视频产品案例：三个需求怎么排优先级？" class="headerlink" title="5. 短视频产品案例：三个需求怎么排优先级？"></a>5. 短视频产品案例：三个需求怎么排优先级？</h3><p>课程里举了一个短视频产品的例子。</p>
+<p>假设现在有三个需求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">身份认证 Bug</span><br><span class="line">主播商品销售数据统计</span><br><span class="line">AI 绘图</span><br></pre></td></tr></table></figure>
+
+<p>应该先做哪个？</p>
+<p>第一，身份认证 Bug。</p>
+<p>这是必备属性。</p>
+<p>如果身份认证出问题，用户可能无法使用核心功能。</p>
+<p>不修会严重影响体验。</p>
+<p>所以优先级最高。</p>
+<p>第二，主播商品销售数据统计。</p>
+<p>这是期望属性。</p>
+<p>主播希望看到商品销售数据。</p>
+<p>数据越清楚，主播越满意。</p>
+<p>它会影响主播经营效率和满意度。</p>
+<p>所以优先级第二。</p>
+<p>第三，AI 绘图。</p>
+<p>这是魅力属性。</p>
+<p>它可能带来新鲜感和惊喜。</p>
+<p>但它不是短视频产品的基础能力。</p>
+<p>如果资源有限，可以放到后面。</p>
+<p>这个案例说明：</p>
+<blockquote>
+<p>不是越新奇的功能越优先。产品经理要先保证基本盘，再优化期望功能，最后再做魅力功能。</p>
+</blockquote>
+<hr>
+<h2 id="三、功能价值"><a href="#三、功能价值" class="headerlink" title="三、功能价值"></a>三、功能价值</h2><p>功能优先级划分解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先做什么？</span><br></pre></td></tr></table></figure>
+
+<p>功能价值解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">值不值得做？</span><br></pre></td></tr></table></figure>
+
+<p>有些功能用户喜欢，但实现成本很高。</p>
+<p>有些功能看起来不起眼，但能影响大量用户，成本又很低。</p>
+<p>所以产品经理要判断功能的投入产出比。</p>
+<p>课程里把功能价值理解为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能价值 = 实际价值 / 实现成本</span><br></pre></td></tr></table></figure>
+
+<p>实际价值越高，实现成本越低，功能越值得做。</p>
+<p>如果一个功能看起来很好，但成本极高、风险很大、用户感知不强，就不一定值得做。</p>
+<p>反过来，如果一个功能实现很简单，但能影响很多用户、提升使用频次或增加停留时间，就很值得做。</p>
+<hr>
+<h3 id="1-实际价值怎么看？"><a href="#1-实际价值怎么看？" class="headerlink" title="1. 实际价值怎么看？"></a>1. 实际价值怎么看？</h3><p>实际价值可以从三个维度看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">范围价值</span><br><span class="line">频次价值</span><br><span class="line">时间价值</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>公式思路</th>
+<th>要看什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>范围价值</td>
+<td>潜在用户数 × 单用户价值</td>
+<td>这个功能影响多少用户？能否带来新用户？单个用户价值是否提升？</td>
+</tr>
+<tr>
+<td>频次价值</td>
+<td>需求频次 × 单次价值</td>
+<td>用户是否更常打开产品？操作次数、互动次数、付费次数是否提升？</td>
+</tr>
+<tr>
+<td>时间价值</td>
+<td>持续时间 × 单位时间价值</td>
+<td>用户停留时长是否增加？单位时间内能否带来广告、内容、交易或转化价值？</td>
+</tr>
+</tbody></table>
+<h4 id="范围价值"><a href="#范围价值" class="headerlink" title="范围价值"></a>范围价值</h4><p>范围价值看的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个功能会影响多少用户？</span><br><span class="line">会不会扩大用户群？</span><br><span class="line">会不会提升单个用户价值？</span><br></pre></td></tr></table></figure>
+
+<p>如果一个功能只影响极少数用户，就要判断这些用户是否足够关键。</p>
+<h4 id="频次价值"><a href="#频次价值" class="headerlink" title="频次价值"></a>频次价值</h4><p>频次价值看的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个功能会不会让用户更频繁使用产品？</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">打开次数增加</span><br><span class="line">互动次数增加</span><br><span class="line">购买次数增加</span><br><span class="line">使用周期缩短</span><br><span class="line">复访率提升</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间价值"><a href="#时间价值" class="headerlink" title="时间价值"></a>时间价值</h4><p>时间价值看的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这个功能会不会让用户停留更久？</span><br><span class="line">停留时间是否能转化成商业价值？</span><br></pre></td></tr></table></figure>
+
+<p>比如内容产品很重视用户停留时间。</p>
+<p>因为停留越久，可能带来更多广告、互动和转化机会。</p>
+<hr>
+<h3 id="2-实现成本怎么看？"><a href="#2-实现成本怎么看？" class="headerlink" title="2. 实现成本怎么看？"></a>2. 实现成本怎么看？</h3><p>实现成本不只是开发时间。</p>
+<p>至少包括四类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">人力成本</span><br><span class="line">时间成本</span><br><span class="line">金钱成本</span><br><span class="line">风险成本</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>成本类型</th>
+<th>具体含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>人力成本</td>
+<td>产品、设计、前端、后端、测试、运维等需要多少人参与</td>
+</tr>
+<tr>
+<td>时间成本</td>
+<td>从设计、开发、测试到上线需要多少工作日</td>
+</tr>
+<tr>
+<td>金钱成本</td>
+<td>人天成本、外部服务采购、云资源、工具费用等</td>
+</tr>
+<tr>
+<td>风险成本</td>
+<td>延期、Bug、系统稳定性、合规、安全、维护成本</td>
+</tr>
+</tbody></table>
+<p>所以判断功能价值时，不能只看“开发难不难”。</p>
+<p>还要看整体成本。</p>
+<hr>
+<h3 id="3-案例：墨迹天气“实景”功能"><a href="#3-案例：墨迹天气“实景”功能" class="headerlink" title="3. 案例：墨迹天气“实景”功能"></a>3. 案例：墨迹天气“实景”功能</h3><p>课程里用墨迹天气的“实景”功能举例。</p>
+<p>原来的天气产品更像工具。</p>
+<p>用户打开它，只是为了看天气。</p>
+<p>看完就走。</p>
+<p>这类工具产品的问题是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用户停留时间短</span><br><span class="line">打开频次有限</span><br><span class="line">互动少</span><br><span class="line">社区关系弱</span><br><span class="line">商业价值有限</span><br></pre></td></tr></table></figure>
+
+<p>加入“实景”功能后，产品发生了变化。</p>
+<p>用户可以：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">发布城市实景图片</span><br><span class="line">浏览其他城市天气实景</span><br><span class="line">点赞</span><br><span class="line">评论</span><br><span class="line">分享</span><br><span class="line">种草某个城市或景点</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，产品不再只是天气查询工具。</p>
+<p>它开始有内容社区属性。</p>
+<p>功能价值体现在三个方面：</p>
+<table>
+<thead>
+<tr>
+<th>价值类型</th>
+<th>具体变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>范围价值</td>
+<td>除了查天气的人，还可能吸引喜欢看城市实景、旅游内容的人</td>
+</tr>
+<tr>
+<td>频次价值</td>
+<td>用户不只是查天气时打开，也可能为了看实景内容反复打开</td>
+</tr>
+<tr>
+<td>时间价值</td>
+<td>用户停留时间增加，点赞、评论、浏览和分享行为增加</td>
+</tr>
+</tbody></table>
+<p>这个案例说明：</p>
+<blockquote>
+<p>一个功能如果能改变用户使用范围、使用频次和停留时间，就可能具有较高功能价值。</p>
+</blockquote>
+<p>但同时也要评估成本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">内容审核成本</span><br><span class="line">图片存储成本</span><br><span class="line">社区运营成本</span><br><span class="line">违规内容风险</span><br><span class="line">功能维护成本</span><br></pre></td></tr></table></figure>
+
+<p>所以功能价值不是只看好处。</p>
+<p>而是要综合看价值和成本。</p>
+<hr>
+<h2 id="四、用户体验"><a href="#四、用户体验" class="headerlink" title="四、用户体验"></a>四、用户体验</h2><p>功能做出来，不代表产品方案就完成了。</p>
+<p>产品经理还要继续问：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户用起来顺不顺？</span><br><span class="line">能不能解决问题？</span><br><span class="line">过程是否清楚？</span><br><span class="line">操作是否容易？</span><br><span class="line">出错时有没有提示？</span><br><span class="line">用户愿不愿意再次使用？</span><br></pre></td></tr></table></figure>
+
+<p>用户体验关注的是：</p>
+<blockquote>
+<p>用户在使用产品过程中形成的主观感受。</p>
+</blockquote>
+<p>它包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">能不能解决问题</span><br><span class="line">操作是否顺畅</span><br><span class="line">反馈是否清楚</span><br><span class="line">过程是否舒服</span><br><span class="line">情绪是否愉悦</span><br><span class="line">是否愿意再次使用</span><br></pre></td></tr></table></figure>
+
+<p>所以产品经理不能只看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能有没有做。</span><br></pre></td></tr></table></figure>
+
+<p>还要看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户用起来好不好。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-用户体验的三个影响因素"><a href="#1-用户体验的三个影响因素" class="headerlink" title="1. 用户体验的三个影响因素"></a>1. 用户体验的三个影响因素</h3><p>用户体验受三个因素影响：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用者状态</span><br><span class="line">系统性能</span><br><span class="line">外部环境</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用者状态</td>
+<td>用户当时的身体、心理、注意力、情绪和操作条件</td>
+<td>地铁上单手拿手机、关注到站信息、需要保护隐私</td>
+</tr>
+<tr>
+<td>系统性能</td>
+<td>产品提供的功能、反馈、稳定性和可用性</td>
+<td>电话、短信、微信文字、语音、视频等不同沟通方式</td>
+</tr>
+<tr>
+<td>外部环境</td>
+<td>用户所处的空间、噪音、网络、设备和社会环境</td>
+<td>地铁噪音、人多、信号不稳定、不方便外放语音</td>
+</tr>
+</tbody></table>
+<p>这个框架很重要。</p>
+<p>因为同一个功能，在不同场景下体验可能完全不同。</p>
+<p>比如语音消息：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在家里很方便。</span><br><span class="line">在地铁里不方便。</span><br><span class="line">在会议中不方便。</span><br><span class="line">在嘈杂环境中听不清。</span><br><span class="line">在隐私场景下不适合外放。</span><br></pre></td></tr></table></figure>
+
+<p>所以产品经理设计功能时，要考虑用户真实使用环境。</p>
+<hr>
+<h3 id="2-用户体验的三类体验"><a href="#2-用户体验的三类体验" class="headerlink" title="2. 用户体验的三类体验"></a>2. 用户体验的三类体验</h3><p>用户体验可以分成三类：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">感官体验</span><br><span class="line">交互体验</span><br><span class="line">情感体验</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关注什么</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>感官体验</td>
+<td>视觉、声音、图文、色彩、布局、界面结构</td>
+<td>界面是否清晰、字体是否舒服、图片是否吸引人</td>
+</tr>
+<tr>
+<td>交互体验</td>
+<td>点击、输入、浏览、触发、反馈、流程是否顺</td>
+<td>点击后是否有反馈，失败后是否有解释</td>
+</tr>
+<tr>
+<td>情感体验</td>
+<td>用户是否认同产品、是否产生共鸣、是否愿意分享和复用</td>
+<td>用户是否愿意长期使用或推荐给别人</td>
+</tr>
+</tbody></table>
+<p>很多长期产品，最后拼的不只是功能。</p>
+<p>还包括用户对产品的情感认同。</p>
+<hr>
+<h3 id="3-用户体验五层次"><a href="#3-用户体验五层次" class="headerlink" title="3. 用户体验五层次"></a>3. 用户体验五层次</h3><p>课程里提到用户体验五层次。</p>
+<p>这五层从底到上是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">战略层</span><br><span class="line">范围层</span><br><span class="line">结构层</span><br><span class="line">框架层</span><br><span class="line">表现层</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>关注点</th>
+<th>对应问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>战略层</td>
+<td>产品目标和用户目标</td>
+<td>产品到底解决什么问题？用户能获得什么？</td>
+</tr>
+<tr>
+<td>范围层</td>
+<td>功能和内容边界</td>
+<td>产品应该包含哪些功能和内容？哪些不做？</td>
+</tr>
+<tr>
+<td>结构层</td>
+<td>信息架构和功能关系</td>
+<td>功能之间怎么组织？用户怎么理解结构？</td>
+</tr>
+<tr>
+<td>框架层</td>
+<td>页面布局、导航、交互路径</td>
+<td>按钮放哪？流程怎么走？用户怎么操作？</td>
+</tr>
+<tr>
+<td>表现层</td>
+<td>视觉、文案、图标、色彩</td>
+<td>界面看起来是否清晰、舒服、有吸引力？</td>
+</tr>
+</tbody></table>
+<p>可以用图表示：</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" data-config="{}" hidden>
+    flowchart TD
+    A[&quot;战略层：产品目标和用户目标&quot;] --&gt; B[&quot;范围层：功能和内容边界&quot;]
+    B --&gt; C[&quot;结构层：信息架构和功能关系&quot;]
+    C --&gt; D[&quot;框架层：页面布局和交互路径&quot;]
+    D --&gt; E[&quot;表现层：视觉、文案、图标、色彩&quot;]
+  </pre></div>
+
+<p>这个模型提醒产品经理：</p>
+<blockquote>
+<p>用户体验不是只看界面好不好看。</p>
+</blockquote>
+<p>如果战略层错了，再漂亮的界面也没用。</p>
+<p>如果范围层混乱，功能越多越难用。</p>
+<p>如果结构层不清楚，用户找不到东西。</p>
+<p>如果框架层不顺，用户操作困难。</p>
+<p>如果表现层粗糙，用户第一印象会变差。</p>
+<hr>
+<h3 id="4-用户体验六个设计目标"><a href="#4-用户体验六个设计目标" class="headerlink" title="4. 用户体验六个设计目标"></a>4. 用户体验六个设计目标</h3><p>课程里总结了六个用户体验设计目标：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">有用</span><br><span class="line">易用</span><br><span class="line">友好</span><br><span class="line">防错 / 容错</span><br><span class="line">吸引力</span><br><span class="line">品牌</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>解释</th>
+<th>典型做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有用</td>
+<td>能真正解决用户问题</td>
+<td>先保证核心功能有效，不做无意义噱头</td>
+</tr>
+<tr>
+<td>易用</td>
+<td>用户能轻松完成任务</td>
+<td>便捷入口、自动联想、自动连接、减少重复操作</td>
+</tr>
+<tr>
+<td>友好</td>
+<td>状态清晰、反馈及时</td>
+<td>加载提示、网络异常提示、进度条、已关注状态</td>
+</tr>
+<tr>
+<td>防错 &#x2F; 容错</td>
+<td>减少误操作，并给用户后悔机会</td>
+<td>撤回、撤销、二次确认、删除恢复、按钮禁用</td>
+</tr>
+<tr>
+<td>吸引力</td>
+<td>视觉和内容让用户愿意继续使用</td>
+<td>清爽界面、精美图片、简洁文案、情绪化设计</td>
+</tr>
+<tr>
+<td>品牌</td>
+<td>形成稳定认知和口碑</td>
+<td>京东 &#x3D; 物流 &#x2F; 正品，拼多多 &#x3D; 低价 &#x2F; 拼单</td>
+</tr>
+</tbody></table>
+<p>有用是第一位。</p>
+<p>如果功能不能解决问题，再好看也没有意义。</p>
+<p>易用是让用户少思考、少操作、少犯错。</p>
+<p>友好是让用户知道发生了什么。</p>
+<p>防错是尽量不让用户犯错。</p>
+<p>容错是用户犯错后可以挽回。</p>
+<p>吸引力是让用户愿意继续使用。</p>
+<p>品牌是用户对产品形成稳定认知。</p>
+<hr>
+<h2 id="最终总结"><a href="#最终总结" class="headerlink" title="最终总结"></a>最终总结</h2><p>这一章可以压缩成四句话。</p>
+<p>第一，需求分析解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户说的需求背后，真实目标是什么？</span><br></pre></td></tr></table></figure>
+
+<p>可以用 Y 模型不断追问 Why，找到用户动机和本质需求，再反推出产品方案。</p>
+<p>第二，功能优先级划分解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个功能同时出现时，先做哪个？</span><br></pre></td></tr></table></figure>
+
+<p>可以用 Kano 模型判断必备属性、期望属性、魅力属性、反向属性和无差异属性。</p>
+<p>第三，功能价值解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个功能值不值得投入？</span><br></pre></td></tr></table></figure>
+
+<p>可以用公式判断：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能价值 = 实际价值 / 实现成本</span><br></pre></td></tr></table></figure>
+
+<p>实际价值包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">范围价值</span><br><span class="line">频次价值</span><br><span class="line">时间价值</span><br></pre></td></tr></table></figure>
+
+<p>实现成本包括：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">人力成本</span><br><span class="line">时间成本</span><br><span class="line">金钱成本</span><br><span class="line">风险成本</span><br></pre></td></tr></table></figure>
+
+<p>第四，用户体验解决的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">功能做出来后，用户用起来好不好？</span><br></pre></td></tr></table></figure>
+
+<p>可以从用户状态、系统性能、外部环境出发，再用体验五层次和六个设计目标检查方案。</p>
+<p>最后记住一句话：</p>
+<blockquote>
+<p>产品解决方案不是把需求写成需求文档，而是把真实需求、功能优先级、投入价值和用户体验整合成一个可落地的产品方案。</p>
+</blockquote>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>课程笔记：《产品解决方案章节课程总结》。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://MurrayTsai.github.io">人畜无害的菜姥爷</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://murraytsai.github.io/2026/06/17/18.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%9B%9B%E6%AD%A5%E6%B3%95/">https://murraytsai.github.io/2026/06/17/18.产品经理入门：产品解决方案四步法/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://MurrayTsai.github.io" target="_blank">MurrayT's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a><a class="post-meta__tags" href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">需求分析</a><a class="post-meta__tags" href="/tags/%E4%BA%A7%E5%93%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">产品解决方案</a><a class="post-meta__tags" href="/tags/Kano%E6%A8%A1%E5%9E%8B/">Kano模型</a><a class="post-meta__tags" href="/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/">用户体验</a></div><div class="post-share"><div class="social-share" data-image="/images/covers/default-4.jpg" data-sites="x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/17/17.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96%E5%88%86%E6%9E%90%E3%80%81%E9%9C%80%E6%B1%82%E6%94%B6%E9%9B%86%E4%B8%8E%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B/" title="产品经理入门：场景化分析、需求收集与用户故事"><img class="cover" src="/images/covers/default-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">产品经理入门：场景化分析、需求收集与用户故事</div></div><div class="info-2"><div class="info-item-1">前言这一章的核心是：  产品经理要学会从“用户 → 场景 → 需求 → 用户故事”四个层次思考问题。  前面一章讲的是： 1谁是核心用户？  这一章继续往下走，开始回答三个问题： 123用户在什么情况下产生需求？需求从哪里来，如何判断真假？如何把需求写成开发能理解的表达？  所以这一章可以看成产品经理需求分析方法的基础课。 一句话总结：  先抓住核心用户，再把用户放进具体场景，接着收集并辨别需求，最后用用户故事把需求转成开发可以理解的表达。   一、本章的整体逻辑产品经理不能只说： 1用户有需求。  这句话太空。 更完整的思考方式应该是： 12345谁是用户？用户在哪个场景里？他遇到了什么问题？这个需求是不是真实、强烈、高频？最后怎么写成开发能理解的用户故事？  可以用下面这张图理解：      flowchart TD     A[&quot;核心用户&quot;] --&gt; B[&quot;场景化分析&quot;]     B --&gt; C[&quot;需求收集与辨别&quot;]     C --&gt; D[&quot;用户故事&quot;]      A --&...</div></div></div></a><a class="pagination-related" href="/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/" title="产品经理入门：如何抓住核心用户"><img class="cover" src="/images/covers/default-5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">产品经理入门：如何抓住核心用户</div></div><div class="info-2"><div class="info-item-1">前言这一章的重点不是简单说： 1用户很重要。  而是讲一个更具体的问题：  产品经理如何从“所有用户”中，识别出最重要的一群人，并围绕他们做产品取舍？  产品经理不能试图满足所有用户。 因为资源永远有限。 开发资源有限，推广预算有限，团队时间有限，产品容量也有限。 所以产品经理必须先判断： 1234谁是最重要的用户？谁对产品成败影响最大？谁能给产品带来更高价值？谁的需求应该优先被满足？  这群人就是 核心用户。 一句话总结：  产品经理不能满足所有人，而要先抓住能够创造最大价值、最影响产品成败的核心用户。   一、这一章在产品方法论里的位置产品经理做产品时，通常要从三个视角出发： 123用户视角场景视角需求视角  这一章主要讲的是 用户视角。 也就是：  谁是最重要的用户？  可以用下面这张图理解：      flowchart TD     A[&quot;产品分析&quot;] --&gt; B[&quot;用户视角：谁是用户？谁最重要？&quot;]     A --&gt; C[&quot;场景视角：用户在什么情况下产生需求？&quot;]     A --&gt; D[...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/06/17/15.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E3%80%81%E5%9B%A2%E9%98%9F%E8%81%8C%E8%B4%A3%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B/" title="产品经理入门：开发流程、团队职责与能力模型"><img class="cover" src="/images/covers/default-2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：开发流程、团队职责与能力模型</div></div><div class="info-2"><div class="info-item-1">前言这篇笔记是产品经理入门课程的整理。 它不是只解释“产品经理是什么”，而是围绕一个更完整的问题展开：  产品经理到底是干什么的？在产品开发流程里站在哪里？需要什么能力？未来可以往哪里发展？  这堂课的主线可以压缩成五层： 123451. 先理解产品2. 再理解产品经理3. 再理解产品经理在开发流程里的位置4. 再理解产品经理和团队成员的分工5. 最后理解产品经理需要的能力和发展方向  如果放到 AI 产品经理求职里，这堂课的意义也很明确：  AI 产品经理首先还是产品经理。不能只会搭 AI 工具，也要懂需求分析、开发流程、团队协作、文档输出和上线迭代。   一、什么是产品？课程里给产品下了一个很基础但重要的定义：  产品就是能够解决某个问题的东西。  比如：  电脑解决办公问题； 手机、微信解决通信问题； 书解决阅读问题； 课程解决学习问题； 耳机解决听音乐的问题； AI 客服助手解决客服回答慢、知识分散、回复不稳定的问题。  所以判断一个东西是不是产品，不是看它贵不贵，也不是看它是不是软件。 而是看它：  有没有明确解决某类用户的某个问题。  产品可以分为两类：    类型 ...</div></div></div></a><a class="pagination-related" href="/2026/06/17/17.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96%E5%88%86%E6%9E%90%E3%80%81%E9%9C%80%E6%B1%82%E6%94%B6%E9%9B%86%E4%B8%8E%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B/" title="产品经理入门：场景化分析、需求收集与用户故事"><img class="cover" src="/images/covers/default-3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：场景化分析、需求收集与用户故事</div></div><div class="info-2"><div class="info-item-1">前言这一章的核心是：  产品经理要学会从“用户 → 场景 → 需求 → 用户故事”四个层次思考问题。  前面一章讲的是： 1谁是核心用户？  这一章继续往下走，开始回答三个问题： 123用户在什么情况下产生需求？需求从哪里来，如何判断真假？如何把需求写成开发能理解的表达？  所以这一章可以看成产品经理需求分析方法的基础课。 一句话总结：  先抓住核心用户，再把用户放进具体场景，接着收集并辨别需求，最后用用户故事把需求转成开发可以理解的表达。   一、本章的整体逻辑产品经理不能只说： 1用户有需求。  这句话太空。 更完整的思考方式应该是： 12345谁是用户？用户在哪个场景里？他遇到了什么问题？这个需求是不是真实、强烈、高频？最后怎么写成开发能理解的用户故事？  可以用下面这张图理解：      flowchart TD     A[&quot;核心用户&quot;] --&gt; B[&quot;场景化分析&quot;]     B --&gt; C[&quot;需求收集与辨别&quot;]     C --&gt; D[&quot;用户故事&quot;]      A --&...</div></div></div></a><a class="pagination-related" href="/2026/06/17/8.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%A6%81%E4%B8%8D%E8%A6%81%E6%87%82%E6%8A%80%E6%9C%AF%EF%BC%9A%E7%AE%97%E6%B3%95%E3%80%81%E6%95%B0%E6%8D%AE%E3%80%81%E7%AE%97%E5%8A%9B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记"><img class="cover" src="/images/covers/default-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理要不要懂技术：算法、数据、算力和硬件入门笔记</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理要不要懂技术？ 我的答案是：  AI 产品经理一定要懂技术，但不是要变成算法工程师、后端工程师或硬件工程师。  AI 产品经理要懂到什么程度？ 可以先记住这句话：  能判断技术能不能做，知道该找谁做，能和供应商、算法、研发、硬件团队沟通，能把技术变成可落地的产品方案。  也就是说，AI 产品经理不是技术的执行者。 但他必须是技术和产品之间的翻译官。  一、为什么 AI 产品经理必须懂技术？普通产品经理要不要懂技术，本来就是一个经常被讨论的问题。 但到了 AI 产品经理这里，答案会更明确：  AI 产品经理必须懂一些技术。  原因很简单。 AI 产品不是普通的软件产品。 普通产品可能更关注：  页面； 流程； 交互； 运营； 用户体验。  但 AI 产品还会涉及：  算法； 数据； 算力； 硬件； 模型效果； 数据采集； 供应商； 工程实现； 隐私安全； 成本控制。  如果 AI 产品经理完全不懂技术，就很难主导产品。 你可能只能做这些事： 12345约会议写会议纪要传话催进度跟着研发走  这样你不是在主导产品，而是被产品团队边缘化。 因为真正重要的问题，你可能判...</div></div></div></a><a class="pagination-related" href="/2026/06/17/16.%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8A%93%E4%BD%8F%E6%A0%B8%E5%BF%83%E7%94%A8%E6%88%B7/" title="产品经理入门：如何抓住核心用户"><img class="cover" src="/images/covers/default-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">产品经理入门：如何抓住核心用户</div></div><div class="info-2"><div class="info-item-1">前言这一章的重点不是简单说： 1用户很重要。  而是讲一个更具体的问题：  产品经理如何从“所有用户”中，识别出最重要的一群人，并围绕他们做产品取舍？  产品经理不能试图满足所有用户。 因为资源永远有限。 开发资源有限，推广预算有限，团队时间有限，产品容量也有限。 所以产品经理必须先判断： 1234谁是最重要的用户？谁对产品成败影响最大？谁能给产品带来更高价值？谁的需求应该优先被满足？  这群人就是 核心用户。 一句话总结：  产品经理不能满足所有人，而要先抓住能够创造最大价值、最影响产品成败的核心用户。   一、这一章在产品方法论里的位置产品经理做产品时，通常要从三个视角出发： 123用户视角场景视角需求视角  这一章主要讲的是 用户视角。 也就是：  谁是最重要的用户？  可以用下面这张图理解：      flowchart TD     A[&quot;产品分析&quot;] --&gt; B[&quot;用户视角：谁是用户？谁最重要？&quot;]     A --&gt; C[&quot;场景视角：用户在什么情况下产生需求？&quot;]     A --&gt; D[...</div></div></div></a><a class="pagination-related" href="/2026/06/17/6.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E8%B7%AF%E5%BE%84/" title="AI产品经理能力模型与职业发展路径"><img class="cover" src="/images/covers/default-2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">AI产品经理能力模型与职业发展路径</div></div><div class="info-2"><div class="info-item-1">前言AI 产品经理不是一个固定岗位。 不同类型的 AI 公司，对产品经理的要求完全不同。有人需要懂算法，有人需要懂行业，有人需要懂业务落地和供应商管理。 可以先记住一句话：  纯 AI 重技术，AI+ 重创新，+AI 重业务落地。  这篇文章主要整理四个问题： 12341. AI 公司可以分成哪几类？2. 不同类型的 AI 产品经理分别做什么？3. AI 产品经理需要哪些能力？4. 普通人如何快速入门 AI 产品经理？   一、AI 公司可以分成三类AI 相关公司可以大致分成三类：      flowchart TD     AICompany[AI 相关公司] --&gt; PureAI[纯 AI&lt;br&#x2F;&gt;造 AI 发动机]     AICompany --&gt; AIPlus[AI+&lt;br&#x2F;&gt;用 AI 做新产品]     AICompany --&gt; PlusAI[+AI&lt;br&#x2F;&gt;传统产品接入 AI]      PureAI --&gt; Tech[关键词：大模型、算法、芯片、算力、API]     AI...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">人畜无害的菜姥爷</div><div class="author-info-description">饭要吃到肚子里，屎要拉到马桶里</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MurrayTsai/MurrayTsai.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MurrayTsai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:591732689@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">没更新就是懒的更，要么就是忘�?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">一、需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8-Y-%E6%A8%A1%E5%9E%8B%E5%88%86%E6%9E%90%E7%9C%9F%E5%AE%9E%E9%9C%80%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">1. 用 Y 模型分析真实需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%8E%E4%BA%BA%E6%80%A7%E5%92%8C%E5%BF%83%E7%90%86%E5%8A%A8%E6%9C%BA%E7%90%86%E8%A7%A3%E9%9C%80%E6%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">2. 从人性和心理动机理解需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E8%BE%93%E5%87%BA"><span class="toc-number">2.3.</span> <span class="toc-text">3. 需求分析的输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8A%9F%E8%83%BD%E4%BC%98%E5%85%88%E7%BA%A7%E5%88%92%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">二、功能优先级划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF-Kano-%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">1. 什么是 Kano 模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Kano-%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BA%94%E7%B1%BB%E5%8A%9F%E8%83%BD%E5%B1%9E%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">2. Kano 模型的五类功能属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%94%E7%B1%BB%E5%8A%9F%E8%83%BD%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">3.3.</span> <span class="toc-text">3. 五类功能怎么理解？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%85%E5%A4%87%E5%B1%9E%E6%80%A7"><span class="toc-number">3.3.1.</span> <span class="toc-text">必备属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%B1%9E%E6%80%A7"><span class="toc-number">3.3.2.</span> <span class="toc-text">期望属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AD%85%E5%8A%9B%E5%B1%9E%E6%80%A7"><span class="toc-number">3.3.3.</span> <span class="toc-text">魅力属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%B1%9E%E6%80%A7"><span class="toc-number">3.3.4.</span> <span class="toc-text">反向属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%B7%AE%E5%BC%82%E5%B1%9E%E6%80%A7"><span class="toc-number">3.3.5.</span> <span class="toc-text">无差异属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Kano-%E6%A8%A1%E5%9E%8B%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">3.4.</span> <span class="toc-text">4. Kano 模型怎么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%9F%AD%E8%A7%86%E9%A2%91%E4%BA%A7%E5%93%81%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%B8%89%E4%B8%AA%E9%9C%80%E6%B1%82%E6%80%8E%E4%B9%88%E6%8E%92%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F"><span class="toc-number">3.5.</span> <span class="toc-text">5. 短视频产品案例：三个需求怎么排优先级？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8A%9F%E8%83%BD%E4%BB%B7%E5%80%BC"><span class="toc-number">4.</span> <span class="toc-text">三、功能价值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9E%E9%99%85%E4%BB%B7%E5%80%BC%E6%80%8E%E4%B9%88%E7%9C%8B%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">1. 实际价值怎么看？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4%E4%BB%B7%E5%80%BC"><span class="toc-number">4.1.1.</span> <span class="toc-text">范围价值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E6%AC%A1%E4%BB%B7%E5%80%BC"><span class="toc-number">4.1.2.</span> <span class="toc-text">频次价值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E4%BB%B7%E5%80%BC"><span class="toc-number">4.1.3.</span> <span class="toc-text">时间价值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0%E6%88%90%E6%9C%AC%E6%80%8E%E4%B9%88%E7%9C%8B%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">2. 实现成本怎么看？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A2%A8%E8%BF%B9%E5%A4%A9%E6%B0%94%E2%80%9C%E5%AE%9E%E6%99%AF%E2%80%9D%E5%8A%9F%E8%83%BD"><span class="toc-number">4.3.</span> <span class="toc-text">3. 案例：墨迹天气“实景”功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">四、用户体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E7%9A%84%E4%B8%89%E4%B8%AA%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="toc-number">5.1.</span> <span class="toc-text">1. 用户体验的三个影响因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E7%9A%84%E4%B8%89%E7%B1%BB%E4%BD%93%E9%AA%8C"><span class="toc-number">5.2.</span> <span class="toc-text">2. 用户体验的三类体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E4%BA%94%E5%B1%82%E6%AC%A1"><span class="toc-number">5.3.</span> <span class="toc-text">3. 用户体验五层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E5%85%AD%E4%B8%AA%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">5.4.</span> <span class="toc-text">4. 用户体验六个设计目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">最终总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"><img src="/images/covers/default-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通人如何学习 AI Agent：三步走、成熟工具和能力边界"/></a><div class="content"><a class="title" href="/2026/06/17/10.%E6%99%AE%E9%80%9A%E4%BA%BA%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20AI%20Agent%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%E3%80%81%E6%88%90%E7%86%9F%E5%B7%A5%E5%85%B7%E5%92%8C%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/" title="普通人如何学习 AI Agent：三步走、成熟工具和能力边界">普通人如何学习 AI Agent：三步走、成熟工具和能力边界</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"><img src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）"/></a><div class="content"><a class="title" href="/2026/06/17/11.AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E9%9C%80%E8%A6%81%E6%87%82%E5%93%AA%E4%BA%9BAI%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%A7%E5%93%81%E8%A7%86%E8%A7%92%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8A%EF%BC%89/" title="AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）">AI产品经理需要懂哪些AI算法：产品视角入门笔记（上）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"><img src="/images/covers/default-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品"/></a><div class="content"><a class="title" href="/2026/06/17/13.%E5%85%B8%E5%9E%8B%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BB%8E%200%20%E5%88%B0%201%20%E5%81%9A%E4%B8%80%E6%AC%BE%20+AI%20%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81/" title="典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品">典型 AI 产品经理的工作方法：从 0 到 1 做一款 +AI 软件产品</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）"><img src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 产品经理必备的 AI 技术知识（下）"/></a><div class="content"><a class="title" href="/2026/06/17/12.AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%BF%85%E5%A4%87%E7%9A%84%20AI%20%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%8B%EF%BC%89/" title="AI 产品经理必备的 AI 技术知识（下）">AI 产品经理必备的 AI 技术知识（下）</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？"><img src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是 AI 产品经理？"/></a><div class="content"><a class="title" href="/2026/06/17/14.%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9F/" title="什么是 AI 产品经理？">什么是 AI 产品经理？</a><time datetime="2026-06-16T16:00:00.000Z" title="发表于 2026-06-17 00:00:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 人畜无害的菜姥爷</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><div class="aplayer no-destroy" data-id="7644461318" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-preload="none" data-listfolded="true" data-listmaxheight="340px"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.5"></script></div></div></body></html>
